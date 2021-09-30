@@ -1,0 +1,1 @@
+import c2c from '@/nPages/more.lucky.js';

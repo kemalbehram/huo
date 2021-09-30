@@ -1,0 +1,19 @@
+<?php include PATH_TPL.'/tpl.header.phtml';?>
+<section>
+  
+  <div class="login-contain" id="regActive">
+    <?php // register sucess?>
+    <div v-cloak class="login-form flex-center-middle reg-succ" v-if="activeFail">
+      <div class="success-img email-lose"></div>
+      <p><?php echo $lang['FIRST_SHI']?></p>
+      <?php // register submit  ?>
+      <a class="submit-btn" href="/register"><?php echo $lang['FIRST_GO_Z']?></a>
+    </div>
+    <div v-cloak class="login-form flex-center-middle reg-succ" v-if="activeSuccess">
+      <div class="success-img"></div>
+      <p><?php echo $lang['FIRST_GO_LOGIN']?></p>
+      <a class="submit-btn" href="/login"><?php echo $lang['GO_LOGIN']?></a>
+    </div>
+  </div>
+</section>
+<?php include PATH_TPL.'/tpl.bodyclose.phtml';?>

@@ -1,0 +1,347 @@
+
+<link href="/websiteoutcss/bootstarp.css" rel="stylesheet">
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="bg-content" id="otc">
+    <div style="margin:0 auto;max-width:1200px;width:100%;">
+        <div class="c2cmain">
+        <!-- <p><?php echo $repeat_del;?></p> -->
+        <input type="hidden" value="<?php echo $repeat_del;?>" id="token"/>
+        <input type="hidden" id="pageIndex" value="1">
+        <div class="header otcTitle">
+            <h4 class="otc_title"><?php echo $GLOBALS['MSG']['OTC_TRADING'];?></h4>
+             <div class="fR">
+             <a href="/user/otc" class="fa fa-credit-card fa-fw" style="padding: 17px;color:#ffbd09;text-decoration: none;"><?php echo $GLOBALS['MSG']['ADDRESS_MANAGE'];?></a>
+               <?php echo $GLOBALS['MSG']['AVAILABEL_BALANCE'];?>：<span style="color:#ffbd09;padding-right: 34px" v-text="parseFloat(cnyxover)"></span>
+               <?php echo $GLOBALS['MSG']['FREEZE_BLANCE'];?>：<span style="color:#ffbd09"  v-text="parseFloat(cnyxlock)"></span>
+            </div>
+        </div>
+        <div class="finance-rd" style="width: 100%;margin-left: 0px;background: white;padding:7px 20px 30px;">
+            <div class="sel-coin" style="overflow: hidden;padding: 15px 0px">
+               
+                <ul >
+                    <li><?php echo $GLOBALS['MSG']['COIN_KIND'];?></li>
+                    <li v-for="(item,index) in currencytype" @click="clicktype(item.name,index)"  :class="{colorChange:index==dynamic}" direction="column">
+                        <span  v-text="item.name +'('+item.display +')'" style="margin-left:5px;cursor:pointer"></span></li>
+                    <li style="float:right;color:#ffbd09;cursor:pointer" @click="Issueorder()"><?php echo $GLOBALS['MSG']['SEND_ORDER'];?></li>
+                </ul>    
+            </div>
+            <div class="tabs order-type">
+                    <a class="bachcol buyin"   v-text="'<?php echo $GLOBALS['MSG']['I_WANT_BUY'];?> '+buys " style="cursor:pointer"></a>
+                    <a class="bachcol sellout"   v-text="'<?php echo $GLOBALS['MSG']['I_WANT_SELL'];?> '+buys " style="cursor:pointer; float: right"></a>
+            </div>
+            <div class="row h5hide ">
+                    <div class="col-xs-6 table-responsive" style="margin-top: 25px;">
+                    <table class="table table-striped table-bordered table-hover otc_trade" >
+                            <thead>
+                                <tr>
+                                    <!-- <th class="user" width="18%" 
+                                    v-text="buss==1?'买入尤里米':'卖出尤里米'"></th> -->
+                                    <th class="otc_table_title" width="10%"><?php echo $GLOBALS['MSG']['PHONE_NUM'];?></th>
+                                    <th class="pay-method otc_table_title" width="13%"><?php echo $GLOBALS['MSG']['PRICE'];?></th>
+                                    <th  width="13%" class="otc_table_title"><?php echo $GLOBALS['MSG']['LEAVE_NUM'];?></th>
+                                    <th class="price otc_table_title" width="10%"><?php echo $GLOBALS['MSG']['SUN_MONEY'];?></th>
+                                    <th  width="15%" class="otc_table_title"><?php echo $GLOBALS['MSG']['MIN_TRADING_COUNT'];?></th>
+                                    <th  width="10%" class="otc_table_title"><?php echo $GLOBALS['MSG']['OPERATE'];?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in delegationlist" >
+                                    <!-- <td v-text="item.created_date" v-cloak></td> -->
+                                    <td v-text="item.mo" v-cloak></td>
+                                    <td v-text="item.price" v-cloak></td>
+                                    <td v-text="item.numberdeal" v-cloak></td>
+                                    <td v-text="item.price*item.numberdeal" v-cloak></td>
+                                    <td v-text="item.min_number" v-cloak></td>
+                                    <td v-cloak style="cursor:pointer" >
+                                        <span class="btn-infos buyin_btn" @click="Issueorder(item.id,item.price,item.min_number,item.numberdeal,1)" ><?php echo $GLOBALS['MSG']['BUY'];?></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="tabsPages" :class="all1 > 1 ? 'page-list-contain':''">
+                            <pages :all = "all1" v-on:get-tabs="Dlist"
+                                :page-name="'<?php echo $GLOBALS['MSG']['PAGE'];?>'"
+                                :jump-to-title="'<?php echo $GLOBALS['MSG']['JUMP'];?>'"
+                                :home-title="'<?php echo $GLOBALS['MSG']['NUMBER_HOME'];?>'"
+                                :last-title="'<?php echo $GLOBALS['MSG']['NUMBER_FOOR'];?>'"
+                                :currentpage ="currentpage"
+                                @keydown="" v-if="all1 && all1 != 1">
+                            </pages>
+                       </div>
+                </div>
+                    <div class="table-responsive col-xs-6" style="margin-top: 25px;">
+                            <table class="table table-striped table-bordered table-hover" >
+                            <thead>
+                                <tr>
+                                    <!-- <th class="user" width="18%" 
+                                    v-text="buss==1?'买入尤里米':'卖出尤里米'"></th> -->
+                                    <th class="otc_table_title" width="10%"><?php echo $GLOBALS['MSG']['PHONE_NUM'];?></th>
+                                    <th class="pay-method otc_table_title" width="13%"><?php echo $GLOBALS['MSG']['PRICE'];?></th>
+                                    <th  width="13%" class="otc_table_title"><?php echo $GLOBALS['MSG']['LEAVE_NUM'];?></th>
+                                    <th class="price otc_table_title" width="10%"><?php echo $GLOBALS['MSG']['SUN_MONEY'];?></th>
+                                    <th  width="15%" class="otc_table_title"><?php echo $GLOBALS['MSG']['MIN_TRADING_COUNT'];?></th>
+                                    <th  width="10%" class="otc_table_title"><?php echo $GLOBALS['MSG']['OPERATE'];?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in purlist" >
+                                    <!-- <td v-text="item.created_date" v-cloak></td> -->
+                                    <td v-text="item.mo" v-cloak></td>
+                                    <td v-text="item.price" v-cloak></td>
+                                    <td v-text="item.numberdeal" v-cloak></td>
+                                    <td v-text="item.price*item.numberdeal" v-cloak></td>
+                                    <td v-text="item.min_number" v-cloak></td>
+                                    <td v-cloak style="cursor:pointer" >
+                                        <span class="btn-infos sellout_btn" @click="Issueorder(item.id,item.price,item.min_number,item.numberdeal,2)" ><?php echo $GLOBALS['MSG']['SELL'];?></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="tabsPages" :class="all2 > 1 ? 'page-list-contain':''">
+                            <pages :all = "all2" v-on:get-tabs="Dlists"
+                                :page-name="'<?php echo $GLOBALS['MSG']['PAGE'];?>'"
+                                :jump-to-title="'<?php echo $GLOBALS['MSG']['JUMP'];?>'"
+                                :home-title="'<?php echo $GLOBALS['MSG']['NUMBER_HOME'];?>'"
+                                :last-title="'<?php echo $GLOBALS['MSG']['NUMBER_FOOR'];?>'"
+                                :currentpage ="currentpage"
+                                @keydown="" v-if="all2 && all2!= 1">
+                            </pages>
+                       </div>
+             </div>
+             </div>
+        <div class="usdtnote">
+        <div class="notecont">
+            <p style="color:#ffbd09">1.<?php echo $GLOBALS['MSG']['POUNDAGE'];?>；</p>
+            <p style="color:#ffbd09">2. <?php echo $GLOBALS['MSG']['ONCE_TWICE_ORDER'];?>；</p>
+            <p>3. <?php echo $GLOBALS['MSG']['LEAVE_NUM_ORDER'];?>；</p>
+            <p>4. <?php echo $GLOBALS['MSG']['BUYER_SELLER'];?>；</p>
+            <p>5. <?php echo $GLOBALS['MSG']['ENOUGH_MONEY'];?>；</p>
+            <p>6. <?php echo $GLOBALS['MSG']['BUYER_SELLER_TRANSF'];?>；</p>
+            <p>7. <?php echo $GLOBALS['MSG']['FREEZE_FUNDS'];?>；</p>
+            <p>8. <?php echo $GLOBALS['MSG']['CONFIRM_SUBMIT'];?>；</p>
+            <p>9. <?php echo $GLOBALS['MSG']['CARE_OPERATE'];?>；</p>
+            <p style="color:#ffbd09">10.<?php echo $GLOBALS['MSG']['ATTENT_LETTER'];?>。</p>
+        </div>
+        </div>
+        <div class="bk-pageTit" id="exchangeRecord">
+        <h4 class="pull-left">
+            <i class="bk-ico assetRecord"></i><?php echo $GLOBALS['MSG']['TRADING_RECORD'];?>
+        </h4>
+        <div class="clearfix"></div>
+        <div class="table-responsive">
+            <table id="billDetail" class="table table-striped table-bordered table-hover" v-cloak>
+                <thead>
+                <tr>
+                    <th width="13%" ><?php echo $GLOBALS['MSG']['MATCH_RECORD'];?></th>
+                    <th width="6%" style="text-align:left;"><?php echo $GLOBALS['MSG']['PRICE'];?></th>
+                    <th width="8%" style="text-align:left;"><?php echo $GLOBALS['MSG']['NUMBER'];?></th>
+                    <th width="10%" style="text-align:left;"><?php echo $GLOBALS['MSG']['AMOUNT'];?></th>
+                    <th width="10%" style="text-align:left;"><?php echo $GLOBALS['MSG']['LEAVE_NUM'];?></th>
+                    <th width="6%" style="text-align:left;"><?php echo $GLOBALS['MSG']['ORDER_NUMBER'];?></th>
+                    <th width="5%" style="text-align:left;"><?php echo $GLOBALS['MSG']['TYPE'];?></th>
+                    <th width="16%" style="text-align:left;"><?php echo $GLOBALS['MSG']['OPERATE'];?></th>
+                    <th width="10%" ><?php echo $GLOBALS['MSG']['STATUS'];?></th>
+                    <th width="22%" ><?php echo $GLOBALS['MSG']['LOOK_FOR'];?></th>
+                </tr>
+                </thead>
+               <tbody>
+                  <tr v-for="(item,key) in transaction" :name="item.status"
+                   :style="{color:item.uid?'black':'gray'}">
+                    <td v-text="item.created_date.substr(0,19)"></td>
+                    <td v-text="parseFloat(item.price)"></td>
+                    <td v-text="parseFloat(item.number)"></td>
+                    <td v-text="item.price*item.number"></td>
+                    <td  style="color:red">
+                        <span v-if="item.numberdeal" v-text="parseFloat(item.numberdeal)"></span>
+                        <span v-else> -- </span>
+                    </td>
+                    <td v-text="item.order_number" style="color:red"></td>
+                    <td >
+                        <span v-if="item.type=='sale'" style="color:#5cb85c"><?php echo $GLOBALS['MSG']['SELL'];?></span>
+                        <span v-else-if="item.type=='buy'" style="color:red"><?php echo $GLOBALS['MSG']['BUY'];?></span>
+                        <span v-else-if="item.type=='1'" style="color:red"><?php echo $GLOBALS['MSG']['BUY'];?></span>
+                        <span v-else-if="item.type=='2'" style="color:#5cb85c"><?php echo $GLOBALS['MSG']['SELL'];?></span>
+                    </td>
+                    <td style="cursor:pointer">
+                    <!-- <?php echo $GLOBALS['MSG']['CONFIRM_RECEIVE_COIN'];?>==={{item.operate}} === {{item.status}} -->
+                    <!-- 确认转币 -->
+                        <span :style="{cursor:(!dubclick?'wait':'pointer')}"
+                            v-if="item.operate=='确认转币'&&item.status==0" @click="Contransfer(item.id,key)" 
+                            class="minBtn" style="background:rgb(255, 189, 9);"><?php echo $GLOBALS['MSG']['CONFIRM_TRANSFER_COIN'];?>
+                        </span> 
+                        <span  :style="{cursor:(!dubclick?'wait':'pointer')}" 
+                            v-else-if="item.operate=='确认收币'&&item.status=='1'" @click="Confirmreceipt(item.id,key)" 
+                            class="minBtn" style="background:rgb(213, 15, 24);"><?php echo $GLOBALS['MSG']['CONFIRM_RECEIVE_COIN'];?>
+                            <!-- 确认收币 -->
+                        </span> 
+                        
+                        <!-- 委托撤销 -->
+                        <span v-if="item.uid&&item.status==0" :style="{cursor:(!dubclick?'wait':'pointer')}" 
+                             @click="Revoke(item.id,key,item.type)" 
+                             class="minBtn" style="background:#31b0d5;"><?php echo $GLOBALS['MSG']['COMMISSION_CANCEL'];?> </span>
+                        <!-- 4订单撤销 -->
+                        <span  v-else-if="item.status==0" :style="{cursor:(!dubclick?'wait':'pointer')}" 
+                            @click.stop="Revokes(item.id,key,item.type)" 
+                            class="minBtn" style="background:#5cb85c ;"><?php echo $GLOBALS['MSG']['ORDER_CANCEL'];?></span>
+                    </td>
+                    <td v-if="item.uid" style="cursor:pointer">
+                        <span v-if="item.status==0" class="status1"><?php echo $GLOBALS['MSG']['UNFINISHED'];?></span>
+                        <span v-else-if="item.status==1" class="status2"><?php echo $GLOBALS['MSG']['HAD_FINISH'];?></span>
+                        <span v-else-if="item.status==2" class="status4"><?php echo $GLOBALS['MSG']['WITHDRAWN'];?></span>
+                    </td>
+                    <td v-else style="cursor:pointer">
+                        <span v-if="item.status==0" class="status5"><?php echo $GLOBALS['MSG']['SELLER_CONFIRM'];?></span>
+                        <span v-else-if="item.status==1" class="status3"><?php echo $GLOBALS['MSG']['BUYER_CONFIRM'];?> </span>
+                        <span v-else-if="item.status==2" class="status2"><?php echo $GLOBALS['MSG']['HAD_FINISH'];?></span>
+                        <span v-else-if="item.status==3" class="status4"><?php echo $GLOBALS['MSG']['WITHDRAWN'];?></span>
+                    </td>
+                   
+                    <td  style="cursor:pointer;"  class="distance">
+                        <span v-for="(wall,k) in item.walletList" 
+                        :class="wall.type=='1'?'unih':wall.type=='2'?'wcg':wall.type=='3'?'eunex':'mbaex'"
+                         @click="wallshow(wall.id,wall.coin)"></span> 
+                    </td>
+               </tr>
+                </tbody> 
+                
+            </table>
+             <tr style="width:100%;height:230px" >
+                       <div class="no_login_mask white100_f" flex="main:center cross:center" v-show="!isLogin" v-cloak>
+                      <div id="tradeAfterLogin" style="margin-top: 125px;">
+                    <p>
+                       <a class="orange500_f" href="javascript:void(0)" @click="login"><?php echo $GLOBALS['MSG']['LOGIN'];?></a>
+                        <?php echo $lang['RULE_TRADE_OR'] ?>
+                        <?php echo $lang['RULE_TRADE_AFTER_LOGIN'] ?> 
+                    </p>
+                    </div> 
+                    </div>
+             </tr> 
+            <div class="tabsPages" :class="all3 > 1 ? 'page-list-contain':''">
+                    <pages :all = "all3" v-on:get-tabs="rction"
+                        :page-name="'<?php echo $GLOBALS['MSG']['PAGE'];?>'"
+                        :jump-to-title="'<?php echo $GLOBALS['MSG']['JUMP'];?>'"
+                        :home-title="'<?php echo $GLOBALS['MSG']['NUMBER_HOME'];?>'"
+                        :last-title="'<?php echo $GLOBALS['MSG']['NUMBER_FOOR'];?>'"
+                        :currentpage ="currentpage"
+                        @keydown="" v-if="all3 && all3 != 1">
+                    </pages>
+            </div>
+            <div class="bk-moreBtn">
+                <button id="morebtn" class="btn btn-outline" type="button" style="display: none;"><i class="fa fa-angle-down fa-fw"></i><?php echo $GLOBALS['MSG']['MORE'];?></button>
+            </div>
+        </div>
+    </div>
+   <div class="mask" v-if="mask" v-cloak></div>
+  <div flex="main:center cross:center" class="set_trade_pwd" v-if="recharge" v-cloak>
+       
+       <div class="pwd_form_contain white100_bg relative_dom">
+        <!-- <h4 style="position: absolute;left: 166px;top: 23px;" v-text="buss==1?'买入发布订单':'卖出发布订单'"></h4> -->
+        <!-- <h5 style="position: absolute;left: 166px;top: 23px;"> -->
+        <div style="text-align:center" v-if="isPrice">
+            <label style="padding: 4px 23px;"><input name="Fruit" type="radio" :class={'radioChecked':isbuy=='1'} value="1" v-model="isbuy"/><?php echo $GLOBALS['MSG']['BUY'];?> </label> 
+            <label  style="margin-left: 11px;"><input name="Fruit" type="radio" :class={'radioChecked':isbuy=='2'}  value="2" v-model="isbuy"/><?php echo $GLOBALS['MSG']['SELL'];?></label> 
+        </div>
+        <!-- </h5> -->
+        <div class="close_btn close_icon" @click="closeicon"></div>
+        <div class="trade_pwd_form"> 
+        <div class="input_g numwer">
+            <p style="display: inline-block;position: relative;top: 15px;font-size: 12px;left: 11px;width: 29%;
+    text-align: right;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $GLOBALS['MSG']['PRICE'];?>：</p>
+            <input  autocomplete="off" type="text"  v-model="price" :disabled="!isPrice" style="width:60%;margin-left: 10px;" oninput = "value=value.replace(/[^\d||\.]/g,'')" > 
+        </div>
+        <div class="input_g numwers">
+           <p style="display: inline-block;position: relative;top: 15px;font-size: 12px;left: 11px;width: 29%;
+    text-align: right;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $GLOBALS['MSG']['NUMBER'];?>：</p>
+            <input  autocomplete="off"    type="text"  :placeholder="!isPrice?('<?php echo $GLOBALS['MSG']['MIN_TRANSATION'];?>'+ minquantity):''" 
+            oninput = "value=value.replace(/[^\d||\.]/g,'')"
+            v-model="number" style="width:60%;;box-shadow: 0 0 0px 1000px white inset; margin-left: 10px;" 
+            :disabled="parseFloat(minquantity)>parseFloat(maxquantity)&&number>=parseFloat(maxquantity)"> 
+          
+        </div>
+        <p v-if="!isPrice &&  number==parseFloat(maxquantity) && number" class="price_chaim"></p>  
+        <p v-else-if="!isPrice && number < parseFloat(minquantity) && number" class="price_chaim" v-text="'<?php echo $GLOBALS['MSG']['MIN_TRANSATION'];?>'+parseFloat(minquantity)"></p>
+        <p v-else-if="!isPrice && number > parseFloat(maxquantity) && number" class="price_chaim" v-text="'<?php echo $GLOBALS['MSG']['NOT_MORE_THAN_REST'];?>'+parseFloat(maxquantity)"></p>
+        
+        <div class="input_g numwer" v-if="isPrice">
+            <p style="display: inline-block;position: relative;top: 15px;font-size: 12px;width: 32%;text-align: right"><?php echo $GLOBALS['MSG']['MIN_TRADING_COUNT'];?>：</p>
+            <input  autocomplete="off" type="text"   v-model="minquantity"   style="width:60%;;position: relative;left: -14px;margin-left:13px;top:0px;box-shadow: white 0px 0px 0px 1000px inset;"
+             oninput = "value=value.replace(/[^\d||\.]/g,'')" > 
+        </div>       
+        <div class="input_g relative_dom">
+           <p style="display: inline-block;position: relative;top: 14px;margin-top: 20px;font-size: 12px;left: 11px;width: 29%;
+    text-align: right;"><?php echo $GLOBALS['MSG']['F_TRACT_PSW'];?>：</p>
+            <input autocomplete="off" class="texts" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" type="password" maxlength="25" placeholder="<?php echo $GLOBALS['MSG']['NEED_TRADE_PWD'];?>" v-model="pwdTrade" style="width:60%;margin-left: 10px;" @focus="focus()"> <!--@focus="focus()"-->
+            <p v-text="msgs" style="margin-left: 76px;color:red"></p>
+        </div> 
+        <div flex="dir:right" v-show="forgetPwd" ><a class="blue500_f link forget_pwd" href="/user?set=tradepwd" ><?php echo $GLOBALS['MSG']['FORGET_PWD'];?></a></div>
+        <div class="submit_tab">
+            <button  class="default_btn orange500_bg white100_f" @click.stop.prevent="Recharge"
+             :style="{cursor:(!dubclick?'wait':'pointer')}" 
+             :disabled="parseFloat(maxquantity) < number && number > parseFloat(minquantity)" ><?php echo $GLOBALS['MSG']['SURE'];?></button>
+            <!-- :disabled="parseFloat(maxquantity) < number && number > parseFloat(minquantity) " -->
+        </div>
+        </div>
+        </div>
+   </div>
+    <!-- 密码输入错误等等所有弹窗里面的提示语  -->
+    <div class="Backgroundpop" v-if="Backgroundpop" v-cloak>  
+        <p style="text-align: center;line-height: 50px;color:#5cb85c;font-size:16px" v-text="bckpop"></p>
+    </div>
+    <div class="Paymentmethod" v-if="paydetails"  v-cloak>
+        <h4 style="padding:10px 50px 10px 10px"><?php echo $GLOBALS['MSG']['LOOK_FOR_ORDER_DETAIL'];?></a></h4>
+        <div class="Paymentmethod2"  >
+            <div class="alert_wrapper" >
+                <p v-if="lookData.name" style="font-size:16px; margin-top:5px" > 
+                   <b><?php echo $GLOBALS['MSG']['NAME'];?>：</b>
+                   <span v-text="lookData.name"></span>
+                </p>
+                <p v-if="lookData.mo" style="font-size:16px; margin-top:5px" > 
+                   <b><?php echo $GLOBALS['MSG']['PHONE_NUM'];?>：</b>
+                   <span v-text="lookData.mo"></span>
+                </p>
+                <p v-if="lookData.address && lookData.type=='1'" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['WALLET_ADDRESS'];?>：</b>
+                    <span v-text="lookData.address"></span>
+                </p>
+                <p v-if="lookData.numbers &&  lookData.type==2" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['HUAKE_ACCOUNT'];?>：</b>
+                    <span v-text="lookData.numbers"></span>
+                </p>
+                <p v-if=" lookData.address && lookData.type==2" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['RECEIVE_COIN_ADDRESS'];?>：</b>
+                    <span v-text="lookData.address"></span>
+                </p>
+
+                <p v-if=" lookData.numbers && lookData.type==3" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['OULIAN_ACCOUNT'];?>：</b>
+                    <span v-text="lookData.numbers"></span>
+                </p>
+                <p v-if="lookData.address && lookData.type==3" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['OULIAN_PERSON_QRCODE'];?>：</b>
+                    <span v-text="lookData.address"></span>
+                </p>
+                 <p v-if="lookData.numbers && lookData.type==4" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['SOUNTHEAST_ASIA_PLATFORM'];?>：</b>
+                    <span v-text="lookData.numbers"></span>
+                </p>
+                <p v-if="lookData.address && lookData.type==4" style="font-size:16px; margin-top:5px">
+                    <b><?php echo $GLOBALS['MSG']['SOUNTHEAST_ASIA_PERSON_QRCODE'];?>：</b>
+                    <span v-text="lookData.address"></span>
+                </p>
+            </div>
+            <p v-if=" lookData.type==1" class="detail_img" >
+                <img :src="lookData.img" style="width:100%;max-width:100%; max-height:500px"/> 
+            <p>
+        </div>
+      <div class="clones" @click="clones">&times;</div>
+    </div>
+</div>
+</div>
+      <div class="history">
+      </div>
+    </div>
+  </div>
+
+<script>document.querySelector("li.transaction").className+=" now_nav"</script>
+<?php  include PATH_TPL.'/tpl.noCopyRightFooter.phtml';?>

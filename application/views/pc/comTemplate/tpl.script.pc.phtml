@@ -1,0 +1,23 @@
+  <?php // $vendor = json_decode(file_get_contents(PATH_TPL.'/../../../public_dll/manifest.json'), true); ?>
+  <?php if (IS_MOBILE) {
+    $mob = "";
+  } else {
+    $mob = "";
+  } ?>
+
+
+<?php // jquery3 ?>
+<script src="/websiteoutjs/jquery3.3.1.min.js"></script>
+
+<?php // $libs = json_decode(file_get_contents(PATH_TPL.'/../../../public/libs.json'), true); ?>
+<?php if ($hasLibs) { ?>
+  <script src=<?php echo "/libs".'/'.$libs['libs']['js'] ?>></script>
+<?php }?>
+<?php
+$scrips = '';
+$oo = '';
+foreach ($statics[$layout['controller'].'.'.$layout['action']]['js'] as $v) {
+  if ($v)  $scrips.= "<script src=$v></script>";
+}
+echo $scrips;
+?>

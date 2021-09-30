@@ -1,0 +1,97 @@
+    body {
+        padding-top: 70px;
+        background: #f2f2f2;
+        .bgfff {
+            // background: #fff;
+        }
+        .pl15 {
+            padding-left: 15px
+        }
+        .F15 {
+            font-size: 15px;
+        }
+        .mH500 {
+            min-height: 500px;
+        }
+        .content {
+            .box1200 {
+                width: 90%;
+                max-width: 1200px;
+                margin: 10px auto;
+                background: #fff;
+                box-sizing: border-box;
+                padding: 15px;
+            }
+            .headerBox {
+                margin-top: 50px;
+                a {
+                    margin-left: 20px;
+                    background: #e3493c;
+                    color: #fff;
+                    padding: 6px 10px;
+                    border-radius: 0;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+                h3 {
+                    line-height: 26px;
+                }
+                h4 {
+                    width: 50%;
+                    max-width: 400px;
+                }
+            }
+            .ruleBox {
+                border: 2px solid #fdd;
+            }
+            th {
+                background: #e9e9e9;
+            }
+            td,
+            th {
+                line-height: 30px;
+                height: 30px;
+                text-align: center;
+            }
+            td:first-child,
+            th:first-child {
+                text-align: left;
+                padding-left: 10px
+            }
+            td:last-child,
+            th:last-child {
+                text-align: center;
+            }
+            tr:nth-child(2n) {
+                color: #263040;
+                background: #fff
+            }
+            tr:nth-child(2n-1) {
+                color: #666;
+                background: #f2f2f2;
+            }
+            tr:nth-child(1),
+            tr:nth-child(2),
+            tr:nth-child(3) {
+                height: 50px;
+                line-height: 50px;
+                td:first-child {
+                    padding-left: 40px;
+                }
+            }
+            tr:nth-child(1) {
+                background: url(/imgs/one.png) no-repeat 8px 11px #fffbee;
+                background-size: 26px;
+            }
+            tr:nth-child(2) {
+                background: url(/imgs/two.png)no-repeat 8px 11px #f9f9f9;
+                background-size: 26px;
+            }
+            tr:nth-child(3) {
+                background: url("/imgs/three.png") no-repeat 8px 11px #fff7f3;
+                background-size: 26px;
+            }
+        }
+    }
+    
+    ;

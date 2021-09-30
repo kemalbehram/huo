@@ -1,0 +1,491 @@
+body {
+  padding-top: 70px;
+  background: #f4f6f9; }
+  body .bgfff {
+    background: #fff; }
+  body #luckHash .banner {
+    margin-bottom: 50px; }
+  body #luckHash .banner img {
+      width: 100%;
+      cursor: pointer; }
+  body #luckHash .wrapper_box {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 50px 0px;
+    text-align: center;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+       -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px; }
+  body #luckHash .numtitle {
+    text-align: center;
+    margin: 10px auto;
+    padding-left: 240px; }
+  body #luckHash .showResult {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100; }
+  body #luckHash .showResult .resultbox {
+      width: 500px;
+      background: #fff;
+      padding: 30px;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px; }
+  body #luckHash .showResult .resultbox .result_submit {
+        width: 90px;
+        height: 35px;
+        background-color: #489edb;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+        color: #fff; }
+  body #luckHash .showResult .resultbox .result_cancel {
+        width: 90px;
+        height: 35px;
+        background-color: #f39e14;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+        color: #fff;
+        margin-left: 10px; }
+  body #luckHash .showResult table {
+      padding: 10px; }
+  body #luckHash .showResult table th, body #luckHash .showResult table td {
+        border: 1px solid #d6d6d6;
+        padding: 10px; }
+  body #luckHash .showResult table th .jine, body #luckHash .showResult table th input, body #luckHash .showResult table td .jine, body #luckHash .showResult table td input {
+          width: 80px;
+          padding: 3px 5px;
+          border: 1px solid #666;
+          -webkit-border-radius: 3px;
+             -moz-border-radius: 3px;
+                  border-radius: 3px; }
+  body #luckHash .bottom_wrapper {
+    background-color: #fff;
+    margin: 0px 30px; }
+  body #luckHash .bottom_wrapper h3 button {
+      margin-top: 30px; }
+  body #luckHash .bottom_wrapper .bgfff {
+      padding: 10px;
+      border: solid 1px gainsboro;
+      margin-top: 10px;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      min-height: 300px; }
+  body #luckHash .bottom_wrapper .bgfff .tab_change {
+        text-align: left;
+        position: absolute;
+        margin-top: 4%; }
+  body #luckHash .bottom_wrapper .bgfff .tab_change button {
+          width: 100%;
+          padding: 5px 10px;
+          margin: 10px 10px 10px 0px;
+          border: 1px solid #3a9be5;
+          color: #3a9be5;
+          -webkit-border-radius: 3px;
+             -moz-border-radius: 3px;
+                  border-radius: 3px;
+          margin: 50px 0px; }
+  body #luckHash .bottom_wrapper .bgfff .tab_change button.active {
+            background: -webkit-gradient(linear, left top, right top, from(#42d2e8), to(#3a97e5));
+            background: -webkit-linear-gradient(left, #42d2e8, #3a97e5);
+            background: -moz-linear-gradient(left, #42d2e8, #3a97e5);
+            background: -o-linear-gradient(left, #42d2e8, #3a97e5);
+            background: linear-gradient(to right, #42d2e8, #3a97e5);
+            color: #eee; }
+  body #luckHash .bottom_wrapper .table_style {
+      position: relative;
+      left: 20%;
+      padding: 5px 0px; }
+  body #luckHash .userMsg {
+    width: 210px;
+    margin-right: 10px;
+    line-height: 21px; }
+  body #luckHash .userMsg .luck_num {
+      -webkit-box-shadow: #ccc 0px 2px 19px 6px;
+         -moz-box-shadow: #ccc 0px 2px 19px 6px;
+              box-shadow: #ccc 0px 2px 19px 6px;
+      background: #fff;
+      margin-bottom: 10px;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      padding: 10px; }
+  body #luckHash .userMsg .luck_num .outNum {
+        width: 100%;
+        height: 40px;
+        border: 1px solid;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+        vertical-align: bottom;
+        padding-left: 5px; }
+  body #luckHash .userMsg .luck_num .luck_out {
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+        color: red;
+        border: 1px solid red;
+        padding: 3px 30px;
+        height: 30px; }
+  body #luckHash .userMsg .center {
+      text-align: center !important;
+      display: block; }
+  body #luckHash .userMsg .usertitle {
+      font-size: 18px;
+      color: #666;
+      padding: 10px;
+      text-align: left; }
+  body #luckHash .userMsg .usertitle .hash_num {
+        word-wrap: break-word;
+        font-size: 13px;
+        display: block;
+        margin-top: 5px; }
+  body #luckHash .userMsg .front {
+      background: -webkit-gradient(linear, left top, right top, from(#42d2e8), to(#3a97e5));
+      background: -webkit-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -moz-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -o-linear-gradient(left, #42d2e8, #3a97e5);
+      background: linear-gradient(to right, #42d2e8, #3a97e5); }
+  body #luckHash .userMsg .front .usertitle {
+        color: #fff;
+        text-align: center; }
+  body #luckHash .userMsg .hide {
+      background: #fff;
+      color: #666; }
+  body #luckHash .from {
+    width: 100%;
+    padding: 10px; }
+  body #luckHash .from input[type=text] {
+      padding: 5px 10px;
+      border: 1px solid #666;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      background: #eee;
+      outline: none; }
+  body #luckHash .from .numbertype {
+      width: 50px;
+      padding: 2px 10px;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      outline: none; }
+  body #luckHash .from table th {
+      width: 20%; }
+  body #luckHash .from table th, body #luckHash .from table td {
+      border: 1px solid #ccc; }
+  body #luckHash .from table tr {
+      height: 40px;
+      line-height: 40px; }
+  body #luckHash .from table .global_icon {
+      padding: 3px 6px;
+      -webkit-border-radius: 50%;
+         -moz-border-radius: 50%;
+              border-radius: 50%;
+      background: -webkit-gradient(linear, left top, right top, from(#42d2e8), to(#3a97e5));
+      background: -webkit-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -moz-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -o-linear-gradient(left, #42d2e8, #3a97e5);
+      background: linear-gradient(to right, #42d2e8, #3a97e5);
+      color: #fff; }
+  body #luckHash .from table .numgain {
+      padding: 0 10px;
+      color: red;
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px;
+      display: inline-block; }
+  body #luckHash .from .red {
+      padding: 0 10px;
+      color: red;
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px;
+      display: inline-block;
+      width: 27px; }
+  body #luckHash .from .confirmbtn {
+      padding: 10px 60px;
+      color: #fff;
+      background: -webkit-gradient(linear, left top, right top, from(#42d2e8), to(#3a97e5));
+      background: -webkit-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -moz-linear-gradient(left, #42d2e8, #3a97e5);
+      background: -o-linear-gradient(left, #42d2e8, #3a97e5);
+      background: linear-gradient(to right, #42d2e8, #3a97e5);
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px; }
+  body #luckHash .from .resetbtn {
+      padding: 10px 60px;
+      color: #3a97e5;
+      background: #fff;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      -webkit-box-shadow: #3a97e5 0px 0px 8px;
+         -moz-box-shadow: #3a97e5 0px 0px 8px;
+              box-shadow: #3a97e5 0px 0px 8px;
+      margin-left: 10px; }
+  body #luckHash h3 {
+    text-align: left; }
+  body #luckHash h3 button {
+      padding: 5px 10px;
+      margin: 0 10px;
+      border: 1px solid #3a9be5;
+      color: #3a9be5;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px; }
+  body #luckHash h3 button.active {
+        background: #3a9be5;
+        color: #eee; }
+  body #luckHash .box1200 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 15px; }
+  body #luckHash .boxwrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+       -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 27px 6px;
+    position: relative;
+    top: 50px;
+    background-color: #fff;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px; }
+  body #luckHash .boxwrapper .game_chaim {
+      text-align: left;
+      color: #666; }
+  body #luckHash .boxwrapper .game_chaim p {
+        line-height: 32px; }
+  body #luckHash table th {
+    background: #ffffff; }
+  body #luckHash table td, body #luckHash table th {
+    line-height: 30px;
+    height: 30px;
+    text-align: center; }
+  body #luckHash table td:first-child, body #luckHash table th:first-child {
+    text-align: left;
+    padding-left: 10px; }
+  body #luckHash table td:last-child, body #luckHash table th:last-child {
+    text-align: center; }
+  body #luckHash table tr:nth-child(2n) {
+    color: #263040;
+    background: #fff; }
+  body #luckHash table tr:nth-child(2n-1) {
+    color: #666;
+    background: #f2f2f2; }
+  body #luckHash .current_msg {
+    font-size: 14px;
+    color: #3b9ae6;
+    margin-top: 20px; }
+  body #luckHash .current_msg span {
+      width: 147px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      background-color: #eef2f6;
+      -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+              border-radius: 5px;
+      font-size: 14px;
+      display: inline-block;
+      color: rgba(0, 0, 0, 0.65); }
+  body #luckHash .resultData dl {
+    margin: 8px 15px;
+    text-align: left; }
+body {
+  padding-top: 70px;
+  background: #f2f2f2; }
+  body .pl15 {
+    padding-left: 15px; }
+  body .F15 {
+    font-size: 15px; }
+  body .mH500 {
+    min-height: 500px; }
+  body .coinAll {
+    text-align: left;
+    margin: 10px 0px; }
+  body .tablelist {
+    margin-top: 20px;
+    clear: both; }
+  body .tabsPages {
+    margin-top: 30px; }
+  body .tabsPages.page-list-contain {
+      -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+      height: 40px; }
+  body .container_page {
+    text-align: left; }
+  body .slide_btn {
+    height: 28px;
+    background: -webkit-gradient(linear, left top, right top, from(#42d2e8), to(#3a97e5));
+    background: -webkit-linear-gradient(left, #42d2e8, #3a97e5);
+    background: -moz-linear-gradient(left, #42d2e8, #3a97e5);
+    background: -o-linear-gradient(left, #42d2e8, #3a97e5);
+    background: linear-gradient(to right, #42d2e8, #3a97e5);
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    color: #fff;
+    float: left;
+    position: relative;
+    top: -33px;
+    left: 180px; }
+  body .bgcover {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0; }
+  body .headerBox {
+    -webkit-box-shadow: 0 3px 10px #e6e8f5;
+       -moz-box-shadow: 0 3px 10px #e6e8f5;
+            box-shadow: 0 3px 10px #e6e8f5;
+    background-color: #fff; }
+  body .headerBox .tips_box {
+      height: 30px; }
+  body .headerBox .select_input {
+      width: 80%;
+      text-indent: 20px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      height: 42px;
+      border: solid 1px gainsboro;
+      margin-bottom: 20px; }
+  body .headerBox input {
+      width: 80%;
+      text-indent: 20px;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
+      height: 42px;
+      border: solid 1px gainsboro; }
+  body .headerBox .tips_box p {
+      text-align: left;
+      width: 80%;
+      display: inline-block;
+      margin: 5px 0px;
+      color: red; }
+  body .headerBox .tips_box button {
+      width: 120px;
+      height: 30px;
+      background-color: #212c3f;
+      color: #fff;
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px; }
+  body .headerBox .submit_btn {
+      width: 180px;
+      height: 45px;
+      background-color: #15174a;
+      color: #fff;
+      font-size: 18px;
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px; }
+  body .slidebox {
+    width: 30%;
+    max-width: 1200px;
+    background-color: #fff;
+    height: 100px;
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    top: -300px;
+    padding: 20px 50px; }
+  body .slidebox p {
+      margin: 20px 0px; }
+  body .slidebox p input {
+        width: 100%;
+        height: 30px;
+        text-indent: 10px; }
+  body .slidebox p button {
+        width: 120px;
+        height: 30px;
+        background-color: #212c3f;
+        color: #fff;
+        -webkit-border-radius: 2px;
+           -moz-border-radius: 2px;
+                border-radius: 2px; }
+  body .content .box1200 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 10px auto;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 50px; }
+  body .content .rules {
+    text-align: left !important; }
+  body .content .rules p {
+      padding: 5px 0px; }
+  body .content .boxwrap {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box; }
+  body .content .boxwrap .tab_change {
+      text-align: left;
+      clear: both; }
+  body .content .boxwrap .tab_change button {
+        padding: 5px 10px;
+        margin-right: 15px;
+        border: 1px solid #3a9be5;
+        color: #3a9be5;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px; }
+  body .content .boxwrap .tab_change button.active {
+          background: #3a9be5;
+          color: #eee; }
+  body .content th {
+    background: #e9e9e9; }
+  body .content td, body .content th {
+    line-height: 30px;
+    height: 30px;
+    text-align: center; }
+  body .content td:first-child, body .content th:first-child {
+    text-align: left;
+    padding-left: 10px; }
+  body .content td:last-child, body .content th:last-child {
+    text-align: center; }
+  body .content tr:nth-child(2n) {
+    color: #263040;
+    background: #fff; }
+  body .content tr:nth-child(2n-1) {
+    color: #666;
+    background: #f2f2f2; }
+
+/*# sourceMappingURL=more.lucky.css.map*/

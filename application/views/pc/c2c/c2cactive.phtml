@@ -1,0 +1,87 @@
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="bg-content" id="c2cActive">
+    <div class="content">
+        <div class="box1200 bgfff headerBox" flex="main:justify cross:center">
+            <!-- 用户信息 -->
+           <div flex="main:justify cross:center">
+                <h3 >
+                     <!-- 手机： -->
+                    <b><?php echo $GLOBALS['MSG']['PHONE_NUM'];?> :<b v-if="userData" v-text="userData.mo.substr(0,3)+'****'+userData.mo.substr(8)"></b><b v-else>--</b></b><br>
+                    <!-- 姓名 -->
+                    <b><?php echo $GLOBALS['MSG']['NAME'];?> :<b  v-if="userData" v-text="userData.name.substr(0,1)+'**'"></b><b v-else>--</b></b> &nbsp;
+                    <!-- 排名: -->
+                    <span class="F15"><?php echo $GLOBALS['MSG']['RANKING'];?>:<span  v-if="userData" v-text="userData.ranking">--</span><span v-else>--</span></span>
+                </h3>
+                <div>
+                    <a href="/c2c"> <?php echo $GLOBALS['MSG']['PREPAID_IMMEDIATE'];?>C2C</a>
+                </div>
+            </div>
+            <h4 flex="main:justify cross:center">
+                <!-- 买入  -->
+                <b ><?php echo $GLOBALS['MSG']['BUY_IN'];?>CNYX:<b v-if="userData" v-text="userData.buy_price"></b><b v-else>--</b></b>
+                <!-- 卖出 -->
+                <b><?php echo $GLOBALS['MSG']['SELL'];?>CNYX:<b v-if="userData" v-text="userData.sell_price">--</b><b v-else>--</b></b>
+                <!-- 净买入量 -->
+                <b>CNYX<?php echo $GLOBALS['MSG']['NET_BUY'];?>:<b v-if="userData"  v-text="userData.buy_price - userData.sell_price"></b><b v-else>--</b></b>
+            </h4>
+        </div>
+        <div class="box1200 ruleBox">
+            <!-- 活动时间为：5月16日9:00-6月5日9:00；活动结束后一个工作日内发放奖励。 -->
+            <h4><?php echo $GLOBALS['MSG']['ACTIVE_TIME'];?></h4>
+            <!-- 活动规则 -->
+            <h4><?php echo $GLOBALS['MSG']['RULES_ACTIVE'];?>：</h4>
+            <!-- 活动一、在活动期间：C2C交易区CNYX净买入量（CNYX净买入量=CNYX买入-CNYX卖出），排名为前50名，即可获得相应奖励。 -->
+            <P><?php echo $GLOBALS['MSG']['ACTIVE_1'];?></P>
+            <!--  名次奖励(WCG) :第1名 10000克、
+                第2名 8000克、
+                第3名 5000克、
+                第4名 3000克、
+                第5名 2000克、
+                第6-10名 每人1000克、
+                第11-20名 每人800克、
+                第21-30名 每人500克、
+                第31-40名 每人300克、
+                第41-50名 每人300克。 -->
+            <P><?php echo $GLOBALS['MSG']['ACTIVE_2'];?></P>
+            <!-- 活动二、朋友圈转发排名活动，
+                获赞20以上，奖励1克WCG；
+                获赞100以上，奖励2克WCG；
+                获赞1000以上，奖励5克WCG，（朋友圈需保留3日）。 -->
+            <p><?php echo $GLOBALS['MSG']['ACTIVE_3'];?></p>
+            <!-- 在人数为200以上的社群内转发排名活动，转发10个社群以上，
+                奖励5克WCG； -->
+            <p><?php echo $GLOBALS['MSG']['ACTIVE_4'];?></p>
+         
+            <p><?php echo $GLOBALS['MSG']['ACTIVE_5'];?></p>
+        </div>
+        <div class="box1200 mH500">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th width="20%"><?php echo $GLOBALS['MSG']['PHONE_NUM'];?>:</th>
+                        <th  width="10%"><?php echo $GLOBALS['MSG']['NAME'];?></th>
+                        <th  width="20%"><?php echo $GLOBALS['MSG']['BUY_IN'];?>CNYX</th>
+                        <th  width="20%"><?php echo $GLOBALS['MSG']['SELL'];?>CNYX</th>
+                        <th  width="20%">CNYX<?php echo $GLOBALS['MSG']['NET_BUY'];?></th>
+                        <th  width="10%"><?php echo $GLOBALS['MSG']['RANKING'];?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="i in  userList" v-if="i.buy_price - i.sell_price >0">
+                        <td v-text="i.mo"></td>
+                        <td v-text="i.name"></td>
+                        <td v-text="i.buy_price"></td>
+                        <td v-text="i.sell_price"></td>
+                        <td v-text="i.buy_price - i.sell_price"></td>
+                        <td  v-text="i.ranking"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+   document.querySelector("li.c2cActive").className += " now_nav";
+</script>
+
+<?php  include PATH_TPL.'/tpl.noCopyRightFooter.phtml';?>

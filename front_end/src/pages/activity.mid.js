@@ -1,0 +1,1 @@
+import c2c from '@/nPages/activity.mid.js';

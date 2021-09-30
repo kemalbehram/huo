@@ -1,0 +1,343 @@
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="bg-content" id="luckHash">
+    <div class="banner">
+        <img src="/imgs/lucky.jpg" alt="幸运哈希">
+    </div>
+    <div class="wrapper_box">
+
+        <h1 v-cloak class="numtitle box1200 bgfff">
+            第 {{periodData.period}} 期，距离投注截止:<span v-text="stoptime"></span>
+        </h1>
+        <div flex="main:center" class="box1200 bgfff ">
+            <dl class="userMsg">
+                <div class="luck_num front">
+                    <dd class="usertitle">
+                        账户信息
+                    </dd>
+                    <dd v-cloak class="usertitle">主帐户:<span v-cloak>{{parseFloat(accountData.userLucky)}}<span></dd>
+                    <dd class="usertitle">未结算金额:<span v-cloak>{{parseFloat(accountData.un_lucky) || 0}}<span></dd>
+                    <!-- <dd v-cloak class="usertitle">账户本金:<span v-cloak>{{parseFloat(accountData.wcg_lucky_lock)}}<span></dd> -->
+                    <dd class="usertitle">当前有效投注额:<span v-cloak>{{parseFloat(accountData.turnover) || 0}}<span></dd>
+                    <dd class="usertitle">
+                       <button class="luck_out" @click.stop="luckOut">提现</button>
+                    </dd>
+                 <!--弹框-->
+                <jsj-alert :show-status="showAlert" @callback="luckOutOk(1)" @hidebox="luckOutOk(0)" v-cloak>
+                    <div class="alert_contents black900_f" slot="headerText"> 
+                         <input  min="1" class="outNum" style="width:100%;padding:8px;
+                                border: 1px solid #05599f;border-radius: 3px;"
+                          v-model="outNum" placeholder="请输入提现金额！"></div>
+                    <span slot="Ok" class="white100_f"><?php echo $GLOBALS['MSG']['SURE'];?> 
+                    </span>
+                    <span slot="No" class="white100_f"><?php echo $GLOBALS['MSG']['DELETE'];?></span>
+                </jsj-alert>
+                </div>
+                <div class="luck_num hide">
+                    <dd class="usertitle center" style="color: red;font-size: 18px;" v-cloak> 第{{lastData.period_id}}期</dd>
+                    <dd class="usertitle center" >开奖结果 </dd>
+                    <div v-cloak style=" background: linear-gradient(to right, #42d2e8, #3a97e5);
+                        width: 25px;border-radius: 30px;
+                        height: 25px;
+                        display: inline-block;
+                        line-height: 25px;
+                        text-align: center;
+                        color: #fff;">{{lastData.luck_num}}
+                    </div>
+                    <dd class="usertitle">
+                        <span class="center">高度</span>
+                        <span v-cloak class="center"
+                             style="color: #666;font-size: 13px;margin-top: 5px;">
+                            {{lastData.block_number}}
+                        <span>
+                    </dd>
+                    <dd class="usertitle">
+                        <span class="center">哈希<span>
+                        <p><a class="hash_num" v-cloak href='https://btc.com' target="_blank">{{lastData.hash}}<a></p>
+                    </dd>
+                </div>
+            </dl>
+            <div class="from">
+                <table width=100% cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>小 <span class="red">1.8</span>
+                            <input class="numbertype" v-model="num11" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';">
+                        </th>
+                        <th>大<span class="red">1.8</span>
+                            <input class="numbertype" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';" v-model="num12">
+                        </th>
+                        <th>单 <span class="red">1.8</span>
+                            <input class="numbertype" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';" v-model="num13">
+                        </th>
+                        <th>双<span class="red">1.8</span>
+                            <input class="numbertype" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';" v-model="num14">
+                        </th>
+                        <th></th>
+                    </tr>
+                </table>
+                <table width=100% cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>
+                            <span class="global_icon">0</span>
+                            <span class="numgain">8</span>
+                            <input class="numbertype" v-model="num0" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';">
+                        </th>
+                        <th>
+                            <span class="global_icon">1</span>
+                            <span class="numgain">8</span>
+                            <input class="numbertype" v-model="num1" oninput="value=value.replace(/[^\d]/g,'')"
+                                onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">2</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num2" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">3</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num3" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">4</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num4" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><span class="global_icon">5</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num5" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">6</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num6" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">7</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num7" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">8</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num8" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                        <th><span class="global_icon">9</span> <span class="numgain">8</span><input class="numbertype"
+                                v-model="num9" oninput="value=value.replace(/[^\d]/g,'')" onblur="if(value<2)value='';">
+                        </th>
+                    </tr>
+                </table>
+                <div class="current_msg"> 当期信息：
+                    <span v-cloak>单：{{nowCountData.one}}</span>
+                    <span v-cloak>双：{{nowCountData.two}}</span>
+                    <span v-cloak>大：{{nowCountData.big}}</span>
+                    <span v-cloak>小：{{nowCountData.small}}</span>
+                    <span v-cloak>数字：{{nowCountData.number}}</span>
+                </div>
+                <p style="width: 100%;position: relative;margin-top: 140px;">
+                    <button class="confirmbtn" @click="handData">确定</button>
+                    <button class="resetbtn" @click="resetData">重置</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div v-if="showResult" class="showResult" flex="main:center cross:center" v-cloak>
+        <div class="resultbox">
+            <table width=100% cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="26%">类型</th>
+                    <th width="26%">赔率</th>
+                    <th width="26%">金额</th>
+                    <th width="26%">确定</th>
+                </tr>
+                <tr v-if="num11">
+                    <th>
+                        <span>小</span>
+                    </th>
+                    <th>
+                        <span>1.8</span>
+                    </th>
+                    <th><input class="numbertype" v-model="num11" readonly></th>
+                    <th><input type="checkBox" :checked="{num11}" @change="changeInput('num11')"> </th>
+                </tr>
+                <tr v-if="num12">
+                    <th>
+                        <span>大</span>
+                    </th>
+                    <th>
+                        <span>1.8</span>
+                    </th>
+                    <th><input class="numbertype" v-model="num12" readonly></th>
+                    <th><input type="checkBox" :checked="{num12}" @change="changeInput('num12')"></th>
+                </tr>
+                <tr v-if="num13">
+                    <th>
+                        <span>单</span>
+                    </th>
+                    <th>
+                        <span>1.8</span>
+                    </th>
+                    <th><input class="numbertype" v-model="num13" readonly></th>
+                    <th><input type="checkBox" :checked="{num13}" @change="changeInput('num13')"></th>
+                </tr>
+                <tr v-if="num14">
+                    <th>
+                        <span>双</span>
+                    </th>
+                    <th>
+                        <span>1.8</span>
+                    </th>
+                    <th><input class="numbertype" v-model="num14" readonly></th>
+                    <th><input type="checkBox" :checked="{num14}" @change="changeInput('num14')"></th>
+                </tr>
+                <tr v-for="(i,n) in this.from.money" v-if="Object.getOwnPropertyNames(i)[0]<10">
+                    <th>
+                        数字 {{Object.getOwnPropertyNames(i)[0]}}
+                    </th>
+                    <th>
+                        <span>8</span>
+                    </th>
+                    <th>
+                        <span class="jine">{{i[Object.getOwnPropertyNames(i)[0]]}}</span>
+                    </th>
+                    <th><input type="checkBox" :checked="{num11}" @change="changeInput('num11')"></th>
+                </tr>
+                <tr>
+                    <td colSpan="2">注数：{{from.money.length}}</td>
+                    <td colSpan="2">总金额：{{sumMoney?sumMoney:'0'}}</td>
+                </tr>
+            </table>
+            <p style="text-align:center">
+                <button @click.stop="subFrom" class="result_submit">确定</button>
+                <button @click.stop="cancel" class="result_cancel">取消</button>
+            </p>
+        </div>
+    </div>
+    <div class="boxwrapper">
+        <div class="bottom_wrapper">
+            <h3>
+                <button @click="getqData(1)" :class="{active:tabChange==1}">投注记录</button>
+                <button @click.stop="getqData(2)" :class="{active:tabChange==2}">开奖记录</button>
+                <!-- <button @click.stop="getqData(3)" :class="{active:tabChange==3}"> 投注趋势</button> -->
+                <button @click.stop="getqData(3)" :class="{active:tabChange==3}"> 账务明细</button>
+                <button @click.stop="getqData(4)" :class="{active:tabChange==4}"> 游戏说明</button>
+            </h3>
+            <!-- 投注记录 -->
+            <table width="100%" v-if="tabChange==1" v-cloak>
+                <thead>
+                    <tr>
+                        <th width="10%">投注期数</th>
+                        <th width="10%">投注金额</th>
+                        <th width="20%">投注类型</th>
+                        <th width="10%">投注结果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="i in recordData">
+                        <td v-text="i.period_id"></td>
+                        <td v-text="i.money"></td>
+                        <td v-text="i.stake"></td>
+                        <td v-text="i.status"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 开奖记录 -->
+            <table width="100%" v-if="tabChange==2" v-cloak>
+                <thead>
+                    <tr>
+                        <th width="10%">期数</th>
+                        <th width="10%">开奖数字</th>
+                        <th width="10%">类型</th>
+                        <th width="10%">高度</th>
+                        <th width="10%">哈希</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="i in recordData">
+                        <td v-text="i.period_id"></td>
+                        <td v-text="i.luck_num"></td>
+                        <td v-text="i.type"></td>
+                        <td v-text="i.block_number"></td>
+                        <td v-text="i.hash"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div v-if="tabChange==3" class="bgfff" v-cloak >
+                <div class="tab_change" width="30%">
+                    <button @click.stop="getDetailData(1)" :class="{active:tabDetailChange==1}">竞猜记录</button>
+                    <button @click="getDetailData(2)" :class="{active:tabDetailChange==2}">划转记录</button>
+                </div>
+              
+                <!-- 竞猜记录 -->
+                <table width="70%" v-if="tabDetailChange==1" v-cloak class="table_style">
+                    <thead>
+                        <tr>
+                            <th width="10%">期数</th>
+                            <th width="10%">类型</th>
+                            <th width="10%">金额</th>
+                            <th width="10%">盈亏</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="i in recordData">
+                            <td v-text="i.period_id"></td>
+                            <td v-text="i.stake"></td>
+                            <td v-text="i.money"></td>
+                            <td v-text="i.profit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 划转记录 -->
+                <table width="70%" v-if="tabDetailChange==2" v-cloak class="table_style">
+                    <thead>
+                        <tr>
+                            <th width="10%">类型</th>
+                            <th width="10%">金额</th>
+                            <th width="10%">时间</th>
+                            <th width="10%">操作 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="i in recordData">
+                            <td v-text="i.type"></td>
+                            <td >{{i.number | numFilter}}</td>
+                            <td >{{i.created | handTime}}</td>
+                            <td v-text="i.operate"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-if="tabChange==4" class="bgfff" v-cloak style="padding:10px;">
+                <div class="game_chaim">
+                    <p>幸运哈希规则</p>
+                    <p>1.幸运哈希暂只支持使用wcg进行竞猜，每期投注金额在2-200克wcg（整数）。</p>
+                    <p>2.用户可选择0~9范围里，进行数字，大小(0-4为小，5-9为大)
+                        ，单双竞猜。竞猜数字赔率是1:8,单双和大小赔率是1:1.8。(A用户投注1克WCG竞猜数字9，中奖后可获得本金加奖金8克wcg;B用户投注1克WCG竞猜开奖结果为单，中奖后可获得本金+奖金1.8克）
+                    </p>
+                    <p>3.用户每小时可投注3期，投注截止时间为下一期开始投注时间前1分钟。</p>
+                    <p>4.幸运哈希每小时可开奖3次，取香港时间00分、20分、40分三个时间点，兑奖结果以比特币区块哈希值为开奖标的，从末尾开始，由右向左，取出现的第一个数字为结果，进行竞猜兑奖，若遇上区块堵塞，跨了两次时间点，同一个区块哈希不被重复取值，顺延取下一个。                    </p>
+                    <p>5.有效竞猜投注额累计额达到幸运账户本金的300%，幸运账户资产即可申请转出进行交易或者提现。（如幸运账户资产有100wcg，有效投注额需累计达到300wcg，才能提取幸运账户资产）。</p>
+                    <p>6.每当有如红包、充值赠送、交易额返还奖励、余币宝收益等新收益入账幸运账户，新收益加上原来幸运账户资产变成最新账户本金，以此重新计算有效投注额，有效竞猜投注额达到本金 <span style="color:red ;font-weight:600" >300%</span> 才能进行资产提现。</p>
+                    <p>7.如用户使用一切不正常投注、套利行为，本平台将保留冻结账号盈利及余额等权利。</p>
+                    <p>8.幸运哈希最终解释权归火网所有;请用户理性参与。</p>
+                    <p>9.比特币区块高度哈希值查询https://www.blockchain.com/btc/blocks</p>
+                </div>
+            </div>
+            <div flex="main:center cross:center" class="mask_contain" v-cloak v-if="nowStatus"
+                style="background: rgba(0,00,0,0.3)">
+                <div class="alert_content relative_dom" style="padding:10px;color:#e3493c" v-text="errMsg"></div>
+            </div>
+             <!-- 分页 -->
+             <div class="tabsPages" :class="all > 1 ? 'page-list-contain':''">
+                <pages :all="all" v-on:get-tabs="getPageData" :page-name="'<?php echo $GLOBALS['MSG']['PAGE'];?>'"
+                    :jump-to-title="'<?php echo $GLOBALS['MSG']['JUMP'];?>'"
+                    :home-title="'<?php echo $GLOBALS['MSG']['NUMBER_HOME'];?>'"
+                    :last-title="'<?php echo $GLOBALS['MSG']['NUMBER_FOOR'];?>'"  @keydown=""
+                    v-if="all && all != 1">
+                </pages>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector("li.luckHash").className += " now_nav";
+</script>
+<?php  include PATH_TPL.'/tpl.noCopyRightFooter.phtml';?>

@@ -1,0 +1,78 @@
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="bg-content" id="Active">
+    <div class="content">
+        <div style="margin-bottom:50px;">
+            <img style="width:100%;cursor: pointer;" @click="showFun" src="/imgs/active.jpg" alt="wcg充值活动，中秋送豪礼">
+        </div>
+        <div class="box1200 bgfff headerBox" v-cloak v-if="isShow">
+            <p style="margin-top:30px;"><label>收件人姓名:<input type="text"
+                v-model="subData.name"
+                oninput = "value=value.replace(/[^(\u4e00-\u9fa5)|^(a-zA-Z)]/g,'')"
+                placeholder="请输入您的姓名"></label></p>
+            <p><label>收件人手机号:<input type="text" 
+                v-model="subData.mo"
+                oninput = "value=value.replace(/[^\d]/g,'')"
+                placeholder="请输入您的手机号"></label></p>
+            <p><label>收件人地址:<input type="text"
+                v-model="subData.address"
+                oninput = "value=value.replace(/[^(\u4e00-\u9fa5)|^(a-zA-Z)|^\,|^\。|^\;]/g,'')"
+                placeholder="请输入您的收件地址"></label></p>
+            <p><label>wcg转入订单号:<input type="text" 
+                v-model="subData.bak"
+                oninput = "value=value.replace(/[^\d|^(a-zA-Z)]/g,'')"
+                placeholder="请输入您的订单号"></label></p>
+            <p style="text-align: center"><button style="
+                border-radius: 5px;
+                background: #172258;
+                padding: 10px 100px;
+                color: #eee;cursor: pointer;
+                font-size: 18px;
+            " @click.stop="subInput">提交信息</button></p>
+        </div>
+        <div class="box1200 mH500">
+            <h3 style="margin:8px">领取记录：
+                <h3>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th width="10%">
+                                    <?php echo $GLOBALS['MSG']['PHONE_NUM'];?>:</th>
+                                <th width="10%">
+                                    <?php echo $GLOBALS['MSG']['INTO_NUM'];?>
+                                </th>
+                                <th width="20%">订单号</th>
+                                <th width="25%">提交时间</th>
+                                <th width="20%">礼品类型</th>
+                                <th width="10%">
+                                    <?php echo $GLOBALS['MSG']['RANKING'];?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="i in  userList">
+                                <td v-text="i.mo"></td>
+                                <td v-text="i.number"></td>
+                                <td v-text="i.bak"></td>
+                                <td>{{i.created|handTime}}</td>
+                                <td>
+                                    <span v-if="i.gift==1">精美礼品</span>
+                                    <span v-if="i.gift==2">高档礼品</span>
+                                    <span v-if="i.gift==3">尊贵礼品</span>
+                                </td>
+                                <td>
+                                    <span v-if="i.status==1">已发出</span>
+                                    <span v-else>未发出</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div flex="main:center cross:center" class="mask_contain" v-cloak v-if="nowStatus" style="background: rgba(0,00,0,0.3)">
+                        <div class="alert_content relative_dom" style="padding:10px;color:#e3493c" v-text="errMsg"></div>
+                    </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector("li.c2cActive").className += " now_nav";
+</script>
+<?php  include PATH_TPL.'/tpl.noCopyRightFooter.phtml';?>

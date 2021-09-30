@@ -1,0 +1,176 @@
+<div class="rf_main gray50_bg" id="otc" flex="dir:top" style="min-width: 890px">
+	<div class="nav-crumbs hide_767" flex-box="0">
+		<?php echo $lang["USER_NAV_TITLE"] ?> &gt; <a class="active-tab">
+		<?php echo $GLOBALS['MSG']['OTC_MANAGEMENT'];?></a>
+	</div>
+	
+	<div v-if="<?php echo empty($auto)?false:"$auto != 2"?>"  v-cloak>
+		<h3><?php echo $GLOBALS['MSG']['UN_REALNAME_AUTHENTICATION'];?>！<a href="/user/realinfo" class="minBtn bg_reds" style="float:right;color:#008cff"><?php echo $GLOBALS['MSG']['REALNAME_AUTHENTICATION'];?>>></a></h3>
+	</div>
+	<div v-else>
+		<div class="otcList">
+			<span v-text=`<?php echo $GLOBALS['MSG']['ADDRESS_CHOICE'];?>：`></span>
+			<button v-for="(i,key) in coinList" :class="['minBtn',{bg_red:key+1==index}]"
+			v-text="i.name.toUpperCase()+i.display" @click="tabChange(key+1,i.name)"></button>
+		</div>
+		<div class="mplan_tabs" >
+			<ul  class="mplan_change_tab" flex="dir:left">
+				<li  class="mplan_active_li">
+					<span v-text="coinList[index-1].name.toUpperCase()"></span>
+					<span v-text=`<?php echo $GLOBALS['MSG']['ADDRESS_MANAGE'];?>`></span>
+				</li>
+			</ul>
+		</div>
+		<div :class="['mainBox',addresData.address?'white100_bg':'load']">
+			<div v-if="index == 1" v-cloak>
+				<p class="mb20 errp">
+					<b style="line-height:20px;"><?php echo $GLOBALS['MSG']['RECEIVE_QRCODE'];?>:</b>
+					<span class="addImg">
+						<!-- 显示 -->
+						<img :src="addresData.img" alt="<?php echo $GLOBALS['MSG']['RECEIVE_COIN_QRCODE'];?>"/>
+						<input type="file" @change='uploadFile' accept="image/*"  value="" class="filepath"/>
+						<button class="minBtn bg_red" v-show="!imgStatus"><?php echo $GLOBALS['MSG']['UPLOAD_QRCODE'];?></button>
+						<button class="minBtn bg_red" v-show="imgStatus"><?php echo $GLOBALS['MSG']['CLICK_MODIFY'];?></button>
+						<!-- 提示 -->
+						<b  :class="errStatus.imgErr? 'green650_bg' :'bg_red'" v-text="errStatus.imgErr"></b>
+					</span>
+				</p>
+				<p class="mb20 errp">
+					<b><?php echo $GLOBALS['MSG']['RECEIVE_COIN_ADDRESS'];?>:</b>
+					<input v-model="addresData.address"
+						@blur="verify('address','addresData','address','<?php echo $GLOBALS['MSG']['RIGHT_ACCOUNT'];?>！')" 
+						placeholder="<?php echo $GLOBALS['MSG']['RIGHT_ACCOUNT'];?>！"  type="text"/>
+					<b  class="red err" v-show="errStatus.addresDataaddress" v-text="errStatus.addresDataaddress"></b>
+				</p>
+				<p class="mb20 errp">
+					<b><?php echo $GLOBALS['MSG']['F_TRACT_PSW'];?>:</b>
+					<input v-model="addresData.tradepwd"
+						@blur="verify('pwd','addresData','tradepwd','<?php echo $GLOBALS['MSG']['RIGHT_PSW'];?>！')" 
+						placeholder="<?php echo $GLOBALS['MSG']['ENTER_PSW'];?>！"  type="password"/>
+					<b  class="red err" v-show="errStatus['addresDatatradepwd']" v-text="errStatus['addresDatatradepwd']"></b>
+				</p>
+				<p style="padding-left:164px;">
+					<input type="button" class="bg_red" value="<?php echo $GLOBALS['MSG']['MODIFY_BIND'];?>" @click.stop="submit('addresData')" style="text-cengin">
+				</p>
+			</div>
+			<div v-if="index == 2" class="morePosition" v-cloak>
+				<!-- 个人华克金 -->
+				<div>
+					<h3 class="mb20"><?php echo $GLOBALS['MSG']['HUAKE_WALLET'];?>
+						<span class="fr">
+							<button class="off"  @click.prevent.stop="offFun('wcg')"
+								:style="parseInt(wcg.status)==1?'background:#0075a9':'background:#666'">
+								<i :style="parseInt(wcg.status)==1?'left:30px':'left:0.4px'"></i>
+							</button>
+							<a v-show="parseInt(wcg.status)==1"><?php echo $GLOBALS['MSG']['OPEN'];?></a>
+							<a v-show="parseInt(wcg.status)==2"><?php echo $GLOBALS['MSG']['CLOSE'];?></a>
+						</span>
+					</h3>
+					<b><?php echo $GLOBALS['MSG']['HUAKE_KEY'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="wcg.numbers"
+							@blur="verify('address','wcg','numbers','<?php echo $GLOBALS['MSG']['ENTER_RIGHT_HK_WALLET'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_HK_PUBLIC_KEY'];?>！" type="text"/>
+						<b class="red err" v-show="errStatus['wcgnumbers']" v-text="errStatus['wcgnumbers']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['HUAKE_MONEY'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="wcg.address"
+							@blur="verify('address','wcg','address','<?php echo $GLOBALS['MSG']['ENTER_RIGHT_ADRESS'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_Y_ADRESS'];?>！" type="text"/>
+						<b class="red err" v-show="errStatus['wcgaddress']" v-text="errStatus['wcgaddress']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['F_TRACT_PSW'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="wcg.tradepwd"
+							@blur="verify('pwd','wcg','tradepwd','<?php echo $GLOBALS['MSG']['RIGHT_PSW'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_PSW'];?>！"  type="password"/>
+							
+						<b  class="red err" v-show="errStatus['wcgtradepwd']" v-text="errStatus['wcgtradepwd']"></b>
+					</p>
+					<input type="button" class="bg_red" value="<?php echo $GLOBALS['MSG']['MODIFY_BIND'];?>" @click.stop="submit('wcg')">
+				</div>
+				<i></i>
+				<!-- 欧联平台 -->
+				<div>
+					<h3 class="mb20"><?php echo $GLOBALS['MSG']['OTHER_STAGE'];?>
+						<span class="fr">
+							<button class="off"  @click.prevent.stop="offFun('eunex')"
+								:style="parseInt(eunex.status)==1?'background:#0075a9':'background:#666'">
+								<i :style="parseInt(eunex.status)==1?'left:30px':'left:0.4px'"></i>
+							</button>
+							<a v-show="parseInt(eunex.status)==1"><?php echo $GLOBALS['MSG']['OPEN'];?></a>
+							<a v-show="parseInt(eunex.status)==2"><?php echo $GLOBALS['MSG']['CLOSE'];?></a>
+						</span>			
+					</h3>
+					<b><?php echo $GLOBALS['MSG']['STAGE_ACCOUNT'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="eunex.numbers"
+							@blur="verify('address','eunex','numbers','<?php echo $GLOBALS['MSG']['RIGHT_EUEX'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_RIGHT_UNEX'];?>"  type="text"/>
+						<b  class="red err" v-show="errStatus['eunexnumbers']" v-text="errStatus['eunexnumbers']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['PERSON_CODE'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="eunex.address"
+							@blur="verify('address','eunex','address','<?php echo $GLOBALS['MSG']['RIGHT_PERSON_QRCODE'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_PERSON_QRCODE'];?>！"  type="text"/>
+						<b  class="red err" v-show="errStatus['eunexaddress']" v-text="errStatus['eunexaddress']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['F_TRACT_PSW'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="eunex.tradepwd"
+							@blur="verify('pwd','eunex','tradepwd','<?php echo $GLOBALS['MSG']['RIGHT_PSW'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_PSW'];?>！"  type="password"/>
+						<b  class="red err" v-show="errStatus['eunextradepwd']" v-text="errStatus['eunextradepwd']"></b>
+					</p>
+					<input type="button" class="bg_red" value="<?php echo $GLOBALS['MSG']['MODIFY_BIND'];?>"  @click.stop="submit('eunex')">
+				</div>
+				<i></i>
+				<!-- 东南亚平台 -->
+				<div>
+					<h3 class="mb20"><?php echo $GLOBALS['MSG']['OTHER_STAGE'];?>
+						<span class="fr">
+							<button class="off"  @click.prevent.stop="offFun('mbaex')"
+								:style="parseInt(mbaex.status)==1?'background:#0075a9':'background:#666'">
+								<i :style="parseInt(mbaex.status)==1?'left:30px':'left:0.4px'"></i>
+							</button>
+							<a v-show="parseInt(mbaex.status)==1"><?php echo $GLOBALS['MSG']['OPEN'];?></a>
+							<a v-show="parseInt(mbaex.status)==2"><?php echo $GLOBALS['MSG']['CLOSE'];?></a>
+						</span>	
+					</h3>
+					<b><?php echo $GLOBALS['MSG']['STATEGE_UID'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="mbaex.numbers"
+							@blur="verify('address','mbaex','numbers','<?php echo $GLOBALS['MSG']['RIGHT_MBAEX'];?>')" 
+							placeholder="<?php echo $GLOBALS['MSG']['PERSON_UID'];?>！"  type="text"/>
+						<b class="red err" v-show="errStatus['mbaexnumbers']" v-text="errStatus['mbaexnumbers']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['PERSON_CODE'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="mbaex.address"
+							@blur="verify('address','mbaex','address','<?php echo $GLOBALS['MSG']['RIGHT_QRCODE'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_QRCODE'];?>！"  type="text"/>
+						<b  class="red err" v-show="errStatus['mbaexaddress']" v-text="errStatus['mbaexaddress']"></b>
+					</p>
+					<b><?php echo $GLOBALS['MSG']['F_TRACT_PSW'];?>:</b>
+					<p class="mb20 errp">
+						<input v-model="mbaex.tradepwd"
+							@blur="verify('pwd','mbaex','tradepwd','<?php echo $GLOBALS['MSG']['RIGHT_PSW'];?>！')" 
+							placeholder="<?php echo $GLOBALS['MSG']['ENTER_PSW'];?>！"  type="password"/>
+						<b  class="red err" v-show="errStatus.mbaextradepwd" v-text="errStatus.mbaextradepwd"></b>
+					</p>
+					<input type="button" class="bg_red" value="<?php echo $GLOBALS['MSG']['MODIFY_BIND'];?>"  @click.stop="submit('mbaex')">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div :class="{'alertBox':alertMsg}" v-if="alertMsg">
+		<div v-text="alertMsg"  class="red err"></div>
+	</div>
+	<jsj-alert :show-status="showAlert" @callback="submitFun(submitData)" @hidebox="hideFun" v-cloak>
+		<div class="alert_contents black900_f" slot="headerText"><?php echo $GLOBALS['MSG']['IF_UPDATE'];?>！</div>
+    	<span slot="Ok" class="black900_f"><?php echo $GLOBALS['MSG']['SURE'];?></span>
+    	<span slot="No" class="black900_f"><?php echo $GLOBALS['MSG']['DELETE'];?></span>
+	</jsj-alert>
+</div>

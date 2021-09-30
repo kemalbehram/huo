@@ -1,0 +1,52 @@
+body {
+  padding-top: 70px;
+  background: #f2f2f2; }
+  body .pl15 {
+    padding-left: 15px; }
+  body .F15 {
+    font-size: 15px; }
+  body .mH500 {
+    min-height: 500px; }
+  body .headerBox p {
+    text-align: right;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+    min-width: 320px;
+    width: 80%; }
+  body .headerBox input {
+    width: 800px;
+    height: 42px;
+    padding: 0 10px;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    border: 1px solid #ffffff5c;
+    margin-left: 10px; }
+  body .content .box1200 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 10px auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 15px; }
+  body .content th {
+    background: #e9e9e9; }
+  body .content td, body .content th {
+    line-height: 30px;
+    height: 30px;
+    text-align: center; }
+  body .content td:first-child, body .content th:first-child {
+    text-align: left;
+    padding-left: 10px; }
+  body .content td:last-child, body .content th:last-child {
+    text-align: center; }
+  body .content tr:nth-child(2n) {
+    color: #263040;
+    background: #fff; }
+  body .content tr:nth-child(2n-1) {
+    color: #666;
+    background: #f2f2f2; }
+
+/*# sourceMappingURL=activity.mid.css.map*/

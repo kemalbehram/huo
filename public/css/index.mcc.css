@@ -1,0 +1,82 @@
+.nav_contain {
+  position: relative; }
+
+.dob_contain {
+  padding: 0;
+  min-width: 800px; }
+
+.dob_contain > img {
+    display: block;
+    min-width: 900px;
+    width: 100%; }
+
+.footer-content {
+  display: none; }
+
+.jump_top {
+  display: inline-block;
+  position: absolute;
+  top: -8px;
+  right: 58px;
+  z-index: 66;
+  width: 58px;
+  height: 58px;
+  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAeCAMAAAB3ypxcAAAAGFBMVEUAAABHcEwAAAAAAAAAAAAAAAAAAAAAAACpMnD0AAAACHRSTlN/AB0GbV9ON4p0tK8AAAC5SURBVDjL1ZJJFsQgCESZvf+NO4hGE0zMtmsl+l+JlIB3sWnaQ0iUAijvMKcWHCRKiDIHyYsQMwcLasHBisocLKnETRhN1L2aLy10abS8jXdg+AnDv8F4KB6Y10cBBqd8X9u6Dk1aYTcM9SyIBwal9lZA2zTFE2LHS1TscRxekV///tKCtI6Fi51uH7BnN3HNvV0w7lhIeeNWyNVSeHajOazNS3HhFtfou9vIhBLGJNa/gkmonqt07Ac8yQZWqpslWgAAAABJRU5ErkJggg==) center no-repeat;
+  -webkit-box-shadow: 0 0 12px #666;
+     -moz-box-shadow: 0 0 12px #666;
+          box-shadow: 0 0 12px #666; }
+
+.jump_top:hover {
+    background-color: #eee;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s; }
+
+.index_link {
+  margin: 0 auto;
+  padding-top: 48px;
+  padding-bottom: 30px;
+  position: relative;
+  min-height: 172px;
+  width: 75%; }
+
+.index_link .index_link_logo {
+    font-size: 28px; }
+
+.index_link .index_link_logo img {
+      margin-right: 10px;
+      width: 88px;
+      height: 100%; }
+
+.index_link .index_link_p {
+    font-size: 18px;
+    line-height: 60px; }
+
+.index_link .link_ul.link_padd {
+    margin-right: 70px; }
+
+.index_link .link_ul .link_title {
+    padding-bottom: 22px;
+    font-size: 16px; }
+
+.index_link .link_ul .link_li a {
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px; }
+
+.index_link .link_ul .link_li a:hover {
+      -webkit-transition: all .35;
+      -o-transition: all .35;
+      -moz-transition: all .35;
+      transition: all .35;
+      color: #ee2222; }
+
+@media screen and (max-width: 1199px) {
+  .dob_contain {
+    min-width: auto;
+    overflow: auto; }
+  .jump_top, .mob_hide {
+    display: none; } }
+
+/*# sourceMappingURL=index.mcc.css.map*/

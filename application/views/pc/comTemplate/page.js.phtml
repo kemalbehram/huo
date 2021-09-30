@@ -1,0 +1,12 @@
+<?php // $libs = json_decode(file_get_contents(PATH_TPL.'/../../../public/libs.json'), true); ?>
+<?php if ($hasLibs) { ?>
+  <script src=<?php echo "/libs".'/'.$libs['libs']['js'] ?>></script>
+<?php }?>
+<?php
+$scrips = '';
+$oo = '';
+foreach ($statics[$layout['controller'].'.'.$layout['action']]['js'] as $v) {
+  if ($v)  $scrips.= "<script src=$v></script>";
+}
+echo $scrips;
+?>
