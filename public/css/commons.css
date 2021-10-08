@@ -1982,7 +1982,7 @@ button:hover {
   color: rgba(15, 187, 144, 0.2); }
 
 .default_f .blue200_f {
-  color: #008cff; }
+  color: #2d6cfa; }
 
 .default_f .blue500_f {
   color: #05599F; }
@@ -3217,7 +3217,7 @@ button:hover {
   color: rgba(15, 187, 144, 0.2); }
 
 .default_f .blue200_f {
-  color: #008cff; }
+  color: #2d6cfa; }
 
 .default_f .blue500_f {
   color: #05599F; }
@@ -3279,7 +3279,7 @@ button:hover {
     transition: all .3s; }
 
 .active-tab {
-  color: #3366cc; }
+  color: #2d6cfa; }
 
 .rf_main {
   padding: 0 45px 45px 40px;
@@ -3398,11 +3398,11 @@ button:hover {
 
 .time_condition .act_btn {
     color: #fff;
-    background: #4168b2; }
+    background: #2d6cfa; }
 
 .time_condition .act_btn:hover {
       color: #fff;
-      background: #4168b2;
+      background: #2d6cfa;
       cursor: default; }
 
 .time_condition input[type="text"] {

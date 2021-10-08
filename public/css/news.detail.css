@@ -125,7 +125,7 @@
 
 .news-win .con-tit .act-ti {
       color: #fff;
-      background: #4267b2; }
+      background: #2d6cfa; }
 
 .news-win .page-list {
     -webkit-box-sizing: border-box;
@@ -298,10 +298,10 @@
   color: #fff;
   line-height: 39px;
   height: 39px;
-  background: #4267b2; }
+  background: #2d6cfa; }
 
 .ns-rf .ns-btn:hover {
-    background-color: #3156a1;
+    background-color: #2d6cfa;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     -moz-transition: all .3s;

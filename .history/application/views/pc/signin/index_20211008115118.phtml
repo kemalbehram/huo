@@ -1,0 +1,1345 @@
+<link href="/websiteoutcss/bootstarp.css" rel="stylesheet">
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="global"></div>
+<div class="bg-content" id="signTpl">
+    <div class="container" v-cloak @click.stop="closeArea">
+        <div class="login_wrapper">
+            <!-- 注册 -->
+            <div class="login_form" v-if="now_type==='re'">
+                <p onclick="funJigsaw()"><?php echo $GLOBALS['MSG']['CREATE_ACCOUNT'];?></p>
+                <div class="log_reg_tab">
+                    <!-- 注册手机号邮箱切换 -->
+                    <ul class="l_style switch-tab register_switch_phone" v-if="now_type === 're'"
+                        @click.stop="switchAccessType">
+                        <li data-acctype="phone" :class="[accessType === 'phone' ? 'selected' : '']">
+                            <?php echo $GLOBALS['MSG']['PHONE_NUM'];?></li>
+                        <li data-acctype="email" :class="[accessType === 'email' ? 'selected' : '']">
+                            <?php echo $GLOBALS['MSG']['EMAIL'];?></li>
+                    </ul>
+                </div>
+                <div>
+                    <div v-if="accessType === 'phone'">
+                        <div class="img_box">
+                            <span class="phone_icon icon"></span>
+                        </div>
+                        <label class="phone_label fn_register_label" @click="area_change('register')">
+                            <div flex="dir:left box:mean" class="area_num">
+                                <span>
+                                    {{area_num}}
+                                </span>
+                                <span flex="main:center cross:center"><img src="/imgs/reg/reg_bot-repeat.png"
+                                        alt=""></span>
+                            </div>
+                        </label>
+                        <input class="input_box input_phone"
+                            placeholder="<?php echo $GLOBALS['MSG']['PLEASE_ENTER_PHONENUM'];?>"
+                            v-model.trim="queryRe.phone.account" maxlength="11"
+                            oninput="value=value.replace(/[^\d||\.]/g,'')"
+                            @blur='verify(queryRe.phone.account, "account")'>
+                    </div>
+                    <div v-if="accessType === 'phone'">
+                        <p class="corret_p"
+                            v-if="(errorArr.accStatus === 0 || errorArr.accStatus === 10) && accessType === 'phone'">
+                        </p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 1 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['NOT_NULL'];?></p>
+                        <!-- <p class="corret_p" v-if="errorArr.accStatus === 2 && accessType === 'phone'">状态3</p> -->
+                        <p class="corret_p" v-if="errorArr.accStatus === 3 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['PHONE_FORMAT_ERROR'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 4 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['PHONE_HAD_REGISTER'];?></p>
+                    </div>
+                    <gemini-scrollbar class="my-scroll-bar panel_language fn_register_area" v-cloak
+                        v-if="area_show && area_type == 'register' ">
+                        <ul>
+                            <?php foreach ($this->layout['areadata'] as $k => $v) { ?>
+                            <li :class="{register_font: true, register_warp: true, fn_active: register_index == <?php echo $k?>}"
+                                @click="arec_click('<?php echo $k?>, <?php echo $v['area_code'] ?>')">
+                                <span class="register_area_code gray500_f"
+                                    flex-box="0"><?php echo $v['area_code'] ?></span>
+                                <span flex-box="1"
+                                    class="register_area_name gray500_f"><?php echo $v['country'] ?></span>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </gemini-scrollbar>
+                    <!-- 邮箱 -->
+                    <div v-if="accessType == 'email'">
+                        <div class="img_box">
+                            <span class="email_icon icon"></span>
+                        </div>
+                        <input class="input_box" placeholder=" <?php echo $GLOBALS['MSG']['PLEASE_ENTER_EMAIL'];?>"
+                            maxlength="100"
+                            :class="{register_input:true, register_input_right: errorArr.accStatus === 10 && now_type === 're'}"
+                            v-model.trim="queryRe.email.account" @blur='verify(queryRe.email.account, "account")'
+                            oninput="value=value.replace(/[^\d||\.||\_||\@||a-z]/g,'')"
+                            @focus="verify(queryRe.email.account, 'account', 'focus')"
+                            @keyup="inputcan(queryRe.email.account, 'account')"
+                            @keyup.enter="verify(queryRe.email.account ,'account', 'enter')">
+                    </div>
+                    <div v-if="accessType === 'email'">
+                        <p class="corret_p"
+                            v-if="(errorArr.accStatus === 0 || errorArr.accStatus === 10) && accessType === 'email'">
+                        </p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 1 && accessType === 'email'">
+                            <?php echo $GLOBALS['MSG']['OFFEN_USE_EMAIL'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 2 && accessType === 'email'">
+                            <?php echo $loginLang['SUGGEST_EMAIL'] ?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 3 && accessType === 'email'">
+                            <?php echo $GLOBALS['MSG']['EMAIL_FORMAT'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 4 && accessType === 'email'">{{errMes}}</p>
+                    </div>
+                    <!-- 密码 -->
+                    <div>
+                        <div class="img_box">
+                            <span class="pwd_icon icon"></span>
+                        </div>
+                        <input class="input_box" v-if="accessType === 'phone'" flex-box="1" type="password"
+                            maxlength="16"
+                            :placeholder="now_type === 're' ? '<?php echo $layout['lang']['ASSEMBLAGE']; ?>' : '<?php echo $layout['lang']['LOG_PASSWORD']?>'"
+                            :class="{register_input:true, register_input_right: errorArr.pwdStatus === 6 || errorArr.pwdStatus === 7 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryRe.phone.pwd"
+                            @blur.stop='verify(queryRe.phone.pwd, "pwd")'
+                            @focus.stop="verify(queryRe.phone.pwd, 'pwd', 'focus')"
+                            @keyup="inputcan(queryRe.phone.pwd, 'pwd')"
+                            @keyup.enter="verify(queryRe.phone.pwd, 'pwd', 'enter')" type="password">
+                        <input class="input_box" v-if="accessType === 'email'" flex-box="1" type="password"
+                            maxlength="16"
+                            :placeholder="now_type === 're' ? '<?php echo $layout['lang']['ASSEMBLAGE']; ?>' : '<?php echo $layout['lang']['LOG_PASSWORD']?>'"
+                            :class="{register_input:true, register_input_right: errorArr.pwdStatus === 6 || errorArr.pwdStatus === 7 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryRe.email.pwd"
+                            @blur.stop='verify(queryRe.email.pwd, "pwd")'
+                            @focus.stop="verify(queryRe.email.pwd, 'pwd', 'focus')"
+                            @keyup="inputcan(queryRe.email.pwd, 'pwd')"
+                            @keyup.enter="verify(queryRe.email.pwd, 'pwd', 'enter')">
+                    </div>
+                    <div>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 0 || errorArr.pwdStatus === 10"></p>
+                        <p class="corret_p " v-if="errorArr.pwdStatus === 1">
+                            <?php echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 2">
+                            <?php  echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 3">
+                            <?php echo $layout['lang']['PASSWORD_LENGTH_UNENOUGH']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 4">{{errMes}}</p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 5"><span
+                                class="min_tip"></span><?php echo $layout['lang']['ASSEMBLAGE'] ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 7"><span
+                                class="max_tip"></span><?php echo $layout['lang']['PASSWORD_WARING_THREE']; ?></p>
+                    </div>
+                    <!-- 确认密码 -->
+                    <div v-if="now_type === 're'">
+                        <div class="img_box">
+                            <span class="confirm_pwd_icon icon"></span>
+                        </div>
+                        <input class="input_box" v-if="accessType==='phone'" flex-box="1" type="password" maxlength="16"
+                            placeholder="<?php echo $layout['lang']['INPUT_AGAIN']; ?>"
+                            :class="{register_input:true, register_input_right: errorArr.repwdStatus === 10 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryRe.phone.repwd"
+                            @blur='verify(queryRe.phone.repwd, "repwd")'
+                            @focus="verify(queryRe.phone.repwd, 'repwd', 'focus')"
+                            @keyup="inputcan(queryRe.phone.repwd, 'repwd')"
+                            @keyup.enter="verify(queryRe.phone.repwd, 'repwd', 'enter')" type="password">
+                        <input class="input_box" v-if="accessType==='email'" flex-box="1" type="password" maxlength="16"
+                            placeholder="<?php echo $layout['lang']['INPUT_AGAIN']; ?>"
+                            :class="{register_input:true, register_input_right: errorArr.repwdStatus === 10 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryRe.email.repwd"
+                            @blur='verify(queryRe.email.repwd, "repwd")'
+                            @focus="verify(queryRe.email.repwd, 'repwd', 'focus')"
+                            @keyup="inputcan(queryRe.email.repwd, 'repwd')"
+                            @keyup.enter="verify(queryRe.email.repwd, 'repwd', 'enter')" />
+                    </div>
+                    <!-- <div v-if="accessType==='phone'"> -->
+                    <div>
+                        <p class="corret_p"
+                            v-if="(errorArr.repwdStatus === 0 || errorArr.repwdStatus === 10) && now_type === 're'"></p>
+                        <p class="corret_p" v-if="errorArr.repwdStatus === 1 && now_type === 're'">
+                            <?php echo $layout['lang']['INPUT_AGAIN']; ?></p>
+                        <p class="corret_p" v-if="errorArr.repwdStatus === 2 && now_type === 're'">
+                            <?php echo $layout['lang']['INPUT_AGAIN']; ?></p>
+                        <p class="corret_p" v-if="errorArr.repwdStatus === 3 && now_type === 're'">
+                            <?php echo $layout['lang']['AGAIG_PASSWORD_LENGTH_UNENOUGH']; ?></p>
+                        <p class="corret_p" v-if="errorArr.repwdStatus === 4 && now_type === 're'">{{errMes}}</p>
+                        <p class="corret_p" v-if="errorArr.repwdStatus === 8 && now_type === 're'"><span
+                                class="min_tip"></span><?php echo $layout['lang']['PASSWORD_LENGTH_DIFFERENT']; ?></p>
+                    </div>
+                    <!-- 验证 -->
+                    <div v-if="accessType==='phone'" style="margin-bottom: 12px;">
+                        <div class="img_box bg">
+                            <span class="verify_icon icon"></span>
+                        </div>
+                        <button class="input_box vertify"
+                            @click="blockFun1()"><?php echo $GLOBALS['MSG']['CLICK_VERIFY'];?></button>
+                        <!--验证中-loading -->
+                        <div class="loading_icon" v-show="loading_icon">
+                            <img src="/imgs/reg/loading4.png" alt="">
+                        </div>
+                        <div class="block_verify" v-show="register_verify">
+                            <div id="captcha"></div>
+                            <div id="msg" class="msg"></div>
+                            <div class="close_circle" v-show="register_closeIcon" @click="closeVerify"></div>
+                        </div>
+                        <!-- 验证成功-勾选状态 -->
+                        <div class="verify_success" v-show="register_success">
+                            <div class="slide_block"><?php echo $GLOBALS['MSG']['VERIFY_SUCCESS'];?></div>
+                            <div class="sucess_icon">
+                                <img src="/imgs/reg/circle.png">
+                            </div>
+                        </div>
+                        <!-- 验证成功-图片遮罩 -->
+                        <div class="verify_bg" v-show="verify_bg"></div>
+                    </div>
+                    <!--注册验证码错误提示  -->
+                    <div v-if="accessType==='phone'">
+                        <p class="corret_p slide_tips" v-show="blockShow">
+                            <?php echo $GLOBALS['MSG']['CLICK_VERIFY_SLIDE'];?></p>
+                    </div>
+                    <!-- <div v-if="accessType==='email'">
+                        <p class="corret_p slide_email_tips" v-show="blockShow">11<?php echo $GLOBALS['MSG']['CLICK_VERIFY_SLIDE'];?></p>
+                    </div> -->
+                    <!-- 获取验证码 -->
+                    <div v-if="accessType==='phone'" id="j_v_status" style="display:none">
+                        <div class="img_box">
+                            <span class="verify_icon icon"></span>
+                            <span class="verify_code" @click="get_verify('0')" v-cloak>
+                                {{setTimes === "out" ? '<?php echo $layout['lang']["ACQUIRING"] ?>' : times+'<?php echo $layout['lang']['GET_PHONECODE_AGAING'] ?>'}}</span>
+                        </div>
+                        <input class="input_box letter" placeholder="<?php echo $GLOBALS['MSG']['INPUT_LETTER_CODE'];?>"
+                            maxlength="6" v-model="queryRe.phone.code" @blur='verify(queryRe.phone.code, "code")'
+                            maxlength="6" @focus="verify(queryRe.phone.code, 'code', 'focus')"
+                            @keyup="inputcan(queryRe.phone.code, 'code')"
+                            @keyup.enter="verify(queryRe.phone.code, 'code', 'enter')">
+                    </div>
+
+                    <div v-if="accessType==='phone'" id="p_v_status" style="display:none">
+                        <p class="corret_p" v-if="now_type === 're'">
+                            <p class="corret_p" v-if="(errorArr.codeStatus === 0 || errorArr.codeStatus === 10)"></span>
+                                <p class=" corret_p " v-if="errorArr.codeStatus === 1 && now_type === 're'">
+                                    <?php echo $layout['lang']['PLEASE_TEL_YZM']; ?></p>
+                                <p class=" corret_right " v-if="errorArr.codeStatus === 2 && now_type === 're'">
+                                    <?php echo $layout['lang']['PLEASE_TEL_YZM']; ?></p>
+                                <p class=" corret_p " v-if="errorArr.codeStatus === 3 && now_type === 're'">
+                                    <?php echo $layout['lang']['NUMBER_UNENOUGH']; ?></p>
+                                <p class=" corret_right " v-if="errorArr.codeStatus === 4 && now_type === 're'"
+                                    style="text-align:left">{{errMes}}</p>
+                                <p v-if="voice_set && now_type === 're'" class=" corret_right ">
+                                    <?php echo $layout['lang']['CANGET'] ?>{{times}}<?php echo $layout['lang']['GET_VOICE_CODE'] ?>55
+                                </p>
+                                <p v-if="voice_warn && now_type === 're'" class=" corret_right ">
+                                    <?php echo $layout['lang']['ATTENTION_CALLIMG'] ?></p>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="user_agree_box">
+                        <input type="checkbox" name="" value="" v-model="checkeds" :checked="checkeds"
+                            class="register_checkbox">
+                        <a href="/index/policy" class="user_agree"><?php echo $GLOBALS['MSG']['USER_PROTOCOL'];?></a>
+                        <!-- 未勾选提示 -->
+                        <div class="register_agreemt_uncheck" v-if="!checkeds && now_type === 're'">
+                            <div class="register_content">
+                                <span class="register_sj"></span>
+                                <?php echo $GLOBALS['MSG']['PLEASE_CHOOSE'];?>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="register_btn mar_top"
+                        @click="register_submit"><?php echo $GLOBALS['MSG']['REGISTER'];?></button>
+                    <div class="no_account">
+                        <span class="forget_pwd"
+                            @click="forgetPwdFun('lo')"><?php echo $GLOBALS['MSG']['GO_TO_LOGIN'];?></span>
+                        <!-- <span class="register_now">立即登录</span> -->
+                        <!-- <div class="forget_pwd" @click="forget()">忘记密码？</div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 登录 -->
+            <div class="login_form" v-if="now_type==='lo'">
+                <p><?php echo $GLOBALS['MSG']['USER_LOGIN'];?></p>
+                <!-- 登录手机号邮箱切换 -->
+                <ul class="l_style switch-tab register_switch_phone" v-if="now_type === 'lo'"
+                    @click.stop="switchAccessType">
+                    <li data-acctype="phone" :class="[accessType === 'phone' ? 'selected' : '']">
+                        <?php echo $loginLang['PHONE_LOGIN']?><?php echo $GLOBALS['MSG']['PHONE_NUM'];?></li>
+                    <li data-acctype="email" :class="[accessType === 'email' ? 'selected' : '']">
+                        <?php echo $loginLang['EMAIL_LOGIN']?><?php echo $GLOBALS['MSG']['EMAIL'];?></li>
+                </ul>
+                <div v-if="now_type==='lo'">
+                    <!-- 登录手机号 -->
+                    <div v-if="accessType === 'phone'">
+                        <div class="img_box">
+                            <span class="phone_icon icon"></span>
+                        </div>
+                        <label class="phone_label fn_register_label" @click="area_change('login')">
+                            <div flex="dir:left box:mean" class="area_num">
+                                <span>{{area_num}}</span>
+                                <span flex="main:center cross:center"><img src="/imgs/reg/reg_bot-repeat.png"
+                                        alt=""></span>
+                            </div>
+                        </label>
+                        <input class="input_box input_phone"
+                            placeholder="<?php echo $GLOBALS['MSG']['PLEASE_ENTER_PHONENUM'];?>" autocomplete="off"
+                            maxlength="11" v-model.trim="queryLo.phone.account"
+                            @blur='verify(queryLo.phone.account, "account")'
+                            @focus="verify(queryLo.phone.account, 'account', 'focus')"
+                            oninput="value=value.replace(/[^\d||\.]/g,'')"
+                            @keyup="inputcan(queryLo.phone.account, 'account')"
+                            @keyup.enter="verify(queryLo.phone.account ,'account', 'enter')">
+                    </div>
+                    <div v-if="accessType === 'phone'">
+                        <p class="corret_p"
+                            v-if="(errorArr.accStatus === 0 || errorArr.accStatus === 10) && accessType === 'phone'">
+                        </p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 1 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['NOT_NULL'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 2 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['NOT_NULL'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 3 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['PHONE_FORMAT_ERROR'];?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 4 && accessType === 'phone'">
+                            <?php echo $GLOBALS['MSG']['PHONE_NOT_EXIT'];?></p>
+                    </div>
+                    <gemini-scrollbar class="my-scroll-bar panel_language fn_register_area" v-cloak
+                        v-if="area_show && area_type == 'login'">
+                        <ul>
+                            <?php foreach ($this->layout['areadata'] as $k => $v) { ?>
+                            <li :class="{register_font: true, register_warp: true, fn_active: register_index == <?php echo $k?>}"
+                                @click="arec_click('<?php echo $k?>, <?php echo $v['area_code'] ?>')">
+                                <span class="register_area_code gray500_f"
+                                    flex-box="0"><?php echo $v['area_code'] ?></span>
+                                <span flex-box="1"
+                                    class="register_area_name gray500_f"><?php echo $v['country'] ?></span>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </gemini-scrollbar>
+                    <!-- 登录邮箱 -->
+                    <div v-if="accessType == 'email'">
+                        <div class="img_box">
+                            <span class="email_icon icon"></span>
+                        </div>
+                        <input class="input_box" placeholder="<?php echo $GLOBALS['MSG']['PLEASE_ENTER_EMAIL'];?>"
+                            autocomplete="off"
+                            :class="{register_input:true, register_input_right: errorArr.accStatus === 10}"
+                            v-model.trim="queryLo.email.account" @blur='verify(queryLo.email.account, "account")'
+                            maxlength="100" oninput="value=value.replace(/[^\d||\.||\_||\@||a-z]/g,'')"
+                            @focus="verify(queryLo.email.account, 'account', 'focus')"
+                            @keyup="inputcan(queryLo.email.account, 'account')"
+                            @keyup.enter="verify(queryLo.email.account ,'account', 'enter')">
+                    </div>
+                    <div v-if="accessType === 'email'">
+                        <p class="corret_p"
+                            v-if="(errorArr.accStatus === 0 || errorArr.accStatus === 10) && accessType === 'email'">
+                        </p>
+                        <p class="corret_p " v-if="errorArr.accStatus === 1 && accessType === 'email'">
+                            <?php echo $layout['lang']['email_register_lang']['SUGGEST_EMAIL'] ?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 2 && accessType === 'email'">
+                            <?php echo $layout['lang']['email_register_lang']['SUGGEST_EMAIL'] ?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 3 && accessType === 'email'">
+                            <?php echo $layout['lang']['email_register_lang']['EMAIL_FORMAT'] ?></p>
+                        <p class="corret_p" v-if="errorArr.accStatus === 4 && accessType === 'email'">{{errMes}}</p>
+                    </div>
+                    <!-- 登录密码 -->
+                    <div>
+                        <div class="img_box">
+                            <span class="pwd_icon icon"></span>
+                        </div>
+                        <input class="input_box" placeholder="<?php echo $GLOBALS['MSG']['PLEASE_ENTER_LOGIN_PWD'];?>"
+                            type="password" autocomplete="off" v-if="accessType === 'phone'" type="password"
+                            maxlength="16"
+                            :placeholder="now_type === 're' ? '<?php echo $layout['lang']['ASSEMBLAGE']; ?>' : '<?php echo $layout['lang']['LOG_PASSWORD']?>'"
+                            :class="{register_input:true, register_input_right: errorArr.pwdStatus === 6 || errorArr.pwdStatus === 7 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryLo.phone.pwd"
+                            @blur.stop='verify(queryLo.phone.pwd, "pwd")'
+                            @focus.stop="verify(queryLo.phone.pwd, 'pwd', 'focus')"
+                            @keyup="inputcan(queryLo.phone.pwd, 'pwd')"
+                            @keyup.enter="verify(queryLo.phone.pwd, 'pwd', 'enter')">
+                        <!--  -->
+                        <input class="input_box" autocomplete="off" v-if="accessType === 'email'" type="password"
+                            maxlength="16"
+                            :placeholder="now_type === 're' ? '<?php echo $layout['lang']['ASSEMBLAGE']; ?>' : '<?php echo $layout['lang']['LOG_PASSWORD']?>'"
+                            :class="{register_input:true, register_input_right: errorArr.pwdStatus === 6 || errorArr.pwdStatus === 7 }"
+                            onpaste="return false" oncontextmenu="return false" oncopy="return false"
+                            oncut="return false" v-model="queryLo.email.pwd"
+                            @blur.stop='verify(queryLo.email.pwd, "pwd")'
+                            @focus.stop="verify(queryLo.email.pwd, 'pwd', 'focus')"
+                            @keyup="inputcan(queryLo.email.pwd, 'pwd')"
+                            @keyup.enter="verify(queryLo.email.pwd, 'pwd', 'enter')">
+                    </div>
+                    <div>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 0 || errorArr.pwdStatus === 10"></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 1">
+                            <?php echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 2">
+                            <?php  echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 3">
+                            <?php echo $layout['lang']['PASSWORD_LENGTH_UNENOUGH']; ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 4">{{errMes}}</p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 5"><span
+                                class="min_tip"></span><?php echo $layout['lang']['PASSWORD_WARING_FIRST'] ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 6"><span
+                                class="middle_tip"></span><?php echo $layout['lang']['PASSWORD_WARING_TWO'] ?></p>
+                        <p class="corret_p" v-if="errorArr.pwdStatus === 7"><span
+                                class="max_tip"></span><?php echo $layout['lang']['PASSWORD_WARING_THREE']; ?></p>
+                    </div>
+                    <!-- 获取验证码-手机 -->
+                    <div v-if="accessType==='phone'" id="j_v_status" class="login">
+                        <div class="img_box bg">
+                            <span class="verify_icon icon"></span>
+                        </div>
+                        <button class="input_box vertify"
+                            @click="blockFun2()"><?php echo $GLOBALS['MSG']['CLICK_VERIFY'];?></button>
+                        <!--验证中-loading -->
+                        <div class="loading_icon" v-show="loading_icon">
+                            <img src="/imgs/reg/loading4.png" alt="">
+                        </div>
+                        <div class="block_verify" v-show="showBlockVerify">
+                            <div id="captcha2"></div>
+                            <div id="msg" class="msg"></div>
+                            <div class="close_circle" v-show="closeIcon" @click="closeVerify"></div>
+                        </div>
+                        <!-- 验证成功-勾选状态 -->
+                        <div class="verify_success " v-show="verify_success">
+                            <div class="slide_block"><?php echo $GLOBALS['MSG']['VERIFY_SUCCESS'];?></div>
+                            <div class="sucess_icon">
+                                <img src="/imgs/reg/circle.png">
+                            </div>
+                        </div>
+                        <!-- 验证成功-图片遮罩 -->
+                        <div class="verify_bg" v-show="verify_bg"></div>
+                    </div>
+                    <!--获取验证码-邮箱  -->
+                    <div v-if="accessType==='email'" id="j_v_status" class="login">
+                        <div class="img_box bg">
+                            <span class="verify_icon icon"></span>
+                        </div>
+                        <button class="input_box vertify"
+                            @click="blockFun3()"><?php echo $GLOBALS['MSG']['CLICK_VERIFY'];?></button>
+                        <!--验证中-loading -->
+                        <div class="loading_icon" v-show="loading_icon">
+                            <img src="/imgs/reg/loading4.png" alt="">
+                        </div>
+                        <div class="block_verify" v-show="showBlockVerifyEmail">
+                            <div id="captcha3"></div>
+                            <div id="msg" class="msg"></div>
+                            <div class="close_circle" v-show="closeIcon" @click="closeVerify"></div>
+                        </div>
+                        <!-- 验证成功-勾选状态 -->
+                        <div class="verify_success " v-show="reemail_verify_success">
+                            <div class="slide_block"><?php echo $GLOBALS['MSG']['VERIFY_SUCCESS'];?></div>
+                            <div class="sucess_icon">
+                                <img src="/imgs/reg/circle.png">
+                            </div>
+                        </div>
+                        <!-- 验证成功-图片遮罩 -->
+                        <div class="verify_bg" v-show="verify_bg"></div>
+                    </div>
+                    <!--登录验证提示  -->
+                    <p class="corret_p blocktips " v-show="blockShow">
+                        <?php echo $GLOBALS['MSG']['CLICK_VERIFY'];?>
+                    </p>
+
+                </div>
+                <button class="register_btn"
+                    @click="register_submit"><?php echo $GLOBALS['MSG']['USER_LOGIN'];?></button>
+                <div class="no_account">
+                    <span class="huo_w"><?php echo $GLOBALS['MSG']['NOT_HUOWANG_ACCOUNT'];?>?</span><span
+                        class="register_now"
+                        @click="forgetPwdFun('re')"><?php echo $GLOBALS['MSG']['REGISTER_RIGHT_NOW'];?></span>
+                    <div class="forget_pwd" @click="jump('forget')"><?php echo $GLOBALS['MSG']['FORGET_PWD'];?>？</div>
+                </div>
+            </div>
+            <div id="AlertHTML" v-cloak>
+                <div class="mask_contain" flex="main:center cross:center" v-if="showStatus">
+                    <div class="alert_content relative_dom" flex="dir:top main:center cross:center">
+                        <span class="close_btn" @click="hide">×</span>
+                        <slot name="content"></slot>
+                        <div class="btn_line"><button @click="hide" class="orange500_bg white100_f">
+                                <slot name="btnTitle"></slot>
+                            </button></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 找回密码 v-cloak @click.stop="closeArea"-->
+            <div class="err_all">
+                <div class="register_dom" v-if="forgetPwd">
+                    <div class="reg_mask_contain_1200 black900_bg"></div>
+                </div>
+                <transition name="zoom">
+                    <div class="forget_pwd register_dom min_cot" v-if="forgetPwd">
+                        <alert-header v-cloak v-on:alertback="alertfn">
+                            <p slot="content"><?php echo $layout['lang']['FORGET_PWD']; ?></p>
+                        </alert-header>
+                        <div class="register_pc_alert forget_pwd_alert white500_bg">
+                            <div
+                                v-if="(userInfo.email && userInfo.phone!= '****') || Object.keys(userInfo).length == 0">
+                                <span class="register_alert_close register_alert_left" @click="close_alert"></span>
+                                <ul class="switch-tab register_switch_phone"
+                                    v-if="forgetStep === 1 || (noStepOne && forgetStep != 3)"
+                                    @click.stop="switchAccessType">
+                                    <li data-acctype="email" :class="[accessType === 'email' ? 'selected' : '']">
+                                        <?php echo $GLOBALS['MSG']['EMAIL_RESET'];?></li>
+                                    <li data-acctype="phone" :class="[accessType === 'phone' ? 'selected' : '']">
+                                        <?php echo $GLOBALS['MSG']['PHONE_RESET'];?></li>
+                                </ul>
+                                <ul class="switch-tab show_pc" v-else>
+                                    <p><?php echo $GLOBALS['MSG']['SET_NEW_PWD'];?></p>
+                                </ul>
+                            </div>
+                            <h3 class="register_h3 gray500_f"
+                                v-if="userInfo.phone && !userInfo.email && userInfo.phone!= '****'">
+                                <?php echo $loginLang['PWD_PHONE_RESET']; ?>
+                                <span class="register_alert_close" @click="close_alert"></span>
+                            </h3>
+                            <h3 class="register_h3 gray500_f"
+                                v-if="(!userInfo.phone || userInfo.phone== '****') && userInfo.email">
+                                <?php echo $loginLang['PWD_EMAIL_RESET']; ?>
+                                <span class="register_alert_close" @click="close_alert"></span>
+                            </h3>
+                            <div class="log_form log_tips">
+                                <?php //找回密碼第一步 ?>
+                                <?php //手机号DOM ?>
+
+                                <div v-if="(accessType==='phone' && forgetStep === 1) && userInfo.phone!= '****'"
+                                    :class="{reigster_input_group:true, register_focus: accountFocus}" flex="dir:left"
+                                    flex-box="0">
+                                    <label v-if="accessType==='phone'" flex=""
+                                        class="register_label white500_bg register_two_label fn_register_label"
+                                        @click="area_change('reset')">
+                                        <span flex-box="0" flex="main:center cross:center" class="register_phone_span">
+                                            <span class="register_img register_phone_img"></span>
+                                        </span>
+                                        <span flex-box="1"
+                                            :class="['register_area', 'register_border_div', {register_focus: accountFocus}]"
+                                            flex="dir:left box:mean">
+                                            <span style="color:#333">{{area_num}}</span>
+                                            <span flex="main:center cross:center"><img src="/imgs/reg/reg_bot.png"
+                                                    alt=""></span>
+                                        </span>
+                                    </label>
+                                    <div :class="['register_border_div',{register_focus: accountFocus}]" flex-box="1"
+                                        flex="">
+                                        <input type="text" flex-box="1" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['LOGIN_TEL']?>" maxlength="11"
+                                            :class="{register_input:true, register_input_right: errorArr.accStatus === 10}"
+                                            v-model.trim="forgetFirst.phone.account"
+                                            @blur='resetverify(forgetFirst.phone.account, "account")'
+                                            @focus="resetverify(forgetFirst.phone.account, 'account', 'focus')"
+                                            @keyup="resetinputcan(forgetFirst.phone.account, 'account')"
+                                            @keyup.enter="resetverify(forgetFirst.phone.account, 'account', 'enter')">
+                                    </div>
+                                    <transition name="fadeOut">
+                                        <ul class="register_area_list fn_register_area" v-cloak
+                                            v-if="area_show && area_type == 'reset'">
+                                            <?php foreach ($this->layout['areadata'] as $k => $v) { ?>
+                                            <li flex=""
+                                                :class="{register_font: true, register_warp: true, fn_active: register_index == <?php echo $k?>}"
+                                                @click="arec_click('<?php echo $k?>, <?php echo $v['area_code'] ?>')">
+                                                <span class="register_area_code gray500_f"
+                                                    flex-box="0"><?php echo $v['area_code'] ?></span>
+                                                <span flex-box="1"
+                                                    class="register_area_name gray500_f"><?php echo $v['country'] ?></span>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                    </transition>
+                                </div>
+                                <?php // 手机号DOM结束?>
+                                <?php //格式判断 0不显示 1普通输入提示 2为空提示 3输入格式提示 4php返回提示 ?>
+                                <div v-if="forgetStep === 1 && accessType === 'phone' && userInfo.phone!= '****'"
+                                    class="tip-txt">
+                                    <p class="register_input_mes"
+                                        v-if="errorArr.accStatus === 0 || errorArr.accStatus === 10"></p>
+                                    <p class="register_input_mes " v-if="errorArr.accStatus === 1">
+                                        <?php echo $layout['lang']['TEL']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 2">
+                                        <?php echo $layout['lang']['TEL']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 3">
+                                        <?php echo $layout['lang']['PHONE_INPUT_ERROR']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 4">
+                                        {{errMes}}
+                                    </p>
+                                </div>
+                                <?php //手机tip结束 ?>
+
+                                <?php //邮箱DOM ?>
+                                <div v-if="accessType==='email' && forgetStep === 1 && (Object.keys(userInfo).length == 0 || userInfo.email)"
+                                    :class="{reigster_input_group:true, register_focus: accountFocus}" flex="dir:left"
+                                    flex-box="0">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_email_img"></span>
+                                    </label>
+                                    <div :class="['register_border_div',{register_focus: accountFocus}]" flex-box="1"
+                                        flex="">
+                                        <input type="text" flex-box="1" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['email_register_lang']['SUGGEST_EMAIL']?>"
+                                            maxlength="100" oninput="value=value.replace(/[^\d||\.||\_||\@||a-z]/g,'')"
+                                            :class="{register_input:true, register_input_right: errorArr.accStatus === 10}"
+                                            v-model.trim="forgetFirst.email.account"
+                                            @blur='resetverify(forgetFirst.email.account, "account")'
+                                            @focus="resetverify(forgetFirst.email.account, 'account', 'focus')"
+                                            @keyup="resetinputcan(forgetFirst.email.account, 'account')"
+                                            @keyup.enter="resetverify(forgetFirst.email.account, 'account', 'enter')">
+                                    </div>
+                                </div>
+                                <?php //邮箱DOM结束 ?>
+
+                                <?php //邮箱tip ?>
+                                <div v-if="forgetStep === 1 && accessType === 'email' && (Object.keys(userInfo).length == 0 || userInfo.email)"
+                                    class="tip-txt">
+                                    <p class="register_input_mes"
+                                        v-if="errorArr.accStatus === 0 || errorArr.accStatus === 10"></p>
+                                    <p class="register_input_mes " v-if="errorArr.accStatus === 1">
+                                        <?php echo $layout['lang']['email_register_lang']['LOGIN_EMAIL'] ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 2">
+                                        <?php echo $layout['lang']['EMAIL_NUMBER']  ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 3">
+                                        <?php echo $layout['lang']['email_register_lang']['EMAIL_FORMAT'] ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.accStatus === 4">
+                                        {{errMes}}
+                                    </p>
+                                </div>
+                                <?php //邮箱tip结束 ?>
+
+
+                                <?php //图形验证码 ?>
+                                <?php //pc部分 ?>
+                                <div :class="{reigster_input_group:true, register_focus: captchaFocus }" flex="dir:left"
+                                    flex-box="0" v-if="forgetStep === 1">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_ver_img" style="margin-left: -8px;"></span>
+                                    </label>
+                                    <div :class="['register_border_div', {register_focus: captchaFocus}]" flex-box="1">
+                                        <input v-if="accessType==='phone'" type="text" maxlength="4"
+                                            style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['VERIFICATION_CONFIRM'] ?>"
+                                            :class="{register_input:true, register_input_right: errorArr.captchaStatus === 10}"
+                                            v-model="forgetFirst.phone.captcha"
+                                            @blur='resetverify(forgetFirst.phone.captcha, "captcha")'
+                                            @focus="resetverify(forgetFirst.phone.captcha, 'captcha', 'focus')"
+                                            @keyup="resetinputcan(forgetFirst.phone.captcha, 'captcha')"
+                                            @keyup.enter="resetverify(forgetFirst.phone.captcha, 'captcha', 'enter')">
+                                        <input v-if="accessType==='email'" type="text" maxlength="4"
+                                            style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['VERIFICATION_CONFIRM'] ?>"
+                                            :class="{register_input:true, register_input_right: errorArr.captchaStatus === 10}"
+                                            v-model="forgetFirst.email.captcha"
+                                            @blur='resetverify(forgetFirst.email.captcha, "captcha")'
+                                            @focus="resetverify(forgetFirst.email.captcha, 'captcha', 'focus')"
+                                            @keyup="resetinputcan(forgetFirst.email.captcha, 'captcha')"
+                                            @keyup.enter="resetverify(forgetFirst.email.captcha, 'captcha', 'enter')">
+                                    </div>
+                                    <span class="register_img_ver white500_bg" flex-box="0"
+                                        flex="main:center cross:center"><img :src="ver_src" alt=""
+                                            class="register_img_btn white500_bg" @click="img_ver"></span>
+                                </div>
+                                <?php //pc end ?>
+
+                                <?php //校验部分 ?>
+                                <div v-if="forgetStep === 1" class="tip-txt">
+                                    <p class="register_input_mes"
+                                        v-if="errorArr.captchaStatus === 0 || errorArr.captchaStatus === 10"></p>
+                                    <p class="register_input_mes " v-if="errorArr.captchaStatus === 1">
+                                        <?php echo $layout['lang']['VERIFICATION_CONFIRM']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.captchaStatus === 2">
+                                        <?php echo $layout['lang']['VERIFICATION_CONFIRM'] ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.captchaStatus === 3">
+                                        <?php echo $layout['lang']['NUMBER_UNENOUGH']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.captchaStatus === 4">
+                                        {{errMes}}</p>
+                                </div>
+
+                                <?php //找回密碼第二步 ?>
+                                <p class="forgetTwo_phone" style="color:#333; width: 342px;"
+                                    v-if="this.forgetStep === 2 && accessType === 'phone'">
+                                    <?php echo $layout['lang']['FORGET_STEP_OVER']; ?>:
+                                    <span class="blue200_f">
+                                        {{area_num.split("+")[1] === '86' ? forgetFirst.phone.account.slice(0, 3) + '****' + forgetFirst.phone.account.slice(7, 11) : forgetFirst.phone.account.slice(0,-4) + '**' + forgetFirst.phone.account.slice(-2)}}
+                                    </span>
+                                </p>
+                                <p class="forgetTwo_phone" style="color:#333"
+                                    v-if="this.forgetStep === 2 && accessType === 'email'">
+                                    <?php echo $loginLang['FILLED_EMAIL'] ?>:
+                                    <span class="blue200_f">
+                                        {{forgetFirst.email.account? forgetFirst.email.account.slice(0, 3) + '****@' + forgetFirst.email.account.split('@')[1] : ''}}
+                                    </span>
+                                </p>
+                                <!-- google 验证码  -->
+                                <!-- <div :class="{reigster_input_group:true, register_focus: googleFocus}" flex="dir:left"
+                                    flex-box="0" v-if="forgetStep === 2 && isGoogle">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_mes_img"></span>
+                                    </label>
+                                    <div :class="['register_border_div', {register_focus: googleFocus}]" flex-box="1">
+                                        <input type="text" maxlength="6" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['GOOGLE_CODE']['GOOGLE_INPUT_CODE']; ?>"
+                                            class="register_input" v-model="forgetTwo.google_code"
+                                            @blur='resetverify(forgetTwo.google_code, "google")'
+                                            @focus="resetverify(forgetTwo.google_code, 'google', 'focus')"
+                                            @keyup="resetinputcan(forgetTwo.google_code, 'google')"
+                                            @keyup.enter="resetverify(forgetTwo.google_code, 'google', 'enter')">
+                                    </div>
+                                </div>
+
+                                <p v-if="forgetStep===2 && isGoogle" class="register_input_mes_code tip-txt"
+                                    flex="main:justify">
+                                    <span class="register_input_code"
+                                        v-if="errorArr.googleStatus === 0 || errorArr.googleStatus === 10"></span>
+                                    <span class=" register_input_code"
+                                        v-if="errorArr.googleStatus === 1 "><?php echo $layout['lang']['GOOGLE_CODE']['GOOGLE_INPUT_CODE']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.googleStatus === 2"><?php echo $layout['lang']['GOOGLE_CODE']['GOOGLE_INPUT_CODE']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.googleStatus === 3"><?php echo $layout['lang']['GOOGLE_CODE']['GOOGLE_WARN_ERR']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.googleStatus === 4">{{errMes}}</span>
+                                </p> -->
+                                <?php //短信验证码 ?>
+                                <?php //pc 開始 ?>
+                                <div :class="{reigster_input_group:true, register_focus: codeFocus}" flex="dir:left"
+                                    flex-box="0" v-if="forgetStep === 2" class="letter_code">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_mes_img"></span>
+                                    </label>
+                                    <div :class="['register_border_div', {register_focus: codeFocus}]" flex-box="1">
+                                        <input type="text" maxlength="6" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['PLS_VERIFY_CODE']?>"
+                                            class="register_input" v-model="forgetTwo.code"
+                                            @blur='resetverify(forgetTwo.code, "code")'
+                                            @focus="resetverify(forgetTwo.code, 'code', 'focus')"
+                                            @keyup="resetinputcan(forgetTwo.code, 'code')"
+                                            @keyup.enter="resetverify(forgetTwo.code, 'code', 'enter')">
+                                    </div>
+                                    <div class="register_img_ver white500_bg" flex-box="0"
+                                        flex="main:center cross:center">
+                                        <button type="button" name="button"
+                                            class="register_img_btn register_send orange500_f"
+                                            @click="reset_get_verify('11')" v-cloak>
+                                            {{setTimes === "out" ? '<?php echo $layout['lang']["ACQUIRING"] ?>' : times+'<?php echo $layout['lang']['GET_PHONECODE_AGAING'] ?>'}}
+                                        </button>
+                                    </div>
+                                </div>
+                                <?php //pc end ?>
+
+                                <p v-if="forgetStep===2 && accessType === 'phone'"
+                                    class="register_input_mes_code tip-txt" flex="main:justify" style="width:342px">
+                                    <span class="register_input_code"
+                                        v-if="errorArr.codeStatus === 0 || errorArr.codeStatus === 10"></span>
+                                    <span class=" register_input_code"
+                                        v-if="errorArr.codeStatus === 1 "><?php echo $layout['lang']['PLEASE_TEL_YZM']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 2"><?php echo $layout['lang']['PLEASE_TEL_YZM']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 3"><?php echo $layout['lang']['NUMBER_UNENOUGH']; ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 4">{{errMes}}</span>
+                                    <span v-if="voice_set"
+                                        class="red500_f"><?php echo $GLOBALS['MSG']['CAN'];?>{{times}}s<?php echo $GLOBALS['MSG']['GAIN_PHONE_CODE'];?></span>
+                                    <span v-if="voice_warn"
+                                        class="red500_f"><?php echo $layout['lang']['ATTENTION_CALLIMG'] ?></span>
+                                    <span
+                                        v-if="voice_ver && !voice_set"><?php echo $layout['lang']['CLICK_ACQUIRING']; ?><a
+                                            class="blue500_f"
+                                            @click="voice_verify"><?php echo $layout['lang']['PHOME_TICS']; ?></a></span>
+                                </p>
+
+                                <p v-if="forgetStep===2 && accessType === 'email'"
+                                    class="register_input_mes_code tip-txt" flex="main:justify" style="width:342px">
+                                    <span class="register_input_code"
+                                        v-if="errorArr.codeStatus === 0 || errorArr.codeStatus === 10"></span>
+                                    <span class=" register_input_code"
+                                        v-if="errorArr.codeStatus === 1 "><?php echo $loginLang['PLZ_ENTER_VERIFY_CODE'] ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 2"><?php echo $loginLang['PLZ_ENTER_VERIFY_CODE'] ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 3"><?php echo $loginLang['NUMBER_DIGITS_INCORRECT'] ?></span>
+                                    <span class=" register_input_code red500_f"
+                                        v-if="errorArr.codeStatus === 4">{{errMes}}</span>
+                                </p>
+
+                                <?php //找回密碼第三部 ?>
+                                <?php //登录密码 ?>
+                                <div :class="{reigster_input_group:true, register_focus: pwdFocus}" flex="dir:left"
+                                    flex-box="0" v-if="forgetStep === 3">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_pwd_img"></span>
+                                    </label>
+                                    <div :class="['register_border_div', {register_focus: pwdFocus}]" flex-box="1"
+                                        flex="">
+                                        <input type="password" maxlength="16" flex-box="1" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['ASSEMBLAGE']; ?>"
+                                            class="register_input" onpaste="return false" oncontextmenu="return false"
+                                            oncopy="return false" oncut="return false" v-model="forgetThree.pwd"
+                                            @blur.stop='resetverify(forgetThree.pwd, "pwd")'
+                                            @focus.stop="resetverify(forgetThree.pwd, 'pwd', 'focus')"
+                                            @keyup="resetinputcan(forgetThree.pwd, 'pwd')"
+                                            @keyup.enter="resetverify(forgetThree.pwd, 'pwd', 'enter')">
+                                    </div>
+                                </div>
+                                <?php //校验部分  5弱 6中 7强?>
+
+                                <div v-if="forgetStep === 3" class="tip-txt">
+                                    <p class="register_input_mes"
+                                        v-if="errorArr.pwdStatus === 0 || errorArr.pwdStatus === 10"></p>
+                                    <p class="register_input_mes " v-if="errorArr.pwdStatus === 1">
+                                        <?php echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.pwdStatus === 2">
+                                        <?php  echo $layout['lang']['LOG_PASSWORD']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.pwdStatus === 3">
+                                        <?php echo $layout['lang']['PASSWORD_LENGTH_UNENOUGH']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.pwdStatus === 4">
+                                        {{errMes}}
+                                    </p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.pwdStatus === 5"><span
+                                            class="min_tip"></span><?php echo $layout['lang']['ASSEMBLAGE'] ?></p>
+                                    <p class="register_input_mes  green500_f" v-if="errorArr.pwdStatus === 7"><span
+                                            class="max_tip"></span><?php echo $layout['lang']['PASSWORD_WARING_THREE']; ?>
+                                    </p>
+                                </div>
+
+                                <?php //再次输入登录密码 ?>
+                                <div :class="{reigster_input_group:true, register_focus: repwdFocus }" flex="dir:left"
+                                    flex-box="0" v-if="forgetStep === 3">
+                                    <label flex="main:center cross:center" class="register_label white500_bg">
+                                        <span class="register_img register_pwd_img"></span>
+                                    </label>
+                                    <div :class="['register_border_div', {register_focus: repwdFocus}]" flex-box="1">
+                                        <input type="password" maxlength="16" style="caret-color: #333;"
+                                            placeholder="<?php echo $layout['lang']['INPUT_AGAIN']; ?>"
+                                            class="register_input" onpaste="return false" oncontextmenu="return false"
+                                            oncopy="return false" oncut="return false" v-model="forgetThree.repwd"
+                                            @blur='resetverify(forgetThree.repwd, "repwd")'
+                                            @focus="resetverify(forgetThree.repwd, 'repwd', 'focus')"
+                                            @keyup="resetinputcan(forgetThree.repwd, 'repwd')"
+                                            @keyup.enter="resetverify(forgetThree.repwd, 'repwd', 'enter')">
+                                    </div>
+                                </div>
+                                <?php //校验部分 8两次输入不一致?>
+
+                                <div v-if="forgetStep === 3" class="tip-txt">
+                                    <p class="register_input_mes"
+                                        v-if="(errorArr.repwdStatus === 0 || errorArr.repwdStatus === 10)"></p>
+                                    <p class="register_input_mes " v-if="errorArr.repwdStatus === 1">
+                                        <?php echo $layout['lang']['INPUT_AGAIN']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.repwdStatus === 2">
+                                        <?php echo $layout['lang']['INPUT_AGAIN']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.repwdStatus === 3">
+                                        <?php echo $layout['lang']['AGAIG_PASSWORD_LENGTH_UNENOUGH']; ?></p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.repwdStatus === 4">
+                                        {{errMes}}
+                                    </p>
+                                    <p class="register_input_mes  red500_f" v-if="errorArr.repwdStatus === 8"><span
+                                            class="min_tip"></span><?php echo $layout['lang']['PASSWORD_LENGTH_DIFFERENT']; ?>
+                                    </p>
+                                </div>
+                                <div flex="main:center cross:center" class="forget_warp_btn tip-txt">
+                                    <button v-if="this.forgetStep !== 3" type="button" name="button"
+                                        :disabled="!disable" class="register_login orange500_bg white100_f next_step"
+                                        @click.stop="reset_submit()">
+                                        <?php echo $GLOBALS['MSG']['NEXT_STEP'];?>
+                                        <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
+                                    </button>
+                                    <button v-if="this.forgetStep === 3" type="button" name="button"
+                                        :disabled="!disable" class="register_login orange500_bg white100_f"
+                                        @click.stop="reset_submit()">
+                                        <?php echo $layout['lang']['FORGET_SUBMIT'] ?>
+                                        <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </transition>
+                <!--弹框 -->
+                <my-alert v-cloak v-on:callback="" :show-status.sync="nowStatus">
+                    <div class="alert_contents black900_f" slot="content">{{errMesAlert}}</div>
+                    <span slot="btnTitle" class="black900_f"><?php echo $layout['lang']['DETERMINE']; ?></span>
+                </my-alert>
+                <!-- 重置密碼成功彈窗  -->
+                <div class="email-modal" v-if="showActiveModal">
+                    <div class="register_success_bg register_alert_bg"></div>
+                    <transition name="zoom">
+                        <div class="register_success_bg modal_wrapper" flex="main:center cross:center">
+                            <div class="modal_content">
+                                <div :class="['modal_top',{'modal_top_repwd_succ': repwdSucc}]">
+                                    <div class="modal_close">
+                                        <i class="modal_close_btn" @click="reset_close_btn"></i>
+                                    </div>
+                                </div>
+                                <div class="modal_main_con" v-if="repwdSucc">
+                                    <p class="modal_main_txt"><?php echo $loginLang['CONGRATULATE_REPWD_SUCC']?></p>
+                                    <div class="modal_btn_div" flex="main:center">
+                                        <button type="button" name="button" @click.stop="resetloginAlert"
+                                            class="orange500_bg"><?php echo $layout['lang']['GO_LOGIN'] ?></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </transition>
+                </div>
+            </div>
+
+            <!-- email激活链接弹框  -->
+            <div class="email-modal" v-if="emailStatus.showActiveModal">
+                <div class="register_success_bg register_alert_bg"></div>
+                <transition name="zoom">
+                    <div class="register_success_bg modal_wrapper" flex="main:center cross:center">
+                        <div class="modal_content">
+                            <div :class="['modal_top',
+                                    {'modal_top_email_fail': emailStatus.emailActiveLink === '0' || emailStatus.emailActiveLink === '2' || showReMail,
+                                    'modal_top_email_succ': emailStatus.emailActiveLink === '1' && !showReMail || (now_type === 're' && accessType === 'email' && !showReMail),
+                                    'modal_top_phone_succ': now_type === 're' && accessType === 'phone',
+                                    'modal_top_repwd_succ': now_type === 'fo' && repwdSucc,
+                                    'modal_top_sent_email': sentSuccess
+                                    }]">
+                                <div class="modal_close">
+                                    <i class="modal_close_btn" @click="close_btn"></i>
+                                </div>
+                            </div>
+                            <!-- 链接激活时出现 -->
+                            <div class="modal_main_con" v-if="emailStatus.emailActiveLink">
+                                <p class="modal_main_txt" v-if="emailStatus.emailActiveLink === '2'">
+                                    <?php echo $loginLang['ACTIVE_LINK_EXPIRED']?></p>
+                                <p class="modal_main_txt" v-if="emailStatus.emailActiveLink === '0'">
+                                    <?php echo $loginLang['ACTIVE_LINK_EXPIRED_FAIL']?></p>
+                                <p class="modal_main_txt" v-if="emailStatus.emailActiveLink === '1'">
+                                    <?php echo $loginLang['ACTIVE_LINK_SUCC']?></p>
+                                <div class="modal_btn_div" flex="main:center">
+                                    <button
+                                        v-if="emailStatus.emailActiveLink === '0' || emailStatus.emailActiveLink === '2'"
+                                        type="button" name="button" @click.stop="registerAlert"
+                                        class="orange500_bg"><?php echo $loginLang['GO_REG'] ?></button>
+                                    <button v-if="emailStatus.emailActiveLink === '1'" type="button" name="button"
+                                        @click.stop="loginAlert"
+                                        class="orange500_bg"><?php echo $loginLang['GO_LOGIN'] ?></button>
+                                </div>
+                            </div>
+                            <!-- 注册后出现成功弹窗 -->
+                            <div class="modal_main_con" v-if="(!emailStatus.emailActiveLink && now_type=== 're')">
+                                <p v-if="accessType==='phone'" class="modal_main_txt">
+                                    <?php echo $loginLang['REG_SUCC']?></p>
+                                <p v-if="accessType==='email'" class="modal_main_txt">
+                                    <?php echo $loginLang['EMAIL_VALIDATE']?></p>
+                                <div v-if="accessType === 'phone'" class="modal_btn_div" flex="main:center">
+                                    <button type="button" name="button" @click.stop="loginAlert"
+                                        class="orange500_bg"><?php echo $layout['lang']['GO_LOGIN'] ?></button>
+                                </div>
+                                <div v-if="accessType==='email'" class="modal_btn_div">
+                                    <p class="modal_main_txt modal_main_txt_b">
+                                        <?php echo $GLOBALS['MSG']['REGISTER_EMAIL'];?>：<?php echo $loginLang['SEND_EMAIL_ONE']?>
+                                        {{queryRe.email.account}} <?php echo $loginLang['SEND_EMAIL_TWO']?>
+                                        <?php echo $GLOBALS['MSG']['SEND_EMAIL'];?>
+                                    </p>
+                                    <p class="no_email_btn" @click="toggleShowReMail">
+                                        <?php echo $GLOBALS['MSG']['NOT_ACCEPT_EMIAL'];?>？</p>
+                                </div>
+                                <div v-if="showReMail" class="remail_div">
+                                    <ul>
+                                        <li> <?php echo $GLOBALS['MSG']['CHECKOUT_IF_ERROR'];?> <span
+                                                @click="registerAlert"
+                                                class="blue_txt"><?php echo $GLOBALS['MSG']['REGISTER_AGAIN'];?></span>
+                                        </li>
+                                        <li><?php echo $GLOBALS['MSG']['FINT_EMAIL_AD'];?></li>
+                                        <li><?php echo $GLOBALS['MSG']['WAIT'];?>：<span @click="remail"
+                                                class="blue_txt"><?php echo $GLOBALS['MSG']['SEND_AGAIN'];?></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+            <!-- 滑块验证 -->
+            <div id="c1" style=" position: relative;top: -300px;right: 500px;z-index:1000 ">
+            </div>
+            <!-- 遮罩层 -->
+            <div class="hide_bg" v-show="hideBg"></div>
+            <!-- 滑块刷新时loading动画 -->
+            <div class="out" v-show="loadIcon" id="out">
+                <div class="fade-in">
+                    <div class="dcontainer">
+                        <div class="one common"></div>
+                        <div class="two common"></div>
+                        <div class="three common"></div>
+                        <div class="four common"></div>
+                        <div class="five common"></div>
+                        <div class="six common"></div>
+                        <div class="seven common"></div>
+                        <div class="eight common"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<?php  include PATH_TPL.'/comTemplate/page.js.phtml';?>
+<link href="/websiteoutjs/jigsaw.css" />
+<link href="/websiteoutcss/dloading.css" rel="stylesheet">
+<script src="/websiteoutjs/jquery3.3.1.min.js"></script>
+<script src="/websiteoutjs/jsencrypt.min.js"></script>
+
+<!-- <script src="/websiteoutjs/http.js"></script> -->
+<script>
+    const l = 42, // 滑块边长
+        r = 9, // 滑块半径
+        w = 310, // canvas宽度
+        h = 155, // canvas高度
+        PI = Math.PI
+    const L = l + r * 2 + 3 // 滑块实际边长
+    const isIE = window.navigator.userAgent.indexOf('Trident') > -1
+
+    function getRandomNumberByRange(start, end) {
+        $("#out").css('display', 'block')
+        return Math.round(Math.random() * (end - start) + start);
+        $("#out").css('display', 'none')
+
+    }
+
+    function createCanvas(width, height) {
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = height
+        return canvas
+    }
+
+    function createImg(onload) {
+        const img = new Image()
+        img.crossOrigin = "Anonymous"
+        img.onload = onload
+        img.onerror = () => {
+            img.setSrc(getRandomImgSrc())
+        }
+
+        img.setSrc = function (src) {
+            if (isIE) { // IE浏览器无法通过img.crossOrigin跨域，使用ajax获取图片blob然后转为dataURL显示
+                const xhr = new XMLHttpRequest()
+                xhr.onloadend = function (e) {
+                    const file = new FileReader() // FileReader仅支持IE10+
+                    file.readAsDataURL(e.target.response)
+                    file.onloadend = function (e) {
+                        img.src = e.target.result
+                    }
+                }
+                xhr.open('GET', src)
+                xhr.responseType = 'blob'
+                xhr.send()
+            } else img.src = src
+        }
+
+        img.setSrc(getRandomImgSrc())
+        return img
+    }
+
+    function createElement(tagName, className) {
+        const elment = document.createElement(tagName)
+        elment.className = className
+        return elment
+    }
+
+    function addClass(tag, className) {
+        tag.classList.add(className)
+    }
+
+    function removeClass(tag, className) {
+        tag.classList.remove(className)
+    }
+
+    function getRandomImgSrc() {
+        return "/imgs/signin/" + getRandomNumberByRange(0, 20) + '.jpg';
+    }
+
+    function draw(ctx, x, y, operation) {
+        ctx.beginPath()
+        ctx.moveTo(x, y)
+        ctx.arc(x + l / 2, y - r + 2, r, 0.72 * PI, 2.26 * PI)
+        ctx.lineTo(x + l, y)
+        ctx.arc(x + l + r - 2, y + l / 2, r, 1.21 * PI, 2.78 * PI)
+        ctx.lineTo(x + l, y + l)
+        ctx.lineTo(x, y + l)
+        ctx.arc(x + r - 2, y + l / 2, r + 0.4, 2.76 * PI, 1.24 * PI, true)
+        ctx.lineTo(x, y)
+        ctx.lineWidth = 2
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)'
+        ctx.stroke()
+        ctx[operation]()
+        ctx.globalCompositeOperation = isIE ? 'xor' : 'overlay'
+    }
+
+    function sum(x, y) {
+        return x + y
+    }
+
+    function square(x) {
+        return x * x
+    }
+
+
+    class jigsaw {
+        // constructor ({ el, onSuccess, onFail, onRefresh }) {
+        //     el.style.position = 'relative'
+        //     el.style.width = w + 'px'
+
+        //     Object.assign(el.style, {
+        //     position: 'relative',
+        //     width: w + 'px',
+        //     margin: '0 auto'
+        //     })
+        //     this.el = el
+        //     this.onSuccess = onSuccess
+        //     this.onFail = onFail
+        //     this.onRefresh = onRefresh
+        // }
+
+
+        init({
+            el,
+            onSuccess,
+            onFail,
+            onRefresh
+        }) {
+            el.style.position = 'relative'
+            el.style.width = w + 'px'
+
+            Object.assign(el.style, {
+                position: 'relative',
+                width: w + 'px',
+                margin: '0 auto'
+            })
+            this.el = el
+            this.onSuccess = onSuccess
+            this.onFail = onFail
+            this.onRefresh = onRefresh
+            this.initDOM()
+            this.initImg()
+            this.bindEvents()
+        }
+
+        initDOM() {
+            const canvas = createCanvas(w, h) // 画布
+            const block = canvas.cloneNode(true) // 滑块
+            const sliderContainer = createElement('div', 'sliderContainer')
+            const refreshIcon = createElement('div', 'refreshIcon')
+            const sliderMask = createElement('div', 'sliderMask')
+            const slider = createElement('div', 'slider')
+            const sliderIcon = createElement('span', 'sliderIcon')
+            const text = createElement('span', 'sliderText')
+
+            block.className = 'block'
+            text.innerHTML = 'Swipe right to fill the puzzle'
+
+            const el = this.el
+            el.appendChild(canvas)
+            el.appendChild(refreshIcon)
+            el.appendChild(block)
+            slider.appendChild(sliderIcon)
+            sliderMask.appendChild(slider)
+            sliderContainer.appendChild(sliderMask)
+            sliderContainer.appendChild(text)
+            el.appendChild(sliderContainer)
+
+            Object.assign(this, {
+                canvas,
+                block,
+                sliderContainer,
+                refreshIcon,
+                slider,
+                sliderMask,
+                sliderIcon,
+                text,
+                canvasCtx: canvas.getContext('2d'),
+                blockCtx: block.getContext('2d')
+            })
+        }
+
+        initImg() {
+            const img = createImg(() => {
+                this.draw()
+                this.canvasCtx.drawImage(img, 0, 0, w, h)
+                this.blockCtx.drawImage(img, 0, 0, w, h)
+                const y = this.y - r * 2 - 1
+                const ImageData = this.blockCtx.getImageData(this.x - 3, y, L, L)
+                this.block.width = L
+                this.blockCtx.putImageData(ImageData, 0, y)
+            })
+            this.img = img
+        }
+
+        draw() {
+            // 随机创建滑块的位置
+            // this.x = getRandomNumberByRange(L + 10, w - (L + 10))
+            // this.y = getRandomNumberByRange(10 + r * 2, h - (L + 10))
+            var that = this;
+            var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var res = JSON.parse(xmlhttp.responseText);
+                    if (res.status != 1) {
+                        // alert(res.msg);
+                    } else {
+                        that.x = res.data[0].left;
+                        that.y = res.data[0].height;
+                        draw(that.canvasCtx, that.x, that.y, 'fill')
+                        draw(that.blockCtx, that.x, that.y, 'clip')
+
+                    }
+                } else {
+                    console.log('err');
+                }
+            }
+            xmlhttp.open("GET", "/ajax_jigasw/getVerify", false);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+            // draw(this.canvasCtx, this.x, this.y, 'fill')
+            // draw(this.blockCtx, this.x, this.y, 'clip')
+
+        }
+
+        clean() {
+            this.canvasCtx.clearRect(0, 0, w, h)
+            this.blockCtx.clearRect(0, 0, w, h)
+            this.block.width = w
+        }
+
+        bindEvents() {
+            this.el.onselectstart = () => false
+            this.refreshIcon.onclick = () => {
+                this.reset()
+                typeof this.onRefresh === 'function' && this.onRefresh()
+            }
+
+            let originX, originY, trail = [],
+                isMouseDown = false
+
+            const handleDragStart = function (e) {
+                e.preventDefault();
+                originX = e.clientX || e.touches[0].clientX
+                originY = e.clientY || e.touches[0].clientY
+                isMouseDown = true
+            }
+
+            const handleDragMove = (e) => {
+                if (!isMouseDown) return false;
+                $(document.body).off('touchmove.prevUC');
+                const eventX = e.clientX || e.touches[0].clientX
+                const eventY = e.clientY || e.touches[0].clientY
+                const moveX = eventX - originX
+                const moveY = eventY - originY
+                if (moveX < 0 || moveX + 38 >= w) return false
+                this.slider.style.left = moveX + 'px'
+                const blockLeft = (w - 40 - 20) / (w - 40) * moveX
+                this.block.style.left = blockLeft + 'px'
+
+                addClass(this.sliderContainer, 'sliderContainer_active')
+                this.sliderMask.style.width = moveX + 'px'
+                trail.push(moveY)
+            }
+
+            const handleDragEnd = (e) => {
+                if (!isMouseDown) return false
+                isMouseDown = false
+                const eventX = e.clientX || e.changedTouches[0].clientX
+                if (eventX == originX) return false
+                removeClass(this.sliderContainer, 'sliderContainer_active')
+                this.trail = trail
+                const {
+                    spliced,
+                    verified
+                } = this.verify()
+                if (spliced) {
+                    if (verified) {
+                        addClass(this.sliderContainer, 'sliderContainer_success')
+                        typeof this.onSuccess === 'function' && this.onSuccess()
+                    } else {
+                        addClass(this.sliderContainer, 'sliderContainer_fail')
+                        this.text.innerHTML = '再试一次'
+                        this.reset()
+                    }
+                } else {
+                    addClass(this.sliderContainer, 'sliderContainer_fail')
+                    typeof this.onFail === 'function' && this.onFail()
+                    setTimeout(() => {
+                        this.reset()
+                    }, 1000)
+                }
+            }
+            this.slider.addEventListener('mousedown', handleDragStart)
+            this.slider.addEventListener('touchstart', handleDragStart)
+            document.addEventListener('mousemove', handleDragMove)
+            document.addEventListener('touchmove', handleDragMove)
+            document.addEventListener('mouseup', handleDragEnd)
+            document.addEventListener('touchend', handleDragEnd)
+        }
+
+        verify() {
+            const arr = this.trail; // 拖动时y轴的移动距离
+            const average = arr.reduce(sum) / arr.length;
+            const deviations = arr.map(x => x - average);
+            const stddev = Math.sqrt(deviations.map(square).reduce(sum) / arr.length);
+            var left = parseInt(this.block.style.left);
+            var spliced = false;
+            var data = {
+                spliced: spliced,
+                left: left
+            }
+            var pukdata = '';
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/ajax_jigasw/captchaverify", false);
+            //添加http头，发送信息至服务器时内容编码类型
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {
+                    var res = JSON.parse(xhr.responseText);
+                    if (res.status == 1) {
+                        spliced = true;
+                        j_v_status.setAttribute("res_code", res.data.code);
+                        j_v_status.style.display = "block";
+                    }
+
+                }
+            };
+            xhr.send("left=" + left);
+            return {
+                spliced: spliced,
+                verified: stddev !== 0, // 简单验证下拖动轨迹，为零时表示Y轴上下没有波动，可能非人为操作
+            }
+
+
+        }
+
+
+
+
+        reset() {
+            this.sliderContainer.className = 'sliderContainer'
+            this.slider.style.left = 0
+            this.block.style.left = 0
+            this.sliderMask.style.width = 0
+            this.clean()
+            this.img.setSrc(getRandomImgSrc())
+        }
+    }
+    //滑块验证刷新
+    function cleanMsg() {
+        document.getElementById('msg').innerHTML = ''
+    }
+
+    jigsaw = new jigsaw();
+    // 禁止手机浏览器左右滑屏 后退 前进
+    // $('body').on('touchmove', '.slidebg', function () {
+    //     $(document.body).on('touchmove.prevUC', function (e) {
+    //         e.preventDefault();
+    //     });
+    // });
+    // $('body').on('touchend', '.slidebg', function () {
+    //     $(document.body).off('touchmove.prevUC');
+    // });
+</script>

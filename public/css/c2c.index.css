@@ -35,12 +35,12 @@ h4 {
 .bg-content {
   background: #f7f7f7; }
 .btn-second {
-  background-color: #009999;
-  border-color: #009999;
+  background-color: #ee2222;
+  border-color: #ee2222;
   color: #fff; }
 .btn-yellow {
-  background-color: #ffbd09;
-  border-color: #ffbd09;
+  background-color: #0fbb90;
+  border-color: #0fbb90;
   color: #fff; }
 .btn-second :hover, .btn:hover, .btn:link {
   color: #fff !important; }

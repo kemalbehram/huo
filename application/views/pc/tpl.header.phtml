@@ -19,7 +19,7 @@
 	<meta name="keywords" content="<?php  echo isset($this->layout['seok'])?$this->layout['seok']:$lang['KEY_WORDS']?>" />
 	<meta name="description" content="<?php echo isset($this->layout['seod'])?$this->layout['seod']:$lang['DESCRIPTION']?>" />
 	<meta content="telephone=no,email=no" name="format-detection">
-	<link rel="shortcut icon" href="/huocoin.png" />
+	<link rel="shortcut icon" href="/lendenex.jpg" />
 	<?php $hasLibs = file_exists(PATH_TPL.'/../../../public/libs.json'); ?>
 	<?php if($hasLibs) { $libs = json_decode(file_get_contents(PATH_TPL.'/../../../public/libs.json'), true);} ?>
 	<?php if ($hasLibs && $libs['libs']['css']) { ?>
@@ -35,7 +35,7 @@
 	<div flex="main:justify cross:center" class="nav_contain" id="navApp">
 		<div class="nav_left" flex="dir:left cross:center">
 			<a class="main_link" href="/">
-				<img src="/svg/huocoinLogo.svg">
+				<img src="/svg/lendenexLogo.svg">
 			</a>
 			<ul flex="dir:left" class="nav_left_sec">
 				<?php if ($layout['controller'] != 'trade'){ ?>

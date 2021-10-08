@@ -4,7 +4,7 @@
 @import "../theme.scss";
 // @media screen and(min-width: $bigScreenMax) {
 .active-tab {
-    color: $deepBlue300;
+    color: #2d6cfa;
 }
 
 // @media screen and(min-width: $superScreenMin) {
@@ -108,10 +108,10 @@
     }
     .act_btn {
         color: #fff;
-        background: #4168b2;
+        background: #2d6cfa;
         &:hover {
             color: #fff;
-            background: #4168b2;
+            background: #2d6cfa;
             cursor: default;
         }
     }

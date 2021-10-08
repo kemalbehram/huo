@@ -139,8 +139,8 @@
             "en": "Business email"
         },
         "FOOTER_SERVICE_WECHAT": {
-            "cn": "上币申请微信号：huocoin",
-            "en": "If you want to add a new Token ,Please contact us via Wechat :huocoin"
+            "cn": "上币申请微信号：lendenex",
+            "en": "If you want to add a new Token ,Please contact us via Wechat :lendenex"
         },
         "USER_NAV_TITLE": {
             "cn": "我的账户",
@@ -2834,11 +2834,11 @@
                 "en": "Cheating and/or illegal activity is prohibited.  If discovered we resevere the right to recover/reclaim any rebates and rewards issued"
             },
             "BAO_LIU": {
-                "cn": "huocoin保留隨時修訂、暫停、終止本活动及任何相關規則之權利",
+                "cn": "lendenex保留隨時修訂、暫停、終止本活动及任何相關規則之權利",
                 "en": "DOBI Trade reserves the right to revise, ,amend, suspend, or terminate these policies and any promotional activities at any time."
             },
             "SUOYOU": {
-                "cn": "本次活动規則最終解釋權歸huocoin所有",
+                "cn": "本次活动規則最終解釋權歸lendenex所有",
                 "en": "The final interpretation of the rules and policies is exclusively determined by DOBI Trade, all rights reserved. "
             },
             "MOB_TOP_TITLE": {
@@ -3595,8 +3595,8 @@
                 "en": "DOBI Trading Platform Opens API"
             },
             "DOBI_DESC": {
-                "cn": "應用程序可通過調用DOBI開放平台提供的API获取到資產、交易等数據，因為涉及数據隱私，所以在使用前必須获得DOBI的<a class=\"fn-auth-link\" href=\"https://www.huocoin.com?login&reurl=https://api.huocoin.com/m\">授權</a>(<b>登陆后获取</b>)，才可以調用API。",
-                "en": "The application can obtain assets, transactions, and other data though API which is provided by the DOBI  platform. Because the privacy of date is involved, DOBI <a class=\"fn-auth-link\" href=\"https://www.huocoin.com?login&reurl=https://api.huocoin.com/m\">authorization</a> (available after login) must be obtained before using the API"
+                "cn": "應用程序可通過調用DOBI開放平台提供的API获取到資產、交易等数據，因為涉及数據隱私，所以在使用前必須获得DOBI的<a class=\"fn-auth-link\" href=\"https://www.lendenex.com?login&reurl=https://api.lendenex.com/m\">授權</a>(<b>登陆后获取</b>)，才可以調用API。",
+                "en": "The application can obtain assets, transactions, and other data though API which is provided by the DOBI  platform. Because the privacy of date is involved, DOBI <a class=\"fn-auth-link\" href=\"https://www.lendenex.com?login&reurl=https://api.lendenex.com/m\">authorization</a> (available after login) must be obtained before using the API"
             },
             "COMMON_PARAM": {
                 "cn": "公共參数",
