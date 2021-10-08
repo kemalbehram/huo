@@ -22,7 +22,7 @@
        if(($get['coin'] && $get['coin']==$coinList[$i]['coin_from']) || (!$get['coin'] && $i==0)){
         echo 'sel_coin';
       }
-      ?>" confirm="<?php echo $coinList[$i]['confirm']?>" min-in="<?php echo $coinList[$i]['min_in']?>" ><?php echo strtoupper($coinList[$i]['coin_from']) ?></span>
+      ?>" confirm="<?php echo $coinList[$i]['confirm']?>" min-in="<?php echo $coinList[$i]['min_in']?>" ><?php echo strtoupper($coinList[$i]['coin_from']) ?>(<?php echo strtoupper($coinList[$i]['display']) ?>)</span>
     <?php } ?>
   </div>
 </div>

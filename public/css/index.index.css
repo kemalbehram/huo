@@ -783,7 +783,7 @@ button.swiper-pagination-bullet {
 @media screen and (min-width: 1200px) {
   footer {
     height: 56px;
-    background: #07162b;
+    background: #111114;
     border-top: 1px solid rgba(225, 230, 244, 0.2); }
   .footer_p {
     font-size: 14px;
@@ -1311,7 +1311,7 @@ a, button, [type=button] {
   position: relative;
   height: 184px;
   width: 100%;
-  background: #07162b; }
+  background: #111114; }
 .index_link .index_link_inner {
     margin: 0 auto;
     min-width: 1090px;
