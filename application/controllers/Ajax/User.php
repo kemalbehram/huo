@@ -629,7 +629,7 @@ class Ajax_UserController extends Ajax_BaseController
         $userMo->where("uid=$user[uid]")->update(['updated'=> $now,'updateip'=> Tool_Fnc::realip()]);//更新登录时间
         if($_COOKIE['LANG']=='')   //存用户当前语言到redis
         {
-          $lang = 'cn';
+          $lang = 'en';
         }
         else
         {

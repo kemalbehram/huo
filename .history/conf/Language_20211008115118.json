@@ -107,7 +107,7 @@
             "en": "Register"
         },
         "LOGIN": {
-            "cn": "登陆",
+            "cn": "登录",
             "en": "login"
         },
         "TRAE_AREA": {
@@ -491,11 +491,11 @@
             "en": "Forget password ?"
         },
         "LOGIN_BTN": {
-            "cn": "登陆",
+            "cn": "登录",
             "en": "Login"
         },
         "LOGIN_BTN_GO": {
-            "cn": "去登陆",
+            "cn": "去登录",
             "en": "Please click here to login"
         },
         "FORGET_SUBMIT": {
@@ -507,7 +507,7 @@
             "en": "Congratulations! You’ve registered successfully!"
         },
         "FORGETPWD_SUCCESS": {
-            "cn": "恭喜您成功修改登陆密码",
+            "cn": "恭喜您成功修改登录密码",
             "en": "Your password has been changed successfully!"
         },
         "FORGET_STEP_FRIST": {
@@ -539,7 +539,7 @@
             "en": "Please input your mobile number"
         },
         "LOG_PASSWORD": {
-            "cn": "请输入您的登陆密码",
+            "cn": "请输入您的登录密码",
             "en": "Please enter your password"
         },
         "IMPORT_PASSWORD": {
@@ -583,7 +583,7 @@
             "en": "trading password"
         },
         "REAL_LOG_PASSWORD": {
-            "cn": "找回登陆密码",
+            "cn": "找回登录密码",
             "en": "forgot your password"
         },
         "FILL_TEL": {
@@ -603,7 +603,7 @@
             "en": "Your password has been reset sucessfully"
         },
         "SZ_TEL": {
-            "cn": "请输入您的登陆手机号",
+            "cn": "请输入您的登录手机号",
             "en": "Please enter your mobile number"
         },
         "XYB": {
@@ -615,7 +615,7 @@
             "en": "Confirm"
         },
         "GO_LOGIN": {
-            "cn": "去登陆",
+            "cn": "去登录",
             "en": "login"
         },
         "JIANGLI": {
@@ -789,9 +789,9 @@
                 "timeout": "请求超時,请稍后重試",
                 "reqError": "请求超時,请稍后重試",
                 "nav": {
-                    "title": "找回登陆密码",
+                    "title": "找回登录密码",
                     "phoneTit": "中國 +86",
-                    "phoneHolder": "请输入您的登陆手机号",
+                    "phoneHolder": "请输入您的登录手机号",
                     "captcha": "图形验证码",
                     "imgHolder": "请输入图形验证码",
                     "NextStep": "下一步",
@@ -815,7 +815,7 @@
                     "getPhoneCodeAg": "s后重新获取",
                     "userPhoneTips": "已填写手机号:",
                     "userPhoneNum": "******",
-                    "goLogin": "去登陆",
+                    "goLogin": "去登录",
                     "warn": {
                         "phone": {
                             "nor": "请输入您的常用手机号码",
@@ -836,19 +836,19 @@
                             "empty": "手机验证码不能為空"
                         },
                         "password": {
-                            "nor": "请输入登陆密码",
-                            "err": "登陆密码格式不正确",
+                            "nor": "请输入登录密码",
+                            "err": "登录密码格式不正确",
                             "weak": "有被盜風險，请使用字母、数字或符号兩種及以上組合",
                             "midd": "安全強度適中，可以使用三種以上的組合來提高安全性",
                             "good": "您的密码很安全",
-                            "space": "登陆密码不能使用空格",
-                            "noCh": "登陆密码不能使用中文",
-                            "less": "登陆密码不能小於6位字符",
+                            "space": "登录密码不能使用空格",
+                            "noCh": "登录密码不能使用中文",
+                            "less": "登录密码不能小於6位字符",
                             "msg": "",
-                            "empty": "登陆密码不能為空"
+                            "empty": "登录密码不能為空"
                         },
                         "repassword": {
-                            "nor": "请再次输入登陆密码",
+                            "nor": "请再次输入登录密码",
                             "err": "兩次密码不一致",
                             "msg": "",
                             "empty": "确認密码不能為空"
@@ -858,7 +858,7 @@
                 "register": {
                     "tel_msg": "手机号格式不正确",
                     "tel_empty": "请输入手机号码",
-                    "pwd_msg": "登陆密码不能小於6位字符",
+                    "pwd_msg": "登录密码不能小於6位字符",
                     "pwd_empty": "密码不能為空",
                     "surePwd_msg": "兩次输入的密码不一致",
                     "surePwd_empty": "确認密码不能為空",
@@ -878,21 +878,21 @@
                     "voiceCode": "语音验证码",
                     "getCode": "获取验证码",
                     "form_tel_empty": "请输入您的常用手机号码",
-                    "form_pwd_less": "登陆密码不能小於6位字符",
-                    "form_pwd_space": "登陆密码不能使用空格",
-                    "form_pwd_empty": "请输入您的登陆密码",
+                    "form_pwd_less": "登录密码不能小於6位字符",
+                    "form_pwd_space": "登录密码不能使用空格",
+                    "form_pwd_empty": "请输入您的登录密码",
                     "form_pwd_strength_good": "您的密码很安全",
                     "form_pwd_strength_midd": "安全強度適中，可以使用三種以上的組合來提高安全性",
                     "form_pwd_strength_weak": "有被盜風險，请使用字母、数字或符号兩種及以上組合",
-                    "form_surepwd_msg": "请确認您的登陆密码",
+                    "form_surepwd_msg": "请确認您的登录密码",
                     "form_captcha_empty": "请输入图形验证码",
                     "form_captcha_refresh": "看不清此验证码?点击刷新",
                     "form_vcode_msg": "请输入手机验证码"
                 },
                 "resetPwd": {
-                    "title": "找回登陆密码",
+                    "title": "找回登录密码",
                     "phoneTit": "中國 +86",
-                    "phoneHolder": "请输入您的登陆手机号",
+                    "phoneHolder": "请输入您的登录手机号",
                     "captcha": "图形验证码",
                     "imgHolder": "请输入图形验证码",
                     "NextStep": "下一步",
@@ -916,7 +916,7 @@
                     "getPhoneCodeAg": "后重新获取",
                     "userPhoneTips": "已填写手机号:",
                     "userPhoneNum": "******",
-                    "goLogin": "去登陆",
+                    "goLogin": "去登录",
                     "warn": {
                         "phone": {
                             "nor": "请输入您的常用手机号码",
@@ -937,19 +937,19 @@
                             "empty": "手机验证码不能為空"
                         },
                         "password": {
-                            "nor": "请输入登陆密码",
-                            "err": "登陆密码格式不正确",
+                            "nor": "请输入登录密码",
+                            "err": "登录密码格式不正确",
                             "weak": "有被盜風險，请使用字母、数字或符号兩種及以上組合",
                             "midd": "安全強度適中，可以使用三種以上的組合來提高安全性",
                             "good": "您的密码很安全",
-                            "space": "登陆密码不能使用空格",
-                            "noCh": "登陆密码不能使用中文",
-                            "less": "登陆密码不能小於6位字符",
+                            "space": "登录密码不能使用空格",
+                            "noCh": "登录密码不能使用中文",
+                            "less": "登录密码不能小於6位字符",
                             "msg": "",
-                            "empty": "登陆密码不能為空"
+                            "empty": "登录密码不能為空"
                         },
                         "repassword": {
-                            "nor": "请再次输入登陆密码",
+                            "nor": "请再次输入登录密码",
                             "err": "兩次密码不一致",
                             "msg": "",
                             "empty": "确認密码不能為空"
@@ -1265,7 +1265,7 @@
             },
             "JS_LANG": {
                 "cn": {
-                    "login_now": "请先登陆",
+                    "login_now": "请先登录",
                     "GET_DATA_FAIL": "获取数據失敗",
                     "CANDY_GOT": "恭喜妳已经成功領取",
                     "CANDY_GET": "奖勵"
@@ -1324,7 +1324,7 @@
                 "en": "The user ('you') agree to provide full, accurate and true information in accordance with the information requested on the DOBI user registration page to including but not limited to phone number, identification documents, and valid account password."
             },
             "SERVICE_LEGAL": {
-                "cn": "1.4用户合法、完整並有效提供注册所需信息的，有權获得火网账号和密码，火网账号和密码用於用户在火网進行登陆。",
+                "cn": "1.4用户合法、完整並有效提供注册所需信息的，有權获得火网账号和密码，火网账号和密码用於用户在火网進行登录。",
                 "en": "1.4 If a user legally and completely submits all information required for registration, they will be entitled to a DOBI Trading Account which can then be used to login to the DOBI trading platform."
             },
             "SERVICE_NEWS": {
@@ -1686,7 +1686,7 @@
                 "en": "Withdrawals, Cash Withdrawal, and other operations require real name verification!"
             },
             "LOGIN_USE": {
-                "cn": "登陆時使用",
+                "cn": "登录時使用",
                 "en": "Use when logging in"
             },
             "TRADE_PWD_TIPS": {
@@ -1710,7 +1710,7 @@
                 "en": "Real Name Verification"
             },
             "LOGIN_PWD": {
-                "cn": "登陆密码",
+                "cn": "登录密码",
                 "en": "Login Password"
             },
             "TRADE_PWD": {
@@ -1974,7 +1974,7 @@
                 "en": ""
             },
             "CHANGE_LOGIN_PWD": {
-                "cn": "修改登陆密码",
+                "cn": "修改登录密码",
                 "en": ""
             },
             "VER_WARING_TIO": {
@@ -1993,7 +1993,7 @@
                 "cn": {
                     "sureBtn": "确定",
                     "setTradePwdTitle": "设置交易密码",
-                    "tradePwdti": "您尚未设置交易密码，请先设置！（交易密码是在火网進行交易時需要输入的密码，不同於登陆密码。為确保您的財産安全，请牢记交易密码，防止丟失!）",
+                    "tradePwdti": "您尚未设置交易密码，请先设置！（交易密码是在火网進行交易時需要输入的密码，不同於登录密码。為确保您的財産安全，请牢记交易密码，防止丟失!）",
                     "setTradePwd": "设置交易密码",
                     "setTradePwdPHold": "请输入交易密码",
                     "setPwdAgain": "再次输入密码",
@@ -3373,7 +3373,7 @@
                 "en": "Hide"
             },
             "TRADE_TALKING_LOGING": {
-                "cn": "登陆聊天室",
+                "cn": "登录聊天室",
                 "en": "Enter the Chat room"
             },
             "TRADE_TALKING_SENDS": {
@@ -3499,7 +3499,7 @@
                 "en": "go and post your review?"
             },
             "LOGIN_BTN": {
-                "cn": "登陆",
+                "cn": "登录",
                 "en": "log in"
             },
             "MOB_TOP_TITLE": {
@@ -3595,7 +3595,7 @@
                 "en": "DOBI Trading Platform Opens API"
             },
             "DOBI_DESC": {
-                "cn": "應用程序可通過調用DOBI開放平台提供的API获取到資產、交易等数據，因為涉及数據隱私，所以在使用前必須获得DOBI的<a class=\"fn-auth-link\" href=\"https://www.huocoin.com?login&reurl=https://api.huocoin.com/m\">授權</a>(<b>登陆后获取</b>)，才可以調用API。",
+                "cn": "應用程序可通過調用DOBI開放平台提供的API获取到資產、交易等数據，因為涉及数據隱私，所以在使用前必須获得DOBI的<a class=\"fn-auth-link\" href=\"https://www.huocoin.com?login&reurl=https://api.huocoin.com/m\">授權</a>(<b>登录后获取</b>)，才可以調用API。",
                 "en": "The application can obtain assets, transactions, and other data though API which is provided by the DOBI  platform. Because the privacy of date is involved, DOBI <a class=\"fn-auth-link\" href=\"https://www.huocoin.com?login&reurl=https://api.huocoin.com/m\">authorization</a> (available after login) must be obtained before using the API"
             },
             "COMMON_PARAM": {

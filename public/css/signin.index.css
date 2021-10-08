@@ -114,14 +114,13 @@ input {
       top: 16%;
       left: 100%; } }
 .bg-content .login_wrapper {
-    float: right;
     width: 420px;
     min-height: 400px;
     max-height: 600px;
     color: white;
-    margin: 8% 12% 0 0;
-    border: solid 1px #212c3f;
-    background-color: #0e192c;
+    margin: auto;
+    margin-top: 10%;
+    background-color: #fff;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px; }
@@ -130,7 +129,8 @@ input {
 .bg-content .login_wrapper .login_form p {
         font-size: 24px;
         line-height: 40px;
-        text-align: center; }
+        text-align: center;
+        color: #3f475a; }
 .bg-content .login_wrapper .login_form .find_pwd {
         border-bottom: solid 1px #4b5563;
         padding-bottom: 10px; }
@@ -149,12 +149,12 @@ input {
         margin-right: 10px;
         cursor: pointer; }
 .bg-content .login_wrapper .login_form .switch-tab li.selected {
-        color: #56a8ea;
-        border-bottom: solid 2px #56a8ea; }
+        color: #205fec;
+        border-bottom: solid 2px #205fec; }
 .bg-content .login_wrapper .login_form .input_box {
-        border: solid 1px #5f6d82;
+        border: solid 1px #d8dce6;
         text-indent: 50px;
-        background-color: #1c2a3f;
+        background-color: #fff;
         width: 100%;
         height: 40px;
         line-height: 40px;
@@ -162,7 +162,7 @@ input {
         -webkit-border-radius: 4px;
            -moz-border-radius: 4px;
                 border-radius: 4px;
-        color: #fff; }
+        color: #3f475a; }
 .bg-content .login_wrapper .login_form .loading_icon {
         position: absolute;
         margin-top: -47px;
@@ -230,7 +230,8 @@ input {
 .bg-content .login_wrapper .login_form .block_verify .msg {
           position: absolute;
           top: 33%;
-          left: 40%;
+          width: 100%;
+          text-align: center;
           color: #089ef9;
           z-index: 100000;
           font-weight: bolder;
@@ -263,8 +264,6 @@ input {
         text-indent: 100px; }
 .bg-content .login_wrapper .login_form input::-webkit-input-placeholder {
         color: #676e79; }
-.bg-content .login_wrapper .login_form .letter {
-        border: solid 1px #1c2a3f; }
 .bg-content .login_wrapper .login_form .img_box {
         position: absolute;
         margin-top: 12px;
@@ -280,25 +279,25 @@ input {
           margin-top: 7px;
           margin-left: 7px; }
 .bg-content .login_wrapper .login_form .img_box .phone_icon {
-          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAHlBMVEVHcEwhT5QhTpUhTpQhTpQgT5QhTpQeTJYgTpUiT5XFr0TrAAAACXRSTlMA2sGxiUCpG2xDPK9CAAAAtElEQVRYw+2XzQ7EIAiEi6Dg+7/w9mcvYgVNk92kYY6Efh3ay8y2vVBZMA2ExO7jXKopdBAMzTqREFGLsAnY7KZr2JoC835lOB8SPTQAVCdUDECZASTnE5g3JmcBHYfnjQEIQAACEIAABCAAAfgD4IqnA8EMwNOPAYXgCQD4G29nATpsy10HgIW4f1YDXkjr+mV0DOXOlhXnlQVZuKC3ULt/UNdqW19X/OaYh71zL575jVX7A2DuHoaXtpmxAAAAAElFTkSuQmCC) no-repeat;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAnFJREFUaEPtWbFqFFEUPXeyAZdAWLMTRNHsRFJZCaY0kC6NFgqKGt3ZgI2FhaU2JiD6A4KN6M5iVBSx0MZGAtoICjZ2IfsSJRaZiSKIRdy5MmuKGDRz72xWsuRtO+ede885980s7xE6/Ecd3j+2pwDPDy8APALQGIC+FlNcBvgFQK9M4N7ScqkT8PxwHsCAtpAQv2ACtyTENmEqAZ4fXgZwHaD3IJ7KrdDL2eniN03B9dih8ai30Y0xZn60+uyKCdwbUk6xgKHz0d6fK/wRwCI38sPz93o+S4tIcKWz33dT14/FBJvrpn2zt4ufJOvEAgYr0YnfLvFDE/SflpBrMZ6/9ACgU0R0sl4tPpasFwvwytFVEE+CadLUilMSci0mSw29AGBG25gSP6oxKYsAZT8Z4IqU9QIU5NrW/88IWQH/zsUmsNHMZnHH7gGBA/YtJDBJDMkypjYBsb0CoE3AvkYFY7LZJtlN3KLpfyy3m3iz51Objk3AJqCdmXV4O0J2hOwI6U//tuFfiRbHRLRccfakT6Djz0YV7ojcXgPaUt+BXee4J+9EdQA74q7cwYU7hbk0QW0VsL+8fCSm+BmAqgncibRmSpXwODGeJDhiXKzX3Jtpazw/vAug4rBzdK7W9zwN3+SWgBLMmisg8RWT5y8lFyG9Jui/lFZnYCI64MT8IcFxI79HeoUlFpAQe+VwGoQzILxxYuda7NBrU935Na25Db/wlS8FJ+bDq+kCjPum5o5LOVUCmiL88C2AQ9ICStw7E7jDmjVqAQn5oB+WGTgGYBRAQVPwL9gkwRkCntYDt6blyiRAW6SdeCugne5KuH8BTGg2TymywjEAAAAASUVORK5CYII=) no-repeat;
           -webkit-background-size: contain;
              -moz-background-size: contain;
                -o-background-size: contain;
                   background-size: contain; }
 .bg-content .login_wrapper .login_form .img_box .email_icon {
-          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABACAMAAAB/a5qVAAAAIVBMVEVHcEwiTpUdSZghTpUgTpUgT5QhT5QhTpUhTpUhTpUiT5UyAmWOAAAACnRSTlMAgBDWUXa4aOyUi7bGHgAAAXtJREFUWMPt18uywiAMBmAIEC7v/8DnWLEEyiWh3ThjNo4Lv/lNCwSlfvWVZTWGkERlTLTQKCbtVdBEgpj2y5wQmHSnAjzCvKBDiulumaPFxUWnJVUer/t3yL/ysjeF/LPqmwxqfqjTHlQxCRWmLci2nX43C1EGnYzJT1u9P7QSQYUBWzlOgQDyZE20juIn8vT9uzrcRLZaoVeHmcjXC73ncBLZZr/oOYxEvt12+k5J5HjMwCGJHIsZOrNEHWboTBL1mIkzStRlJs4gUZ+ZOiWRXjFThySKC2bhQAMNmYVDEukps3RoIjdmlg5JhIXZcQCHE4HIUc1Z0kvDc6pE3TQ8hybqp+E6Z6IA8/1x4XwSjdLwnQMaphE4ynq7PoVUu66llZdMHqNw28lzT+7jpAGLMvmE1usGzcp91nLuU7B7t4lybOY5MzjYbs5rziQTGkbR2BsxVOcBPjOHP3EvyIsxPHG9UHAvUbUv+e17XPuYbUSpFfByr/zVl9Qfc6lFHJIJUsUAAAAASUVORK5CYII=) no-repeat;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAvJJREFUaEPtWE1IFGEYft5PskMgyc6Wp/bzEkUEdfMSVIeCbt1E0hmQwLDSpA4JpoIoRKBZJIHJztSlU3ToVvRzii4hdEpwdy0J3BkQ6pQ6b8y66475uzvf7rI1c9vd733e5+f95psdQpVfVOX8EQqodIJhAmECAR0IRyiggYHL/80EpO48BvhwYHuUAvDnpBnt+RtyQwLSSJ8G01ulvVWBEZ9JxqPv/HD/jwAiPErEtU5VZm6HI3V7AkDHhjUFJ8A0AOKBPBB/WHFXOr89bfhSCiHSWDgBFh75pjV8P4eiBAieBsMEULcKSg4YnUkr8lylCGksGGAxCmB/FvcnEwxy6fiaicUISFqRwVjrYiOJJROgUznSDAylTK1PhQipO6MAd/uwPglyL83GD8zINqc/sIAccMywx4lxzdfohVuzcnNu6uBsMUKkYR+BizEQzueNocmUGbmc+6xUgAca0512Ak/69sUMAzdSZvRVISKkkW4Gi2GAG311XUlTG/fjKBfggUvDaQJjEuBjuWYEvpUwo/d2I0Lq6UGA7vjWfmXmjpQV3XD+lESA1/hQy2K9qF1+CEZLXgQ9WWLu/25p85sJkcYPCa4dAbg5f5fhl0vY2z5v1Tmb1qjcA5s20O3bAIZ9v30UjL5ZS3vtXx8zFi4Q0xBAJ33fjyRNrXe71EqWwDpybfZF76AD0OB9z8y/hKDeRFx7kB25bjAPAdiXrUsToydhac92GrmyCMhs7lb7KAmMATjn2+ATAHmPK/lTlfCeRE1XYqp+eifyGfGlHqF1JJhJGo4n4voW5CaSjZGrGCB3N+TLLyDLSur2FYDuA7xndaSwLJAZmcxIFXKVNwEfs1irfZYE7gL02wX3zZnam0KI59ZWTEAxZCtyG1VFdCucMAHvabTULlf8ICulwHCEwhEKOF/BRihgc+XlBf8nVs4gIOBuBGQeoKr51WJAj8pe/m++nS67jQEahgkEME9JaZiAEhsDgIQJBDBPSWnVJ/AHv84HT8WETEwAAAAASUVORK5CYII=) no-repeat;
           -webkit-background-size: contain;
              -moz-background-size: contain;
                -o-background-size: contain;
                   background-size: contain; }
 .bg-content .login_wrapper .login_form .img_box .pwd_icon, .bg-content .login_wrapper .login_form .img_box .confirm_pwd_icon {
-          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAHlBMVEVHcEwhTpUhTpUgT5QfSpchTpUhTpUhTpUhT5QiT5WX6aiAAAAACXRSTlMAftRCFe2zZpEoADqfAAABVUlEQVRYw9VX25bDIAgUBDH//8N7tMn2ImzHpG26vMWEcRgUSEpvNCvMiypX2+MtZbmaVpn1J13uTCdZ/G7PvCGVGfp8caG8anF5xMPo/iyPgsAcqrMftTXC/HP7tg6qtlWBBWR/GQoiq7+VoBTIC2CTpoIpyG5y/dC8z9R/pVAMTYISq5uhJNb4fDwHsPjANHkNArCjADSN/UoGdDqDczUQI+q3llzbXuW/7jFkmiOCsJEf+4QNWkjnXzJgveeoOAEoWPj7ZoTWoSjVj7WpBYC3rrFqgfXulu+3AaR3MbBS7AhA7+rsAwgAYNHBRzUo0XCDhsDrnLQbYL3hdTeADMPS7DmQoCGjWegdXQ8dpM8BpP8YApaF4g9MuAZS3V+Nbyxp59fEFA+4WGPpmIT6Z4cvhXOD4+/ttrb3Ss+tV8qxk08OGPn1I87MkMXhnAYoQGZ34f8AJdYdA6VOc7AAAAAASUVORK5CYII=) no-repeat;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABExJREFUaEPtmU9oHHUUx79vdhtaRavZ2QQlZmdtSrQ9eGhEDzmkFAM9BYQUQbKzwdRTU0xQwZMreDEtiK09WI2Z2QjWBrQIKqhoL4IWS6uVhELK/LbxX7ozhaJI203myWyydJt2svubnbAbyO8ysPN+730/897v7xLWeaO10r+jn5uu3zvfWVgEz11vncEULa5FrNAAkkPzrVyIjILQCRePFZ+3mid+GuAZsDJ9c/ONQ38ef/i/MIBCAUjq873MkSNloq8x+AKBLgB0A2ANIG3piQcAnAMpY8JoPlErRM0Amm6/BeBVTwgDxxRWjlvZ5l/9hGm6M8LMo0RoA/gERZCxPoxfDApSE4Cm27wc+A9mDOey6mfVCOkYctoWCu4oQCME+sEyY93V9LubTWAATXc+Bvg5MGVENvZGEAHJlDPExO8TeNwy40NBfAQC0FJ2HwinwPhOZNU9QQKX+iR0+ygBBwAaFWbsbVlfwQD0/C8APQ5y24XR8rds0HJ7Lc2bia9+w+DuSHTT9kvjW2dl/EkDaCnndRBniJCyDHVSJpifbTJtDzAjS4SDlqEelfEpD6DbnwLoEqbaLhNoNduO5537F6LuXwCdEaa6W8avNEAiZc8RYUaYaq9MoEq2Wso+BUKfbBlJATyiz2+LIDLLwLs5Ux2uJErmfVJ39jH4E9lZTQogmXb6mfkkM+/PZeMfyAisZKul8z1g+n5NAUoDGMS7hRE/XUmUzPsNgGq+1kYGVnyl9oEr3YqiHCSiKYabD30MaAP2U6TwfgZtK4vdAyCE+qc4wDuXdrF0mMj9oghwm28+txBtevP38a1X/SrEdxZq1/O7FNDP1ZRWcBv6mlz+yJpUJ5cH8QQA78xQ3s4KU+2SBkjoziECvwxyB4XRYgQXGbxnacwx41m/rbpvBjTd9tLZI0xVaq0ILvfOntVMrRsAYX7xlb42MlDLGGh74Vpz9GZhe6RpkyN7SCllom4ZSKbtYWYcKQnxDu6AMmaZD34uU3J1AUiknDEifgWg88uLUifAewn4l4meEUbsx2oh6gKg6ba3+O1ywV2XzfhZT+ytPRS9I4zYS40O4N0VnV55NFy+Q7rj99Vg6pWBkwD64eJpMan+VMxA+koarEwwcCBnqscaPAP5FwF6D0BWmKruiU3q9rcM7CFefMLKtvpeOzbEOtDWP7cles+WL70pGER7mbGTwIcBGMJUB6v9+kuZq3zMXJOtRHlgEO8DsANUSArjIbHOADgDoownOsimsAEysE4BHk3bT7qMMwCmijMSsOqhxK+s6paB2xYvxkWGO5LLtnwlU/91HcQloR2D/8RnJ+7Lywqv+2YuqOCGWAfCEt8QJVQrTF0Hca3iw8hA6e9TA8RmGIKkfbDyGsC9hEif32Fo1SsTTXd+K92eSQcPr8OUMFVvO3LXVvHOp7gVdiOJ8PRU74kUTFtGzFsMfVtFgOrD1cdy3QP8D1OSr09bF6X2AAAAAElFTkSuQmCC) no-repeat;
           -webkit-background-size: contain;
              -moz-background-size: contain;
                -o-background-size: contain;
                   background-size: contain; }
 .bg-content .login_wrapper .login_form .img_box .verify_icon {
-          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAHlBMVEVHcEwcTpUhTpUhTpUhTpUfTZUhTpUhTpUgTpQiT5WgjVkWAAAACXRSTlMADmSHsibs00cXqQW4AAABnElEQVRYw8VXUZaDMAiUQIDc/8K7rbpqA5Fg31t+DRiGIQzLMjRFXR5YpdYa1aw7YFsNIeVfuO0mZd5dpZ1N5qCAcnVfbwFhb2q2USAGKHHzjUkHMaqitHsTNILUgsgtZq9zjEVP9KCWM9oL3rK20QPTAfBLN/j/AJoOsDVITQfYqABPAyzpADsTJekvc1QmLWxTOUZF6g/iMtEMDP3Bv5dSg4ADmzQIlaFYWB3vioQ6H70iHBPErRdYidJphtwAaAFwwvC2G9RO8zwz+fbd6bPk86v8iS9rxTEAFwh6EF4/VT4YVNl9TWwQ3h9XL/XqfJ0uYuC+gGwA0KgVnUK+fwxELtU/JAM4B8At8sd8BHJRBhmNtREZCQbPTS96jEJJdWnOvTqwGorVaxNDdc097pZOmVEJaCqcuD/bQimuExzdWfnZBeJX8FVrbMbRQCk+SiA6o8bKnZ4kEIJB7vQ2SB6ACBsi+9MoQmz1qV4WHN17wK6FTOx/Fqlpavnr0uDZzQ+upMzsnvVYvyi3uv4qF34vWUn3tbtQn7hH7Ad3J1P3nqgrKwAAAABJRU5ErkJggg==) no-repeat;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABPxJREFUaEPtmV9sFFUUxr8zu6VEwNTu7AYR6S4lQRNewAdTjfG/CYmYYEJR2t1ZCPKkog/inyhCE4MaE1NTXghpO1vUVqIklogBFQxBExPlQR4gabuzpRDSzq5NANPS7j1mVrbpTnd3ZnampQ+dpA/tPec73++eOzO3dwizeIVj6Q8NeS0R2D9bZWi2hHPmiffl9Jn2zRaE5wCrY5nnBYldADaZJqdXYunQQKL2uJeT5gnAil1X76oar9pMoK1FjJv99jK4Z6J64tjVQyv+dQvjCiASH9kEpq0MbARQ69BMhoATIO5JdgZ7HeZOhc8ACMdHnjBGqyX8mbnOvGiRr0aSqIYwWePzSRGwtFZAPEDAkxWYLuUzw8BpCdJFkLiUzYokwz8qBI/eupUdrV1GNC7wUO6B0Bk8M11kJoCic6WzMRd5mioXeF4AmItZn15joQNzPePmegsdWOiAyxmYv0uI8RsIj1jxzTsAAm4wo20SaPODdk7tYEuQzDMAPkEkfZ7sDJyqiw2vB+gbIlpTrgvzBeAyMT5NJuQ2w2xdVH8QhJNEWDnvlxAD37LPv2ewvWbAMHtf09BKv6/6PBHJVuZzm7k7uRdiiPdTauijvNE1Tem7J3x8hQhL7Zi/YwAMXIAQb6e6Qj9MN1oX0yeI4Ldr3lMAZtwAeMyy9UQ9QPUbWufSa9ONhhV9yFhBTsx7BsDMfQC/DtAYkbQf4MdKGOnQVHmHeSys6N8B2OzUvEcAdNZfhW19hwPGDCIcH17OglqI6BXTf0oHk6r8qtlkJJ7+gJlbKjHvFcCP1T7ReKk9eL1wSaTfNIwZNySDP0upwbdmmI/przHhi0rNewRgyNDfIG7UOuWLhTfl8EaAGlKJ4N4i5puZ0OXGvIcAORsZATQOqvLPVqaMFxVJdBbggFWs1biN98DIGEDVVkL5cQKUpConysWHFV0FELOrWTqOxzU1uNh0rxWGh5WRPoDqHRZ7T1PlA8VyIkq60TjIcqhXIpz7NTVYsFcqdipxGkDubMjJxcDBlOmpE44nF4OXnQOwwYlWmdgzmiob51FT1wyAOkXvIqC5woLHNFV+MZ8bVvQ9AD6pUGtGGgNHUqocLb+EYvoBEN5xUfQPTZUfjjSPrGUfGd2814VWYSrjYy0hv1u+A7Hh9UTSXy6LXmHgGAEzXmRudJnFhlQidL4sgDEYVvSTAJ51U2wWck9pqvycWbfo6XRYGd4OSO2zYMKFpNihqaEOWwD/dyH9NcAvuajoYSp1a2rg5WKCJb8P3B/NrPNJ/CvATs/9PTRuSFEmK+jxy121FxwBGMGRmO7J/sUNETGiyYR8pJSG5ReaOmWkiUAlBdyYs8plcHNKDX5ZLs4SwEhepehPS8BPVgW9HBfAM3Y2irYADGOro5lVLIlzDOujDzcgBAyRkB4d6KodtKNjGyDXiW2j90hVk8bO0vwJ1U4tOzG9YsKvDH5V84+d4NwtbjdwKm4L+yJL0i3M2A1gieP84gk3idCavBnYi6OUdaLpHOC2en00s25S4t0E3umkoDmWQYf9glr7SzwmrbQrBsgL120ffYrEpNGNF6yKmca/Z8nfmuqo+cVhXkG4a4ApkFi6gSj35jZ+QiVMDQPoZqbuVCLwuxvj+VzPAPKC9dFroazkz4M03P67YbbbJya7+7uWGxCeXZ4DTHcWiae3GL8nOwNHPXNsEvoPNcrfQPQcxbkAAAAASUVORK5CYII=) no-repeat;
           -webkit-background-size: contain;
              -moz-background-size: contain;
                -o-background-size: contain;
@@ -310,7 +309,7 @@ input {
           height: 40px;
           line-height: 40px;
           display: inline-block;
-          background-color: #0c3374;
+          background-color: #205fec;
           position: relative;
           top: -32px;
           text-align: center;
@@ -326,7 +325,7 @@ input {
         -webkit-border-radius: 2px;
            -moz-border-radius: 2px;
                 border-radius: 2px;
-        background-color: #1c2a3f; }
+        background-color: #ccc; }
 .bg-content .login_wrapper .login_form .verify_success .slide_block {
           height: 40px;
           line-height: 40px;
@@ -336,7 +335,7 @@ input {
           float: right;
           width: 60px;
           height: 40px;
-          background-color: #0c3374;
+          background-color: #ccc;
           -webkit-border-radius: 4px;
              -moz-border-radius: 4px;
                   border-radius: 4px;
@@ -359,7 +358,7 @@ input {
         border: 1px solid #e4e7eb; }
 .bg-content .login_wrapper .login_form .sliderContainer .slider {
           position: absolute;
-          top: 0;
+          top: -1;
           left: 0;
           width: 40px;
           height: 40px;
@@ -389,10 +388,11 @@ input {
         height: 40px;
         margin-left: 40px;
         line-height: 40px;
-        margin-top: 13px; }
+        margin-top: 13px;
+        font-weight: normal; }
 .bg-content .login_wrapper .login_form .phone_label .area_num span {
           width: 30px;
-          color: #999; }
+          color: #3f475a; }
 .bg-content .login_wrapper .login_form .corret_p {
         font-size: 12px;
         color: #ffbd09;
@@ -414,10 +414,10 @@ input {
 .bg-content .login_wrapper .login_form .code_verify {
         cursor: pointer; }
 .bg-content .login_wrapper .login_form .panel_language {
-        border: solid 1px #4b5563;
+        border: solid 1px #d8dce6;
         position: absolute;
         width: 360px;
-        height: 395px;
+        height: 319px;
         overflow-y: auto;
         background-color: #fff;
         z-index: 999;
@@ -432,22 +432,21 @@ input {
           cursor: pointer;
           cursor: pointer; }
 .bg-content .login_wrapper .login_form .gm-scrollbar .thumb {
-        background-color: #0c3374; }
+        background-color: #205fec; }
 .bg-content .login_wrapper .login_form .gm-scrollbar .thumb:hover {
-        background-color: #0c3374; }
+        background-color: #205fec; }
 .bg-content .login_wrapper .login_form .bg {
-        background-color: #5f6d82; }
+        background-color: #d8dce6; }
 .bg-content .login_wrapper .login_form .vertify {
-        color: #fff;
+        color: #3f475a;
         background-color: none !important;
         text-indent: -10px !important; }
 .bg-content .login_wrapper .login_form .register_btn {
         width: 100%;
-        background-color: #091b38 !important;
+        background-color: #205fec;
         text-align: center;
         color: #fff;
         font-size: 18px;
-        background: url(/imgs/reg_background.jpg) no-repeat;
         height: 40px;
         -webkit-border-radius: 4px;
            -moz-border-radius: 4px;
@@ -461,7 +460,7 @@ input {
         text-align: right; }
 .bg-content .login_wrapper .login_form .no_account .huo_w, .bg-content .login_wrapper .login_form .no_account .register_now {
           float: left;
-          color: #56a8ea;
+          color: #205fec;
           cursor: pointer;
           display: inline; }
 .bg-content .login_wrapper .login_form .no_account .forget_pwd {
@@ -472,7 +471,7 @@ input {
         position: absolute;
         width: 360px; }
 .bg-content .login_wrapper .login_form .user_agree_box a {
-          color: #56a8ea; }
+          color: #205fec; }
 .bg-content .login_wrapper .login_form .register_agreemt_uncheck {
         position: relative;
         top: -60px;

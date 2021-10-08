@@ -868,6 +868,7 @@ const alerts = new Vue({
         },
         //登录注册提交
         register_submit() {
+            debugger
             let url = '';
             //判断协议是否被勾选
             if (this.checkeds === false) { return false; }

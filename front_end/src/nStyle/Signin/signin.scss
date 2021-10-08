@@ -136,15 +136,13 @@ input {
         }
     }
     .login_wrapper {
-        float: right;
         width: 420px;
         min-height: 400px;
         max-height: 600px;
         color: white;
-        // color: #333;
-        margin: 8% 12% 0 0;
-        border: solid 1px #212c3f;
-        background-color: #0e192c;
+        margin: auto;
+        margin-top: 10%;
+        background-color: #fff;
         border-radius: 5px;
         .login_form {
             padding: 30px;
@@ -152,6 +150,7 @@ input {
                 font-size: 24px;
                 line-height: 40px;
                 text-align: center;
+                color: #3f475a;
             }
             .find_pwd {
                 border-bottom: solid 1px #4b5563;
@@ -171,19 +170,19 @@ input {
                 cursor: pointer;
             }
             .switch-tab li.selected {
-                color: #56a8ea;
-                border-bottom: solid 2px #56a8ea;
+                color: #205fec;
+                border-bottom: solid 2px #205fec;
             }
             .input_box {
-                border: solid 1px #5f6d82;
+                border: solid 1px #d8dce6;
                 text-indent: 50px;
-                background-color: #1c2a3f;
+                background-color: #fff;
                 width: 100%;
                 height: 40px;
                 line-height: 40px;
                 margin: 12px 0px;
                 border-radius: 4px;
-                color: #fff;
+                color: #3f475a;
             }
             .loading_icon {
                 position: absolute;
@@ -217,7 +216,8 @@ input {
                 .msg {
                     position: absolute;
                     top: 33%;
-                    left: 40%;
+                    width: 100%;
+                    text-align: center;
                     color: #089ef9;
                     z-index: 100000;
                     font-weight: bolder;
@@ -254,9 +254,7 @@ input {
             input::-webkit-input-placeholder {
                 color: #676e79;
             }
-            .letter {
-                border: solid 1px #1c2a3f;
-            }
+            
             .img_box {
                 position: absolute;
                 margin-top: 12px;
@@ -295,7 +293,7 @@ input {
                     height: 40px;
                     line-height: 40px;
                     display: inline-block;
-                    background-color: #0c3374;
+                    background-color: #205fec;
                     position: relative;
                     top: -32px;
                     text-align: center;
@@ -309,7 +307,7 @@ input {
                 width: 100%;
                 height: 40px;
                 border-radius: 2px;
-                background-color: #1c2a3f;
+                background-color: #ccc;
                 .slide_block {
                     height: 40px;
                     line-height: 40px;
@@ -320,7 +318,7 @@ input {
                     float: right;
                     width: 60px;
                     height: 40px;
-                    background-color: #0c3374;
+                    background-color: #ccc;
                     border-radius: 4px;
                     text-align: center;
                     margin-top: -40px;
@@ -344,7 +342,7 @@ input {
                 border: 1px solid #e4e7eb;
                 .slider {
                     position: absolute;
-                    top: 0;
+                    top: -1;
                     left: 0;
                     width: 40px;
                     height: 40px;
@@ -370,11 +368,12 @@ input {
                 margin-left: 40px;
                 line-height: 40px;
                 margin-top: 13px;
+                font-weight: normal;
                 // background-color: #1c2a3f;
                 .area_num {
                     span {
                         width: 30px;
-                        color: #999;
+                        color: #3f475a;
                     }
                 }
             }
@@ -404,10 +403,10 @@ input {
                 cursor: pointer;
             }
             .panel_language {
-                border: solid 1px #4b5563;
+                border: solid 1px #d8dce6;
                 position: absolute;
                 width: 360px;
-                height: 395px;
+                height: 319px;
                 overflow-y: auto;
                 background-color: #fff;
                 z-index: 999;
@@ -422,27 +421,25 @@ input {
                 }
             }
             .gm-scrollbar .thumb {
-                background-color: #0c3374;
+                background-color: #205fec;
             }
             .gm-scrollbar .thumb:hover {
-                background-color: #0c3374;
+                background-color: #205fec;
             }
             .bg {
-                background-color: #5f6d82;
+                background-color: #d8dce6;
             }
             .vertify {
-                color: #fff;
-                // border: solid 1px #091b38;
+                color: #3f475a;
                 background-color: none !important;
                 text-indent: -10px !important;
             }
             .register_btn {
                 width: 100%;
-                background-color: #091b38 !important;
+                background-color: #205fec ;
                 text-align: center;
                 color: #fff;
                 font-size: 18px;
-                background: url(/imgs/reg_background.jpg) no-repeat;
                 height: 40px;
                 border-radius: 4px;
                 margin: 12px 0;
@@ -458,7 +455,7 @@ input {
                 .huo_w,
                 .register_now {
                     float: left;
-                    color: #56a8ea;
+                    color: #205fec;
                     cursor: pointer;
                     display: inline;
                 }
@@ -473,7 +470,7 @@ input {
                 position: absolute;
                 width: 360px;
                 a {
-                    color: #56a8ea;
+                    color: #205fec;
                 }
             }
             .register_agreemt_uncheck {

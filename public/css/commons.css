@@ -1655,7 +1655,7 @@
             transform: scaleX(1.2);
     color: #eee; }
 .link::after {
-  top: -3px; }
+  top: -8px; }
 .more_icon:after {
   content: "\E900";
   display: inline-block;
