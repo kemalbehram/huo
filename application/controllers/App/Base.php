@@ -36,7 +36,7 @@ class App_BaseController extends Ctrl_Base
 			$this->createToken();
 		}
 
-		if(LANG=='cn'){
+		if(LANG=='en'){
 			$langue='zh-'. LANG;
 		}else{
 			$langue = LANG;

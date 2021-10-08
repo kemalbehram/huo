@@ -96,7 +96,7 @@
               <transition-group class="area_t_body" v-if="curArea === 'my'" :duration="{ enter: 100, leave: 150 }" name="slideR" tag="ul" mode="out-in">
                 <template v-for="area in areas">
                   <li v-for="item in area" v-if="item.selected && item.search" :key="item.coin" @click="changeCoin(item.coin)"><a :href="'/trade/'+item.coin" class="white100_f" flex="">
-                    <div flex="cross:center"><span class="fine_point_start" :class="{'sel_start' :item.selected}" @click.stop.prevent="setSelected(item)"></span>{{item.coin | beat-name}}&nbsp;({{item.display}})&nbsp;
+                    <div flex="cross:center"><span class="fine_point_start" :class="{'sel_start' :item.selected}" @click.stop.prevent="setSelected(item)"></span>{{item.coin | beat-name}}&nbsp;
                       <span class="gray500_f upper_word">/&nbsp;{{item.coin | area-name}}</span>
                     </div>
                     <div flex="cross:center">{{item.price | del-zero}}<span>{{item.price | get-zero}}</span>
@@ -113,7 +113,7 @@
                   <a :href="'/trade/'+item.coin" class="white100_f" flex="">
                     <div flex="cross:center">
                       <span class="fine_point_start" :class="{'sel_start' :item.selected}" @click.stop.prevent="setSelected(item, key)"></span>
-                      {{item.coin | beat-name}}&nbsp;({{item.display}})&nbsp;
+                      {{item.coin | beat-name}}&nbsp;
                       <span class="gray500_f upper_word">/&nbsp;{{item.coin | area-name}}</span></div>
                     <div flex="cross:center">
                       {{item.price | del-zero}}
