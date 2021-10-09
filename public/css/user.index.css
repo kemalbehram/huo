@@ -317,13 +317,9 @@ table {
         right: -27px;
         top: 16px;
         display: inline-block;
-        width: 26px;
-        height: 26px;
+        width: 18px;
+        height: 18px;
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAA4UlEQVQ4ja3UwUrDQBAA0Gc2KTFV8Kro//9XLXiWSFUorYfsYho33T04l8BkeMzsThJM8YQHfOCsLho84w5jwGNENhgwVmANXrBFj65BOysYYkFTgQyzXBtM4wzoYrK70lkOOWAfYvFYga0hrziFmChhN9cQsaDU+ld89msIBJeR66x1eSF/kBw0x+4XAHxjt0TSKP8SuY7SOd1m3rVWVmMJrR320e+Y2T2bQ2t7ssO7wp6FApJup7i0oQJJcRULpl/BtoCUsL4xHWQNkuIUaw6z3DF9/ZsI7gvIsrMen3j7AREwUqKN90uUAAAAAElFTkSuQmCC) no-repeat;
-        -webkit-background-size: 26px 26px;
-           -moz-background-size: 26px;
-             -o-background-size: 26px;
-                background-size: 26px;
         cursor: pointer; }
 
 .pwd_content .pwd_header_reset_p {
@@ -348,8 +344,9 @@ table {
 
 .pwd_content .pwd_input_group .pwd_input_label {
       padding-right: 13px;
-      width: 22px;
-      height: 100%; }
+      width: 12px;
+      height: 100%;
+      margin-right: 5px; }
 
 .pwd_content .pwd_input_group .pwd_input_text {
       padding-left: 5px;

@@ -316,10 +316,9 @@ table {
                 right: -27px;
                 top: 16px;
                 display: inline-block;
-                width: 26px;
-                height: 26px;
+                width: 18px;
+                height: 18px;
                 background: url('../../../assets/reg/register_alert_close.png') no-repeat;
-                background-size: 26px;
                 cursor: pointer;
             }
         }
@@ -340,12 +339,12 @@ table {
     .pwd_input_group {
         height: 44px;
         border-radius: 4px;
-        // border: 1px solid $gray600;
         overflow: hidden;
         .pwd_input_label {
             padding-right: 13px;
-            width: 22px;
+            width: 12px;
             height: 100%;
+            margin-right: 5px;
         }
         .pwd_input_text {
             padding-left: 5px;

@@ -227,8 +227,8 @@
               <td class="upper_word">{{item.name}}({{item.display}})</td>
               <td :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_over']), item.name)">{{parseFloat(item.over)}}</td>
               <td class="user_con" :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_lock']), item.name)">{{parseFloat(item.lock)}}</td>
-              <td class="user_con" :data-tormb="compPrice(item.sum, item.name)">{{parseFloat(item.sum)}}</td>
-              <td>{{parseFloat(item.sum_cnyx)}}</td> 
+              <td class="user_con" :data-tormb="compPrice(item.sum, item.name)">{{item.sum}}</td>
+              <td>{{item.sum_cnyx}}</td> 
               <td>
                 <!-- //充币 -->
                 <a  v-if="item.name=='CNYX'" :href="item.in_status ==1?'':'/c2c'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]">
@@ -394,10 +394,8 @@
   <?php //交易密码 ?>
   <div v-cloak >
     <div class="pwd_dom pwd_mask" v-if="showPwd">
-      <!-- <div class="pwd_mask_contain_980 white100_bg"></div>
-      <div class="pwd_mask_contain_1200 black900_bg"></div> -->
-      <div class="pwd_mask_contain_980 "></div>
-      <div class="pwd_mask_contain_1200 "></div>
+      <div class="pwd_mask_contain_980 white100_bg"></div>
+      <div class="pwd_mask_contain_1200 black900_bg"></div>
     </div>
     <transition name="zoom">
       <div class="pwd_dom pwd_content" v-if="showPwd">

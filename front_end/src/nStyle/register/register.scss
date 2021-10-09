@@ -145,7 +145,7 @@
             // margin-bottom: pxToRem(20);
             position: relative;
             margin: 0 auto;
-            padding: 4px;
+            padding: 4px 0px;
             width: 342px;
             height: 43px;
             // border: 1px solid #666;
@@ -159,7 +159,7 @@
                 }
                 .register_img {
                     display: inline-block;
-                    padding: 0 13px;
+                    margin-right: 13px;
                     width: 20px;
                     height: 24px;
                 }
@@ -261,7 +261,6 @@
         //登录
         .register_login {
             position: relative;
-            margin-top: 12px;
             width: 342px;
             height: 43px;
             font-size: 18px;
@@ -354,11 +353,8 @@
 
 //输入框错误class
 .tip-txt {
-    margin: 0 auto 9px;
-    padding-left: 16px;
+    margin: auto;
     width: 342px;
-    line-height: 17px;
-    height: 17px;
     font-size: 12px;
 }
 

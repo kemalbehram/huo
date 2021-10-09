@@ -490,16 +490,16 @@
                                     <p><?php echo $GLOBALS['MSG']['SET_NEW_PWD'];?></p>
                                 </ul>
                             </div>
-                            <h3 class="register_h3 gray500_f"
+                            <div class="register_h3 gray500_f"
                                 v-if="userInfo.phone && !userInfo.email && userInfo.phone!= '****'">
                                 <?php echo $loginLang['PWD_PHONE_RESET']; ?>
                                 <span class="register_alert_close" @click="close_alert"></span>
-                            </h3>
-                            <h3 class="register_h3 gray500_f"
+                            </div>
+                            <div class="register_h3 gray500_f"
                                 v-if="(!userInfo.phone || userInfo.phone== '****') && userInfo.email">
                                 <?php echo $loginLang['PWD_EMAIL_RESET']; ?>
                                 <span class="register_alert_close" @click="close_alert"></span>
-                            </h3>
+                            </div>
                             <div class="log_form log_tips">
                                 <?php //找回密碼第一步 ?>
                                 <?php //手机号DOM ?>
