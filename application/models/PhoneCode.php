@@ -90,9 +90,9 @@ class PhoneCodeModel extends Orm_Base{
 		}
 
 		if (LANG == 'cn') {//中文签名
-			$sign = '【火网】';//智语
+			$sign = '【LENDENEX】';//智语
 		} else {//英文签名
-			$sign = '【HUOCOIN】';
+			$sign = '【LENDENEX】';
 		}
 		switch ($aid) {
 			case 1:
