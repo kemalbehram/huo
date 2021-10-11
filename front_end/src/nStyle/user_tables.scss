@@ -15,15 +15,21 @@
       height: 69px;
     }
     .user_tabs_tr {
-      // text-align: left;
       height: 50px;
+      line-height: 50px;
       width: 100%;
       color: $gray500;
       font-size: 14px;
+      display: inline-flex;
+      width: 100%;
       td, th {
-        padding-left: 34px;
         box-sizing: border-box;
         font-weight: normal;
+        flex: 1;
+        text-align: center;
+        .user_td_div{
+          display: inline-flex;
+        }
       }
     }
   }
@@ -52,40 +58,3 @@
   .no_data_font {
     text-decoration: none;
   }
-// }
-// @media screen and (max-width: $bigScreenMax) {
-//
-//   .user_tabs {
-//     width: 100%;
-//     text-align: center;
-//     .user_tabs_tr {
-//       height: pxToRem(80);
-//       font-size: pxToRem(26);
-//     }
-//     td {
-//       white-space: nowrap;
-//       min-width: pxToRem(100);
-//     }
-//   }
-//   .cursor_point {
-//     cursor: pointer;
-//   }
-//   .border_top_one {
-//     border-top: 1px solid $gray300;
-//   }
-//   .user_td_div {
-//     width: 100%;
-//   }
-//   .user_hide_980 {
-//     display: none;
-//   }
-//
-//   .loding {
-//     height: pxToRem(300);
-//     background: url('../assets/load.gif') no-repeat center;
-//   }
-//   .no_data {
-//     height: pxToRem(300);
-//     background: url('../assets/table_no_data.png') no-repeat center;
-//   }
-// }
