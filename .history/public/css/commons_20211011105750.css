@@ -2037,7 +2037,7 @@ button:hover {
 
 .default_f .link:hover {
     cursor: pointer;
-    color: #ee2222;
+    opacity: 0.6;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     -moz-transition: all .3s;
@@ -3460,36 +3460,18 @@ button:hover {
     height: 69px; }
 
 .user_tabs .user_tabs_tr {
+    text-align: left;
     height: 50px;
-    line-height: 50px;
     width: 100%;
     color: #666;
-    font-size: 14px;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -moz-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 100%; }
+    font-size: 14px; }
 
 .user_tabs .user_tabs_tr td, .user_tabs .user_tabs_tr th {
+      padding-left: 34px;
       -webkit-box-sizing: border-box;
          -moz-box-sizing: border-box;
               box-sizing: border-box;
-      font-weight: normal;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-         -moz-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      text-align: center; }
-
-.user_tabs .user_tabs_tr td .user_td_div, .user_tabs .user_tabs_tr th .user_td_div {
-        display: -webkit-inline-box;
-        display: -webkit-inline-flex;
-        display: -moz-inline-box;
-        display: -ms-inline-flexbox;
-        display: inline-flex; }
+      font-weight: normal; }
 
 .user_tabs_span {
   height: 350px;

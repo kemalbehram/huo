@@ -1,0 +1,120 @@
+<?php  include PATH_TPL.'/tpl.header.phtml';?>
+<div class="bg-content" id="more">
+    <!-- 划转遮罩 -->
+    <div class="bgcover" v-show="frontcover" v-cloak></div>
+    <div class="content">
+        <div style="margin-bottom:50px;">
+            <img style="width:100%;cursor: pointer;" @click="showFun" src="/imgs/more.jpg">
+        </div>
+        <!-- 规则 -->
+        <div class="box1200 bgfff rules">
+            <h3>
+            余币宝划转须知
+            </h3>
+            <p>
+            1.余币宝是lendenex最新推出的理财产品暂时只支持WCG划转；
+            </p>
+            <p>
+        2.用户在余币宝内存入的资产可每天享受本金0.5%的收益，收益在存入后第二天24点后自动到用户的幸运账户，即当日转入，第二天生效收益，转出币时，收益截止为前一天。（如1号将华克金转入余币宝，15号转出，收益计算期为2-14号。）
+            </p>
+            <p>3.当天任一时刻将wcg划入余币宝，理财收益将在第二天晚上12点后到账幸运账户，如1号将wcg划入余币宝，在2号晚上12点后，即3号凌晨收益到账。</p>
+            <p>
+        4.用户在余币宝内存入的资产可随时划转到币币账户进行交易或者充提；
+
+            </p>
+        </div>
+        <div class="box1200 bgfff headerBox">
+            <select v-model="value" class="select_input"  >
+                <option value="wcg" selected>wcg</option> 
+            </select>
+            <input type="text" placeholder="数量" oninput="value=value.replace(/[^\d^\.]+/g,'');" 
+                maxlength="16"
+                v-model="coinnum" @blur='verify(userList.num, "num")'>
+            <div class="tips_box" v-cloak>
+                <p class="corret_p error_phone" v-if="errorArr.accStatus === 0">请输入数量
+                </p>
+            </div>
+            <button class="submit_btn" @click.stop="submit()">完成</button>
+        </div>
+        <!-- 划转显示 -->
+        <div class="slidebox" v-show="showslidebox" v-cloak>
+            <p>
+                <input type="text" placeholder="请输入划转数量" v-model="leavenum">
+            </p>
+            <p>
+                <button class="submitslide" @click="submitCoinNum()">确认</button>
+            </p>
+        </div>
+        <div class="boxwrap mH500">
+            <p class="coinAll" v-cloak>WCG(华克金)资产:{{coinAllCount.wcg_more | numFilter }}</p> 
+            <button class="slide_btn" @click="slideBtn">划转至币币账户</button> 
+            <!-- <h3> -->
+                <!-- 我的定存/我的利息 -->
+            <p class="tab_change">
+                <button @click="getqData(1)" :class="{active:tabChange==1}">我的定存</button>
+                <button @click.stop="getqData(2)" :class="{active:tabChange==2}">我的利息</button>
+            </p>
+
+            <table width="100%" v-if="tabChange==1" class="tablelist" v-cloak>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>币种</th>
+                        <th>存入时间</th>
+                        <th>类型</th>
+                        <th>存入数量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in listData">
+                        <th>{{pagenum+index+1}}</th>
+                        <th>{{item.coin}}</th>
+                        <th>{{item.created | handTime}}</th>
+                        <th v-if="item.type==1">转入</th>
+                        <th v-else>转出</th>
+                        <th>{{item.number | numFilter}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="100%" v-if="tabChange==2" class="tablelist" v-cloak>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>币种</th>
+                        <th>存入时间</th>
+                        <th>收益</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in extraData">
+                        <th>{{pagenum+index+1}}</th>
+                        <th>{{item.coin}}</th>
+                        <th>{{item.created | handTime}}</th>
+                        <th >{{item.number | numFilter}}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tabsPages" :class="all > 1 ? 'page-list-contain':''">
+                <pages :all="all" v-on:get-tabs="getcoindata" :page-name="'<?php echo $GLOBALS['MSG']['PAGE'];?>'"
+                    :jump-to-title="'<?php echo $GLOBALS['MSG']['JUMP'];?>'"
+                    :home-title="'<?php echo $GLOBALS['MSG']['NUMBER_HOME'];?>'"
+                    :last-title="'<?php echo $GLOBALS['MSG']['NUMBER_FOOR'];?>'" :currentpage="currentpage" @keydown=""
+                    v-if="all && all != 1">
+                </pages>
+            </div>
+            <!-- <div flex="main:center cross:center" class="mask_contain" v-cloak v-if="nowStatus" style="background: rgba(0,00,0,0.3)">
+                        <div class="alert_content relative_dom" style="padding:10px;color:#e3493c" v-text="errMsg"></div>
+                    </div> -->
+        </div>
+
+    </div>
+    <!-- 错误消息提示 -->
+    <div flex="main:center cross:center" class="mask_contain" v-cloak v-if="nowStatus"
+        style="background: rgba(0,00,0,0.3)">
+        <div class="alert_content relative_dom" style="padding:10px;color:#e3493c" v-text="errMsg"></div>
+    </div>
+</div>
+<script>
+    document.querySelector("li.more").className += " now_nav";
+</script>
+<?php  include PATH_TPL.'/tpl.noCopyRightFooter.phtml';?>

@@ -237,7 +237,7 @@
                 <a  v-if="item.name=='CNYX'" :href="item.out_status ==1?'':'/user/coinout'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.out_status == 1}]">
                   <?php echo $lang['T_BODY_COIN_OUT'] ?>
                 </a>
-                <div v-else  class="user_td_div" >
+                <div v-else  class="user_td_div" flex="cross:center">
                   <button type="button"
                     :disabled="item.in_status ==1" @click.stop="jumpCoin(item, 'in')"
                     :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]"

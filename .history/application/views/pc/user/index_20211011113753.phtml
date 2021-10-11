@@ -237,7 +237,7 @@
                 <a  v-if="item.name=='CNYX'" :href="item.out_status ==1?'':'/user/coinout'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.out_status == 1}]">
                   <?php echo $lang['T_BODY_COIN_OUT'] ?>
                 </a>
-                <div v-else  class="user_td_div" >
+                <div v-else  class="user_td_div" flex="cross:center">
                   <button type="button"
                     :disabled="item.in_status ==1" @click.stop="jumpCoin(item, 'in')"
                     :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]"
@@ -267,7 +267,7 @@
               <td class="user_con" :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_lock']), item.name)">{{userInfo[item.name + '_lock']}}</td>
               <td class="user_con" :data-tormb="compPrice(item.sum, item.name)">{{item.sum}}</td>
               <td>
-                <div class="user_td_div" >
+                <div class="user_td_div" flex="cross:center">
                   <?php //充币 ?>
                   <button type="button" name="button" :disabled="item.in_status == 1" @click.stop="jumpCoin(item, 'in')"
                     :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]"
