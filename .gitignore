@@ -5,6 +5,7 @@
 /front_end/node_modules/*
 /log/*
 /.idea/*
+/.history
 /shell/process.log
 /shell/warningInterval.*
 /shell/warningInterval.recode
