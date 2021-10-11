@@ -14,3 +14,4 @@
 /shell/*.log
 /shell/nohup.out
 /nohup.out
+/.history
