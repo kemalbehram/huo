@@ -2037,7 +2037,7 @@ button:hover {
 
 .default_f .link:hover {
     cursor: pointer;
-    opacity: 0.6;
+    color: #ee2222;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     -moz-transition: all .3s;
@@ -3268,7 +3268,7 @@ button:hover {
 
 .default_f .link:hover {
     cursor: pointer;
-    opacity: 0.6;
+    color: #ee2222;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     -moz-transition: all .3s;

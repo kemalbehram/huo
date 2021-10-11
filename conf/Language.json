@@ -7,7 +7,7 @@
 {
     "base": {
         "API": {
-            "cn": "火网開放API",
+            "cn": "lendenex開放API",
             "en": " API"
         },
         "NOBTC_LINK": {
@@ -15,7 +15,7 @@
             "en": "No BTC? Click here to enter OTC"
         },
         "TITLE_WORD": {
-            "cn": "比特币交易萊特币，以太坊的币币交易平台-火网交易平台",
+            "cn": "比特币交易萊特币，以太坊的币币交易平台-lendenex交易平台",
             "en": "DOBI Exchange - A blockchain currency trading platform!"
         },
         "KEY_WORDS": {
@@ -31,7 +31,7 @@
             "en": "Passport"
         },
         "DESCRIPTION": {
-            "cn": "火网交易平台是國際性的比特币、莱特币、以太坊等数字货币交易平台，使用多重安全防範技術打造銀行級別的比特币交易網站，火网致力於提供安全、穩定、便捷的比特币（BTC），莱特币（LTC），以太坊（ETH），行雲币（MCC）等数字货币的币币交易服務，快速轉币、实時交易，給您最好的交易體驗！",
+            "cn": "lendenex交易平台是國際性的比特币、莱特币、以太坊等数字货币交易平台，使用多重安全防範技術打造銀行級別的比特币交易網站，lendenex致力於提供安全、穩定、便捷的比特币（BTC），莱特币（LTC），以太坊（ETH），行雲币（MCC）等数字货币的币币交易服務，快速轉币、实時交易，給您最好的交易體驗！",
             "en": "DOBI Trade is an international platform for trading Bitcoin, Litecoin, Ethereum, other digital assets/currencies, and tokens, uses multiple layers of bank grade security to protect your trades, DOBI Trade is committed to provide safe, stable and convenient trading for Bitcoin (BTC), LTC, ETH, MCC and other digital currencies, fast trades, real-time trading, the best trading experience"
         },
         "LOGO_TITLE": {
@@ -63,11 +63,11 @@
             "en": "Customer Service Phone Number"
         },
         "MAIN_TITLE_INDEX": {
-            "cn": "火网交易平台",
+            "cn": "lendenex交易平台",
             "en": "DOBI Trade"
         },
         "LOGO_WORD": {
-            "cn": "火网",
+            "cn": "lendenex",
             "en": ""
         },
         "HOME": {
@@ -127,7 +127,7 @@
             "en": "English"
         },
         "FOOTER_TITLE": {
-            "cn": "火网币币交易平台",
+            "cn": "lendenex币币交易平台",
             "en": "DOBI Digital Currency Trading Platform"
         },
         "FOOTER_SERVICE_EMAIL": {
@@ -379,7 +379,7 @@
             "en": "Safe"
         },
         "PC_DEVICE_DO": {
-            "cn": "请您使用電腦瀏覽器訪問火网交易平台。",
+            "cn": "请您使用電腦瀏覽器訪問lendenex交易平台。",
             "en": "Please use your PC web browser to access DOBI Trade!"
         },
         "NEWS_TIME": {
@@ -551,7 +551,7 @@
             "en": "Register Now"
         },
         "REGISTER_NO_ACCOUT": {
-            "cn": "还沒火网账号?",
+            "cn": "还沒lendenex账号?",
             "en": ""
         },
         "FORGET_PASSWORD": {
@@ -1284,11 +1284,11 @@
                 "en": "Terms Of Service ('TOS')"
             },
             "SERVICE_TO_USE": {
-                "cn": "在使用火网時，不管是訪問網站还是使用火网提供的任何其他服務，用户需承諾遵守本服務條款的約定。用户如果長期使用火网網站，將被視為您同意我們的服務條款。",
+                "cn": "在使用lendenex時，不管是訪問網站还是使用lendenex提供的任何其他服務，用户需承諾遵守本服務條款的約定。用户如果長期使用lendenex網站，將被視為您同意我們的服務條款。",
                 "en": "By accessing and using the DOBI Trade platform and services you accept and agree to be bound by the terms and and provisions of our TOS."
             },
             "SERVICE_NAME": {
-                "cn": "按照本服務條款約定，火网可能被指代為“我們”、“我們的”、“本網站”及“火网”。火网的用户包括但不限於注册用户，同時还包括以任何方式、狀態或形式使用本網站的任何訪問者。“加密貨币”可以用於描述任何形式的数字貨币，包括但不限於比特蔽和萊特蔽。您理解並接受本服務條款。",
+                "cn": "按照本服務條款約定，lendenex可能被指代為“我們”、“我們的”、“本網站”及“lendenex”。lendenex的用户包括但不限於注册用户，同時还包括以任何方式、狀態或形式使用本網站的任何訪問者。“加密貨币”可以用於描述任何形式的数字貨币，包括但不限於比特蔽和萊特蔽。您理解並接受本服務條款。",
                 "en": "According to our TOS the DOBI Trading platform can be referred to as 'DOBI', 'us', 'our', or 'this website.' DOBI users include any visitor to our website or using our services for any purpose.  The term 'Cryptocurrency' may be used to describe any form of digital currency, including but not limited to Bitcoin and/or 'coin'.   By visiting our website or making use of our services you acknowledge that you agree to these terms of service! "
             },
             "SERVICE_PROTOCOL": {
@@ -1304,7 +1304,7 @@
                 "en": "1.1 Registration Status"
             },
             "SERVICE_BEARING": {
-                "cn": "用户承諾：用户具有完全民事權利能力和行為能力，或雖不具有完全民事權利能力和行為能力,但点击同意注册按鈕，本網即視為经其法定代理人同意並由其法定代理人代理注册及應用火网服務。",
+                "cn": "用户承諾：用户具有完全民事權利能力和行為能力，或雖不具有完全民事權利能力和行為能力,但点击同意注册按鈕，本網即視為经其法定代理人同意並由其法定代理人代理注册及應用lendenex服務。",
                 "en": "User Obligations:  In consideration of your use of DOBI Trading Services, you represent that you are of legal age and sound mind to form a binding contract and are not a person previously banned from using any DOBI services.  You also agree to: provide true, accurate, current, and complete information about yourself and will ensure registation data is current and up-to-date in the event any personal information should change.  By clicking the 'Sign Up' button you acknowledge that you provide you consent to the terms of this agreement."
             },
             "SERVICE_GOAL": {
@@ -1312,7 +1312,7 @@
                 "en": "1.2 Registion Purpose"
             },
             "SERVICE_PRDER": {
-                "cn": "用户承諾：用户進行用户注册並非出於違反法律法規或破壞火网加密貨币和数字資産交易秩序的目的。",
+                "cn": "用户承諾：用户進行用户注册並非出於違反法律法規或破壞lendenex加密貨币和数字資産交易秩序的目的。",
                 "en": "User Commitment: User registration requirements are not intended to violate any laws or regulations or for the purpose of trading digital assets."
             },
             "SERVICE_FOLAT": {
@@ -1320,15 +1320,15 @@
                 "en": "1. Registration Process"
             },
             "SERVICE_ACCURACY": {
-                "cn": "用户同意根據火网用户注册页面的要求提供有效手机等信息，设置火网账号及密码，用户應确保所提供全部信息的真实性、完整性和準确性。",
+                "cn": "用户同意根據lendenex用户注册页面的要求提供有效手机等信息，设置lendenex账号及密码，用户應确保所提供全部信息的真实性、完整性和準确性。",
                 "en": "The user ('you') agree to provide full, accurate and true information in accordance with the information requested on the DOBI user registration page to including but not limited to phone number, identification documents, and valid account password."
             },
             "SERVICE_LEGAL": {
-                "cn": "1.4用户合法、完整並有效提供注册所需信息的，有權获得火网账号和密码，火网账号和密码用於用户在火网進行登陆。",
+                "cn": "1.4用户合法、完整並有效提供注册所需信息的，有權获得lendenex账号和密码，lendenex账号和密码用於用户在lendenex進行登陆。",
                 "en": "1.4 If a user legally and completely submits all information required for registration, they will be entitled to a DOBI Trading Account which can then be used to login to the DOBI trading platform."
             },
             "SERVICE_NEWS": {
-                "cn": "1.5用户获得火网账号及密码時視為用户注册成功，用户同意接收火网發送的與火网網站管理、運營相關的電子郵件和/或短消息。",
+                "cn": "1.5用户获得lendenex账号及密码時視為用户注册成功，用户同意接收lendenex發送的與lendenex網站管理、運營相關的電子郵件和/或短消息。",
                 "en": "1.5 By signing up for and registering for a DOBI Trade account you consent to receiving notifications, SMS, and email messages related to DOBI Trade management and operations."
             },
             "SERVICE_INFO": {
@@ -1340,7 +1340,7 @@
                 "en": "2. Registration Agreement"
             },
             "SMS_INFORM": {
-                "cn": "2.1火网有權隨時更改注册协议而無需提前通知，用户需定期閱覽此协议。",
+                "cn": "2.1lendenex有權隨時更改注册协议而無需提前通知，用户需定期閱覽此协议。",
                 "en": "2.1 DOBI Trade reserves the right to change its terms of service or user agreements at any time and without prior notice.  Users should periodically review these agreements to ensure they can comply with any revisions or changes in the terms or conditions of the agreements."
             },
             "SMS_JIESHOU": {
@@ -1348,11 +1348,11 @@
                 "en": "2.2 You understand and accept the risk of buying and selling digital assets and cryptocurrencies such as Bitcoins, or other types of digital assets.  Cryptocurrencies are inherently volatile and asset values can appreciate or depreciate dramatically and significantly at any time."
             },
             "SMS_ZHIXIAO": {
-                "cn": "2.3您需知曉，購買比特币（或任何其他火网提供的数字貨币或資産）存在風險，收益或虧損都由用户自行承擔，火网對此不承擔任何責任。",
+                "cn": "2.3您需知曉，購買比特币（或任何其他lendenex提供的数字貨币或資産）存在風險，收益或虧損都由用户自行承擔，lendenex對此不承擔任何責任。",
                 "en": "2.3 You need to know that buying Bitcoin or any other digital asset or cryptocurrency on our platform carries significant risks and any profit or loss as a result of user activities is born solely by the user of that trading account."
             },
             "SMS_TI_G": {
-                "cn": "2.4火网網站是提供買賣加密貨币及数字資産的交易平台。雖然我們努力确保实現一個公平自由的交易環境，但是對於可能發生的任何形式的惡意“市場操縱”，不論是發生在火网交易平台还是在整個加密貨币及数字資産交易市場內，我們一律不承擔任何責任。",
+                "cn": "2.4lendenex網站是提供買賣加密貨币及数字資産的交易平台。雖然我們努力确保实現一個公平自由的交易環境，但是對於可能發生的任何形式的惡意“市場操縱”，不論是發生在lendenex交易平台还是在整個加密貨币及数字資産交易市場內，我們一律不承擔任何責任。",
                 "en": "2.4 DOBI is a trading platform for buying and selling of cryptocurrencies and digtal assets.  And while we strive to ensure a fair and equitable trading environment, we accept no responsibility whatsoever for any form of malicious 'market manipulation' that may occur, whether or not the information is presented on DOBI Trade or from other sources outside of our platform."
             },
             "SMS_TI_GI": {
@@ -1360,19 +1360,19 @@
                 "en": "2.5 By using our services you understand and agree that the price of cryptocurrencies and digital assets can and do fluctuate unpredictably for many (such as: government intervention, market conditions, and market speculation) or for no apparent reason at all. "
             },
             "SMS_TTAI": {
-                "cn": "2.6火网平台並不设定現行市價。火网平台上交易的加密貨币和数字資産的價格由用户買賣訂單直接決定。",
+                "cn": "2.6lendenex平台並不设定現行市價。lendenex平台上交易的加密貨币和数字資産的價格由用户買賣訂單直接決定。",
                 "en": "2.6 DOBI Trade does not set cryptocurrency or digital asset prices.   The price of any cryptocurrency or digital asset is solely determined by the trading (buying and selling) activities between users of the DOBI Trade platform."
             },
             "SMS_NAMES": {
-                "cn": "2.7用户根據火网網站提供的信息作出的任何交易決定，其風險和收益均由用户自行承擔。對於用户在使用火网網站或其應用程序編程接口的過程中实施的任何行為，火网一律不承擔任何責任。",
+                "cn": "2.7用户根據lendenex網站提供的信息作出的任何交易決定，其風險和收益均由用户自行承擔。對於用户在使用lendenex網站或其應用程序編程接口的過程中实施的任何行為，lendenex一律不承擔任何責任。",
                 "en": "2.7 All risks and/or benefits of user trading decisions based on information that may be provided on the DOBI Trade website are born by the users themselves.  DOBI Trade takes no responsibility for any behavior that a user performs in the course of using the DOBI Trade website, services, or Application Programming Interface ('API')."
             },
             "SMS_TTXINXI": {
-                "cn": "2.8火网不會推遲發布市場信息，但由網絡中斷或類似情形引起的信息延誤，火网並不擔負任何責任。",
+                "cn": "2.8lendenex不會推遲發布市場信息，但由網絡中斷或類似情形引起的信息延誤，lendenex並不擔負任何責任。",
                 "en": "2.8 DOBI Trade will not intentionally or deliberately delay the release of market information but is not and will not be responsible for any delays that may occur such as:  network failure, server failure or other causes outside of our reasonable control."
             },
             "SMS_ZIJI": {
-                "cn": "2.9用户有責任保護自己的火网账户安全。由於疏忽大意的不安全操作（不管是用户还是火网平台執行的操作行為）造成的任何損失，火网網站、網站負責人及其工作人員將不對此承擔任何責任。",
+                "cn": "2.9用户有責任保護自己的lendenex账户安全。由於疏忽大意的不安全操作（不管是用户还是lendenex平台執行的操作行為）造成的任何損失，lendenex網站、網站負責人及其工作人員將不對此承擔任何責任。",
                 "en": "2.9 Users are responsible for protecting the integrity and security of their DOBI Trading account.  DOBI Trade, the site owner, and its staff will not be responsible for any loss as a result negligence or unsafe actions whether performed by the user or caused by activities on DOBI Trading platform."
             },
             "SMS_ZIXING": {
@@ -1380,7 +1380,7 @@
                 "en": "You are responsible for keeping your passwords confidential!   Disclosing your password to any 3rd Party will be considered a violation of this agreement."
             },
             "SMS_YIZHI": {
-                "cn": "2.11用户真实姓名與網站用户名一致時方可使用火网服務。用户不可聽從其他第三方企業指示來操作資金交易。",
+                "cn": "2.11用户真实姓名與網站用户名一致時方可使用lendenex服務。用户不可聽從其他第三方企業指示來操作資金交易。",
                 "en": "Users must ensure that they have entered to correct URL for the DOBI Trade website and that their identity information is correct.   Users should not use any 3rd Party companies or services to perform trading activities."
             },
             "SMS_YHFW": {
@@ -1392,27 +1392,27 @@
                 "en": "1. Services"
             },
             "SMS_XITONG": {
-                "cn": "1.1火网運用自己的系統，通過互聯網絡等方式為用户提供比特币交易和應用服務。",
+                "cn": "1.1lendenex運用自己的系統，通過互聯網絡等方式為用户提供比特币交易和應用服務。",
                 "en": "1.1 DOBI Trade USES it's own system to provide users with access to cryptocurrencies such as Bitcoin or other digital assets through its software, the internet, and applications among other technologies."
             },
             "SMS_HEFA": {
-                "cn": "1.2用户需提供合法、真实、準确、詳盡的個人資料； 如有變动，需及時更新用户資料。如果用户提供的注册資料不合法、不真实、不準确、不詳盡的，用户需承擔因此引起的相應責任及后果，並且火网保留終止用户使用火网各項服務的權利。",
+                "cn": "1.2用户需提供合法、真实、準确、詳盡的個人資料； 如有變动，需及時更新用户資料。如果用户提供的注册資料不合法、不真实、不準确、不詳盡的，用户需承擔因此引起的相應責任及后果，並且lendenex保留終止用户使用lendenex各項服務的權利。",
                 "en": "1.2 Users shall provide legal, authentic, accurate and detailed personal data and if any of the personal data should change they agree to update their personal information on DOBI Trade in a timely manner.  The user bears all responsibility for providing true and accurate information; DOBI trade reserves the right to terminate any user account should the information provided prove to be illegal, false, inaccurate, or misleading."
             },
             "SMS_SHUZI": {
-                "cn": "1.3 用户有權在火网浏覽加密貨币及数字資産实時行情及交易信息、有權通過火网提交加密貨币及数字資産交易指令並完成加密貨币及数字資産交易。",
+                "cn": "1.3 用户有權在lendenex浏覽加密貨币及数字資産实時行情及交易信息、有權通過lendenex提交加密貨币及数字資産交易指令並完成加密貨币及数字資産交易。",
                 "en": "1.3 Users have the right to browse cryptocurrencies and digital assets to obtain real-time pricing information, view trading activities, trade (buy/sell) cryptocurrencies and issue trading instructions using the DOBI Trading platform."
             },
             "SMS_XXXI": {
-                "cn": "1.4用户有權在火网查看其會員账号下的信息，有權應用火网提供的功能進行操作。",
+                "cn": "1.4用户有權在lendenex查看其會員账号下的信息，有權應用lendenex提供的功能進行操作。",
                 "en": "Users have the right to view their account information, trading activities, trading history, and use trading functions as provided by DOBI Trade."
             },
             "SMS_HUODONG": {
-                "cn": "1.5用户有權按照火网發布的活动規則參與火网組織的網站活动。",
+                "cn": "1.5用户有權按照lendenex發布的活动規則參與lendenex組織的網站活动。",
                 "en": "1.5 Users have the right to use DOBI Trade platform to participate in trading activities in accordance with the rules and polices published by DOBI Trade."
             },
             "SMS_TIGONG": {
-                "cn": "1.6火网承諾為用户提供的其他服務。",
+                "cn": "1.6lendenex承諾為用户提供的其他服務。",
                 "en": "DOBI Trade promises to provide addition services to users."
             },
             "SMS_FWGZ": {
@@ -1420,19 +1420,19 @@
                 "en": "Service Rules"
             },
             "SMS_FAG": {
-                "cn": "2.1用户應當遵守法律法規、規章、規範性文件及政策要求的規定，保證账户中所有資金和虛擬币來源的合法性，不得在火网或利用火网服務從事非法或其他損害火网或第三方權益的活动，如發送或接收任何違法、違規、違反公序良俗、侵犯他人權益的信息，發送或接收傳銷材料或存在其他危害的信息或言論，未经火网授權使用或僞造火网電子郵件題頭信息等。",
+                "cn": "2.1用户應當遵守法律法規、規章、規範性文件及政策要求的規定，保證账户中所有資金和虛擬币來源的合法性，不得在lendenex或利用lendenex服務從事非法或其他損害lendenex或第三方權益的活动，如發送或接收任何違法、違規、違反公序良俗、侵犯他人權益的信息，發送或接收傳銷材料或存在其他危害的信息或言論，未经lendenex授權使用或僞造lendenex電子郵件題頭信息等。",
                 "en": "2.1 Users shall abide by all local laws, regulations, and policies as well as the policies of DOBI Trade platform. They shall also guarantee the legitimacy and legality of the sources for all funds and cryptocurrencies in their account.  Users shall not engage or use DOBI Trade services to engage in illegal, unlawful or perform trading activities on behalf of a third party such as sending or receiving illegal funds, money laundering activities, infringe the rights of others, engage in market manipulation activities, or engage in presenting or distributing false, misleading, and damaging information...etc."
             },
             "SMS_MIMA": {
-                "cn": "2.2用户應當遵守法律法規應當妥善使用和保管其火网账号及密码、資金密码、和其注册時綁定的手机号码、以及手机接收的手机验证码的安全。用户對使用其火网账号和密码、資金密码、手机验证码進行的任何操作和后果承擔全部責任。",
+                "cn": "2.2用户應當遵守法律法規應當妥善使用和保管其lendenex账号及密码、資金密码、和其注册時綁定的手机号码、以及手机接收的手机验证码的安全。用户對使用其lendenex账号和密码、資金密码、手机验证码進行的任何操作和后果承擔全部責任。",
                 "en": "2.2 Users shall abide by all laws and regulations and shall properly use their DOBI Trade account as well as properly secure their account, password, trading password, mobile phone, and authentication codes.  Users are fully responsible for any transactions or activities that utilize their trading account, account password, and/or SMS verification codes."
             },
             "SMS_ZJ": {
-                "cn": "2.3當用户發現火网账号、密码、或資金密码、验证码被未经其授權的第三方使用，或存在其他账号安全問題時，應立即有效通知火网，要求火网暫停該火网账号的服務。火网有權在合理時間內對用户的該等请求采取行动，但對火网采取行动前用户已经遭受的損失不承擔任何責任。",
+                "cn": "2.3當用户發現lendenex账号、密码、或資金密码、验证码被未经其授權的第三方使用，或存在其他账号安全問題時，應立即有效通知lendenex，要求lendenex暫停該lendenex账号的服務。lendenex有權在合理時間內對用户的該等请求采取行动，但對lendenex采取行动前用户已经遭受的損失不承擔任何責任。",
                 "en": "2.3 If a user discovers their DOBI Trade account number, password, trading password, or verification code has been compromised by a 3rd Pary or other unauthorized transactions or activities have taken place using their account; they MUST immediately notify DOBI Trade and request to freeze their account.   DOBI Trade will endeavor to process such a request in a timely fashion but will not be liable for any losses suffered by the user prior to the account being frozen/suspended."
             },
             "SMS_ZZJ": {
-                "cn": "2.4用户在未经火网同意的情況下不得將火网账号以贈與、借用、租用、轉讓或其他方式處分給他人。",
+                "cn": "2.4用户在未经lendenex同意的情況下不得將lendenex账号以贈與、借用、租用、轉讓或其他方式處分給他人。",
                 "en": "2.4 DOBI accounts are not transferrable without DOBI Trade's consent.   Users shall not dispose of their account by way of gift, loan, lease, transfer, or otherwise."
             },
             "SMS_ZZZHI": {
@@ -1440,15 +1440,15 @@
                 "en": "3. Provision, modification, and termination of services"
             },
             "SMS_TONGSHI": {
-                "cn": "3.1用户在接受火网各項服務的同時，同意接受火网提供的各類信息服務。",
+                "cn": "3.1用户在接受lendenex各項服務的同時，同意接受lendenex提供的各類信息服務。",
                 "en": "3.1 While using DOBI Trading services the user agrees to accept account, services, or other notifications from DOBI Trade."
             },
             "SMS_YOUJIAN": {
-                "cn": "3.2用户在此授權火网可以向其電子郵件、手机、通信地址等發送商業信息。",
+                "cn": "3.2用户在此授權lendenex可以向其電子郵件、手机、通信地址等發送商業信息。",
                 "en": "3.2 User hereby authorizes DOBI Trade to send business information to their E-mail, mobile phone, or physical address."
             },
             "SMS_QLI": {
-                "cn": "3.3火网保留隨時修改或中斷服務而不需通知用户的權利。火网有權行使修改或中斷服務的權利。",
+                "cn": "3.3lendenex保留隨時修改或中斷服務而不需通知用户的權利。lendenex有權行使修改或中斷服務的權利。",
                 "en": "3.3 DOBI reserves the right to modify, suspend or stop its services at any time without notice to the user.   DOBI is entitled to exercise its rights to modify, change, or discontinue services."
             },
             "SMS_QYW": {
@@ -1460,15 +1460,15 @@
                 "en": "1. User Rights"
             },
             "SMS_ZHGONG": {
-                "cn": "1.1用户一旦注册成功，成為火网的會員，將得到用户名（用户邮箱）和密码，並對以此組用户名和密码登入系統后所發生的所有活动和事件負責，自行承擔一切使用該用户名的言语、行為等而直接或者間接導致的法律責任。",
+                "cn": "1.1用户一旦注册成功，成為lendenex的會員，將得到用户名（用户邮箱）和密码，並對以此組用户名和密码登入系統后所發生的所有活动和事件負責，自行承擔一切使用該用户名的言语、行為等而直接或者間接導致的法律責任。",
                 "en": "1.1 Once a user successfully becomes a member of DOBI Trade and has a user name and mailbox, users' are responsible for their own activities and actions.  When logged into the system, the user bears legal responsibility for all activities, words, statements, etc. made or performed by their user account whether directly or indirectly. "
             },
             "SMS_PTFW": {
-                "cn": "1.2用户有權按照本协议約定接受火网提供的加密貨币及数字資産交易平台服務。",
+                "cn": "1.2用户有權按照本协议約定接受lendenex提供的加密貨币及数字資産交易平台服務。",
                 "en": "1.2 User have the right to use DOBI Trade and platform services in accordance with this agreement."
             },
             "SMS_TBS": {
-                "cn": "1.3用户有權隨時提取在火网的資産余額，包括加密貨币及数字資産，但需向火网支付相應的提币手續費用。",
+                "cn": "1.3用户有權隨時提取在lendenex的資産余額，包括加密貨币及数字資産，但需向lendenex支付相應的提币手續費用。",
                 "en": "1.3 The user has the right to withdraw the balance of the assets at Dobi at any time, including the encrypted currency and digital assets, but the need to pay any corresponding transaction charges." //Please check this!
             },
             "SMS_TBYH": {
@@ -1476,67 +1476,67 @@
                 "en": "2. User Obligations"
             },
             "SMS_DXYZ": {
-                "cn": "2.1用户有義務妥善保管火网账号、用户名和密码、短信验证码，用户將對用户名和密码負全部責任。因用户原因導致用户名或密码泄露而造成的任何法律后果由用户本人負責，由於用户自身原因泄露這些信息導致的財産損失，本站不負相關責任。",
+                "cn": "2.1用户有義務妥善保管lendenex账号、用户名和密码、短信验证码，用户將對用户名和密码負全部責任。因用户原因導致用户名或密码泄露而造成的任何法律后果由用户本人負責，由於用户自身原因泄露這些信息導致的財産損失，本站不負相關責任。",
                 "en": "2.1 Users are responsible for protecting and securing their DOBI Trade account information, such as their account number, username, login password, trading password and SMS verification codes.   And regardless of cause or reason that account information was disclosed, DOBI trade is not liable for any legal consquences nor bears any responsibility for any loss."
             },
             "SMS_TBBK": {
-                "cn": "2.2不得利用本站進行違反用户所在國家法律的行為。用户不得通過任何手段惡意注册火网網站账号，包括但不限於以牟利、炒作、套現、获奖等為目的多個账号注册。用户亦不得盜用其他用户账号。如用户違反上述規定，則火网有權直接采取一切必要的措施，包括但不限於暫停或查封用户账号，取消因違規所获利益等。",
+                "cn": "2.2不得利用本站進行違反用户所在國家法律的行為。用户不得通過任何手段惡意注册lendenex網站账号，包括但不限於以牟利、炒作、套現、获奖等為目的多個账号注册。用户亦不得盜用其他用户账号。如用户違反上述規定，則lendenex有權直接采取一切必要的措施，包括但不限於暫停或查封用户账号，取消因違規所获利益等。",
                 "en": "2.2 Users shall NOT use DOBI Trade or its services to violate or subvert any national or local laws of the user's country.  Users may not register an account or multiple accounts for the purposes of malicious intent including but not limited to: profiteering, market manipulation, theft/cheating award and gift programs, violating DOBI Trade policies or any other illegal or malicious purposes.  DOBI Trade will take all necessary measures to prevent such activity and may, at its sole discrection, suspend or sieze the user's account(s) and all assets therein due to any violation of this policy."
             },
             "SMS_JYH": {
-                "cn": "2.3 用户在火网進行加密貨币及数字資産交易時不得惡意幹擾加密貨币及数字資産交易的正常進行、破壞交易秩序。",
+                "cn": "2.3 用户在lendenex進行加密貨币及数字資産交易時不得惡意幹擾加密貨币及数字資産交易的正常進行、破壞交易秩序。",
                 "en": "2.3 Users shall not interfere, disrupt, or cause denial of trading or denial of any other services on the DOBI Trade platform."
             },
             "SMS_YOHU": {
-                "cn": "2.4用户不得以任何技術手段或其他方式幹擾火网的正常運行或幹擾其他用户對火网服務的使用。",
+                "cn": "2.4用户不得以任何技術手段或其他方式幹擾lendenex的正常運行或幹擾其他用户對lendenex服務的使用。",
                 "en": "2.4 The user shall not interfere with the normal operation of DOBI trade or interfere with the other users trading activities by any means, technical or otherwise."
             },
             "SMS_ZLX": {
-                "cn": "2.5如用户因網上交易與其他用户産生訴訟的，不得通過司法或行政以外的途徑要求火网提供相關資料。",
+                "cn": "2.5如用户因網上交易與其他用户産生訴訟的，不得通過司法或行政以外的途徑要求lendenex提供相關資料。",
                 "en": "2.5 A user must not provide any DOBI Trade platform information to any user who has started litigation against DOBI Trade outside of official administrative or judicial due process." //Please check this one carefully!!!
             },
             "SMS_SL": {
-                "cn": "2.6用户不得以虛構事实等方式惡意诋毀火网的商譽。",
+                "cn": "2.6用户不得以虛構事实等方式惡意诋毀lendenex的商譽。",
                 "en": "2.6 Users must not create, post, or distribute malicious, fictitious, or slanderous material against DOBI Trade's goodwill."
             },
             "SMS_DDSL": {
-                "cn": "四．火网權利和義務",
+                "cn": "四．lendenex權利和義務",
                 "en": "4.  DOBI Trade's Rights and Obligations"
             },
             "SMS_SCZG": {
-                "cn": "4.1如用户不具備本服務條款約定的注册資格，則火网有權拒絕用户進行注册，對已注册的用户有權注銷其火网會員账号，火网因此而遭受損失的有權向前述用户或其法定代理人主張賠償。同時，火网保留其他任何情況下決定是否接受用户注册的權利。",
+                "cn": "4.1如用户不具備本服務條款約定的注册資格，則lendenex有權拒絕用户進行注册，對已注册的用户有權注銷其lendenex會員账号，lendenex因此而遭受損失的有權向前述用户或其法定代理人主張賠償。同時，lendenex保留其他任何情況下決定是否接受用户注册的權利。",
                 "en": "4.1 If the user does not complete the full registration process in accordance with the terms of service agreement then DOBI trade has the right to refuse to register or cancel the user's registration and the user has the right to write off their account.  DOBI Trade is entitled to recover any benefits givent to suer and recover any loss from the user or their legal representative. It is at the sole discretion of DOBI Trade whether accept or approve account registrations and membership applications."
             },
             "SMS_DDSL": {
-                "cn": "4.2火网發現账户使用者並非账户初始注册人時，有權中止該账户的使用。",
+                "cn": "4.2lendenex發現账户使用者並非账户初始注册人時，有權中止該账户的使用。",
                 "en": "4.2 DOBI Trade reserves the rights to suspend, freeze, or close any account where it suspects the person using the account is not the same individual who registered the account with their real ID."
             },
             "SMS_ZXC": {
-                "cn": "4.3火网通過技術檢測、人工抽檢等檢測方式合理懷疑用户提供的信息錯誤、不实、失效或不完整時，有權通知用户更正、更新信息或中止、終止為其提供服務。",
+                "cn": "4.3lendenex通過技術檢測、人工抽檢等檢測方式合理懷疑用户提供的信息錯誤、不实、失效或不完整時，有權通知用户更正、更新信息或中止、終止為其提供服務。",
                 "en": "4.3 If DOBI Trade suspects or identifies, through technical testing, AI sampling, manual verification or by any other means, any irregular or incorrect information has been submitted during account registration then DOBI trade has the right to notify the user to correct the anomalous information or terminate the account."
             },
             "SMS_AAZXC": {
-                "cn": "4.4火网有權在發現火网上顯示的任何信息存在明顯錯誤時，對信息予以更正。",
+                "cn": "4.4lendenex有權在發現lendenex上顯示的任何信息存在明顯錯誤時，對信息予以更正。",
                 "en": "4.4 DOBI Trade has the right to request and demand that users correct any data that has been identified as incorrect or erroneous."
             },
             "SMS_AC": {
-                "cn": "4.5火网保留隨時修改、中止或終止火网服務的權利，火网行使修改或中止服務的權利不需事先告知用户，火网終止一項或多項服務的，終止自火网在網站上發布終止公告之日生效。",
+                "cn": "4.5lendenex保留隨時修改、中止或終止lendenex服務的權利，lendenex行使修改或中止服務的權利不需事先告知用户，lendenex終止一項或多項服務的，終止自lendenex在網站上發布終止公告之日生效。",
                 "en": "4.5 DOBI Trade has the right to modify, suspend, or terminate DOBI trading or other services, without notice, at any time, effective as of the date written in the discontinuation of services notice. "
             },
             "SMS_KEKAO": {
-                "cn": "4.6火网應當采取必要的技術手段和管理措施保障火网的正常運行，並提供必要、可靠的交易環境和交易服務，維護加密貨币及数字資産交易秩序。",
+                "cn": "4.6lendenex應當采取必要的技術手段和管理措施保障lendenex的正常運行，並提供必要、可靠的交易環境和交易服務，維護加密貨币及数字資産交易秩序。",
                 "en": "4.6 DOBI Trade will endeavor to provide the necessary technical means, management measures to provide a reliable trading environment and services for trading digital currencies and cryptocurrencies."
             },
             "SMS_ANQUAN": {
-                "cn": "4.7火网通過加強技術投入、提升安全防範等措施保障用户的加密貨币及数字資産托管安全，有義務在用户資金出現可以預見的安全風險時提前通知用户。",
+                "cn": "4.7lendenex通過加強技術投入、提升安全防範等措施保障用户的加密貨币及数字資産托管安全，有義務在用户資金出現可以預見的安全風險時提前通知用户。",
                 "en": "4.7 DOBI Trade will endeavor to notify the user if through technical or other analysis means it identifies risks that may affect a users account or trading security."
             },
             "SMS_ZHUCS": {
-                "cn": "4.8火网有權在本协议履行期間及本协议終止后保留用户的注册信息及用户應用火网服務期間的全部交易信息，但不得非法使用該等信息。",
+                "cn": "4.8lendenex有權在本协议履行期間及本协议終止后保留用户的注册信息及用户應用lendenex服務期間的全部交易信息，但不得非法使用該等信息。",
                 "en": "4.8 DOBI Trade retains the right to legally use user account information and trading data both during and after termination of the service agreement, but will not use such information illegally."
             },
             "SMS_TZS": {
-                "cn": "4.9火网有權隨時刪除火网網站內各類不符合國家法律法規、規範性文件或火网網站規定的用户評價等內容信息，火网行使該等權利不需提前通知用户。",
+                "cn": "4.9lendenex有權隨時刪除lendenex網站內各類不符合國家法律法規、規範性文件或lendenex網站規定的用户評價等內容信息，lendenex行使該等權利不需提前通知用户。",
                 "en": "4.9 DOBI Trade retains the right to delete, terminate, or stop any services and/or accounts due to changes in national laws, independent review, or other reasons without prior notice to the user."
             },
             "SMS_TMF": {
@@ -1544,27 +1544,27 @@
                 "en": "5. No Guarantee and Liability Exemption"
             },
             "SMS_XUQIU": {
-                "cn": "5.1火网作為“網絡服務提供者”的第三方平台，不擔保網站平台上的信息及服務能充分滿足用户的需求。",
+                "cn": "5.1lendenex作為“網絡服務提供者”的第三方平台，不擔保網站平台上的信息及服務能充分滿足用户的需求。",
                 "en": "5.1 DOBI Trade as a 'network service provider' as a provider for access to 3rd party cryptocurrencies and digital assets does not guarantee that the platform and fully meet the needs of its users."
             },
             "SMS_DANBAO": {
-                "cn": "5.2基於互聯網的特殊性，火网也不擔保服務不會受中斷，對服務的及時性、安全性都不作擔保，不承擔非因火网導致的責任。",
+                "cn": "5.2基於互聯網的特殊性，lendenex也不擔保服務不會受中斷，對服務的及時性、安全性都不作擔保，不承擔非因lendenex導致的責任。",
                 "en": "5.2 Due to the nature of the Internet, DOBI trade does not guarantee that services will not  be interrupted, delayed, or security affected by internet related network issues."
             },
             "SMS_SHIBZ": {
-                "cn": "5.3火网不對用户所發布信息的保存、修改、刪除或儲存失敗負責。",
+                "cn": "5.3lendenex不對用户所發布信息的保存、修改、刪除或儲存失敗負責。",
                 "en": "5.3 DOBI Trade is not responsible for the failure to save, modify, delete, or store information published by the user."
             },
             "SMS_WS": {
-                "cn": "5.4火网內所有用户所發表的用户評論，僅代表用户個人觀點，並不表示本網站贊同其觀點或證实其描述，本網站不承擔用户評論引發的任何法律責任。",
+                "cn": "5.4lendenex內所有用户所發表的用户評論，僅代表用户個人觀點，並不表示本網站贊同其觀點或證实其描述，本網站不承擔用户評論引發的任何法律責任。",
                 "en": "5.4 DOBI Trade allows members to post their personal opinion(s) about trades and trading on its platform.  These 'opinion(s)' are written by our members from their personal point of view and do NOT reflect the opinions of DOBI Trade nor does DOBI Trade accept any liability as a result of user commentary."
             },
             "SMS_RRW": {
-                "cn": "5.5所有發給用户的通告，火网都將通過正式的页面公告、站內信、電子郵件、客服電話、手机短信或常規的信件送達。任何非经火网正規渠道获得的中奖、優惠等活动或信息， 火网不承擔法律責任。",
+                "cn": "5.5所有發給用户的通告，lendenex都將通過正式的页面公告、站內信、電子郵件、客服電話、手机短信或常規的信件送達。任何非经lendenex正規渠道获得的中奖、優惠等活动或信息， lendenex不承擔法律責任。",
                 "en": "DOBI Trade may issue notices, news and announcements through any or all of the following means: DOBI Trade official news page, e-mail, sms, customer service, or regular mail.  DOBI Trade is not liable for profit/loss as a result of such announcments."
             },
             "SMS_ZWS": {
-                "cn": "5.6火网有權根據市場情況調整充值、提币、交易等手續費費率，有權決定免費推廣期的終止。",
+                "cn": "5.6lendenex有權根據市場情況調整充值、提币、交易等手續費費率，有權決定免費推廣期的終止。",
                 "en": "DOBI Trade at it's sole discretion has the right to change or adjust service fees, withdrawal limits, transaction fees, and promotional programs periods due to market conditions."
             },
             "SMS_LIU": {
@@ -1572,7 +1572,7 @@
                 "en": "6.  Privacy Policy"
             },
             "SMS_LQING": {
-                "cn": "请仔細閱讀以下內容，明白我們關於您的私人数據的一些條款、規則以及處理方法。通過浏覽該網址，表示您已经接受和同意我們在這項政策中的條款。本协议所稱之火网用户信息是指符合法律、法規及相關規定，並符合下述範圍的信息。",
+                "cn": "请仔細閱讀以下內容，明白我們關於您的私人数據的一些條款、規則以及處理方法。通過浏覽該網址，表示您已经接受和同意我們在這項政策中的條款。本协议所稱之lendenex用户信息是指符合法律、法規及相關規定，並符合下述範圍的信息。",
                 "en": "Please read the following carefully to understand our privacy policies and use of user data.  By using the DOBI Trade website or any of its services you agree to these terms and conditions.  For the purpose of this agreement DOBI Trade considers 'User Information' means use data that is collected complies with laws, regulations, or policies and is within the following scopes."
             },
             "SMS_HUO": {
@@ -1580,19 +1580,19 @@
                 "en": "1. Access to personal data."
             },
             "SMS_FU": {
-                "cn": "1.1用户注册火网會員或申请火网的服務時，向火网提供的個人信息。",
+                "cn": "1.1用户注册lendenex會員或申请lendenex的服務時，向lendenex提供的個人信息。",
                 "en": "1.1 Due to local and international laws a user must submit personal information so we can verify their identity when signing up and becoming a member of DOBI Trade."
             },
             "SMS_SDD": {
-                "cn": "1.2用户在使用火网服務、參加網站活动或訪問網站網页時，火网自动接收並记錄的用户浏覽器端或手机客户端数據，包括但不限於IP地址、網站Cookie中的資料及用户要求取用的網页记錄。",
+                "cn": "1.2用户在使用lendenex服務、參加網站活动或訪問網站網页時，lendenex自动接收並记錄的用户浏覽器端或手机客户端数據，包括但不限於IP地址、網站Cookie中的資料及用户要求取用的網页记錄。",
                 "en": "1.2 DOBI Trade may also collect data from any user of our services such as browsing our website we will collect the user browser type and version, mobile phone data, as well as IP address and login/logout, and account activities."
             },
             "SMS_GEREN": {
-                "cn": "1.3火网從商業夥伴處合法获取的用户個人信息。",
+                "cn": "1.3lendenex從商業夥伴處合法获取的用户個人信息。",
                 "en": "1.3 DOBI Trade may also collect information about its users that is legally obtained through business partners or affiliates."
             },
             "SMS_YHUT": {
-                "cn": "1.4其它火网通過合法途徑获取的用户個人信息。",
+                "cn": "1.4其它lendenex通過合法途徑获取的用户個人信息。",
                 "en": "1.4 DOBI Trade may also obtain information through other legal channels such was public information published on other websites or forums."
             },
             "SMS_BAOMM": {
@@ -1600,7 +1600,7 @@
                 "en": "2 Confidentiality Agreement"
             },
             "SMS_SJJ": {
-                "cn": "2.1火网承諾：非经法定原因或用户事先許可，火网不會向任何第三方透露用户的密码、姓名、手机号码等非公開信息。",
+                "cn": "2.1lendenex承諾：非经法定原因或用户事先許可，lendenex不會向任何第三方透露用户的密码、姓名、手机号码等非公開信息。",
                 "en": "2.1 DOBI Trade:  Will not provide your personal private data to any third party without your permission unless ordered to do so by a valid court order or otherwise required to do so by law."
             },
             "SMS_SJT": {
@@ -1612,7 +1612,7 @@
                 "en": "2.3 DOBI Trade may be required to disclose a user's personal information to a third party in order to comply accordance with the laws, regulations and other relevant provisions of the laws of the country where the user is located, or as required by a valid administrative agency, as provided for by the administrative, judicial or other law"
             },
             "SMS_PILU": {
-                "cn": "2.4其它火网根據用户所在國家法律、法規等相關規定進行的披露。",
+                "cn": "2.4其它lendenex根據用户所在國家法律、法規等相關規定進行的披露。",
                 "en": "2.4 DOBI Trade may be required to disclose other information to comply with specific laws, regulations, or other legal mandates of a user's country."
             },
             "SMS_BIANHUA": {
@@ -1624,7 +1624,7 @@
                 "en": "7. Conflict of Choice"
             },
             "SMS_QIDIAN": {
-                "cn": "7.1本服務條款是火网與用户注册成為火网用户，使用火网服務之間的重要法律文件， 火网或者用户的任何其他書面或者口頭意思表示與本协议不一致的，均應當以本协议為準。",
+                "cn": "7.1本服務條款是lendenex與用户注册成為lendenex用户，使用lendenex服務之間的重要法律文件， lendenex或者用户的任何其他書面或者口頭意思表示與本协议不一致的，均應當以本协议為準。",
                 "en": "7.1 This Agreement will constitute the entire agreement between the parties in relation to the subject matter of this Agreement, and supersedes all previous agreements, arrangements and understandings between the parties in respect of that subject matter."
             },
             "SMS_BA": {
@@ -1632,7 +1632,7 @@
                 "en": "8. Contact Us!"
             },
             "SMS_BAYI": {
-                "cn": "8.1為了保持您個人数據的準确、最新和完整，请聯系我們。我們將用合理的方法來更新、修正您此前提交在我們網站上存儲的個人数據。本服務條款最終解釋權歸火网所有，如果您还有其他問題或者疑問關於“服務條款”，请聯系我們：",
+                "cn": "8.1為了保持您個人数據的準确、最新和完整，请聯系我們。我們將用合理的方法來更新、修正您此前提交在我們網站上存儲的個人数據。本服務條款最終解釋權歸lendenex所有，如果您还有其他問題或者疑問關於“服務條款”，请聯系我們：",
                 "en": "In order to keep your personal data accurate, up-to-date and complete, please contact us. We will use reasonable methods to update, amend your personal data previously submitted on our website. For more than all, if you have other questions or questions about 'Terms of Service', please contact us:"
             }
         },
@@ -1662,7 +1662,7 @@
     "user": {
         "index": {
             "TITLE_WORD": {
-                "cn": "账户信息-我的账户-火网交易平台",
+                "cn": "账户信息-我的账户-lendenex交易平台",
                 "en": "Account Information - My Account - DOBI Trade"
             },
             "DEAR": {
@@ -1993,7 +1993,7 @@
                 "cn": {
                     "sureBtn": "确定",
                     "setTradePwdTitle": "设置交易密码",
-                    "tradePwdti": "您尚未设置交易密码，请先设置！（交易密码是在火网進行交易時需要输入的密码，不同於登陆密码。為确保您的財産安全，请牢记交易密码，防止丟失!）",
+                    "tradePwdti": "您尚未设置交易密码，请先设置！（交易密码是在lendenex進行交易時需要输入的密码，不同於登陆密码。為确保您的財産安全，请牢记交易密码，防止丟失!）",
                     "setTradePwd": "设置交易密码",
                     "setTradePwdPHold": "请输入交易密码",
                     "setPwdAgain": "再次输入密码",
@@ -2092,7 +2092,7 @@
         },
         "realinfo": {
             "TITLE_WORD": {
-                "cn": "实名认证-我的账户-火网交易平台",
+                "cn": "实名认证-我的账户-lendenex交易平台",
                 "en": "Real Name Authentication - My Account - DOBI Trade"
             },
             "FRIEND_TIPS": {
@@ -2196,7 +2196,7 @@
                 "en": " 1.All users are required to provide identification information . Please take a picture of yourself holding the ID card. False authentication may cause the account to be frozen<br> 2.please ensure that the uploaded content is complete and clearly visible,Image file format must be jpg /jpeg/png, file size cannot exceed 2 MB.<br>"
             },
             "MSG_BOTTOM_TIPS_TWO": {
-                "cn": "3.本人手持證件照需求:右手持身份證,左手持帶有火网、认证人姓名、认证當天日期。",
+                "cn": "3.本人手持證件照需求:右手持身份證,左手持帶有lendenex、认证人姓名、认证當天日期。",
                 "en": "3.Photo should be taken as the following requirement : Holding the ID card with your right hand ,and holding a piece of paper with Dobi Account , Real name ,Date ID issued on your left hand."
             },
             "AUDITING_NAME": {
@@ -2256,7 +2256,7 @@
         },
         "coinin": {
             "TITLE_WORD": {
-                "cn": " -我的資產-火网交易平台",
+                "cn": " -我的資產-lendenex交易平台",
                 "en": "Refunds - My Assets - DOBI Trade"
             },
             "T_HEADER_ID": {
@@ -2335,7 +2335,7 @@
         },
         "coinout": {
             "TITLE_WORD": {
-                "cn": "提币-我的資產-火网交易平台",
+                "cn": "提币-我的資產-lendenex交易平台",
                 "en": "Withdraw - My Assets - DOBI Trade"
             },
             "TITLE_CX": {
@@ -2552,7 +2552,7 @@
         },
         "trust": {
             "TITLE_WORD": {
-                "cn": "委托管理-我的交易-火网交易平台",
+                "cn": "委托管理-我的交易-lendenex交易平台",
                 "en": "Commission Management - My Trades - DOBI Trade"
             },
             "TITLE_WCJ": {
@@ -2644,7 +2644,7 @@
         },
         "deal": {
             "TITLE_WORD": {
-                "cn": "成交查詢-我的交易-火网交易平台",
+                "cn": "成交查詢-我的交易-lendenex交易平台",
                 "en": "Transaction Inquiry - My Transactions - DOBI Trade"
             },
             "TABLE_HEADER_ONE": {
@@ -2686,7 +2686,7 @@
         },
         "mplan": {
             "TITLE_WORD": {
-                "cn": "邀请有禮-经理人計劃-火网交易平台",
+                "cn": "邀请有禮-经理人計劃-lendenex交易平台",
                 "en": "Invitation Reward - Manager Scheme - Dobitrade Exchange"
             },
             "YAOQING_LI": {
@@ -2706,7 +2706,7 @@
                 "en": "Please use the following link to send to invite a friend."
             },
             "TUIJ": {
-                "cn": "推薦火网数字資產交易平台給你，操作便捷、交易迅速",
+                "cn": "推薦lendenex数字資產交易平台給你，操作便捷、交易迅速",
                 "en": "sent you an invitation to join DOBI Trading platform, easy to trade, and fast transaction processing"
             },
             "LIANJIE": {
@@ -2830,7 +2830,7 @@
                 "en": "If you invite more friends your rewards will accumulate.  There is no limit to the number of invitations you can send"
             },
             "JIN_Z": {
-                "cn": "禁止任何作弊行為，一旦發現，火网有權收回所給奖勵並對账号進行處理",
+                "cn": "禁止任何作弊行為，一旦發現，lendenex有權收回所給奖勵並對账号進行處理",
                 "en": "Cheating and/or illegal activity is prohibited.  If discovered we resevere the right to recover/reclaim any rebates and rewards issued"
             },
             "BAO_LIU": {
@@ -2989,7 +2989,7 @@
     "trade": {
         "index": {
             "TITLE_WORD": {
-                "cn": "火网交易币币平台",
+                "cn": "lendenex交易币币平台",
                 "en": "DOBI Trading Platform"
             },
             "NET_ERROR": {
@@ -3591,7 +3591,7 @@
                 "en": "DEMO Download"
             },
             "DOBI_OPEN_API": {
-                "cn": "DOBI 火网交易平台開放API",
+                "cn": "DOBI lendenex交易平台開放API",
                 "en": "DOBI Trading Platform Opens API"
             },
             "DOBI_DESC": {

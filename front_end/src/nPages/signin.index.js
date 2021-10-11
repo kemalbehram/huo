@@ -1505,7 +1505,7 @@ const signTpl = new Vue({
         callfn() {
             this.nowStatus = false;
         },
-        //找回密码  or 已经注册，去登陆  or 还没火网账号，去注册
+        //找回密码  or 已经注册，去登陆  or 还没账号，去注册
         forgetPwdFun(status) {
             var el = document.querySelector('[name=viewport]');
             el.setAttribute('content', 'width=device-width,height=device-height,maximum-scale=2.0,initial-scale=1.0');
