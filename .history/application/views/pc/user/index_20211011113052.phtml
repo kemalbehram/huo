@@ -237,7 +237,7 @@
                 <a  v-if="item.name=='CNYX'" :href="item.out_status ==1?'':'/user/coinout'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.out_status == 1}]">
                   <?php echo $lang['T_BODY_COIN_OUT'] ?>
                 </a>
-                <div v-else  class="user_td_div" >
+                <div v-else  class="user_td_div" flex="cross:center">
                   <button type="button"
                     :disabled="item.in_status ==1" @click.stop="jumpCoin(item, 'in')"
                     :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]"
@@ -267,7 +267,7 @@
               <td class="user_con" :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_lock']), item.name)">{{userInfo[item.name + '_lock']}}</td>
               <td class="user_con" :data-tormb="compPrice(item.sum, item.name)">{{item.sum}}</td>
               <td>
-                <div class="user_td_div" >
+                <div class="user_td_div" flex="cross:center">
                   <?php //充币 ?>
                   <button type="button" name="button" :disabled="item.in_status == 1" @click.stop="jumpCoin(item, 'in')"
                     :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]"
@@ -292,8 +292,77 @@
         </div>
       </scroll-table>
     </div>
-   
- 
+    <!-- 余币宝账户 -->
+    <div v-if="accountBi == 2">
+		<table class="user_tabs border_top_one" rules='none'>
+			<?php //手机端展示用 ?>
+			<tr class="user_tabs_tr white100_bg">
+				<th width="40%">类型</th>
+				<th width="40%">可用余额</th>
+				<!-- <th width="40%">折合CNYX</th> -->
+				<th width="40%" class="user_con">操作</th>
+			</tr>
+			<template v-for="(item, index) in 1">
+				<tr  :class="['user_tabs_tr', 'border_top_one', 'gray600_f', 'cursor_point', {gray50_bg: index%2 == 0, white100_bg: index%2 != 0 }]">
+					<th>wcg</th>
+					<th>{{yuBiAccount.wcg_more?parseFloat(yuBiAccount.wcg_more):'0.00'}}</th>
+					<!-- <th>1</th> -->
+					<th><button  class="user_btn_mg user_blue_btn" @click="showFromFun(index)" >划转</button></th>
+				</tr>
+				<tr  v-if="showFrom==index" 
+					:class="['user_tabs_tr','showFrom','border_top_one', 'gray600_f', 'cursor_point', {gray50_bg: index%2 == 0, white100_bg: index%2 != 0 }]">
+					<td><input type="text" v-model="jsFrom.number"   oninput = "value=value.replace(/[^\d]/g,'')" placeholder="划转数量"></td>
+					<!-- <td><input type="text"  v-model="jsFrom.uPwd" placeholder="交易密码"></td> -->
+					<td>  
+              <!-- <label>转入余币宝<input type="radio" value="1" name="type" v-model="jsFrom.type" ></label> -->
+              <label>转入币币账户<input type="radio"  value="2" name="type"  v-model="jsFrom.type" ></label> 
+              <button class="blue500_bg sub-btn" @click.stop="subFromFun('yuBiAccount',index)" style="color:fff;">确定</button>
+          </td>
+					<td><button @click.stop="showFromFun(-1)" class="user_btn_mg user_blue_btn">x</button></td>
+				</tr>
+			</template>
+		</table>
+		<div class="user_tabs_span white100_bg" v-show="tabLoging || no_data" v-cloak flex="dir:top cross:center main:center">
+			<span :class="{loding: tabLoging, no_data: no_data}"></span>
+			<u class="no_data_font" v-if="no_data"><?php echo $lang['NO_RECORD_NOW']; ?></u>
+		</div>
+    </div>
+    <!-- 幸运账户 -->
+    <div v-if="accountBi == 3">
+		<table class="user_tabs border_top_one" rules='none'>
+			<?php //手机端展示用 ?>
+			<tr class="user_tabs_tr white100_bg">
+				<th width="40%">类型</th>
+				<th width="40%">可用余额</th>
+				<!-- <th width="40%">折合CNYX</th> -->
+				<th width="40%" class="user_con">操作</th>
+			</tr>
+			<template v-for="(item, index) in 1">
+				<tr  :class="['user_tabs_tr', 'border_top_one', 'gray600_f', 'cursor_point', {gray50_bg: index%2 == 0, white100_bg: index%2 != 0 }]">
+					<th>wcg</th>
+          <th>{{userLuck.wcg_lucky?parseFloat(userLuck.wcg_lucky):'0.00'}}</th>
+					<!-- <th>1</th> -->
+					<th><button  class="user_btn_mg user_blue_btn" @click="showFromFun(index)">划转</button></th>
+				</tr>
+				<tr  v-if="showFrom==index" 
+					:class="['user_tabs_tr','showFrom','border_top_one', 'gray600_f', 'cursor_point', {gray50_bg: index%2 == 0, white100_bg: index%2 != 0 }]">
+					<td><input type="text" v-model="jsFrom.number"   oninput = "value=value.replace(/[^\d|\.]/g,'')" placeholder="划转数量"></td>
+          <!-- <td><input type="text"  v-model="jsFrom.uPwd" placeholder="交易密码"></td> -->
+          <td>  
+              <!-- <label>转入余币宝<input type="radio" value="1" name="type" v-model="jsFrom.type" ></label> -->
+              <label>转入币币账户<input type="radio"  value="2" name="type"  v-model="jsFrom.type" ></label>
+              <button class="blue500_bg sub-btn" @click.stop="subFromFun('userLuck')" style="color:fff;">确定</button>
+          </td>
+					<!-- <td></td> -->
+					<td><button @click.stop="showFromFun(-1)" class="user_btn_mg user_blue_btn">x</button></td>
+				</tr>
+			</template>
+		</table>
+		<div class="user_tabs_span white100_bg" v-show="tabLoging || no_data" v-cloak flex="dir:top cross:center main:center">
+			<span :class="{loding: tabLoging, no_data: no_data}"></span>
+			<u class="no_data_font" v-if="no_data"><?php echo $lang['NO_RECORD_NOW']; ?></u>
+		</div>
+    </div>
     <?php //币种详情 ?>
     <div class="coin_detail_dispaly gray200_bg" v-if="!coin_show_btn">
       <p class="coin_detail_p" flex="">
