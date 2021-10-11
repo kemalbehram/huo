@@ -1847,7 +1847,7 @@ button:hover {
   background-color: #008cff; }
 
 .default_bg .blue500_bg {
-  background-color: #05599F; }
+  background-color: #2d6cfa; }
 
 .default_bg .blue800_bg {
   background-color: #252f41; }
@@ -2151,8 +2151,8 @@ button:hover {
                 user-select: none; }
 
 .register_dom .register_pc_alert .switch-tab li.selected {
-          border-bottom: 2px solid #ffbb03;
-          color: #ffbb03; }
+          border-bottom: 2px solid #205fec;
+          color: #205fec; }
 
 .register_dom .register_pc_alert .register_alert_close {
       display: inline-block;
@@ -2216,7 +2216,7 @@ button:hover {
 .register_dom .register_pc_alert .reigster_input_group .register_label .register_img {
           display: inline-block;
           margin-right: 13px;
-          width: 20px;
+          width: 26px;
           height: 24px; }
 
 .register_dom .register_pc_alert .reigster_input_group .register_label .register_imgs {
@@ -2257,7 +2257,8 @@ button:hover {
           white-space: nowrap; }
 
 .register_dom .register_pc_alert .reigster_input_group .register_img_ver .register_send {
-          border: 1px solid #ffbd09; }
+          border: 1px solid #205fec;
+          color: #205fec; }
 
 .register_dom .register_pc_alert .reigster_input_group .register_area_list {
         z-index: 50;
@@ -2327,7 +2328,8 @@ button:hover {
          -moz-border-radius: 3px;
               border-radius: 3px;
       border: none;
-      color: #fff; }
+      color: #fff;
+      background-color: #205fec; }
 
 .register_dom .register_pc_alert .register_login:hover {
         -webkit-transition: .5s;
@@ -3078,7 +3080,7 @@ button:hover {
   background-color: #008cff; }
 
 .default_bg .blue500_bg {
-  background-color: #05599F; }
+  background-color: #2d6cfa; }
 
 .default_bg .blue800_bg {
   background-color: #252f41; }

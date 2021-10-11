@@ -717,7 +717,7 @@
                                     <div class="register_img_ver white500_bg" flex-box="0"
                                         flex="main:center cross:center">
                                         <button type="button" name="button"
-                                            class="register_img_btn register_send orange500_f"
+                                            class="register_img_btn register_send"
                                             @click="reset_get_verify('11')" v-cloak>
                                             {{setTimes === "out" ? '<?php echo $layout['lang']["ACQUIRING"] ?>' : times+'<?php echo $layout['lang']['GET_PHONECODE_AGAING'] ?>'}}
                                         </button>
@@ -838,13 +838,13 @@
                                 </div>
                                 <div flex="main:center cross:center" class="forget_warp_btn tip-txt">
                                     <button v-if="this.forgetStep !== 3" type="button" name="button"
-                                        :disabled="!disable" class="register_login orange500_bg white100_f next_step"
+                                        :disabled="!disable" class="register_login  white100_f next_step"
                                         @click.stop="reset_submit()">
                                         <?php echo $GLOBALS['MSG']['NEXT_STEP'];?>
                                         <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
                                     </button>
                                     <button v-if="this.forgetStep === 3" type="button" name="button"
-                                        :disabled="!disable" class="register_login orange500_bg white100_f"
+                                        :disabled="!disable" class="register_login  white100_f"
                                         @click.stop="reset_submit()">
                                         <?php echo $layout['lang']['FORGET_SUBMIT'] ?>
                                         <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>

@@ -247,7 +247,7 @@
               @keyup.enter="verify(queryRe.phone.code, 'code', 'enter')">
             </div>
             <div class="register_img_ver white500_bg" flex-box="0" flex="main:center cross:center">
-              <button type="button" name="button" class="register_img_btn register_send orange500_f" @click="get_verify('0')" v-cloak
+              <button type="button" name="button" class="register_img_btn register_send " @click="get_verify('0')" v-cloak
               >{{setTimes === "out" ? '<?php echo $layout['lang']["ACQUIRING"] ?>' : times+'<?php echo $layout['lang']['GET_PHONECODE_AGAING'] ?>'}}</button>
             </div>
           </div>
@@ -301,7 +301,7 @@
               type="button"
               name="button"
               :disabled="!disable"
-              class="register_login orange500_bg white100_f"
+              class="register_login  white100_f"
               @click="register_submit">
               {{now_type === 're' ? '<?php echo $layout['lang']['REGISTER']; ?>' : '<?php echo $layout['lang']['LOGIN'] ?>'}}
               <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
@@ -505,7 +505,7 @@
               type="button"
               name="button"
               :disabled="!disable"
-              class="register_login orange500_bg white100_f"
+              class="register_login  white100_f"
               @click="register_submit">
               {{now_type === 're' ? '<?php echo $layout['lang']['REGISTER']; ?>' : '<?php echo $layout['lang']['LOGIN'] ?>'}}
               <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
@@ -632,7 +632,7 @@
             type="button"
             name="button"
             :disabled="!disable"
-            class="register_login orange500_bg white100_f"
+            class="register_login  white100_f"
             @click="register_submit">
             <?php echo $layout['lang']['GOOGLE_CODE']['GOOGLE_SURE']; ?>
             <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
@@ -921,7 +921,7 @@
               type="button"
               name="button"
               :disabled="!disable"
-              class="register_login orange500_bg white100_f"
+              class="register_login  white100_f"
               @click.stop="register_submit()">
               <?php echo $loginLang['NEXT']?>
               <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>
@@ -930,7 +930,7 @@
                 type="button"
                 name="button"
                 :disabled="!disable"
-                class="register_login orange500_bg white100_f"
+                class="register_login  white100_f"
                 @click.stop="register_submit()">
                 <?php echo $layout['lang']['FORGET_SUBMIT'] ?>
               <u class="loading-svg" data-loading="svg" v-if="submit_now"></u>

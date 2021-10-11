@@ -54,8 +54,7 @@ table {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  padding-left: 10px; }
+          flex-wrap: wrap; }
 
 .user_mes_list .user_mes_item {
     position: relative;
@@ -74,7 +73,7 @@ table {
             box-shadow: 0px 0px 10px #f0f0f0; }
 
 .user_mes_list .user_mes_item .user_list_icon {
-      width: 62px; }
+      width: 52px; }
 
 .user_mes_list .user_mes_item .user_list_icon .user_icon, .user_mes_list .user_mes_item .user_list_icon .user_phone_svg, .user_mes_list .user_mes_item .user_list_icon .user_real_svg, .user_mes_list .user_mes_item .user_list_icon .user_login_svg, .user_mes_list .user_mes_item .user_list_icon .user_pay_svg, .user_mes_list .user_mes_item .user_list_icon .user_yellow_warin, .user_mes_list .user_mes_item .user_list_icon .user_email_svg, .user_mes_list .user_mes_item .user_list_icon .user_no_email, .user_mes_list .user_mes_item .user_list_icon .user_no_google {
         width: 24px;
@@ -105,11 +104,11 @@ table {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADXRSTlMBHt/87FOMNb2jeQ1tNY41PgAAAMlJREFUKM91UlkWwyAIZBMBvf95q2Iam77woSjbMACQgmHEQhYIp6CLFoSGRcUPU5Fol95CyqV3qmd4pb796TcvIK0YlAoPqTJdXeFP1GfAqlvMSfXyaSMkfP1zhcrxxaMBth5K46A7aTFISCHjkGngDeyrePXlk+9xcfbcbBXgKWkQ3NALbtedKosPuoTprjGKJ9ywBtj5hJsN8uKNytFgUkIjArqdlCSJ1cSs/5L4Svv7oCZWvUer92jXMvhs8LkM09TH+vCxPh9XLgSoIbWq5wAAAABJRU5ErkJggg==) no-repeat center; }
 
 .user_mes_list .user_mes_item .user_item_type {
-      padding-right: 26px;
-      font-size: 16px; }
+      padding-right: 12px;
+      font-size: 14px; }
 
 .user_mes_list .user_mes_item .user_item_result {
-      font-size: 16px; }
+      font-size: 14px; }
 
 .user_mes_list .user_mes_item .user_look_for {
       font-size: 14px;

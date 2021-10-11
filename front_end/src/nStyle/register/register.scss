@@ -98,8 +98,8 @@
                 border-bottom: 2px solid #dcdcdc;
                 user-select: none;
                 &.selected {
-                    border-bottom: 2px solid #ffbb03;
-                    color: #ffbb03;
+                    border-bottom: 2px solid #205fec;
+                    color: #205fec;
                 }
             }
         }
@@ -160,7 +160,7 @@
                 .register_img {
                     display: inline-block;
                     margin-right: 13px;
-                    width: 20px;
+                    width: 26px;
                     height: 24px;
                 }
                 .register_imgs {
@@ -196,7 +196,8 @@
                     white-space: nowrap;
                 }
                 .register_send {
-                    border: 1px solid $orange500;
+                    border: 1px solid #205fec;
+                    color: #205fec;
                 }
             }
             .register_area_list {
@@ -267,6 +268,7 @@
             border-radius: 3px;
             border: none;
             color: #fff;
+            background-color: #205fec;
             &:hover {
                 transition: .5s;
                 background: $orange600;
