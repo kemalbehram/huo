@@ -45,7 +45,7 @@
         "FOOTER_SERVICE_EMAIL": "客服邮箱",
         "FOOTER_BUSSINESS_EMAIL": "国内商務合作邮箱",
         "FOOTER_COMP_EMAIL": "国际商务合作邮箱",
-        "FOOTER_SERVICE_WECHAT": "上币申请微信号：huocoin trade",
+        "FOOTER_SERVICE_WECHAT": "上币申请微信号：lendendex trade",
         "USER_NAV_TITLE": "我的账户",
         "USER_NAV_INDEX": "账户信息",
         "USER_NAV_AUTH": "实名认证",
@@ -1202,8 +1202,8 @@
             "RU_TONG": "如果同一用户被多名平台用户所邀请，平台將认定第一位確定的邀请人為該用户邀请人",
             "RUO_NI": "若您邀请多名好友，您獲得的奖励可累計，無邀请上限",
             "JIN_Z": "禁止任何作弊行為，一旦发現，lendenex有權收回所給奖励並对账号進行處理",
-            "BAO_LIU": "huocointrade保留隨时修訂、暫停、終止本活動及任何相關規則之權利",
-            "SUOYOU": "本次活動規則最終解釋權歸huocointrade所有",
+            "BAO_LIU": "lendendextrade保留隨时修訂、暫停、終止本活動及任何相關規則之權利",
+            "SUOYOU": "本次活動規則最終解釋權歸lendendextrade所有",
             "MOB_TOP_TITLE": "邀请有禮",
             "MIN_NUM": "最低提取额度",
             "AND_MORE": "，且",
@@ -1230,7 +1230,7 @@
                 "REWARD_SUCCESS": "奖励提取成功"
             },
             "ACT_AWARD": "當您的好友通過您的專屬邀请链接，進行注册並成功通過实名认证后：<br>1：邀请好友实名认证總人數排名前50人且邀请实名通過的好友不低於20人；<br>2：第1-3名獲得運動手表行雲watch2<br>第4-50名獲得智能運動手環行雲plus2",
-            "ACT_RULE": "1.活動时间：2018年8月14日~2018年8月24日<br>2.參與“邀请好友獲行雲運動手表watch2、行雲運動手環plus2”活動的用户邀请注册並实名通過的好友數量不得低於20人。<br>3.“邀请有獎 注册有禮 ”活動奖励按照邀请人數進行排名；<br>4.邀请有獎活動奖励將在5个工作日內发放；注册有禮的奖励在实名认证通過后進行抽獎直接发放到您的账户，以上奖励的總和可在【我的账户】-【甜品盒】-【活動贈送币】查看。<br>5.邀请獲獎領取方式：活動結束后，lendenex【官方公告】會公布獲獎名單，同时獲獎用户需關注lendenex微信公眾号：huocointradelendenex，发送【姓名+账号+收件地址】到lendenex，獎品將在活動結束后的5个工作日內寄出。<br>6.本次活動抽獎贈送的MCC將進行鎖倉3个工作日，3个工作日后方可進行轉币及交易;<br>7.禁止任何作弊行為，壹旦发現，Huocointrade有權收回所給奖励並对账号進行處理；<br>8.Huocointrade保留隨时修訂、暫停、終止本活動及任何相關規則之權利；<br>9.本次活動規則最終解釋權歸Huocointrade所有。"
+            "ACT_RULE": "1.活動时间：2018年8月14日~2018年8月24日<br>2.參與“邀请好友獲行雲運動手表watch2、行雲運動手環plus2”活動的用户邀请注册並实名通過的好友數量不得低於20人。<br>3.“邀请有獎 注册有禮 ”活動奖励按照邀请人數進行排名；<br>4.邀请有獎活動奖励將在5个工作日內发放；注册有禮的奖励在实名认证通過后進行抽獎直接发放到您的账户，以上奖励的總和可在【我的账户】-【甜品盒】-【活動贈送币】查看。<br>5.邀请獲獎領取方式：活動結束后，lendenex【官方公告】會公布獲獎名單，同时獲獎用户需關注lendenex微信公眾号：lendendextradelendenex，发送【姓名+账号+收件地址】到lendenex，獎品將在活動結束后的5个工作日內寄出。<br>6.本次活動抽獎贈送的MCC將進行鎖倉3个工作日，3个工作日后方可進行轉币及交易;<br>7.禁止任何作弊行為，壹旦发現，Huocointrade有權收回所給奖励並对账号進行處理；<br>8.Huocointrade保留隨时修訂、暫停、終止本活動及任何相關規則之權利；<br>9.本次活動規則最終解釋權歸Huocointrade所有。"
         },
         "candy": {
             "CANDY_GET": "奖励",
@@ -1450,8 +1450,8 @@
             "EMPTY": "無",
             "MY_INFO": "我的信息",
             "DEMO_DOWNLOAD": "DEMO下載",
-            "DOBI_OPEN_API": "HUOCOIN lendenex交易平台开放API",
-            "DOBI_DESC": "應用程序可通過調用HUOCOIN开放平台提供的API獲取到資產、交易等數據，因為涉及數據隱私，所以在使用前必須獲得HUOCOIN的<a class=\"fn-auth-link\" href=\"https://www.huocointrade.com?login&reurl=https://api.huocointrade.com/m\">授權</a>(<b>登陆后獲取</b>)，才可以調用API。",
+            "DOBI_OPEN_API": "LENDENDEX lendenex交易平台开放API",
+            "DOBI_DESC": "應用程序可通過調用LENDENDEX开放平台提供的API獲取到資產、交易等數據，因為涉及數據隱私，所以在使用前必須獲得LENDENDEX的<a class=\"fn-auth-link\" href=\"https://www.lendendextrade.com?login&reurl=https://api.lendendextrade.com/m\">授權</a>(<b>登陆后獲取</b>)，才可以調用API。",
             "AUTH": "授權",
             "COMMON_PARAM": "公共參數",
             "REQ_ADDR": "请求地址",

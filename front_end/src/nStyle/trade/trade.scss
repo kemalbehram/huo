@@ -464,6 +464,16 @@ body {
         height: calc(100% - 76px);
         width: 100%;
         // overflow: hidden; //pc 1
+        .flexwrap{
+            display: inline-flex;
+            width: 100%;
+            .left_aside{
+                flex: 1
+            }
+            .right_aside{
+                flex: 3;
+            }
+        }
     }
     .trade_content_top {
         display: flex;

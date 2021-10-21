@@ -1159,7 +1159,7 @@
             "MY_INFO": "我的信息",
             "DEMO_DOWNLOAD": "DEMO下载",
             "DOBI_OPEN_API": "Lendenex 火網交易平臺开放API",
-            "DOBI_DESC": "应用程序可通过调用Lendenex开放平臺提供的API获取到资產、交易等数据，因為涉及数据隐私，所以在使用前必须获得Lendenex的<a class=\"fn-auth-link\" href=\"https://www.huocointrade.com?login&reurl=https://api.huocointrade.com/m\">授权</a>(<b>登录后获取</b>)，才可以调用API。",
+            "DOBI_DESC": "应用程序可通过调用Lendenex开放平臺提供的API获取到资產、交易等数据，因為涉及数据隐私，所以在使用前必须获得Lendenex的<a class=\"fn-auth-link\" href=\"https://www.lendendextrade.com?login&reurl=https://api.lendendextrade.com/m\">授权</a>(<b>登录后获取</b>)，才可以调用API。",
             "AUTH": "授權",
             "COMMON_PARAM": "公共参数",
             "REQ_ADDR": "请求地址",
