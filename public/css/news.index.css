@@ -451,7 +451,8 @@ a {
       padding-top: 19px;
       font-size: 18px;
       line-height: 18px;
-      height: 18px; }
+      height: 18px;
+      color: #2d6cfa; }
 
 .news-win .ns-rf .com-titile:before {
         content: "";

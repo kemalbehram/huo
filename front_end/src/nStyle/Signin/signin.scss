@@ -1,9 +1,13 @@
 @import "../config.scss";
 @import "../color.scss";
 body {
-    background-color: #0e192c;
+    // background-color: #fff;
     overflow: hidden;
     // background: url("../../assets/background_no_global.jpg") no-repeat;
+    background-image: linear-gradient(white, #dfe8fc 49%, white);
+    z-index: 11;
+    position: relative;
+    padding: 30px 0px;
 }
 
 input {
@@ -146,6 +150,8 @@ input {
         border-radius: 5px;
         .login_form {
             padding: 30px;
+            box-shadow: #ccc 0px 2px 4px 0px;
+
             p {
                 font-size: 24px;
                 line-height: 40px;
@@ -163,6 +169,7 @@ input {
             .l_style {
                 display: inline-flex;
                 font-size: 14px;
+                margin: 20px 0px 10px 0px;
             }
             .switch-tab li {
                 color: #676e79;
@@ -178,8 +185,7 @@ input {
                 text-indent: 50px;
                 background-color: #fff;
                 width: 100%;
-                height: 40px;
-                line-height: 40px;
+                height: 45px;
                 margin: 12px 0px;
                 border-radius: 4px;
                 color: #3f475a;
@@ -259,14 +265,14 @@ input {
                 position: absolute;
                 margin-top: 12px;
                 border-radius: 4px 0px 0px 4px;
-                height: 40px;
+                height: 45px;
                 width: 40px;
                 // background-color: rgba(202, 204, 206, 0.4);
                 .icon {
                     display: inline-block;
                     width: 25px;
                     height: 25px;
-                    margin-top: 7px;
+                    margin-top: 11px;
                     margin-left: 7px;
                 }
                 .phone_icon {
@@ -290,12 +296,12 @@ input {
                 .verify_code {
                     left: 289px;
                     width: 100px;
-                    height: 40px;
+                    height: 45px;
                     line-height: 40px;
                     display: inline-block;
                     background-color: #205fec;
                     position: relative;
-                    top: -32px;
+                    top: -36px;
                     text-align: center;
                     border-radius: 0 4px 4px 0;
                     cursor: pointer;
@@ -303,25 +309,25 @@ input {
             }
             .verify_success {
                 position: relative;
-                margin-top: -52px;
+                margin-top: -56px;
                 width: 100%;
-                height: 40px;
+                height: 45px;
                 border-radius: 2px;
                 background-color: #ccc;
                 .slide_block {
-                    height: 40px;
-                    line-height: 40px;
+                    height: 45px;
+                    line-height: 45px;
                     position: relative;
                     text-align: center;
                 }
                 .sucess_icon {
                     float: right;
                     width: 60px;
-                    height: 40px;
+                    height: 45px;
                     background-color: #ccc;
                     border-radius: 4px;
                     text-align: center;
-                    margin-top: -40px;
+                    margin-top: -45px;
                     img {
                         width: 25px;
                         height: 25px;
@@ -445,13 +451,14 @@ input {
                 margin: 12px 0;
             }
             .mar_top {
-                margin-top: 60px;
+                margin-top: 30px;
             }
             .no_account {
-                // line-height: 30px;
+                display: inline-block;
                 font-size: 12px;
                 color: #676e79;
                 text-align: right;
+                margin-top: 10px;
                 .huo_w,
                 .register_now {
                     float: left;
@@ -466,7 +473,6 @@ input {
                 }
             }
             .user_agree_box {
-                margin-top: 25px;
                 position: absolute;
                 width: 360px;
                 a {

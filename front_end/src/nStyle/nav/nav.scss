@@ -18,9 +18,9 @@
         background: transparent;
     }
     // opacity: 0.8;
-    background: rgba(14, 25, 43, 0.9);
+    background: #fff;
     // background: rgba(14,25,43, 1);
-    border-bottom: 1px solid #212C3F;
+    // border-bottom: 1px solid #212C3F;
 }
 
 .app_down_font {
@@ -54,7 +54,6 @@
     padding: 0 30px;
     height: 70px;
     .now_nav {
-        background: #1D2739;
         color: $white100;
     }
     .main_link {
@@ -72,13 +71,14 @@
         height: 70px;
         a {
             font-size: 16px;
-            color: $white100;
+            color: #9b9b9b;
             padding: 0 15px;
             box-sizing: border-box;
             display: inline-block;
             height: 100%;
             &:hover {
                 text-decoration: none;
+                color:#3067f0;
             }
             img {
                 height: 100%;
@@ -202,7 +202,7 @@
         right: 0;
         z-index: 5;
         width: 100%;
-        background-color: #212C3F;
+        background-color: #fff;
         box-shadow: 6px 0px 4px rgba(9, 16, 29, 0.2);
         &:before {
             content: "";
@@ -298,12 +298,12 @@
         text-align: center;
         border-radius: 5px;
         overflow: hidden;
-        color: $white100;
+        color: #9b9b9b;
         margin: 0 5px;
     }
     .login_btn {
         position: relative;
-        border: 1px solid $white100;
+        border: 1px solid #9b9b9b;
         &::before {
             content: '';
             position: absolute;
