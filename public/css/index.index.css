@@ -1313,16 +1313,15 @@ a, button, [type=button] {
   padding-top: 48px;
   padding-bottom: 30px;
   position: relative;
-  height: 184px;
   width: 100%;
   background: #fff; }
 .index_link .logo {
     width: 1200px;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-bottom: solid 1px gainsboro; }
 .index_link .logo img {
-      width: 120px;
+      width: 150px;
       margin-bottom: 20px; }
 .index_link .index_link_inner {
     margin: 0 auto;
@@ -1416,13 +1415,12 @@ a, button, [type=button] {
     transition: all .35s;
     color: #474747; }
 .index_link .link_ul .link_li a:hover {
-      color: #ee2222;
       opacity: 1;
       -webkit-transition: all .35s;
       -o-transition: all .35s;
       -moz-transition: all .35s;
       transition: all .35s;
-      text-decoration: underline; }
+      text-decoration: none; }
 .index_link .contact_us .link_li {
     opacity: 0.5; }
 .indexs_imgs_icon {

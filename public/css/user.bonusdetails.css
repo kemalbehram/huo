@@ -81,8 +81,8 @@
       cursor: pointer; }
 
 .candy_choose .candy_tabs .candy_active_li {
-      background: #ffbb03;
-      border: 1px solid #ffbb03;
+      background: #3067f0;
+      border: 1px solid #3067f0;
       -webkit-border-radius: 2px;
          -moz-border-radius: 2px;
               border-radius: 2px;
@@ -140,7 +140,7 @@ table span:hover i {
           border-radius: 3px; }
 
 .activeBg {
-  background: #ffbd09; }
+  background: #3067f0; }
 
 .bg666 {
   background: #999 !important; }

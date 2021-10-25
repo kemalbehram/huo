@@ -132,10 +132,7 @@ input {
        -moz-border-radius: 5px;
             border-radius: 5px; }
 .bg-content .login_wrapper .login_form {
-      padding: 30px;
-      -webkit-box-shadow: #ccc 0px 2px 4px 0px;
-         -moz-box-shadow: #ccc 0px 2px 4px 0px;
-              box-shadow: #ccc 0px 2px 4px 0px; }
+      padding: 30px; }
 .bg-content .login_wrapper .login_form p {
         font-size: 24px;
         line-height: 40px;

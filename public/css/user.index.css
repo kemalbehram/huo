@@ -29,14 +29,15 @@ table {
           box-sizing: border-box;
   padding: 15px 50px 45px 40px;
   height: 100%;
-  background: #f6f6f6; }
+  background: #fff; }
 
 .user_index .user_hide {
     display: none; }
 
 .user_pan {
   line-height: 30px;
-  font-size: 14px; }
+  font-size: 14px;
+  font-weight: bold; }
 
 .user_pan .user_gt {
     display: inline-block;
@@ -54,7 +55,8 @@ table {
   display: flex;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  background-color: #fff; }
 
 .user_mes_list .user_mes_item {
     position: relative;
@@ -64,13 +66,11 @@ table {
        -moz-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    max-width: 49%;
-    min-width: 49%;
+    max-width: 48%;
+    min-width: 48%;
+    border: solid 1px gainsboro;
     min-height: 58px;
-    background: #fff;
-    -webkit-box-shadow: 0px 0px 10px #f0f0f0;
-       -moz-box-shadow: 0px 0px 10px #f0f0f0;
-            box-shadow: 0px 0px 10px #f0f0f0; }
+    background: #fff; }
 
 .user_mes_list .user_mes_item .user_list_icon {
       width: 52px; }
@@ -164,9 +164,7 @@ table {
     font-size: 13px; }
 
 .user_btn_group .user_active_btn {
-    border: 1px solid #2d6cfa;
-    background: #2d6cfa;
-    color: #fff; }
+    border: 1px solid #dcdcdc; }
 
 .user_coin_money {
   margin-top: 3px;
@@ -235,6 +233,7 @@ table {
 
 .user_blue_btn:hover {
     cursor: pointer;
+    border: none;
     background: #ffbd09;
     color: #fff;
     -webkit-transition: all .35s;
@@ -245,7 +244,11 @@ table {
 .btn_disable {
   background: #eee;
   border: 1px solid #eee;
-  color: #bfbfbf; }
+  color: #bfbfbf;
+  font-size: 12px;
+  height: 22px;
+  line-height: 22px;
+  display: inline-block; }
 
 .btn_disable:hover {
     cursor: not-allowed;

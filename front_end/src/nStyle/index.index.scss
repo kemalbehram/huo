@@ -528,16 +528,15 @@ button,
     padding-top: 48px;
     padding-bottom: 30px;
     position: relative;
-    height: 184px;
     width: 100%;
     background: #fff;
     .logo{
         width: 1200px;
         margin: auto;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         border-bottom: solid 1px gainsboro;
         img{
-            width: 120px;
+            width: 150px;
             margin-bottom: 20px;
 
         }
@@ -642,10 +641,10 @@ button,
             transition: all .35s;
             color: #474747;
             &:hover {
-                color: $red500;
                 opacity: 1;
                 transition: all .35s;
-                text-decoration: underline;
+                text-decoration: none;
+
             }
         }
     }

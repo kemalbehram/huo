@@ -2,31 +2,31 @@ body {
   overflow-x: hidden; }
 
 .default_bg .nav_contain {
-  background-color: #111d30;
+  background-color: #082850;
   min-width: 1200px; }
 
 .k_line_contain {
   height: 100%; }
 
 .hover-win .tri-top {
-  border-top-color: #252f41; }
+  border-top-color: #eceff1; }
 
 .hover-win .tri-left {
-  border-left-color: #252f41; }
+  border-left-color: #eceff1; }
 
 .hover-win .tri-bottom {
-  border-bottom-color: #252f41; }
+  border-bottom-color: #eceff1; }
 
 .hover-win .hover-content {
   color: #fff;
-  background-color: #252f41; }
+  background-color: #eceff1; }
 
 .tarde_wating {
   font-size: 26px;
   text-align: center; }
 
 .trade_center .trade_succ_list table tbody tr:hover, .trade_center .trade_succ_list table li:hover, .trade_center .trade_succ_list ul tbody tr:hover, .trade_center .trade_succ_list ul li:hover, .trade_center .bs_table table tbody tr:hover, .trade_center .bs_table table li:hover, .trade_center .bs_table ul tbody tr:hover, .trade_center .bs_table ul li:hover, .trade_center .mytrust_list table tbody tr:hover, .trade_center .mytrust_list table li:hover, .trade_center .mytrust_list ul tbody tr:hover, .trade_center .mytrust_list ul li:hover {
-  background-color: #1d2739;
+  background-color: #f2f3f5;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   -moz-transition: all .3s;
@@ -114,7 +114,7 @@ body {
     width: 138px;
     height: 100%;
     text-align: center;
-    border-top: 4px solid #ffbd09;
+    color: #fff;
     -webkit-transition: all .35s;
     -o-transition: all .35s;
     -moz-transition: all .35s;
@@ -122,7 +122,6 @@ body {
 
 .trade_nav .trade_area_btn:hover {
       cursor: pointer;
-      color: #ffbd09;
       -webkit-transition: all .35s;
       -o-transition: all .35s;
       -moz-transition: all .35s;
@@ -134,11 +133,14 @@ body {
 
 .trade_nav .area_win {
     position: absolute;
-    top: 66px;
+    top: 72px;
     right: 0;
     z-index: 3;
     width: 572px;
-    background-color: #212C3F; }
+    -webkit-box-shadow: 0px 1px 13px #dadde0;
+       -moz-box-shadow: 0px 1px 13px #dadde0;
+            box-shadow: 0px 1px 13px #dadde0;
+    background-color: #fff; }
 
 .trade_nav .area_win .tri_up, .trade_nav .area_win .tri_down {
       display: inline-block;
@@ -169,8 +171,8 @@ body {
         width: 150px;
         height: 30px;
         line-height: 30px;
-        color: #fff;
-        border: 1px solid #374152;
+        color: #7d7d7d;
+        border: 1px solid #e6e6e6;
         -webkit-border-radius: 15px;
            -moz-border-radius: 15px;
                 border-radius: 15px;
@@ -181,7 +183,7 @@ body {
                 background-size: 16px; }
 
 .trade_nav .area_win .area_search input:focus {
-          border-color: #ffbd09;
+          border-color: #3067f0;
           background: transparent;
           -webkit-transition: all .35s;
           -o-transition: all .35s;
@@ -192,25 +194,27 @@ body {
     padding: 0 17px;
     height: 48px;
     line-height: 46px;
-    border-bottom: 1px solid #102333; }
+    border-bottom: 1px solid #e6e6e6; }
 
 .trade_nav .all_title_list > li {
       padding: 0 17px;
       text-align: center;
-      white-space: nowrap; }
+      white-space: nowrap;
+      color: #333; }
 
 .trade_nav .all_title_list > li:first-child {
         padding-left: 0; }
 
 .trade_nav .all_title_list > li:hover {
         cursor: pointer;
-        color: #ffbd09;
+        color: #3067f0;
         -webkit-transition: all .3s;
         -o-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s; }
 
 .trade_nav .all_title_list .active_area {
+      color: #3067f0;
       position: relative; }
 
 .trade_nav .all_title_list .active_area:after {
@@ -221,7 +225,7 @@ body {
         bottom: -1px;
         right: 0;
         height: 1px;
-        background-color: #ffbd09; }
+        background-color: #3067f0; }
 
 .trade_nav .fine_point_start {
     display: inline-block;
@@ -320,11 +324,14 @@ body {
     transition: background-color .35s; }
 
 .trade_nav .area_coin_body .area_t_body li:hover {
-      background-color: #1D2739;
+      background-color: #f2f3f5;
       -webkit-transition: all .35s;
       -o-transition: all .35s;
       -moz-transition: all .35s;
       transition: all .35s; }
+
+.trade_nav .area_coin_body .area_t_body li a {
+      color: #333; }
 
 .trade_nav .area_coin_body .area_t_head > li, .trade_nav .area_coin_body .area_t_body li a div {
     -webkit-box-sizing: border-box;
@@ -371,12 +378,11 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    padding: 16px 14px 7px 0;
+    padding: 15px 0px;
     height: 34px;
-    line-height: 12px;
+    line-height: 13px;
     font-size: 12px;
-    color: #a2abb8;
-    background-color: #212c3f; }
+    color: #333; }
 
 .trade_nav .area_coin_body .area_t_head li:first-child {
       text-align: left;
@@ -437,7 +443,8 @@ body {
     height: -webkit-calc(100% - 76px);
     height: -moz-calc(100% - 76px);
     height: calc(100% - 76px);
-    width: 100%; }
+    width: 100%;
+    background-color: #eceff1; }
 
 .trade_center .trade_content .flexwrap {
       display: -webkit-inline-box;
@@ -509,7 +516,7 @@ body {
 .trade_center .trade_succ_list .table_header, .trade_center .bs_table .table_header {
     height: 34px;
     line-height: 32px;
-    border-bottom: 1px solid #102333;
+    border-bottom: 1px solid #f2f3f5;
     overflow: hidden; }
 
 .trade_center .trade_succ_list .table_header span, .trade_center .bs_table .table_header span {
@@ -561,8 +568,8 @@ body {
 
 .trade_center .table_mid {
     height: 34px;
-    border-top: 1px solid #102333;
-    border-bottom: 1px solid #102333; }
+    border-top: 1px solid #f2f3f5;
+    border-bottom: 1px solid #f2f3f5; }
 
 .trade_center .table_mid > span:first-child {
       padding: 0 10px 0 16px;
@@ -579,7 +586,8 @@ body {
       white-space: nowrap;
       -o-text-overflow: ellipsis;
          text-overflow: ellipsis;
-      overflow-x: hidden; }
+      overflow-x: hidden;
+      color: #42b680; }
 
 .trade_center .trade_succ_list {
     -webkit-flex-shrink: 0;
@@ -671,15 +679,17 @@ body {
       padding: 0 10px;
       height: 22px;
       line-height: 18px;
-      border: 1px solid #252f41;
+      border: 1px solid #999;
+      color: #999;
       -webkit-border-radius: 11px;
          -moz-border-radius: 11px;
               border-radius: 11px;
       text-align: center; }
 
 .trade_center .mytrust_list .mytrust_ca_btn:hover {
-        background-color: #ffbd09;
+        background-color: #3067f0;
         color: #fff;
+        border: none;
         -webkit-transition: all .35s;
         -o-transition: all .35s;
         -moz-transition: all .35s;
@@ -792,10 +802,14 @@ body {
     -webkit-border-radius: 11px;
        -moz-border-radius: 11px;
             border-radius: 11px;
-    background-color: #252f41; }
+    background-color: #edf0f7;
+    color: #000;
+    opacity: .7; }
 
 .trade_center .link_btn:hover {
-      background-color: #ffbd09; }
+      background-color: #3067f0;
+      color: #fff;
+      opacity: 1; }
 
 .trade_center .bs_form {
     -webkit-box-sizing: border-box;
@@ -832,7 +846,9 @@ body {
         -webkit-border-radius: 5px;
            -moz-border-radius: 5px;
                 border-radius: 5px;
-        border: 1px solid #374152; }
+        border: 1px solid #e6e6e6;
+        color: #7d7d7d;
+        outline: none; }
 
 .trade_center .bs_form .input_g input::-webkit-input-placeholder {
           color: #999; }
@@ -850,7 +866,7 @@ body {
           color: #999; }
 
 .trade_center .bs_form .input_g input:focus {
-          border: 1px solid #005398; }
+          border: 1px solid #b3b4b5; }
 
 .trade_center .bs_form .ext_placeholder {
       position: absolute;
@@ -865,11 +881,9 @@ body {
          -moz-box-sizing: border-box;
               box-sizing: border-box;
       padding: 5px 0 12px;
-      height: 27px;
-      text-indent: 15px; }
+      height: 27px; }
 
 .trade_center .bs_form .range_group {
-      padding: 0 0 0 15px;
       height: 25px;
       white-space: nowrap;
       font-size: 12px; }
@@ -933,8 +947,7 @@ body {
 
 .trade_center .bs_form .trade_fee {
       margin: 0 0 18px;
-      height: 26px;
-      text-indent: 15px; }
+      height: 26px; }
 
 .trade_center .bs_form .trade_fee > p > span {
         display: inline-block;
@@ -1171,9 +1184,9 @@ body {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-box-shadow: 0 2px 5px #09101d;
-     -moz-box-shadow: 0 2px 5px #09101d;
-          box-shadow: 0 2px 5px #09101d;
+  -webkit-box-shadow: 0 2px 4px #dadde0;
+     -moz-box-shadow: 0 2px 4px #dadde0;
+          box-shadow: 0 2px 4px #dadde0;
   width: 26px;
   min-height: 98px;
   font-size: 12px;
@@ -1238,15 +1251,16 @@ body {
     right: -12px;
     top: 50%;
     border: 6px solid transparent;
-    border-left-color: #252f41; }
+    border-left-color: #fff; }
 
 .rule_context hr {
     margin: 0;
-    border-color: #0e192b; }
+    border-color: #fff; }
 
 .rule_title {
   font-size: 14px;
-  line-height: 32px; }
+  line-height: 32px;
+  color: #333; }
 
 .rule_detail {
   -webkit-box-sizing: border-box;
