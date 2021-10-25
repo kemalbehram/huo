@@ -48,10 +48,10 @@ class Cli_DaycountsqlController extends Ctrl_Cli
             if(!$table) continue;
 
 
-            $sql = "SELECT sum(number*price) money FROM $mo->table where created>$daytime AND opt=1 AND coin_from='{$v['name']}' AND coin_to='cnyx'";
+            $sql = "SELECT sum(number*price) money FROM $mo->table where created>$daytime AND opt=1 AND coin_from='{$v['name']}' AND coin_to='usdt'";
             $trun = $orderMo->fRow($sql);
 
-            $sumsql = "SELECT max(price) max, min(price) min, sum(number) sum FROM $mo->table WHERE created > " . $daytime. " AND opt=1 and coin_from='{$v['name']}' and coin_to='cnyx'";
+            $sumsql = "SELECT max(price) max, min(price) min, sum(number) sum FROM $mo->table WHERE created > " . $daytime. " AND opt=1 and coin_from='{$v['name']}' and coin_to='usdt'";
             $sum = $orderMo->fRow($sumsql);
 
             $mo->table = "day_before_count";

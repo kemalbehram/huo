@@ -33,7 +33,7 @@ class Robot_ApiLogicController extends Ctrl_Base
 
 //        $wallet[] = [
 //            'frozen' =>'0',
-//            'currency'=>'CNYX',
+//            'currency'=>'USDT',
 //            'fee'=>'0',
 //            'free'=>'0'
 //        ];
@@ -598,10 +598,10 @@ class Robot_ApiLogicController extends Ctrl_Base
                 'coins' => $market,
                 'base' => $base,
             ],
-            'assetPerm'=>$user['cnyx_lock'],
+            'assetPerm'=>$user['usdt_lock'],
             'leverPerm'=>true,
             'entrustPerm'=>true,
-            'moneyPerm'=>$user['cnyx_over']
+            'moneyPerm'=>$user['usdt_over']
         ];
         return ['code'=>1,'data'=>$res];
     }

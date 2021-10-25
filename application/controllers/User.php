@@ -959,7 +959,7 @@ class UserController extends Ctrl_Base
     {
         $user_CoinMo = User_CoinModel::getInstance();
         $coinList   = $user_CoinMo->field('name coin_from,type,display,in_status,out_status,confirm,min_in')
-            ->where("status = ".User_CoinModel::STATUS_ON." and name != 'cnyx' ")->order("order_by asc,id asc")->fList();;
+            ->where("status = ".User_CoinModel::STATUS_ON." and name != 'usdt' ")->order("order_by asc,id asc")->fList();;
         if(LANG != 'cn')
         {
             foreach ($coinList as &$v)

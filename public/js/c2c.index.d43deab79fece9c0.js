@@ -113,9 +113,9 @@ var c2c = new __WEBPACK_IMPORTED_MODULE_8_vue__["a" /* default */]({
             //token
             token: '',
             //冻结余额
-            cnyxlock: '',
+            usdtlock: '',
             //可用余额
-            cnyxover: '',
+            usdtover: '',
             //加急
             Urgent: document.getElementById('urgent').value,
             //充值
@@ -617,8 +617,8 @@ var c2c = new __WEBPACK_IMPORTED_MODULE_8_vue__["a" /* default */]({
                     }
                 }
                 _this6.all = res.data.totalPage;
-                _this6.cnyxlock = res.data.cnyx_lock;
-                _this6.cnyxover = res.data.cnyx_over;
+                _this6.usdtlock = res.data.usdt_lock;
+                _this6.usdtover = res.data.usdt_over;
             });
         },
 

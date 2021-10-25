@@ -15,8 +15,8 @@
                     <a href="/user/bank" style="padding: 17px;color: rgb(255, 189, 9);text-decoration: none;" class="fa fa-credit-card fa-fw">
                         <?php echo $GLOBALS['MSG']['COLLECT_PAY_MANAGE'];?>
                     </a>
-                    <?php echo $GLOBALS['MSG']['AVAILABEL_BALANCE'];?>：<span style="color:#ffbd09;padding-right: 34px" v-text="cnyxover"></span>
-                    <?php echo $GLOBALS['MSG']['FREEZE_BLANCE'];?>：<span style="color:#ffbd09" v-text="cnyxlock"></span>
+                    <?php echo $GLOBALS['MSG']['AVAILABEL_BALANCE'];?>：<span style="color:#ffbd09;padding-right: 34px" v-text="usdtover"></span>
+                    <?php echo $GLOBALS['MSG']['FREEZE_BLANCE'];?>：<span style="color:#ffbd09" v-text="usdtlock"></span>
                 </div>
             </div>
             <div class="finance-rd" style="width: 100%;margin-left: 0px;background: white;padding: 32px 20px 30px;">
@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-xs-12 buy">
                                 <h3 class="b-title" style="margin-bottom: 12px">
-                                    <?php echo $GLOBALS['MSG']['HK_BUY_IN'];?> CNYX</h3>
+                                    <?php echo $GLOBALS['MSG']['HK_BUY_IN'];?> USDT</h3>
                                 <div id="buyDefaultForm">
                                     <div class="form-group has-feedback form-subline">
                                         <label for="buyUnitPrice" class="control-label">
@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group has-feedback form-subline">
-                                        <label for="buyNumber" class="control-label"><?php echo $GLOBALS['MSG']['BUY_NUM'];?> (CNYX)</label>
+                                        <label for="buyNumber" class="control-label"><?php echo $GLOBALS['MSG']['BUY_NUM'];?> (USDT)</label>
                                         <div class="input-group">
                                             <input type="text" name="buyNumber" class="form-control form-second" v-model="Purchase" autocomplete="off" 
                                             oninput = "value=value.replace(/[^\d||\.]/g,'')"/>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12 sell">
-                                <h3 class="b-title" style="margin-bottom: 12px"><?php echo $GLOBALS['MSG']['SELL'];?> CNYX</h3>
+                                <h3 class="b-title" style="margin-bottom: 12px"><?php echo $GLOBALS['MSG']['SELL'];?> USDT</h3>
                                 <input type="hidden" id="urgent" value="<?php if($urgent['is_lock']==1){echo '2';}else{ echo '1'; }?>">
                                 <div class="Urgent">
                                     ( <label> <input class="radio_input" type="radio" name="sltype" value="1" v-model="Urgent"><?php echo $GLOBALS['MSG']['ORDINARY'];?></label>
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="form-group has-feedback form-subline">
                                         <div class="input-group">
-                                            <input type="text" placeholder="<?php echo $GLOBALS['MSG']['SELL_NUM'];?> (CNYX)" style="width:49%;text-align: left;"
+                                            <input type="text" placeholder="<?php echo $GLOBALS['MSG']['SELL_NUM'];?> (USDT)" style="width:49%;text-align: left;"
                                             class="form-control form-second" v-model="sellout" autocomplete="off"
                                             oninput = "value=value.replace(/[^\d||\.]/g,'')"  ><input 
                                             oninput = "value=value.replace(/[^\d||\.]/g,'')"
@@ -333,19 +333,19 @@
                 <div class="mask" v-if="mask" v-cloak></div>
                 <div class="buyingquantity" v-if="buyingquantity" v-cloak>
                     <p class="input_num">
-                        <?php echo $GLOBALS['MSG']['BUY_CNYX_COUNT'];?>
+                        <?php echo $GLOBALS['MSG']['BUY_USDT_COUNT'];?>
                     </p>
                     <button id="btn" @click="Determines"><?php echo $GLOBALS['MSG']['SURE'];?></button>
                 </div>
                 <div class="sellwindow" v-if="sellwindow" v-cloak>
-                    <p class="input_num" v-if="outMinStatus==1"><?php echo $GLOBALS['MSG']['SELL_CNYX_COUNT'];?></p>
-                    <!-- 请输入最小賣出CNYX数量！ -->
-                    <p class="input_num" v-if="outMinStatus==2"><?php echo $GLOBALS['MSG']['MINBUY_CNYX'];?></p>
-                    <!-- 賣出CNYX数量必须是100的整数倍 -->
-                    <p class="input_num" v-if="outMinStatus==3"><?php echo $GLOBALS['MSG']['BUY100NCNYX'];?></p>
-                    <!-- 最小賣出CNYX数量必须是100的整数倍 -->
-                    <p class="input_num" v-if="outMinStatus==4"><?php echo $GLOBALS['MSG']['MINBUY100_CNYX'];?></p>
-                    <p class="input_num" v-if="outMinStatus==5"><?php echo $GLOBALS['MSG']['BUY_MINCNYX'];?>：{{sellout}}</p>
+                    <p class="input_num" v-if="outMinStatus==1"><?php echo $GLOBALS['MSG']['SELL_USDT_COUNT'];?></p>
+                    <!-- 请输入最小賣出USDT数量！ -->
+                    <p class="input_num" v-if="outMinStatus==2"><?php echo $GLOBALS['MSG']['MINBUY_USDT'];?></p>
+                    <!-- 賣出USDT数量必须是100的整数倍 -->
+                    <p class="input_num" v-if="outMinStatus==3"><?php echo $GLOBALS['MSG']['BUY100NUSDT'];?></p>
+                    <!-- 最小賣出USDT数量必须是100的整数倍 -->
+                    <p class="input_num" v-if="outMinStatus==4"><?php echo $GLOBALS['MSG']['MINBUY100_USDT'];?></p>
+                    <p class="input_num" v-if="outMinStatus==5"><?php echo $GLOBALS['MSG']['BUY_MINUSDT'];?>：{{sellout}}</p>
                     <button id="btn" @click="Determine"><?php echo $GLOBALS['MSG']['SURE'];?></button>
                 </div>
                 <div class="popup" v-if="popup" v-cloak>

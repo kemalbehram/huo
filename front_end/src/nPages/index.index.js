@@ -152,8 +152,8 @@ const index = new Vue({
                         //獲得自選部分數據
                         //再第一次的时候调用 不跟着多次循环
                         if (!sessionStorage.star) {
-                            this.tabChange(2, "cnyx");
-                            // console.log('没有数据调用cnyx');
+                            this.tabChange(2, "usdt");
+                            // console.log('没有数据调用usdt');
                         } else { this.getmySelf(num); }
                     }
                     // this.$forceUpdate();
@@ -200,8 +200,8 @@ const index = new Vue({
                 if (sessionStorage.star) {
                     sessionStorage.removeItem('star');
                 } else {
-                    // this.tabChange(2,"cnyx");
-                    // console.log('没有数据调用cnyx');
+                    // this.tabChange(2,"usdt");
+                    // console.log('没有数据调用usdt');
                 }
                 this.$http.get('/ajax_user/selected')
                     .then(({ data, status, msg }) => {
@@ -234,8 +234,8 @@ const index = new Vue({
                         this.coinListNum = [];
                     }
                     this.chooseArray = [];
-                    // this.tabChange(2,"cnyx");
-                    // console.log('没有数据调用cnyx')
+                    // this.tabChange(2,"usdt");
+                    // console.log('没有数据调用usdt')
                 }
                 if (this.indexs == 1) {
                     this.forEachData();

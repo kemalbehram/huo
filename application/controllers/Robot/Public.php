@@ -86,7 +86,7 @@ class Robot_PublicController extends Ctrl_Base
             //买一卖一
             $buyOne = $trustMo->where("flag='buy' and status<2")->order("price desc")->fOne('price');
             $saleOne = $trustMo->where("flag='sale' and status<2")->order('price asc')->fOne('price');
-            $market = $v.'_cnyx';
+            $market = $v.'_usdt';
 
             $res['data'][] = [
                 'buy'=>$buyOne,
@@ -115,7 +115,7 @@ class Robot_PublicController extends Ctrl_Base
 
         foreach ($coins as $v){
 
-            $market = $v['name'].'_cnyx';
+            $market = $v['name'].'_usdt';
 
             $res['data'][] = [
                 'actived'=>true,

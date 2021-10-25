@@ -108,9 +108,9 @@ var otc = new __WEBPACK_IMPORTED_MODULE_8_vue__["a" /* default */]({
             sellpage: '',
 
             //冻结余额
-            cnyxlock: '',
+            usdtlock: '',
             //可用余额
-            cnyxover: '',
+            usdtover: '',
             //币种
             buys: '',
             //币种名称
@@ -415,8 +415,8 @@ var otc = new __WEBPACK_IMPORTED_MODULE_8_vue__["a" /* default */]({
             var _this9 = this;
 
             this.$http.post('/ajax_otc/see_balance').then(function (res) {
-                _this9.cnyxlock = res.data.cnyx_lock;
-                _this9.cnyxover = res.data.cnyx_over;
+                _this9.usdtlock = res.data.usdt_lock;
+                _this9.usdtover = res.data.usdt_over;
             });
         },
 

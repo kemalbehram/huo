@@ -100,11 +100,11 @@ class C2ctradeModel extends Orm_Base{
 		}
 		$apMo = new AssetpastModel();
 		$newBuyUserInfo = $oldBuyUserInfo;
-		$newBuyUserInfo['cnyx_over'] = $newBuyUserInfo['cnyx_over']+$price;
+		$newBuyUserInfo['usdt_over'] = $newBuyUserInfo['usdt_over']+$price;
 		$newSellUserInfo = $oldSellUserInfo;
-		$newSellUserInfo['cnyx_lock'] = $newSellUserInfo['cnyx_lock']-$lock_price;
-		$buy_asset = $apMo->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$oid,AssetpastModel::ASSET_TYPE_C2CORDER,"cnyx","cnyx",1,"1");
-		$sell_asset = $apMo->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$oid,AssetpastModel::ASSET_TYPE_C2CORDER,"cnyx","cnyx",1,'2');
+		$newSellUserInfo['usdt_lock'] = $newSellUserInfo['usdt_lock']-$lock_price;
+		$buy_asset = $apMo->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$oid,AssetpastModel::ASSET_TYPE_C2CORDER,"usdt","usdt",1,"1");
+		$sell_asset = $apMo->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$oid,AssetpastModel::ASSET_TYPE_C2CORDER,"usdt","usdt",1,'2');
 		if($sell_asset !== false && $buy_asset !== false){
 			return true;
 		}
@@ -169,14 +169,14 @@ class C2ctradeModel extends Orm_Base{
 
 			$lock_price = $trust['num']+$trust['deal'] + $trust['fee_on'];
 			//卖
-			$sell_id = $this->exec("update user set cnyx_over=cnyx_over+{$lock_price},cnyx_lock=cnyx_lock-{$lock_price} where uid={$trust['uid']}");
+			$sell_id = $this->exec("update user set usdt_over=usdt_over+{$lock_price},usdt_lock=usdt_lock-{$lock_price} where uid={$trust['uid']}");
 			if(empty($sell_id)){
 				return false;
 			}
 			$newUserInfo = $oldUserInfo;
-			$newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$lock_price;
-			$newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$lock_price;
-			$assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_C2CORDER,'cnyx','cnyx',3,2);
+			$newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$lock_price;
+			$newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$lock_price;
+			$assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_C2CORDER,'usdt','usdt',3,2);
 			if($assetResult === false){
 				return false;
 			}
@@ -199,14 +199,14 @@ class C2ctradeModel extends Orm_Base{
 				$over_price = $trust['deal']+$fee;
 			}
 			$oldUserInfo = $uMo->fRow($trust['uid']);
-			$user_id = $this->exec("update user set cnyx_over=cnyx_over+{$over_price},cnyx_lock=cnyx_lock-{$lock_price} where uid={$trust['uid']}");
+			$user_id = $this->exec("update user set usdt_over=usdt_over+{$over_price},usdt_lock=usdt_lock-{$lock_price} where uid={$trust['uid']}");
 			if(empty($user_id)){
 				return false;
 			}
 			$newUserInfo = $oldUserInfo;
-			$newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$over_price;
-			$newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$lock_price;
-			$assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_C2CTRUST,"cnyx","cnyx",3,2);
+			$newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$over_price;
+			$newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$lock_price;
+			$assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_C2CTRUST,"usdt","usdt",3,2);
 			if($assetResult === false){
 				return false;
 			}

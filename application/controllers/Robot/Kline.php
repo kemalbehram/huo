@@ -11,7 +11,7 @@ class Robot_KlineController extends Ctrl_Base{
     //获取价格
     public function getKlineAction(){
         set_time_limit(0);
-        $currency = $_REQUEST['currency']?strtolower($_REQUEST['currency']):'wcg_cnyx';
+        $currency = $_REQUEST['currency']?strtolower($_REQUEST['currency']):'wcg_usdt';
         $js_file = APPLICATION_PATH."/public/robot/js/$currency.js";
         exec('phantomjs --output-encoding=utf8 '.$js_file,$output_main);
 

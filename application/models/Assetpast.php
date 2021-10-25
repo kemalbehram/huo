@@ -48,7 +48,7 @@ class AssetpastModel extends Orm_Base{
      * @param string $status
      * @return bool
      */
-    public function InsertAssetData($oldUserInfo = array(),$newUserInfo = array(),$oid = 0,$type = 0,$coin = "",$coin_to = "cnyx",$status = "",$opt_type = ""){
+    public function InsertAssetData($oldUserInfo = array(),$newUserInfo = array(),$oid = 0,$type = 0,$coin = "",$coin_to = "usdt",$status = "",$opt_type = ""){
         if(empty($oid) || empty($type) || empty($oldUserInfo) || empty($newUserInfo)){
             return false;
         }

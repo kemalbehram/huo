@@ -134,8 +134,8 @@ class Cli_SqlController extends Ctrl_Cli
                 'from_uid' => $u['invit_1'] ? $u['invit_1'] : 0,
                 'rebate' => 0,
                 'google_key' => '',
-                'cnyx_over' => $ucoin['cny'] ? $ucoin['cny'] : 0,
-                'cnyx_lock' => $ucoin['cnyd'] ? $ucoin['cnyd'] : 0,
+                'usdt_over' => $ucoin['cny'] ? $ucoin['cny'] : 0,
+                'usdt_lock' => $ucoin['cnyd'] ? $ucoin['cnyd'] : 0,
             ];
             $id = $mo->insert($in_data);
 
@@ -203,7 +203,7 @@ class Cli_SqlController extends Ctrl_Cli
                     if ($kk % $this->max_num == 0) {
                         $sql = "insert into trust_{$val['name']}coin (uid,price,`number`,numberover,numberdeal,flag,status,isnew,coin_from,coin_to,created,updated,trust_type) values ";
                     }
-                    $sql .= "('{$v['userid']}','{$v['price']}','{$v['num']}','{$numberover}','{$v['deal']}','{$flag}','{$sta}','N','{$val['name']}','cnyx','{$v['addtime']}','{$v['endtime']}','0'),";
+                    $sql .= "('{$v['userid']}','{$v['price']}','{$v['num']}','{$numberover}','{$v['deal']}','{$flag}','{$sta}','N','{$val['name']}','usdt','{$v['addtime']}','{$v['endtime']}','0'),";
 
                     if ($kk && $kk % $this->max_num == ($this->max_num - 1) || $kk == (count($tras) - 1)) {
                         echo '$i:' . $i . "\n";
@@ -260,7 +260,7 @@ class Cli_SqlController extends Ctrl_Cli
                     if ($kk % $this->max_num == 0) {
                         $sql = "insert into order_{$val['name']}coin (price,`number`,buy_tid,buy_uid,sale_tid,sale_uid,opt,coin_from,coin_to,created,buy_fee,sale_fee) values ";
                     }
-                    $sql .= "('{$v['price']}','{$v['num']}','0','{$v['userid']}','0','{$v['peerid']}','{$opt}','{$val['name']}','cnyx','{$v['addtime']}','{$v['fee_buy']}','{$v['fee_sell']}'),";
+                    $sql .= "('{$v['price']}','{$v['num']}','0','{$v['userid']}','0','{$v['peerid']}','{$opt}','{$val['name']}','usdt','{$v['addtime']}','{$v['fee_buy']}','{$v['fee_sell']}'),";
 
                     if ($kk && $kk % ($this->max_num) == ($this->max_num - 1) || $kk == (count($tras) - 1)) {
                         $sql = substr($sql, 0, strlen($sql) - 1);

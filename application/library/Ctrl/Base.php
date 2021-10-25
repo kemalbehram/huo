@@ -286,7 +286,7 @@ abstract class Ctrl_Base extends Yaf_Controller_Abstract{
 		$this->_session();
 		$user = new UserModel();
 		$userInfo = $user->fRow($this->mCurUser['uid']);
-		if(!empty($userInfo) && $userInfo['cnyx_lock'] >= 0){
+		if(!empty($userInfo) && $userInfo['usdt_lock'] >= 0){
 			return true;
 		}
 		return false;

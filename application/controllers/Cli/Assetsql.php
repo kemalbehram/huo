@@ -80,7 +80,7 @@ class Cli_AssetsqlController extends Ctrl_Cli
                 }
 
                 $addtime = date("Y-m-d H:i:s",$v['addtime']);
-                $sql .= "('{$addtime}','{$v['uid']}','{$type}','cnyx','{$v['id']}','{$otable}','{$v['addtime']}','{$v['endtime']}','{$time}'),";
+                $sql .= "('{$addtime}','{$v['uid']}','{$type}','usdt','{$v['id']}','{$otable}','{$v['addtime']}','{$v['endtime']}','{$time}'),";
 
                 if ($k && $k % ($this->max_num) == ($this->max_num - 1) || $k == ($rech_count - 1)) {
                     $sql = substr($sql, 0, strlen($sql) - 1);
@@ -126,7 +126,7 @@ class Cli_AssetsqlController extends Ctrl_Cli
                 }
 
                 $addtime = date("Y-m-d H:i:s",$v['addtime']);
-                $sql .= "('{$addtime}','{$v['uid']}','{$type}','{$v['type']}','cnyx','{$v['id']}','c2c_trade','{$v['status']}','{$v['addtime']}','{$time}'),";
+                $sql .= "('{$addtime}','{$v['uid']}','{$type}','{$v['type']}','usdt','{$v['id']}','c2c_trade','{$v['status']}','{$v['addtime']}','{$time}'),";
 
                 if ($k && $k % ($this->max_num) == ($this->max_num - 1) || $k == ($count - 1)) {
                     $sql = substr($sql, 0, strlen($sql) - 1);
@@ -178,7 +178,7 @@ class Cli_AssetsqlController extends Ctrl_Cli
                 }
 
                 $addtime = date("Y-m-d H:i:s",$v['addtime']);
-                $sql .= "('{$addtime}','{$v['buyid']}','{$v['sellid']}','{$type}','{$v['type']}','cnyx','{$v['id']}','{$otable}','{$v['addtime']}','{$time}'),";
+                $sql .= "('{$addtime}','{$v['buyid']}','{$v['sellid']}','{$type}','{$v['type']}','usdt','{$v['id']}','{$otable}','{$v['addtime']}','{$time}'),";
 
                 if ($k && $k % ($this->max_num) == ($this->max_num - 1) || $k == ($count - 1)) {
                     $sql = substr($sql, 0, strlen($sql) - 1);
@@ -229,7 +229,7 @@ class Cli_AssetsqlController extends Ctrl_Cli
                     }
 
                     $addtime = date("Y-m-d H:i:s",$v['created']);
-                    $sql .= "('{$addtime}','{$v['uid']}','{$type}','{$v['type']}','{$otcv['name']}','cnyx','{$v['id']}','{$otable}','{$v['ostatus']}','{$v['created']}','{$v['updated']}','{$time}'),";
+                    $sql .= "('{$addtime}','{$v['uid']}','{$type}','{$v['type']}','{$otcv['name']}','usdt','{$v['id']}','{$otable}','{$v['ostatus']}','{$v['created']}','{$v['updated']}','{$time}'),";
 
                     if ($k && $k % ($this->max_num) == ($this->max_num - 1) || $k == ($count - 1)) {
                         $sql = substr($sql, 0, strlen($sql) - 1);
@@ -281,7 +281,7 @@ class Cli_AssetsqlController extends Ctrl_Cli
 
                     $v['type'] = $v['type']=='buy'?1:2;
                     $addtime = date("Y-m-d H:i:s",$v['created']);
-                    $sql .= "('{$addtime}','{$v['buy_uid']}','{$v['sale_uid']}','{$type}','{$v['type']}','{$otcv['name']}','cnyx','{$v['id']}','{$otable}','{$v['status']}','{$v['created']}','{$v['updated']}','{$time}'),";
+                    $sql .= "('{$addtime}','{$v['buy_uid']}','{$v['sale_uid']}','{$type}','{$v['type']}','{$otcv['name']}','usdt','{$v['id']}','{$otable}','{$v['status']}','{$v['created']}','{$v['updated']}','{$time}'),";
 
                     if ($k && $k % ($this->max_num) == ($this->max_num - 1) || $k == ($count - 1)) {
                         $sql = substr($sql, 0, strlen($sql) - 1);

@@ -1046,7 +1046,7 @@ class Cli_TradeController extends Ctrl_Cli
             'created' => $values['created']
         ];
         if($fid = $feeBonusMo->insert($buy_data)){
-            $userMo->exec("update user set cnyx_over=cnyx_over+{$fee} where uid={$from_uid}");
+            $userMo->exec("update user set usdt_over=usdt_over+{$fee} where uid={$from_uid}");
 
             //写入交易分红明细
 //            $from_user = $userMo->lock()->fRow($from_uid);

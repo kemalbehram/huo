@@ -10,7 +10,7 @@ class Cli_CountController extends Ctrl_Cli
         $coins = CoinModel::getInstance()->filed('name')->fList();
 
         $userMo = UserModel::getInstance();
-        $count = $userMo->where("spy=0")->field("sum(cnyx_over)")->fList();
+        $count = $userMo->where("spy=0")->field("sum(usdt_over)")->fList();
 
 
         Tool_Out::p($count);die;

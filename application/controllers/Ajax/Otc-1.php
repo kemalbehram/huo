@@ -14,7 +14,7 @@ class Ajax_OtcController extends Ajax_BaseController{
     public function see_balanceAction(){
         $this->_ajax_islogin();
 
-        $user_balance = UserModel::getInstance()->field("cnyx_over,cnyx_lock")->fRow($this->mCurUser['uid']);
+        $user_balance = UserModel::getInstance()->field("usdt_over,usdt_lock")->fRow($this->mCurUser['uid']);
         $this->ajax('',1,$user_balance);
     }
 
@@ -221,7 +221,7 @@ class Ajax_OtcController extends Ajax_BaseController{
 
         $mo = Orm_Base::getInstance();
         $total_trust = $mo->table("otc_trust_{$coin}")->where(['uid'=>$uid,'status'=>0,'type'=>$type])->fOne("count(id)");
-        $total_lock_trust = $mo->table("otc_trust_{$coin}")->where("uid=$uid and status=0 and type=$type and lock_cnyx>0")->fOne("count(id)");
+        $total_lock_trust = $mo->table("otc_trust_{$coin}")->where("uid=$uid and status=0 and type=$type and lock_usdt>0")->fOne("count(id)");
         if($total_trust>=2) $this->ajax("您还有2笔相同类型的订单未完成",0,["repeat"=>$newRepeat]);
 
 
@@ -236,7 +236,7 @@ class Ajax_OtcController extends Ajax_BaseController{
         if(!$coinConf['otc_open']) $this->ajax("该交易已关闭",0,["repeat"=>$newRepeat]);
 
         $userInfo = $userMo->fRow($this->mCurUser['uid']);
-        if($type==2 && $userInfo['cnyx_over']<1000 && $total_trust==0) $this->ajax("您的资金余额不足1000，无法发起卖单",0,["repeat"=>$newRepeat]);
+        if($type==2 && $userInfo['usdt_over']<1000 && $total_trust==0) $this->ajax("您的资金余额不足1000，无法发起卖单",0,["repeat"=>$newRepeat]);
 
 
         //验证交易密码
@@ -250,7 +250,7 @@ class Ajax_OtcController extends Ajax_BaseController{
         //卖出手续费
         $sale_fee = Tool_Out::fee_format($coinConf['otc_sale_feerate'],$total_price);
 
-        if($type == 1 && $userInfo['cnyx_over']<$total) $this->ajax("您的余额不足",0,["repeat"=>$newRepeat]);
+        if($type == 1 && $userInfo['usdt_over']<$total) $this->ajax("您的余额不足",0,["repeat"=>$newRepeat]);
         $user = new UserModel();
         $asset = new AssetpastModel();
 
@@ -263,7 +263,7 @@ class Ajax_OtcController extends Ajax_BaseController{
             'numberdeal' =>$number,
             'min_number' =>$minNum,
             'price' => $price,
-            'lock_cnyx'=>$type==2 && $total_trust==0?1000:0,
+            'lock_usdt'=>$type==2 && $total_trust==0?1000:0,
             'buy_fee' => $buy_fee,
             'sale_fee' => $sale_fee,
             'created' => time(),
@@ -277,9 +277,9 @@ class Ajax_OtcController extends Ajax_BaseController{
         $oldUserInfo = $user->fRow($uid);
         $newUserInfo = $oldUserInfo;
         if($type==1){
-            $up_id = $userMo->exec("update user set cnyx_over=cnyx_over-{$total},cnyx_lock=cnyx_lock+{$total} where uid={$uid}");
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']-$total;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']+$total;
+            $up_id = $userMo->exec("update user set usdt_over=usdt_over-{$total},usdt_lock=usdt_lock+{$total} where uid={$uid}");
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']-$total;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']+$total;
             if(!$up_id){
                 $mo->back();
                 $this->ajax("添加失败",0,["repeat"=>$newRepeat]);
@@ -293,15 +293,15 @@ class Ajax_OtcController extends Ajax_BaseController{
         }
 
         if($type==2 && $total_lock_trust==0){
-            $uup_id = $userMo->exec("update user set cnyx_over=cnyx_over-1000,cnyx_lock=cnyx_lock+1000 where uid={$uid}");
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']-1000;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']+1000;
+            $uup_id = $userMo->exec("update user set usdt_over=usdt_over-1000,usdt_lock=usdt_lock+1000 where uid={$uid}");
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']-1000;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']+1000;
             if(!$uup_id){
                 $mo->back();
                 $this->ajax("添加失败",0,["repeat"=>$newRepeat]);
             }
         }
-        $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"cnyx",0,$type);
+        $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"usdt",0,$type);
         if($asset_result ===  false){
             $mo->back();
             $this->ajax("添加失败",0,["repeat"=>$newRepeat]);
@@ -362,7 +362,7 @@ class Ajax_OtcController extends Ajax_BaseController{
         $buy_total = Tool_Math::add($total_price,$buy_fee);
 
         //如果是买入判断用户账户余额是否足够
-        if($type==1 && $userInfo['cnyx_over']<$buy_total) $this->ajax("您的余额不足",0,["repeat"=>$newRepeat]);
+        if($type==1 && $userInfo['usdt_over']<$buy_total) $this->ajax("您的余额不足",0,["repeat"=>$newRepeat]);
 
         //生生订单号
         $order_number = self::get_order_number($coin);
@@ -373,7 +373,7 @@ class Ajax_OtcController extends Ajax_BaseController{
         $mo->begin();
         $up_id = $mo->exec("update otc_trust_{$coin} set numberover=numberover+{$number},numberdeal=numberdeal-{$number},buy_fee_on=buy_fee_on+{$buy_fee},sale_fee_on=sale_fee_on+{$sale_fee} where id={$tid}");
         //如果是买入冻结买家资金
-        if($type==1) $lock_id = $mo->exec("update user set cnyx_over=cnyx_over-{$buy_total},cnyx_lock=cnyx_lock+{$buy_total} where uid={$uid}");
+        if($type==1) $lock_id = $mo->exec("update user set usdt_over=usdt_over-{$buy_total},usdt_lock=usdt_lock+{$buy_total} where uid={$uid}");
 
         //生成订单
         $data = [
@@ -395,10 +395,10 @@ class Ajax_OtcController extends Ajax_BaseController{
         $in_id = $mo->insert($data);
         $newUserInfo = $oldUserInfo;
         if($type == 1) {
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over'] - $buy_total;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock'] + $buy_total;
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over'] - $buy_total;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock'] + $buy_total;
         }
-        $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"cnyx",0,$type);
+        $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"usdt",0,$type);
         if($asset_result === false){
             $mo->back();
             $this->ajax("交易失败",0,[$type==2,$up_id,$in_id,["repeat"=>$newRepeat]]);
@@ -520,15 +520,15 @@ class Ajax_OtcController extends Ajax_BaseController{
             if($trust['type']==2){
                 $trust_count = $mo->table("otc_trust_{$coin}")->where("uid={$order['sale_uid']} and status=0 and id!={$order['trust_id']} and type=2")->fOne("id");
                 if(!$trust_count) {
-                    $lock_cnyx = $mo->table("otc_trust_{$coin}")->where("uid={$order['sale_uid']} and lock_cnyx>0 and type=2")->fOne("lock_cnyx");
+                    $lock_usdt = $mo->table("otc_trust_{$coin}")->where("uid={$order['sale_uid']} and lock_usdt>0 and type=2")->fOne("lock_usdt");
                 }else{
-                    $remoke = $mo->table("otc_trust_{$coin}")->where(['id'=>$trust_count])->update(['lock_cnyx'=>1000]);
+                    $remoke = $mo->table("otc_trust_{$coin}")->where(['id'=>$trust_count])->update(['lock_usdt'=>1000]);
                 }
             }
 
 
-            if(isset($lock_cnyx) && $lock_cnyx && $trust['type']==2){
-                $tup_id = $mo->exec("update otc_trust_{$coin} set status=1,thaw_cnyx={$lock_cnyx} where id={$order['trust_id']}");
+            if(isset($lock_usdt) && $lock_usdt && $trust['type']==2){
+                $tup_id = $mo->exec("update otc_trust_{$coin} set status=1,thaw_usdt={$lock_usdt} where id={$order['trust_id']}");
             }else{
                 $tup_id = $mo->exec("update otc_trust_{$coin} set status=1 where id={$order['trust_id']}");
             }
@@ -540,14 +540,14 @@ class Ajax_OtcController extends Ajax_BaseController{
         $newBuyUserInfo = $oldBuyUserInfo;
         $newSellUserInfo = $oldSellUserInfo;
         //更新卖家资金
-        if(isset($lock_cnyx) && $lock_cnyx && $trust['type']==2){
-            $sale_price = Tool_Math::add($sale_price,$lock_cnyx);
-            $sale_id = $mo->exec("update user set cnyx_over=cnyx_over+{$sale_price},cnyx_lock=cnyx_lock-{$lock_cnyx} where uid={$order['sale_uid']}");
-            $newSellUserInfo['cnyx_over'] = $newSellUserInfo['cnyx_over']+$sale_price;
-            $newSellUserInfo['cnyx_lock'] = $newSellUserInfo['cnyx_lock']-$lock_cnyx;
+        if(isset($lock_usdt) && $lock_usdt && $trust['type']==2){
+            $sale_price = Tool_Math::add($sale_price,$lock_usdt);
+            $sale_id = $mo->exec("update user set usdt_over=usdt_over+{$sale_price},usdt_lock=usdt_lock-{$lock_usdt} where uid={$order['sale_uid']}");
+            $newSellUserInfo['usdt_over'] = $newSellUserInfo['usdt_over']+$sale_price;
+            $newSellUserInfo['usdt_lock'] = $newSellUserInfo['usdt_lock']-$lock_usdt;
         }else{
-            $sale_id = $mo->exec("update user set cnyx_over=cnyx_over+{$sale_price} where uid={$order['sale_uid']}");
-            $newSellUserInfo['cnyx_over'] = $newSellUserInfo['cnyx_over']+$sale_price;
+            $sale_id = $mo->exec("update user set usdt_over=usdt_over+{$sale_price} where uid={$order['sale_uid']}");
+            $newSellUserInfo['usdt_over'] = $newSellUserInfo['usdt_over']+$sale_price;
         }
         if(!$sale_id){
             $mo->back();
@@ -555,13 +555,13 @@ class Ajax_OtcController extends Ajax_BaseController{
         }
 
         //更新买家资金
-        if(!$buy_id = $mo->exec("update user set cnyx_lock=cnyx_lock-{$buy_price} where uid={$order['buy_uid']}")){
+        if(!$buy_id = $mo->exec("update user set usdt_lock=usdt_lock-{$buy_price} where uid={$order['buy_uid']}")){
             $mo->back();
             $this->ajax("确认失败",0,["repeat"=>$newRepeat]);
         }
-        $newBuyUserInfo['cnyx_lock'] = $newBuyUserInfo['cnyx_lock']-$buy_price;
-        $asset_buy_result = $asset->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"cnyx",2,1);
-        $asset_sell_result = $asset->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"cnyx",2,2);
+        $newBuyUserInfo['usdt_lock'] = $newBuyUserInfo['usdt_lock']-$buy_price;
+        $asset_buy_result = $asset->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"usdt",2,1);
+        $asset_sell_result = $asset->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"usdt",2,2);
         if($asset_buy_result === false || $asset_sell_result === false){
             $mo->back();
             $this->ajax("确认失败",0,["repeat"=>$newRepeat]);
@@ -576,7 +576,7 @@ class Ajax_OtcController extends Ajax_BaseController{
         $mo->commit();
         if(MOBILE_CODE){
             $sell_user = UserModel::getInstance()->fRow($order['sale_uid']);
-            $message = "【火网】尊敬的火网用户，您的OTC({$coin})交易，订单号：{$order['order_number']},买家已确认收币，您的平台账户到账{$sale_price}CNYX，您可以登录平台进行查看；如有疑问，请联系官方客服。";
+            $message = "【火网】尊敬的火网用户，您的OTC({$coin})交易，订单号：{$order['order_number']},买家已确认收币，您的平台账户到账{$sale_price}USDT，您可以登录平台进行查看；如有疑问，请联系官方客服。";
             $phone = $sell_user['area']=='+86'?'86'.$sell_user['mo']:$sell_user['area'].$sell_user['mo'];//国内或国外
             $returnMsg = Tool_SmsMeilian::sendSMS($phone,$message);
 //                if(strpos($returnMsg,"success")>-1) {
@@ -626,12 +626,12 @@ class Ajax_OtcController extends Ajax_BaseController{
 numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee']},sale_fee_on=sale_fee_on-{$order['sale_fee']},status=0 where id={$order['trust_id']}");
             //更新买家资金
             $total_price = Tool_Math::add(Tool_Math::mul($order['number'],$order['price']),$order['buy_fee']);
-            $buy_id = $mo->exec("update user set cnyx_over=cnyx_over+{$total_price},cnyx_lock=cnyx_lock-{$total_price} where uid={$order['buy_uid']}");
+            $buy_id = $mo->exec("update user set usdt_over=usdt_over+{$total_price},usdt_lock=usdt_lock-{$total_price} where uid={$order['buy_uid']}");
 
             $newUserInfo = $oldUserInfo;
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$total_price;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$total_price;
-            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"cnyx",3,1);
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$total_price;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$total_price;
+            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"usdt",3,1);
             if($asset_result === false){
                 $mo->back();
                 $this->ajax("撤销失败，请重试",0,["repeat"=>$newRepeat]);
@@ -657,11 +657,11 @@ numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee'
 numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee']},sale_fee_on=sale_fee_on-{$order['sale_fee']},status=0 where id={$order['trust_id']}");
             //更新买家资金
             $total_price = Tool_Math::add(Tool_Math::mul($order['number'],$order['price']),$order['buy_fee']);
-            $buy_id = $mo->exec("update user set cnyx_over=cnyx_over+{$total_price},cnyx_lock=cnyx_lock-{$total_price} where uid={$order['buy_uid']}");
+            $buy_id = $mo->exec("update user set usdt_over=usdt_over+{$total_price},usdt_lock=usdt_lock-{$total_price} where uid={$order['buy_uid']}");
             $newUserInfo = $oldUserInfo;
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$total_price;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$total_price;
-            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"cnyx",3,1);
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$total_price;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$total_price;
+            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$order['id'],AssetpastModel::ASSET_TYPE_OTCORDER,$coin,"usdt",3,1);
             if($asset_result === false){
                 $mo->back();
                 $this->ajax("撤销失败，请重试",0,["repeat"=>$newRepeat]);
@@ -709,33 +709,33 @@ numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee'
             //转移冻结资金
             $un_trust = $mo->table("otc_trust_{$coin}")->where("uid=$uid and id!=$tid and status=0 and type=2")->fOne("id");
             if(!$un_trust){
-                $lock_cnyx = $mo->table("otc_trust_{$coin}")->where("uid=$uid and lock_cnyx>0 and type=2")->fOne("lock_cnyx");
-                if($lock_cnyx){
+                $lock_usdt = $mo->table("otc_trust_{$coin}")->where("uid=$uid and lock_usdt>0 and type=2")->fOne("lock_usdt");
+                if($lock_usdt){
                     //退回冻结资金
-                    $uup_id = $mo->exec("update user set cnyx_over=cnyx_over+{$lock_cnyx},cnyx_lock=cnyx_lock-{$lock_cnyx} where uid=$uid");
-                    $thaw_cnyx = $lock_cnyx;
+                    $uup_id = $mo->exec("update user set usdt_over=usdt_over+{$lock_usdt},usdt_lock=usdt_lock-{$lock_usdt} where uid=$uid");
+                    $thaw_usdt = $lock_usdt;
                     if(!$uup_id){
                         $mo->back();
                         $this->ajax("撤销失败",0,["repeat"=>$newRepeat]);
                     }
                 }
             }else{
-                $remoke = $mo->table("otc_trust_{$coin}")->where(['id'=>$un_trust])->update(['lock_cnyx'=>1000]);
+                $remoke = $mo->table("otc_trust_{$coin}")->where(['id'=>$un_trust])->update(['lock_usdt'=>1000]);
             }
 
 
-            $thaw_cnyx = isset($thaw_cnyx)?$thaw_cnyx:0;
-            $up_id = $mo->table("otc_trust_{$coin}")->where(['id'=>$tid])->update(['status'=>2,'thaw_cnyx'=>$thaw_cnyx,'updated'=>time(),'updated_date'=>date('Y-m-d H:i:s')]);
+            $thaw_usdt = isset($thaw_usdt)?$thaw_usdt:0;
+            $up_id = $mo->table("otc_trust_{$coin}")->where(['id'=>$tid])->update(['status'=>2,'thaw_usdt'=>$thaw_usdt,'updated'=>time(),'updated_date'=>date('Y-m-d H:i:s')]);
             if(!$up_id){
                 $mo->back();
                 $this->ajax("撤销失败",0,["repeat"=>$newRepeat]);
             }
             $newUserInfo = $oldUserInfo;
-            if($trust['type'] == 2 && !$un_trust && $lock_cnyx) {
-                $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$lock_cnyx;
-                $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$lock_cnyx;
+            if($trust['type'] == 2 && !$un_trust && $lock_usdt) {
+                $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$lock_usdt;
+                $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$lock_usdt;
             }
-            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"cnyx",2,2);
+            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"usdt",2,2);
             if($asset_result === false){
                 $mo->back();
                 $this->ajax("撤销失败",0,["repeat"=>$newRepeat]);
@@ -749,12 +749,12 @@ numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee'
             //更新买家订单
             $tup_id = $mo->table("otc_trust_{$coin}")->where(['id'=>$tid])->update(['status'=>2,'updated'=>time(),'updated_date'=>date('Y-m-d H:i:s')]);
             //更新买家资产
-            $lock_price = Tool_Math::mul($trust['numberdeal'],$trust['price'])+$trust['buy_fee']-$trust['buy_fee_on']+$trust['lock_cnyx'];
-            $uup_id = $mo->exec("update user set cnyx_over=cnyx_over+{$lock_price},cnyx_lock=cnyx_lock-{$lock_price} where uid={$uid}");
+            $lock_price = Tool_Math::mul($trust['numberdeal'],$trust['price'])+$trust['buy_fee']-$trust['buy_fee_on']+$trust['lock_usdt'];
+            $uup_id = $mo->exec("update user set usdt_over=usdt_over+{$lock_price},usdt_lock=usdt_lock-{$lock_price} where uid={$uid}");
             $newUserInfo = $oldUserInfo;
-            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$lock_price;
-            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$lock_price;
-            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"cnyx",2,1);
+            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$lock_price;
+            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$lock_price;
+            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trust['id'],AssetpastModel::ASSET_TYPE_OTCTRUST,$coin,"usdt",2,1);
             if($asset_result === false){
                 $mo->back();
                 $this->ajax("撤销失败",0,["repeat"=>$newRepeat]);
@@ -762,7 +762,7 @@ numberdeal=numberdeal+{$order['number']},buy_fee_on=buy_fee_on-{$order['buy_fee'
 
             if($tup_id && $uup_id){
                 $mo->commit();
-                $this->ajax("撤销成功，您的账户已退回冻结资金{$lock_price}CNYX",1,["repeat"=>$newRepeat]);
+                $this->ajax("撤销成功，您的账户已退回冻结资金{$lock_price}USDT",1,["repeat"=>$newRepeat]);
             }else{
                 $mo->back();
                 $this->ajax("撤销失败",0,["repeat"=>$newRepeat]);

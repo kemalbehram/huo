@@ -117,7 +117,7 @@ class Ajax_MarketController extends Ajax_BaseController
         }
 
         //交易区排序
-        $areaSort = array('cnyx','new');
+        $areaSort = array('usdt','new');
         $temp = array();
         foreach ($areaSort as $v) 
         {

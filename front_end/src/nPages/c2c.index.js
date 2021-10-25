@@ -79,9 +79,9 @@ const c2c = new Vue({
             //token
             token: '',
             //冻结余额
-            cnyxlock: '',
+            usdtlock: '',
             //可用余额
-            cnyxover: '',
+            usdtover: '',
             //加急
             Urgent: document.getElementById('urgent').value,
             //充值
@@ -555,8 +555,8 @@ const c2c = new Vue({
                     }
                 }
                 this.all = res.data.totalPage;
-                this.cnyxlock = res.data.cnyx_lock;
-                this.cnyxover = res.data.cnyx_over;
+                this.usdtlock = res.data.usdt_lock;
+                this.usdtover = res.data.usdt_over;
             })
         },
         //確認付款倒计时

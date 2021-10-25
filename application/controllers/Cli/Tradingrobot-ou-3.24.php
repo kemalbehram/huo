@@ -3,7 +3,7 @@ class Cli_TradingrobotController extends Ctrl_Cli{
 
     // 自动交易用户
     private $user = array(
-        "cnyx"=>array(
+        "usdt"=>array(
             'uid'=>34558
         ),
     );
@@ -11,117 +11,117 @@ class Cli_TradingrobotController extends Ctrl_Cli{
     //要刷的交易对
     private $coinList=array(
         1=>array(
-            "name"=>"pc_cnyx",
+            "name"=>"pc_usdt",
             'pricePointMin'=>5,
             'pricePointMax'=>7,
         ),
         2=>array(
-            "name"=>"oioc_cnyx",
+            "name"=>"oioc_usdt",
             'pricePointMin'=>5,
             'pricePointMax'=>7,
         ),
         3=>array(
-            "name"=>"eac_cnyx",
+            "name"=>"eac_usdt",
             'pricePointMin'=>3,
             'pricePointMax'=>5,
         ),
         4=>array(
-            "name"=>"ifc_cnyx",
+            "name"=>"ifc_usdt",
             'pricePointMin'=>3,
             'pricePointMax'=>6,
         ),
         5=>array(
-            "name"=>"bcx_cnyx",
+            "name"=>"bcx_usdt",
             'pricePointMin'=>3,
             'pricePointMax'=>5,
         ),
         6=>array(
-            "name"=>"sie_cnyx",
+            "name"=>"sie_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         7=>array(
-            "name"=>"doge_cnyx",
+            "name"=>"doge_usdt",
             'pricePointMin'=>2,
             'pricePointMax'=>5,
         ),
         8=>array(
-            "name"=>"btm_cnyx",
+            "name"=>"btm_usdt",
             'pricePointMin'=>2,
             'pricePointMax'=>5,
         ),
         9=>array(
-            "name"=>"gvm_cnyx",
+            "name"=>"gvm_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         10=>array(
-            "name"=>"mtr_cnyx",
+            "name"=>"mtr_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         11=>array(
-            "name"=>"qtum_cnyx",
+            "name"=>"qtum_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         12=>array(
-            "name"=>"eqt_cnyx",
+            "name"=>"eqt_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         13=>array(
-            "name"=>"wos_cnyx",
+            "name"=>"wos_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         14=>array(
-            "name"=>"mat_cnyx",
+            "name"=>"mat_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         15=>array(
-            "name"=>"drt_cnyx",
+            "name"=>"drt_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         16=>array(
-            "name"=>"bcd_cnyx",
+            "name"=>"bcd_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         17=>array(
-            "name"=>"etc_cnyx",
+            "name"=>"etc_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         18=>array(
-            "name"=>"ctm_cnyx",
+            "name"=>"ctm_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         19=>array(
-            "name"=>"wcg_cnyx",
+            "name"=>"wcg_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         20=>array(
-            "name"=>"eth_cnyx",
+            "name"=>"eth_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>2,
         ),
         21=>array(
-            "name"=>"eos_cnyx",
+            "name"=>"eos_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>3,
         ),
         22=>array(
-            "name"=>"xrp_cnyx",
+            "name"=>"xrp_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>4,
         ),
         23=>array(
-            "name"=>"btc_cnyx",
+            "name"=>"btc_usdt",
             'pricePointMin'=>1,
             'pricePointMax'=>2,
         ),
@@ -129,95 +129,95 @@ class Cli_TradingrobotController extends Ctrl_Cli{
 
     // 小数量单笔下单范围
     private $trustNumArr = array(
-        "pc_cnyx"=>array(
+        "pc_usdt"=>array(
             'min'=>500,
             'max'=>5000
         ),
-        "oioc_cnyx"=>array(
+        "oioc_usdt"=>array(
             'min'=>500,
             'max'=>5000,
         ),
-        "eac_cnyx"=>array(
+        "eac_usdt"=>array(
             'min'=>500,
             'max'=>5000,
         ),
-        "ifc_cnyx"=>array(
+        "ifc_usdt"=>array(
             'min'=>500,
             'max'=>5000,
         ),
-        "bcx_cnyx"=>array(
+        "bcx_usdt"=>array(
             'min'=>500,
             'max'=>5000,
         ),
-        "sie_cnyx"=>array(
+        "sie_usdt"=>array(
             'min'=>200,
             'max'=>1000,
         ),
-        "doge_cnyx"=>array(
+        "doge_usdt"=>array(
             'min'=>300,
             'max'=>1500,
         ),
-        "btm_cnyx"=>array(
+        "btm_usdt"=>array(
             'min'=>100,
             'max'=>1000,
         ),
-        "gvm_cnyx"=>array(
+        "gvm_usdt"=>array(
             'min'=>150,
             'max'=>300,
         ),
-        "mtr_cnyx"=>array(
+        "mtr_usdt"=>array(
             'min'=>50,
             'max'=>200,
         ),
-        "qtum_cnyx"=>array(
+        "qtum_usdt"=>array(
             'min'=>5,
             'max'=>50,
         ),
-        "eqt_cnyx"=>array(
+        "eqt_usdt"=>array(
             'min'=>50,
             'max'=>100,
         ),
-        "wos_cnyx"=>array(
+        "wos_usdt"=>array(
             'min'=>50,
             'max'=>100,
         ),
-        "mat_cnyx"=>array(
+        "mat_usdt"=>array(
             'min'=>50,
             'max'=>200,
         ),
-        "drt_cnyx"=>array(
+        "drt_usdt"=>array(
             'min'=>50,
             'max'=>300,
         ),
-        "bcd_cnyx"=>array(
+        "bcd_usdt"=>array(
             'min'=>20,
             'max'=>100,
         ),
-        "etc_cnyx"=>array(
+        "etc_usdt"=>array(
             'min'=>1,
             'max'=>30,
         ),
-        "ctm_cnyx"=>array(
+        "ctm_usdt"=>array(
             'min'=>10,
             'max'=>50,
         ),
-        "wcg_cnyx"=>array(
+        "wcg_usdt"=>array(
             'min'=>10,
             'max'=>100,
         ),
-        "eth_cnyx"=>array(
+        "eth_usdt"=>array(
             'min'=>1,
             'max'=>20,
         ),
-        "eos_cnyx"=>array(
+        "eos_usdt"=>array(
             'min'=>10,
             'max'=>50,
         ),
-        "xrp_cnyx"=>array(
+        "xrp_usdt"=>array(
             'min'=>50,
             'max'=>200,
         ),
-        "btc_cnyx"=>array(
+        "btc_usdt"=>array(
             'min'=>1,
             'max'=>2,
         ),
@@ -225,95 +225,95 @@ class Cli_TradingrobotController extends Ctrl_Cli{
 
     // 大数量单笔下单范围
     private $trustNumArr_max = array(
-        "pc_cnyx"=>array(
+        "pc_usdt"=>array(
             'min'=>5000,
             'max'=>30000
         ),
-        "oioc_cnyx"=>array(
+        "oioc_usdt"=>array(
             'min'=>5000,
             'max'=>30000,
         ),
-        "eac_cnyx"=>array(
+        "eac_usdt"=>array(
             'min'=>5000,
             'max'=>30000,
         ),
-        "ifc_cnyx"=>array(
+        "ifc_usdt"=>array(
             'min'=>5000,
             'max'=>30000,
         ),
-        "bcx_cnyx"=>array(
+        "bcx_usdt"=>array(
             'min'=>10000,
             'max'=>15000,
         ),
-        "sie_cnyx"=>array(
+        "sie_usdt"=>array(
             'min'=>1000,
             'max'=>3000,
         ),
-        "doge_cnyx"=>array(
+        "doge_usdt"=>array(
             'min'=>1000,
             'max'=>5000,
         ),
-        "btm_cnyx"=>array(
+        "btm_usdt"=>array(
             'min'=>600,
             'max'=>1500,
         ),
-        "gvm_cnyx"=>array(
+        "gvm_usdt"=>array(
             'min'=>200,
             'max'=>500,
         ),
-        "mtr_cnyx"=>array(
+        "mtr_usdt"=>array(
             'min'=>300,
             'max'=>600,
         ),
-        "qtum_cnyx"=>array(
+        "qtum_usdt"=>array(
             'min'=>50,
             'max'=>100,
         ),
-        "eqt_cnyx"=>array(
+        "eqt_usdt"=>array(
             'min'=>100,
             'max'=>500,
         ),
-        "wos_cnyx"=>array(
-            'min'=>100,
-            'max'=>300,
-        ),
-        "mat_cnyx"=>array(
-            'min'=>150,
-            'max'=>500,
-        ),
-        "drt_cnyx"=>array(
-            'min'=>150,
-            'max'=>500,
-        ),
-        "bcd_cnyx"=>array(
+        "wos_usdt"=>array(
             'min'=>100,
             'max'=>300,
         ),
-        "etc_cnyx"=>array(
+        "mat_usdt"=>array(
+            'min'=>150,
+            'max'=>500,
+        ),
+        "drt_usdt"=>array(
+            'min'=>150,
+            'max'=>500,
+        ),
+        "bcd_usdt"=>array(
+            'min'=>100,
+            'max'=>300,
+        ),
+        "etc_usdt"=>array(
             'min'=>100,
             'max'=>200,
         ),
-        "ctm_cnyx"=>array(
+        "ctm_usdt"=>array(
             'min'=>50,
             'max'=>200,
         ),
-        "wcg_cnyx"=>array(
+        "wcg_usdt"=>array(
             'min'=>100,
             'max'=>200,
         ),
-        "eth_cnyx"=>array(
+        "eth_usdt"=>array(
             'min'=>20,
             'max'=>30,
         ),
-        "eos_cnyx"=>array(
+        "eos_usdt"=>array(
             'min'=>100,
             'max'=>200,
         ),
-        "xrp_cnyx"=>array(
+        "xrp_usdt"=>array(
             'min'=>500,
             'max'=>1000,
         ),
-        "btc_cnyx"=>array(
+        "btc_usdt"=>array(
             'min'=>2,
             'max'=>5,
         ),

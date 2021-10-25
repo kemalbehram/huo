@@ -1,7 +1,7 @@
 var page = require('webpage').create();
 // console.log('The default user agent is ' + page.settings.userAgent);
 // page.settings.userAgent = 'SpecialAgent';
-page.open('https://gateio.io/trade/ETH_CNYX', function (status) {
+page.open('https://gateio.io/trade/ETH_USDT', function (status) {
     if (status !== 'success') {
         console.log('Unable to access network');
     } else {

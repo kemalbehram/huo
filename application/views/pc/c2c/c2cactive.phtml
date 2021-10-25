@@ -18,11 +18,11 @@
             </div>
             <h4 flex="main:justify cross:center">
                 <!-- 买入  -->
-                <b ><?php echo $GLOBALS['MSG']['BUY_IN'];?>CNYX:<b v-if="userData" v-text="userData.buy_price"></b><b v-else>--</b></b>
+                <b ><?php echo $GLOBALS['MSG']['BUY_IN'];?>USDT:<b v-if="userData" v-text="userData.buy_price"></b><b v-else>--</b></b>
                 <!-- 卖出 -->
-                <b><?php echo $GLOBALS['MSG']['SELL'];?>CNYX:<b v-if="userData" v-text="userData.sell_price">--</b><b v-else>--</b></b>
+                <b><?php echo $GLOBALS['MSG']['SELL'];?>USDT:<b v-if="userData" v-text="userData.sell_price">--</b><b v-else>--</b></b>
                 <!-- 净买入量 -->
-                <b>CNYX<?php echo $GLOBALS['MSG']['NET_BUY'];?>:<b v-if="userData"  v-text="userData.buy_price - userData.sell_price"></b><b v-else>--</b></b>
+                <b>USDT<?php echo $GLOBALS['MSG']['NET_BUY'];?>:<b v-if="userData"  v-text="userData.buy_price - userData.sell_price"></b><b v-else>--</b></b>
             </h4>
         </div>
         <div class="box1200 ruleBox">
@@ -30,7 +30,7 @@
             <h4><?php echo $GLOBALS['MSG']['ACTIVE_TIME'];?></h4>
             <!-- 活动规则 -->
             <h4><?php echo $GLOBALS['MSG']['RULES_ACTIVE'];?>：</h4>
-            <!-- 活动一、在活动期间：C2C交易区CNYX净买入量（CNYX净买入量=CNYX买入-CNYX卖出），排名为前50名，即可获得相应奖励。 -->
+            <!-- 活动一、在活动期间：C2C交易区USDT净买入量（USDT净买入量=USDT买入-USDT卖出），排名为前50名，即可获得相应奖励。 -->
             <P><?php echo $GLOBALS['MSG']['ACTIVE_1'];?></P>
             <!--  名次奖励(WCG) :第1名 10000克、
                 第2名 8000克、
@@ -60,9 +60,9 @@
                     <tr>
                         <th width="20%"><?php echo $GLOBALS['MSG']['PHONE_NUM'];?>:</th>
                         <th  width="10%"><?php echo $GLOBALS['MSG']['NAME'];?></th>
-                        <th  width="20%"><?php echo $GLOBALS['MSG']['BUY_IN'];?>CNYX</th>
-                        <th  width="20%"><?php echo $GLOBALS['MSG']['SELL'];?>CNYX</th>
-                        <th  width="20%">CNYX<?php echo $GLOBALS['MSG']['NET_BUY'];?></th>
+                        <th  width="20%"><?php echo $GLOBALS['MSG']['BUY_IN'];?>USDT</th>
+                        <th  width="20%"><?php echo $GLOBALS['MSG']['SELL'];?>USDT</th>
+                        <th  width="20%">USDT<?php echo $GLOBALS['MSG']['NET_BUY'];?></th>
                         <th  width="10%"><?php echo $GLOBALS['MSG']['RANKING'];?></th>
                     </tr>
                 </thead>

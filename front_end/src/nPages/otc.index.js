@@ -70,9 +70,9 @@ const otc = new Vue({
             sellpage: '',
 
             //冻结余额
-            cnyxlock: '',
+            usdtlock: '',
             //可用余额
-            cnyxover: '',
+            usdtover: '',
             //币种
             buys: '',
             //币种名称
@@ -375,8 +375,8 @@ const otc = new Vue({
         fbalance() {
             this.$http.post('/ajax_otc/see_balance')
                 .then(res => {
-                    this.cnyxlock = res.data.cnyx_lock;
-                    this.cnyxover = res.data.cnyx_over;
+                    this.usdtlock = res.data.usdt_lock;
+                    this.usdtover = res.data.usdt_over;
                 })
         },
         //查看

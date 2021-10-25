@@ -68,8 +68,8 @@ class Ajax_C2cController extends Ajax_BaseController{
         }
         $user =  new UserModel();
         $usercoin = $user->where(['uid'=>$this->mCurUser['uid']])->fRow();
-        $data['cnyx_over'] =  round($usercoin['cnyx_over'],2);
-        $data['cnyx_lock'] =  round($usercoin['cnyx_lock'],2);
+        $data['usdt_over'] =  round($usercoin['usdt_over'],2);
+        $data['usdt_lock'] =  round($usercoin['usdt_lock'],2);
         $data['current_time'] = time();
         // Tool_Out::p($data);die;
         $this->ajax('',1,$data);
@@ -140,7 +140,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //            if($fee_count>=3) $fee = $price*0.015*$selltype<5?5:round($price*0.015*$selltype,2);
 //
 //            $fee_price = $fee+$price;
-//            if ($fee_price > floatval($userInfo['cnyx_over'])) $this->ajax("您的余额不足,该笔订单需要{$fee}CNYX",0,["repeat"=>$newRepeat]);//余额不足
+//            if ($fee_price > floatval($userInfo['usdt_over'])) $this->ajax("您的余额不足,该笔订单需要{$fee}USDT",0,["repeat"=>$newRepeat]);//余额不足
 //
 //            $minnum = ceil(($price/100/5))*100;//计算最小匹配额
 //        }
@@ -156,7 +156,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //
 //        $data = [
 //            'uid' => $uid,
-//            'coin' => 'cnyx',
+//            'coin' => 'usdt',
 //            'price' => $price,//总价格
 //            'num' => 0,//匹配价格
 //            'deal' => $price,//剩余数量
@@ -173,13 +173,13 @@ class Ajax_C2cController extends Ajax_BaseController{
 //        ];
 //
 //        try{
-//            if($type==2) $up_id = $c2ctradeMo->exec("update user set cnyx_over=cnyx_over-{$fee_price},cnyx_lock=cnyx_lock+{$fee_price} where uid={$uid}");
+//            if($type==2) $up_id = $c2ctradeMo->exec("update user set usdt_over=usdt_over-{$fee_price},usdt_lock=usdt_lock+{$fee_price} where uid={$uid}");
 //            $in_id = $c2ctradeMo->insert($data);
 //            $newUserInfo = $userInfo;
-//            $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']-$fee_price;
-//            $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']+$fee_price;
+//            $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']-$fee_price;
+//            $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']+$fee_price;
 //            $assetpast = new AssetpastModel();
-//            $asset_result = $assetpast->InsertAssetData($userInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_C2CTRUST,"cnyx","cnyx",0,$type);
+//            $asset_result = $assetpast->InsertAssetData($userInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_C2CTRUST,"usdt","usdt",0,$type);
 //            if($asset_result === false){
 //                $c2ctradeMo->back();
 //                $this->ajax("挂单失败!",0,["repeat"=>$newRepeat]);
@@ -420,23 +420,23 @@ class Ajax_C2cController extends Ajax_BaseController{
 //            $up_buy_id = $mo->table('c2c_trade')->where(['tradeno' => $log['buytradeno']])->update(['status' => 1]);
 //
 //            $price = floatval($log['price']);
-//            $lock_cnyx = $price+$log['feesell'];
+//            $lock_usdt = $price+$log['feesell'];
 //            $uMo = new UserModel();
 //            $apMo = new AssetpastModel();
 //            $oldBuyUserInfo = $uMo->fRow($buy['uid']);
 //            $oldSellUserInfo = $uMo->fRow($order['uid']);
-//            $buy_id = $mo->exec("update user set cnyx_over=cnyx_over+{$price} where uid={$buy['uid']}");
-//            $sell_id = $mo->exec("update user set cnyx_lock=cnyx_lock-{$lock_cnyx} where uid={$order['uid']}");
+//            $buy_id = $mo->exec("update user set usdt_over=usdt_over+{$price} where uid={$buy['uid']}");
+//            $sell_id = $mo->exec("update user set usdt_lock=usdt_lock-{$lock_usdt} where uid={$order['uid']}");
 //            $newBuyUserInfo = $oldBuyUserInfo;
-//            $newBuyUserInfo['cnyx_over'] = $newBuyUserInfo['cnyx_over']+$price;
+//            $newBuyUserInfo['usdt_over'] = $newBuyUserInfo['usdt_over']+$price;
 //            $newSellUserInfo = $oldSellUserInfo;
-//            $newSellUserInfo['cnyx_lock'] = $newSellUserInfo['cnyx_lock']-$lock_cnyx;
-//            $buy_asset = $apMo->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$log['id'],AssetpastModel::ASSET_TYPE_C2CORDER,"cnyx","cnyx",1,"1");
+//            $newSellUserInfo['usdt_lock'] = $newSellUserInfo['usdt_lock']-$lock_usdt;
+//            $buy_asset = $apMo->InsertAssetData($oldBuyUserInfo,$newBuyUserInfo,$log['id'],AssetpastModel::ASSET_TYPE_C2CORDER,"usdt","usdt",1,"1");
 //            if($buy_asset === false){
 //                $mo->back();
 //                $this->ajax('卖出失败',0,["repeat"=>$newRepeat]);
 //            }
-//            $sell_asset = $apMo->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$log['id'],AssetpastModel::ASSET_TYPE_C2CORDER,"cnyx","cnyx",1,'2');
+//            $sell_asset = $apMo->InsertAssetData($oldSellUserInfo,$newSellUserInfo,$log['id'],AssetpastModel::ASSET_TYPE_C2CORDER,"usdt","usdt",1,'2');
 //            if($sell_asset === false){
 //                $mo->back();
 //                $this->ajax('卖出失败',0,["repeat"=>$newRepeat]);
@@ -450,8 +450,8 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                    "price" => 1,
 //                    "type" => 3,
 //                    'number'=>$order['price'],
-//                    'coin_from'=>'cnyx',
-//                    'coin_to'=>'cnyx',
+//                    'coin_from'=>'usdt',
+//                    'coin_to'=>'usdt',
 //                    'oid'=>$order['id'],
 //                    'otable'=>"c2c_trade_log",
 //                    'opt'=>"1",
@@ -466,14 +466,14 @@ class Ajax_C2cController extends Ajax_BaseController{
 //
 //                //更新邀请人账户余额
 //                $oldFeeUserInfo = $uMo->fRow($from_uid);
-//                $fee_buy_id = $mo->exec("update user set cnyx_over=cnyx_over+{$fee} where uid=$from_uid");
+//                $fee_buy_id = $mo->exec("update user set usdt_over=usdt_over+{$fee} where uid=$from_uid");
 //                if(!$fee_buy_id){
 //                    $mo->back();
 //                    $this->ajax('卖出失败',0,["repeat"=>$newRepeat]);
 //                }
 //                $newFeeUserInfo = $oldFeeUserInfo;
-//                $newFeeUserInfo['cnyx_over'] = $newFeeUserInfo['cnyx_over']+$fee;
-//                $fee_asset = $apMo->InsertAssetData($oldFeeUserInfo,$newFeeUserInfo,$fee_id,AssetpastModel::ASSET_TYPE_DIVIDEND,"cnyx","cnyx");
+//                $newFeeUserInfo['usdt_over'] = $newFeeUserInfo['usdt_over']+$fee;
+//                $fee_asset = $apMo->InsertAssetData($oldFeeUserInfo,$newFeeUserInfo,$fee_id,AssetpastModel::ASSET_TYPE_DIVIDEND,"usdt","usdt");
 //                if($fee_asset === false){
 //                    $mo->back();
 //                    $this->ajax('卖出失败');
@@ -559,19 +559,19 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                $mo = Orm_Base::getInstance();
 //                $mo->begin();
 //                $userModel = new UserModel();
-//                $cnyx = $userModel->where("uid={$trade['uid']}")->fRow();
+//                $usdt = $userModel->where("uid={$trade['uid']}")->fRow();
 //                //匹配撤单处理买家卖家金额
 //                if($trade['deal_id']>0){
-//                    if (floatval($trade['deal']+$trade['num']+$trade['fee']) > floatval($cnyx['cnyx_lock'])) $this->ajax('冻结金额不足!',0,["repeat"=>$newRepeat]);
+//                    if (floatval($trade['deal']+$trade['num']+$trade['fee']) > floatval($usdt['usdt_lock'])) $this->ajax('冻结金额不足!',0,["repeat"=>$newRepeat]);
 //                    $oldUserInfo = $uMo->fRow($data['sellid']);
 //                    //买
 //                    $no_id = $mo->exec("update c2c_trade set deal=deal+{$data['deal']},status=0,deal_id=0,deal_time=0 where tradeno={$data['buytradeno']}");
 //                    //卖
-//                    $sell_id = $mo->exec("update user set cnyx_over=cnyx_over+({$trade['deal']}+{$data['num']}+{$trade['fee']}),cnyx_lock=cnyx_lock-({$trade['deal']}+{$data['num']}+{$trade['fee']}) where uid={$data['sellid']}");
+//                    $sell_id = $mo->exec("update user set usdt_over=usdt_over+({$trade['deal']}+{$data['num']}+{$trade['fee']}),usdt_lock=usdt_lock-({$trade['deal']}+{$data['num']}+{$trade['fee']}) where uid={$data['sellid']}");
 //                    $newUserInfo = $oldUserInfo;
-//                    $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+($trade['deal']+$data['num']+$trade['fee']);
-//                    $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-($trade['deal']+$data['num']+$trade['fee']);
-//                    $assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$data['id'],AssetpastModel::ASSET_TYPE_C2CORDER,'cnyx','cnyx',3,2);
+//                    $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+($trade['deal']+$data['num']+$trade['fee']);
+//                    $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-($trade['deal']+$data['num']+$trade['fee']);
+//                    $assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$data['id'],AssetpastModel::ASSET_TYPE_C2CORDER,'usdt','usdt',3,2);
 //                    if($assetResult === false){
 //                        $mo->back();
 //                        $this->ajax('撤单失败！',0,["repeat"=>$newRepeat]);
@@ -579,7 +579,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                    //记录取消为2
 //                    $log_id = $mo->table('c2c_trade_log')->where(['id' => $data['id']])->update(['status' => 2]);
 //                }else{
-//                    if (floatval($trade['deal']) > floatval($cnyx['cnyx_lock'])) $this->ajax('冻结金额不足!',0,["repeat"=>$newRepeat]);
+//                    if (floatval($trade['deal']) > floatval($usdt['usdt_lock'])) $this->ajax('冻结金额不足!',0,["repeat"=>$newRepeat]);
 //                    //卖家
 //
 //                    $lock_price = $trade['deal']+($trade['fee']-$trade['fee_on']);
@@ -592,11 +592,11 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                        $over_price = $trade['deal']+$fee;
 //                    }
 //                    $oldUserInfo = $uMo->fRow($trade['uid']);
-//                    $user_id = $mo->exec("update user set cnyx_over=cnyx_over+{$over_price},cnyx_lock=cnyx_lock-{$lock_price} where uid={$trade['uid']}");
+//                    $user_id = $mo->exec("update user set usdt_over=usdt_over+{$over_price},usdt_lock=usdt_lock-{$lock_price} where uid={$trade['uid']}");
 //                    $newUserInfo = $oldUserInfo;
-//                    $newUserInfo['cnyx_over'] = $newUserInfo['cnyx_over']+$over_price;
-//                    $newUserInfo['cnyx_lock'] = $newUserInfo['cnyx_lock']-$lock_price;
-//                    $assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trade['id'],AssetpastModel::ASSET_TYPE_C2CTRUST,"cnyx","cnyx",3,2);
+//                    $newUserInfo['usdt_over'] = $newUserInfo['usdt_over']+$over_price;
+//                    $newUserInfo['usdt_lock'] = $newUserInfo['usdt_lock']-$lock_price;
+//                    $assetResult = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$trade['id'],AssetpastModel::ASSET_TYPE_C2CTRUST,"usdt","usdt",3,2);
 //                    if($assetResult === false){
 //                        $mo->back();
 //                        $this->ajax('撤单失败！',0,["repeat"=>$newRepeat]);
@@ -823,11 +823,11 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                $mo->table('c2c_trade')->where(['id'=>$id,'uid' => $sell['uid'], 'type' => 2, 'status' => 0, 'tradeno' => $sell['tradeno']])->update(['deal' => $num,'num'=>$price]);
 //                $mo->table('c2c_trade')->where(['uid' => $sell['uid'], 'type' => 2, 'status' => 0, 'tradeno' => $sell['tradeno']])->update(['fee' => $fee_sell, 'deal_id' => $this->mCurUser['uid'], 'deal_time' => time()]);
 //
-//                $mo->exec("update user set cnyx_over=cnyx_over-{$fee_sell} where uid={$sell['uid']}");
-//                $mo->exec("update user set cnyx_lock=cnyx_lock+{$fee_sell} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_over=usdt_over-{$fee_sell} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_lock=usdt_lock+{$fee_sell} where uid={$sell['uid']}");
 //                $C2ctrade->insert([
 //                    'uid' =>$this->mCurUser['uid'],
-//                    'coin' => 'cnyx',
+//                    'coin' => 'usdt',
 //                    'price' => $price,
 //                    'num' => $price,
 //                    'type' => 1,
@@ -845,7 +845,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                $C2ctradelog->insert([
 //                    'buyid' => $this->mCurUser['uid'],
 //                    'sellid' => $sell['uid'],
-//                    'coinname' => 'cnyx',
+//                    'coinname' => 'usdt',
 //                    'price' => $price,
 //                    'buymoble' => $user['mo']?$user['mo']:$user['email'],
 //                    'buytradeno' => $tradeno,
@@ -926,14 +926,14 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                    $mo->back();
 //                    $this->ajax('订单已匹配，请选择其他订单交易');
 //                }
-//                $mo->exec("update user set cnyx_over=cnyx_over-{$price} where uid={$this->mCurUser['uid']}");
-//                $mo->exec("update user set cnyx_lock=cnyx_lock+{$price} where uid={$this->mCurUser['uid']}");
-//                $mo->exec("update user set cnyx_over=cnyx_over-{$fee_sell} where uid={$this->mCurUser['uid']}");
-//                $mo->exec("update user set cnyx_lock=cnyx_lock+{$fee_sell} where uid={$this->mCurUser['uid']}");
+//                $mo->exec("update user set usdt_over=usdt_over-{$price} where uid={$this->mCurUser['uid']}");
+//                $mo->exec("update user set usdt_lock=usdt_lock+{$price} where uid={$this->mCurUser['uid']}");
+//                $mo->exec("update user set usdt_over=usdt_over-{$fee_sell} where uid={$this->mCurUser['uid']}");
+//                $mo->exec("update user set usdt_lock=usdt_lock+{$fee_sell} where uid={$this->mCurUser['uid']}");
 //                $mo->table('c2c_trade')->where(['id' => $id])->update(['deal_id' =>$this->mCurUser['uid'],'deal_time' => time(),'price'=>$price,'num'=>$price,'deal'=>0]);
 //                $C2ctrade->insert([
 //                    'uid' =>$this->mCurUser['uid'],
-//                    'coin' => 'cnyx',
+//                    'coin' => 'usdt',
 //                    'price' => $price,
 //                    'num' => $price,
 //                    'type' => 2,
@@ -951,7 +951,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                $C2ctradelog->insert([
 //                    'buyid' => $buy['uid'],
 //                    'sellid' => $this->mCurUser['uid'],
-//                    'coinname' => 'cnyx',
+//                    'coinname' => 'usdt',
 //                    'price' => $price,
 //                    'buymoble' => $buy['moble'],
 //                    'buytradeno' => $buy['tradeno'],
@@ -1062,13 +1062,13 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                if ($two - 2 >= 0) {
 //                    $this->ajax('您还有未完成交易的订单', 0);
 //                }
-//                $mo->exec("update user set cnyx_over=cnyx_over-{$price} where uid={$sell['uid']}");
-//                $mo->exec("update user set cnyx_lock=cnyx_lock+{$price} where uid={$sell['uid']}");
-//                $mo->exec("update user set cnyx_over=cnyx_over-{$fee_sell} where uid={$sell['uid']}");
-//                $mo->exec("update user set cnyx_lock=cnyx_lock+{$fee_sell} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_over=usdt_over-{$price} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_lock=usdt_lock+{$price} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_over=usdt_over-{$fee_sell} where uid={$sell['uid']}");
+//                $mo->exec("update user set usdt_lock=usdt_lock+{$fee_sell} where uid={$sell['uid']}");
 //                $C2ctrade->insert([
 //                    'uid' => $sell['uid'],
-//                    'coin' => 'cnyx',
+//                    'coin' => 'usdt',
 //                    'price' => $price,
 //                    'num' => $price,
 //                    'moble'=>$sell['moble'],
@@ -1085,7 +1085,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                ]);
 //                $C2ctrade->insert([
 //                    'uid' =>$this->mCurUser['uid'],
-//                    'coin' => 'cnyx',
+//                    'coin' => 'usdt',
 //                    'price' => $price,
 //                    'num' => $price,
 //                    'type' => 1,
@@ -1101,7 +1101,7 @@ class Ajax_C2cController extends Ajax_BaseController{
 //                $C2ctradelog->insert([
 //                    'buyid' =>$this->mCurUser['uid'],
 //                    'sellid' => $sell['uid'],
-//                    'coinname' => 'cnyx',
+//                    'coinname' => 'usdt',
 //                    'price' => $price,
 //                    'buymoble' => $buy_user['mo']?$buy_user['mo']:$buy_user['email'],
 //                    'buytradeno' => $tradeno,

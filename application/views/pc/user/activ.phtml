@@ -191,13 +191,13 @@
         </span>
         <span class="user_coin_all " v-if="accountBi == 1">
             <span class="gray400_f"><?php echo $GLOBALS['MSG']['TOTAL_ASSETS_ABOUT'];?>：</span>
-            <span class="green650_f" data-old="bi" v-text="total"></span>&nbsp;CNYX
+            <span class="green650_f" data-old="bi" v-text="total"></span>&nbsp;USDT
         </span>
         <!-- <span class="user_coin_all " v-if="accountBi == 2">
             <span class="gray400_f">总资产約2：</span>
             <span class="green650_f" data-old="fa" 
             :data-tormb = "compPrice('<?php echo sprintf('%.8f', $yibiallToBtc) ?>')">
-            <?php echo sprintf('%.8f', $yibiallToBtc) ?></span>CNYX
+            <?php echo sprintf('%.8f', $yibiallToBtc) ?></span>USDT
         </span>  -->
       </div>
     </div>
@@ -212,7 +212,7 @@
               <th><?php echo $lang['T_HEAD_BALANCE']; ?></th>
               <th class="user_con"><?php echo $lang['T_HEAD_FORZEN_MONEY']; ?></th>
               <th class="user_con"><?php echo $lang['T_HEAD_TOTAL']; ?></th>
-              <th><?php echo $GLOBALS['MSG']['ABOUT'];?>CNYX</th> 
+              <th><?php echo $GLOBALS['MSG']['ABOUT'];?>USDT</th>
               <th><?php echo $lang['T_HEAD_CTRL'];?></th>
               <th class="user_hide"></th>
             </tr>
@@ -231,13 +231,13 @@
               <td :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_over']), item.name)">{{item.over}}</td>
               <td class="user_con" :data-tormb="compPrice(toFixedNums(userInfo[item.name + '_lock']), item.name)">{{item.lock}}</td>
               <td class="user_con" :data-tormb="compPrice(item.sum, item.name)">{{item.sum}}</td>
-              <td>{{item.sum_cnyx}}</td> 
+              <td>{{item.sum_usdt}}</td>
               <td>
                 <!-- //充币 -->
-                <a  v-if="item.name=='CNYX'" :href="item.in_status ==1?'':'/c2c'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]">
+                <a  v-if="item.name=='USDT'" :href="item.in_status ==1?'':'/c2c'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.in_status == 1}]">
                   <?php echo $lang['T_BODY_COIN_IN'] ?>
                 </a>
-                <a  v-if="item.name=='CNYX'" :href="item.out_status ==1?'':'/user/coinout'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.out_status == 1}]">
+                <a  v-if="item.name=='USDT'" :href="item.out_status ==1?'':'/user/coinout'" :class="['user_blue_btn', 'user_btn_mg', {btn_disable:item.out_status == 1}]">
                   <?php echo $lang['T_BODY_COIN_OUT'] ?>
                 </a>
                 <div v-else  class="user_td_div" flex="cross:center">

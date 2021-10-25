@@ -6,7 +6,7 @@ class TradeController extends Ctrl_Base
 {
     protected $_auth = 1;
 
-    public function indexAction($name="btc_cnyx")
+    public function indexAction($name="btc_usdt")
     {
         if(!$name)
         {

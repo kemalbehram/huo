@@ -819,7 +819,8 @@ class UserModel extends Orm_Base{
 	 * @param int $price
 	 * @return bool
 	 */
-	public function c2cOrderFromUserFinance($uid = 0,$ouid = 0,$order_id = 0,$price = 0){
+	public function c2cOrderFromUserFinance($uid = 0,$ouid = 0,$order_id = 0,$price = 0)
+    {
 		if(empty($uid) || empty($ouid) || empty($order_id) || empty($price)){
 			return false;
 		}
@@ -830,8 +831,8 @@ class UserModel extends Orm_Base{
 			"price" => 1,
 			"type" => 3,
 			'number'=>$price,
-			'coin_from'=>'cnyx',
-			'coin_to'=>'cnyx',
+			'coin_from'=>'usdt',
+			'coin_to'=>'usdt',
 			'oid'=>$order_id,
 			'otable'=>"c2c_trade_log",
 			'opt'=>"1",
@@ -845,14 +846,14 @@ class UserModel extends Orm_Base{
 		}
 		//更新邀请人账户余额
 		$oldFeeUserInfo = $this->fRow($uid);
-		$fee_buy_id = $mo->exec("update user set cnyx_over=cnyx_over+{$fee} where uid=$uid");
+		$fee_buy_id = $mo->exec("update user set usdt_over=usdt_over+{$fee} where uid=$uid");
 		if(!$fee_buy_id){
 			return false;
 		}
 		$newFeeUserInfo = $oldFeeUserInfo;
-		$newFeeUserInfo['cnyx_over'] = $newFeeUserInfo['cnyx_over']+$fee;
+		$newFeeUserInfo['usdt_over'] = $newFeeUserInfo['usdt_over']+$fee;
 		$apMo = new AssetpastModel();
-		$fee_asset = $apMo->InsertAssetData($oldFeeUserInfo,$newFeeUserInfo,$fee_id,AssetpastModel::ASSET_TYPE_DIVIDEND,"cnyx","cnyx");
+		$fee_asset = $apMo->InsertAssetData($oldFeeUserInfo,$newFeeUserInfo,$fee_id,AssetpastModel::ASSET_TYPE_DIVIDEND,"usdt","usdt");
 		if($fee_asset !== false){
 			return true;
 		}

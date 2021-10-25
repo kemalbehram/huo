@@ -3357,19 +3357,19 @@ class Ajax_UserController extends Ajax_BaseController
             $v['lock'] = sprintf("%.8f",$user[$v['name'].'_lock']);
             $v['sum'] = sprintf("%.8f",$user[$v['name'].'_over']+$user[$v['name'].'_lock']);
 
-            if($v['name']=='cnyx'){
-                $v['sum_cnyx'] = sprintf("%.8f",$v['sum']);
+            if($v['name']=='usdt'){
+                $v['sum_usdt'] = sprintf("%.8f",$v['sum']);
             }else{
                 if($v['sum']){
                     $unit_price = $mo->table("order_{$v['name']}coin")->order('id desc')->fOne('price');
-                    $v['sum_cnyx'] = sprintf("%.8f",$v['sum']*$unit_price);
+                    $v['sum_usdt'] = sprintf("%.8f",$v['sum']*$unit_price);
                 }else{
-                    $v['sum_cnyx'] = sprintf("%.8f",0);
+                    $v['sum_usdt'] = sprintf("%.8f",0);
                 }
             }
             $v['name'] = strtoupper($v['name']);
         }
-        $data['total'] = round(array_sum(array_map(function($val){return $val['sum_cnyx'];}, $coin)));
+        $data['total'] = round(array_sum(array_map(function($val){return $val['sum_usdt'];}, $coin)));
 
         $data['list'] = $coin;
 
@@ -3464,7 +3464,7 @@ class Ajax_UserController extends Ajax_BaseController
 //                }
 //            }
 //
-//            array_push($coinStatus,'cnyx');
+//            array_push($coinStatus,'usdt');
 //            //币币数据
 //            foreach ($coinList as $key => &$v)
 //            {
@@ -4661,7 +4661,7 @@ class Ajax_UserController extends Ajax_BaseController
             $up_id = $mo->exec("update user set {$coin}_over={$coin}_over+{$number} where uid={$this->mCurUser['uid']}");
             $newUserInfo = $oldUserInfo;
             $newUserInfo[$coin.'_over'] = $newUserInfo[$coin.'_over']+$number;
-            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_INTEREST,$coin,"cnyx");
+            $asset_result = $asset->InsertAssetData($oldUserInfo,$newUserInfo,$in_id,AssetpastModel::ASSET_TYPE_INTEREST,$coin,"usdt");
             if($asset_result === false){
                 $mo->back();
                 $this->ajax('領取失败');
@@ -4672,7 +4672,7 @@ class Ajax_UserController extends Ajax_BaseController
                 $pushData = ["{$coin}_lock"=>(string)floatval($pUser["{$coin}_lock"]),"{$coin}_over"=>(string)floatval($pUser["{$coin}_over"])];
                 //PUSH
                 $_SESSION['user'] = $pUser;
-                Tool_Push::one2nSend("{$coin}_cnyx", array('t'=>'balance', 'c'=>$pushData),[$this->mCurUser['uid']]);
+                Tool_Push::one2nSend("{$coin}_usdt", array('t'=>'balance', 'c'=>$pushData),[$this->mCurUser['uid']]);
                 $this->ajax('領取成功',1,$number);
             }else{
                 $mo->back();
