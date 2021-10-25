@@ -21,14 +21,15 @@
 
 .left_nav {
     width: 223px;
-    box-shadow: 0px 4px 5px rgba(14, 25, 43, 0.3) inset;
-    background: rgba(14, 25, 43, 0.9);
+    // box-shadow: 0px 4px 5px rgba(14, 25, 43, 0.3) inset;
+    background: #fff;
     .left_first {
-        margin-top: 28px;
     }
     .left_dl:not(:last-child) {
-        border-bottom: 1px solid $deepBlue500;
+        border-bottom: 1px solid #eee;
         padding: 0 0 15px 0;
+        border-right: solid 1px #f7f7f7;
+
     }
     .left_dl {
         .left_dl_title {
@@ -36,6 +37,7 @@
             font-size: 16px;
             text-indent: 15px;
             line-height: 61px;
+            color: #333;
             &:before {
                 content: '';
                 position: relative;
@@ -64,23 +66,24 @@
             }
         }
         .left_dd {
-            margin: 8px 0;
             // text-align: center;
             .left_jump {
                 display: inline-block;
                 width: 100%;
                 line-height: 41px;
                 text-indent: 33px;
-                color: #A2ABB8;
+                color: #1f2533;
                 &:hover {
                     color: $white100;
-                    background: $activeRed;
                     transition: all .35s;
+                background: #3067f0;
+
                 }
             }
             .u-active {
                 color: $white100;
-                background: $activeRed;
+                background: #3067f0
+                ;
             }
         }
     }

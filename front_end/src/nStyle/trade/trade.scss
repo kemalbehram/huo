@@ -12,10 +12,12 @@ body {
     overflow-x: hidden;
 }
 
-$hoverWinBg: rgb(37, 47, 65);
+// $hoverWinBg: rgb(37, 47, 65);
+$hoverWinBg: rgb(236, 239, 241);
+
 .default_bg {
     .nav_contain {
-        background-color: $lightBlue200;
+        background-color: #082850;
         min-width: 1200px;
     }
 }
@@ -61,7 +63,7 @@ $hoverWinBg: rgb(37, 47, 65);
             tbody tr,
             li {
                 &:hover {
-                    background-color: #1d2739;
+                    background-color: #f2f3f5;
                     transition: all .3s;
                 }
             }
@@ -173,13 +175,13 @@ body {
         width: 138px;
         height: 100%;
         text-align: center;
+        color: #fff;
         border: {
-            top: 4px solid $orange500;
+            // top: 4px solid $orange500;
         }
         transition: all .35s;
         &:hover {
             cursor: pointer;
-            color: $orange500;
             transition: all .35s;
         }
         .ctrl_icon:after {
@@ -190,12 +192,12 @@ body {
     // 交易区
     .area_win {
         position: absolute;
-        top: 66px;
+        top: 72px;
         right: 0;
         z-index: 3;
         width: 572px;
-        // box-shadow: 0 0 10px $lightBlue300;
-        background-color: #212C3F;
+        box-shadow: 0px 1px 13px #dadde0;
+        background-color: #fff;
         // height: 328px;
         // border: 1px solid $deepBlue400;
         // &:after {
@@ -233,14 +235,14 @@ body {
                 width: 150px;
                 height: 30px;
                 line-height: 30px;
-                color: $white100;
-                border: 1px solid #374152;
+                color:#7d7d7d;
+                border: 1px solid #e6e6e6;
                 border-radius: 15px;
                 // overflow: hidden;
                 background: transparent url('../../assets/index_search.png') 120px center no-repeat;
                 background-size: 16px;
                 &:focus {
-                    border-color: $orange500;
+                    border-color: #3067f0;
                     background: transparent;
                     transition: all .35s;
                 }
@@ -251,21 +253,23 @@ body {
         padding: 0 17px;
         height: 48px;
         line-height: 46px;
-        border-bottom: 1px solid $deepBlue400;
+        border-bottom: 1px solid #e6e6e6;
         &>li {
             padding: 0 17px;
             text-align: center;
             white-space: nowrap;
+            color: #333;
             &:first-child {
                 padding-left: 0;
             }
             &:hover {
                 cursor: pointer;
-                color: $orange500;
+                color: #3067f0;
                 transition: all .3s;
             }
         }
         .active_area {
+            color: #3067f0;
             position: relative;
             &:after {
                 content: "";
@@ -275,7 +279,7 @@ body {
                 bottom: -1px;
                 right: 0;
                 height: 1px;
-                background-color: $orange500;
+                background-color: #3067f0;
             }
         }
     }
@@ -370,8 +374,11 @@ body {
             padding: 0 14px 0 4px;
             transition: background-color .35s;
             &:hover {
-                background-color: #1D2739;
+                background-color: #f2f3f5;
                 transition: all .35s;
+            }
+            a{
+                color: #333;
             }
         }
         .area_t_head>li,
@@ -405,12 +412,11 @@ body {
             left: 0;
             right: 0;
             top: 0;
-            padding: 16px 14px 7px 0;
+            padding: 15px 0px;
             height: 34px;
-            line-height: 12px;
+            line-height: 13px;
             font-size: 12px;
-            color: #a2abb8;
-            background-color: #212c3f;
+            color: #333;
             li {
                 &:first-child {
                     text-align: left;
@@ -463,6 +469,7 @@ body {
         bottom: 6px;
         height: calc(100% - 76px);
         width: 100%;
+        background-color: rgb(236, 239, 241);
         // overflow: hidden; //pc 1
         .flexwrap{
             display: inline-flex;
@@ -533,7 +540,7 @@ body {
             // z-index: 2;
             height: 34px;
             line-height: 32px;
-            border-bottom: 1px solid $deepBlue400;
+            border-bottom: 1px solid #f2f3f5;
             overflow: hidden;
             span {
                 box-sizing: border-box;
@@ -586,8 +593,8 @@ body {
         height: 34px;
         // line-height: 38px;
         border: {
-            top: 1px solid #102333;
-            bottom: 1px solid #102333;
+            top: 1px solid #f2f3f5;
+            bottom: 1px solid #f2f3f5;
         }
         &>span {
             &:first-child {
@@ -605,6 +612,7 @@ body {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow-x: hidden;
+                color: #42b680;
                 // vertical-align: baseline;
             }
         }
@@ -702,14 +710,16 @@ body {
             // width: 44px;
             height: 22px;
             line-height: 18px;
-            border: 1px solid #252f41;
+            border: 1px solid #999;
+            color: #999;
             border-radius: 11px;
             // font-size: 12px;
             text-align: center;
             // letter-spacing: 3px;
             &:hover {
-                background-color: $orange500;
+                background-color: #3067f0;
                 color: $white100;
+                border: none;
                 transition: all .35s;
             }
         }
@@ -820,9 +830,14 @@ body {
         line-height: 20px;
         text-align: center;
         border-radius: 11px;
-        background-color: #252f41;
+        background-color: #edf0f7;
+        color: #000;
+        opacity: .7;
+
         &:hover {
-            background-color: $orange500;
+            background-color: #3067f0;
+            color: #fff;
+            opacity: 1;
         }
     }
     // .green_link_btn {
@@ -866,12 +881,14 @@ body {
                 font-size: 12px;
                 border: none;
                 border-radius: 5px;
-                border: 1px solid #374152;
+                border: 1px solid #e6e6e6;
+                color: #7d7d7d;
+                outline: none;
                 &::placeholder {
                     color: $gray400;
                 }
                 &:focus {
-                    border: 1px solid #005398;
+                    border:1px solid #b3b4b5;
                 }
             }
         }
@@ -887,12 +904,10 @@ body {
             box-sizing: border-box;
             padding: 5px 0 12px;
             height: 27px;
-            text-indent: 15px;
             // line-height: 20px;
             // font-size: 12px;
         }
         .range_group {
-            padding: 0 0 0 15px;
             height: 25px;
             white-space: nowrap;
             font-size: 12px;
@@ -944,7 +959,6 @@ body {
         .trade_fee {
             margin: 0 0 18px;
             height: 26px;
-            text-indent: 15px;
             // line-height: 26px;
             &>p>span {
                 display: inline-block;
@@ -1172,7 +1186,7 @@ body {
 
 .trade_rule_sidebar {
     box-sizing: border-box;
-    box-shadow: 0 2px 5px #09101d;
+    box-shadow: 0 2px 4px #dadde0;
     width: 26px;
     min-height: 98px;
     font-size: 12px;
@@ -1255,6 +1269,7 @@ body {
 .rule_title {
     font-size: 14px;
     line-height: 32px;
+    color: #333;
 }
 
 .rule_detail {

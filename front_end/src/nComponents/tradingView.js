@@ -19,7 +19,9 @@ export default (symbolType) => {
 
     const UP_COLOR = '#0fbb89';
     const DOWN_COLOR = '#dc1a5a';
-    const BG_COLOR = '#0e192b';
+    // const BG_COLOR = '#0e192b';
+    const BG_COLOR = '#fff';
+
     const GRID_COLOR = "#212c3f";
     const ORANGE_COLOR = '#ffbd09';
 
@@ -85,7 +87,9 @@ export default (symbolType) => {
             // k线图 主题颜色
             "mainSeriesProperties.style": 1,
             "symbolWatermarkProperties.color": BG_COLOR,
-            "paneProperties.background": "#0e192b",
+            // "paneProperties.background": "#0e192b",
+            "paneProperties.background": "#fff",
+
 
             // 网格
             "paneProperties.vertGridProperties.color": GRID_COLOR,

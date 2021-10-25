@@ -14,7 +14,7 @@
       <?php // 1.最新價 ?>
       <div class="top_new_price white100_f">
         <?php // 标题 ?>
-        <p class="gray400_f"><?php echo $lang['NEW_PRICE']; ?></p>
+        <p class="gray700_f"><?php echo $lang['NEW_PRICE']; ?></p>
         <!-- // 数据 -->
         <div id="newestPrice"
           :data-tormb="compPrice(orders.price)"
@@ -31,34 +31,34 @@
       <?php // 2.漲跌幅 jsj+ ?>
       <div class="top_new_price" v-cloak>
         <?php // 标题 ?>
-        <p class="gray400_f"><?php echo $lang['NAV_PRICE_UP_DOWN'] ?></p>
+        <p class="gray700_f"><?php echo $lang['NAV_PRICE_UP_DOWN'] ?></p>
         <?php // 数据 ?>
         <div :class="orders.ratio>=0?'lightgreen500_f':'lightred500_f'" >{{orders.ratio | numUseAndAnd}}%</div>
       </div>
       <?php // 3.24h最高价 ?>
       <div class="top_new_price">
         <?php // 标题 ?>
-        <p class="gray400_f"><?php echo $lang['NAV_TODAY_LOW'] ?></p>
+        <p class="gray700_f"><?php echo $lang['NAV_TODAY_LOW'] ?></p>
         <?php // 数据 ?>
         <div class="white100_f" v-cloak>{{orders.max | numUseAndAnd}}</div>
       </div>
       <?php // 4.24h最低价 ?>
       <div class="top_new_price">
         <?php // 标题 ?>
-        <p class="gray400_f"><?php echo $lang['NAV_24H_MIN']; ?></p>
+        <p class="gray700_f"><?php echo $lang['NAV_24H_MIN']; ?></p>
         <?php // 数据 ?>
         <div class="white100_f" v-cloak>{{orders.min | numUseAndAnd}}</div>
       </div>
       <?php // 5.24h成交量 ?>
       <div class="top_new_price">
         <?php // 标题 ?>
-        <p class="gray400_f"><?php echo $lang['NAV_24H_AMOUNT'] ?></p>
+        <p class="gray700_f"><?php echo $lang['NAV_24H_AMOUNT'] ?></p>
         <?php // 数据 ?>
         <div class="white100_f over_ellipsis" v-cloak id="tradeSum" :data-tormb="compPrice(orders.money)">{{orders.money}}&nbsp;</div>
       </div>
     </div>
     <?php // 交易区 ?>
-    <div class="trade_area_btn lightblue100_bg white100_f relative_dom fn_area" flex-box="0" @click.stop="areaShow = !areaShow">
+    <div class="trade_area_btn  relative_dom fn_area" flex-box="0" @click.stop="areaShow = !areaShow">
       <span class="ctrl_icon no_sel" data-from ="<?php echo $coinPair['coin_from'] ?>" data-to="<?php echo $coinPair['coin_to'] ?>">
         <?php echo strtoupper(str_replace('_', '/', $coinPair['name'])) ?>
       </span>
@@ -109,7 +109,7 @@
               <?php // 交易区 ?>
               <transition-group class="area_t_body" v-for="(area, key) in areas" v-if="curArea === key" :duration="{ enter: 100, leave: 150 }" name="slideR" tag="ul" mode="out-in">
                 <li v-for="(item, idx) in area" v-if="item.search" @click="changeCoin(item.coin)" :key="idx" :data-s="item.selected">
-                  <a :href="'/trade/'+item.coin" class="white100_f" flex="">
+                  <a :href="'/trade/'+item.coin"  flex="">
                     <div flex="cross:center">
                       <span class="fine_point_start" :class="{'sel_start' :item.selected}" @click.stop.prevent="setSelected(item, key)"></span>
                       {{item.coin | beat-name}}&nbsp;

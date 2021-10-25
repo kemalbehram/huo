@@ -68,16 +68,16 @@
         content: "\e900";
         display: inline-block;
         position: absolute;
-        top: 2px;
+        top: 0px;
         right: -16px;
         font-size: 18px;
         transform: scaleX(1.2);
-        color: #eee;
+        color: #fff;
     }
 }
 
 .link::after {
-    top: -8px;
+    top: -5px;
 }
 
 // b.ctrl_icon{vertical-align:text-top;}

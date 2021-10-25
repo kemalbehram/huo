@@ -75,7 +75,7 @@
         border-bottom: 1px solid $gray90;
     }
     .mplan_active_li {
-        color: $yellow500;
+        color: #2d6cfa;
         border: 1px solid $gray90;
         border-bottom: 1px solid $gray50;
     }
@@ -261,10 +261,10 @@ textarea {
 }
 
 .copy_btn {
-    width: 60px;
+    width: 120px;
     height: 36px;
     border-radius: 3px;
-    background: #ffbb03;
+    background: #2d6cfa;
     color: white;
     cursor: pointer;
     border: none;
