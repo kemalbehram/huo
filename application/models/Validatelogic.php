@@ -124,7 +124,7 @@ class ValidatelogicModel extends Tool_Validate{
 
          // 实名
          'shiMing'          => ['name','idcard','cardtype','frontFace','handkeep','backFace'],
-         'telphone'         => ['name','idcard','cardtype','baseyi','baseer','basesan'],
+         'telphone'         => ['name','idcard','cardtype','baseyi','baseer','basesan','pannumber','aadhaarnumber','pannumberphoto'],
          'sphone'           => ['name','idcard','cardtype'],
 
          // 评论
@@ -272,6 +272,11 @@ class ValidatelogicModel extends Tool_Validate{
             'smsCaptch.checkCode'      => $GLOBALS['MSG']['TEL_NUMBER'],
 
             'name.require'                   => $GLOBALS['MSG']['TEL_NAME'],
+
+            'pannumber.require'                   => $GLOBALS['MSG']['TEL_PAN_NUMBER'],
+            'aadhaarnumber.require'                   => $GLOBALS['MSG']['TEL_AADHAAR_NUMBER'],
+            'pannumberphoto.require'                   => $GLOBALS['MSG']['TEL_PAN_NUMBER_PHOTO'],
+
             'name.max'                       => $GLOBALS['MSG']['TEL_NAME_YQ'],
             'name.min'                       => $GLOBALS['MSG']['TEL_NAME_YQ'],
             'name.chsDashName'               => $GLOBALS['MSG']['TEL_NAME_YQ'],
