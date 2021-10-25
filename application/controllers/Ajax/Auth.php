@@ -152,11 +152,25 @@ class Ajax_AuthController extends Ajax_BaseController
                     $this->ajax($v,0);
                 }
             }
+
             $result1 = $validateMo->checkCard($postData['idcard'],$this->mCurUser['uid']);
             if(!$result1)
             {
                  $this->ajax($GLOBALS['MSG']['CARD_ALREADY_IS_USED'],0);//證件號已被使用
             }
+
+            $result1 = $validateMo->checkPanNumber($postData['pannumber'],$this->mCurUser['uid']);
+            if(!$result1)
+            {
+                $this->ajax($GLOBALS['MSG']['PAN_ALREADY_IS_USED'],0);//PAN NUMBER已被使用
+            }
+
+            $result1 = $validateMo->checkAadhaarNumber($postData['aadhaarnumber'],$this->mCurUser['uid']);
+            if(!$result1)
+            {
+                $this->ajax($GLOBALS['MSG']['AADHAAR_ALREADY_IS_USED'],0);//AADHAAR NUMBER已被使用
+            }
+
             //验证身份证
             if(empty($postData['idcard']) || ($postData['cardtype'] == 1 && !$validateMo->Idcard($postData['idcard']))){
                  $this->ajax($GLOBALS['MSG']['CARD_TYPE_ERROR'],0);//證件格式不正確
@@ -176,6 +190,7 @@ class Ajax_AuthController extends Ajax_BaseController
                 $frontFace = $tMO->uploadOne($path.date('Ymd') . '/' . uniqid().md5($this->mCurUser['uid']) . '.'.'jpg',$postData['baseyi']);
                 $backFace=$tMO->uploadOne($path.date('Ymd') . '/' . uniqid().md5($this->mCurUser['uid']) . '.'.'jpg',$postData['baseer']);
                 $handkeep=$tMO->uploadOne($path.date('Ymd') . '/' . uniqid().md5($this->mCurUser['uid']) . '.'.'jpg',$postData['basesan']);
+                $panNumberPhoto = $tMO->uploadOne($path.date('Ymd') . '/' . uniqid().md5($this->mCurUser['uid']) . '.'.'jpg',$postData['pannumberphoto']);
 
 //                $tMO =new Tool_UploadOne();
 //                $url = '';
@@ -198,6 +213,9 @@ class Ajax_AuthController extends Ajax_BaseController
                     'frontFace' => $frontFace,
                     'backFace' => $backFace,
                     'handkeep' =>  $handkeep,
+                    'pannumber' =>  $postData['pannumber'],
+                    'aadhaarnumber' => $postData['aadhaarnumber'],
+                    'pannumberphoto' => $panNumberPhoto,
                     'created' =>$time,
                     'status'  =>1
                 );

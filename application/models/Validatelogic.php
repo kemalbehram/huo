@@ -778,4 +778,50 @@ class ValidatelogicModel extends Tool_Validate{
             }
         }
     }
+
+    // 检验pan number是否存在
+    public function checkPanNumber($values,$uid){
+        $auMo = new AutonymModel();
+        // 查询这个身份证号，如果不存在，则true;如果存在，要判断是否是自己的，是的话，true,不是false
+        $data = $auMo->where(array('pannumber'=>$values))->fOne('id');
+        if(!$data)
+        {
+            return true;
+        }
+        else
+        {
+            $data1 = $auMo->where("uid = ".intval($uid))->fOne('id');
+            if($data1==$data)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    // 检验 aadhaar number 是否存在
+    public function checkAadhaarNumber($values,$uid){
+        $auMo = new AutonymModel();
+        // 查询这个身份证号，如果不存在，则true;如果存在，要判断是否是自己的，是的话，true,不是false
+        $data = $auMo->where(array('aadhaarnumber'=>$values))->fOne('id');
+        if(!$data)
+        {
+            return true;
+        }
+        else
+        {
+            $data1 = $auMo->where("uid = ".intval($uid))->fOne('id');
+            if($data1==$data)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }

@@ -688,5 +688,8 @@
     "PLEASE_CHOOSE": "select agreement",
     "TIP_XRP_NEW": "XRP New Address",
     "PHONE_NOT_EXIT": "The phone number doesn't exist",
-    "USER_LOGIN": "The login"
+    "USER_LOGIN": "The login",
+    "PAN_ALREADY_IS_USED": "The pan number has been used",
+    "AADHAAR_ALREADY_IS_USED": "The aadhaar number has been used"
+
 }
